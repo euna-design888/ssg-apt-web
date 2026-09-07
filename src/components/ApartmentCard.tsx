@@ -22,63 +22,72 @@ export default function ApartmentCard({ apt }: Props) {
     <div className="apt-card">
       <div className="card-header">
         <span className={`status-badge badge-${apt.status}`}>
-          {apt.status === 'applying' ? '🔥 청약 접수중' : apt.status === 'upcoming' ? '⏳ 분양 예정' : '마감'}
+          {apt.status === 'applying' ? '🔴 현재 청약 접수중' : apt.status === 'upcoming' ? '🔵 분양 예정' : '마감'}
         </span>
         <h3 className="apt-name">{apt.name}</h3>
         <p className="apt-region">📍 {apt.region} · {apt.exclusiveArea}</p>
       </div>
 
       <div className="card-body">
+        {/* 분양가 */}
         <div className="price-row">
-          <span style={{ fontSize: '13px', color: '#64748b' }}>분양가</span>
+          <span style={{ fontSize: '16px', fontWeight: 800, color: '#475569' }}>분양가</span>
           <span className="price-val">
-            {formatMoney(apt.priceMin)} ~ {formatMoney(apt.priceMax)}
+            {formatMoney(apt.priceMin)} ~ {formatMoney(apt.priceMax)}원
           </span>
         </div>
 
+        {/* 인근 시세 대비 안전마진 (두괄식 강조) */}
         <div className="margin-highlight">
-          <div className="label">인근 시세 대비 예상 안전마진</div>
+          <div className="label">인근 5년 준신축 대비 예상 차익</div>
           <div className="val">+{formatMoney(apt.safetyMargin)}원 예상</div>
         </div>
 
-        {/* 바름 vs 단호 듀얼 탭 */}
+        {/* 큼직한 바름 vs 단호 듀얼 탭 */}
         <div className="dual-tabs">
           <button
+            type="button"
             className={`tab-pill ${activeTab === 'bareum' ? 'active-bareum' : ''}`}
             onClick={() => setActiveTab('bareum')}
           >
-            ⚖️ 바름 공공 팩트
+            ⚖️ 바름 팩트체크
           </button>
           <button
+            type="button"
             className={`tab-pill ${activeTab === 'danho' ? 'active-danho' : ''}`}
             onClick={() => setActiveTab('danho')}
           >
-            ⚔️ 단호 레드 플래그
+            ⚔️ 단호 리스크 점검
           </button>
         </div>
 
         {activeTab === 'bareum' ? (
           <div className="detail-box box-bareum">
-            <p><strong>공식 출처:</strong> {apt.bareumFact.sourceName}</p>
-            <p style={{ marginTop: '4px' }}><strong>규제:</strong> {apt.bareumFact.regulations.slice(0, 3).join(', ')}</p>
-            <p style={{ marginTop: '4px', fontSize: '11px', opacity: 0.85 }}>공식 검증 완료일: {apt.bareumFact.verifiedDate}</p>
+            <p style={{ fontWeight: 800, marginBottom: '6px' }}>
+              공식 출처: {apt.bareumFact.sourceName}
+            </p>
+            <p style={{ margin: 0 }}>
+              • {apt.bareumFact.regulations.slice(0, 2).join(' / ')}
+            </p>
           </div>
         ) : (
           <div className="detail-box box-danho">
-            <p><strong>리스크:</strong> {apt.danhoRisk.criticSummary}</p>
-            {apt.danhoRisk.profitSharingRate && (
-              <p style={{ marginTop: '4px', fontSize: '12px' }}>⚠️ {apt.danhoRisk.profitSharingRate}</p>
-            )}
+            <p style={{ fontWeight: 800, marginBottom: '6px' }}>
+              ⚠️ 주의할 맹점:
+            </p>
+            <p style={{ margin: 0 }}>
+              {apt.danhoRisk.criticSummary}
+            </p>
           </div>
         )}
       </div>
 
       <div className="card-footer">
-        <span style={{ fontSize: '12px', color: '#64748b' }}>
-          발표: {apt.schedule.announcement || '추후공지'}
+        <span style={{ fontSize: '15px', color: '#475569', fontWeight: 700 }}>
+          발표일: {apt.schedule.announcement || '추후공지'}
         </span>
         <Link href={`/apt/${apt.id}`} className="btn-detail">
-          상세 팩트 리포트 ➔
+          상세 리포트 보기 ➔
         </Link>
       </div>
     </div>
