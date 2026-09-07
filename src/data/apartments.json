@@ -1,0 +1,162 @@
+[
+  {
+    "id": "2026-seongnam-bokjeong-2-a1",
+    "name": "성남복정2 A1블록 신혼희망타운",
+    "region": "경기 성남시 수정구",
+    "locationDetail": "경기도 성남시 수정구 복정동 복정2지구 A1블록",
+    "status": "applying",
+    "category": "신혼희망타운",
+    "priceMin": 58500,
+    "priceMax": 62300,
+    "estimatedMarketPrice": 98000,
+    "safetyMargin": 36000,
+    "supplyScale": "총 1,026세대 중 공공분양 615세대 (본청약)",
+    "exclusiveArea": "전용 55㎡ A·B (약 24평형)",
+    "schedule": {
+      "specialSupply": "2026-09-07",
+      "firstRank": "2026-09-09",
+      "secondRank": "2026-09-10",
+      "announcement": "2026-09-25",
+      "contract": "2026-11-20"
+    },
+    "bareumFact": {
+      "sourceName": "LH 청약플러스 공식 입주자모집공고문",
+      "officialUrl": "https://apply.lh.or.kr",
+      "announcementDate": "2026-09-02",
+      "regulations": [
+        "분양가 상한제 적용 단지",
+        "전매제한 3년",
+        "실거주의무 3년",
+        "재당첨제한 10년",
+        "성남시 1년 이상 계속 거주자 100% 우선 공급"
+      ],
+      "verifiedDate": "2026-09-07"
+    },
+    "danhoRisk": {
+      "profitSharingRate": "매도 시 시세차익의 최대 50% 주택도시기금 환수",
+      "dsrWarning": "기존 신용대출 3천만 원 보유 시 잔금 주담대 1억 이상 삭감되어 잔금 미납 파산 위험",
+      "disqualificationTrap": "만 30세 이전 미혼 기간 무주택 불인정, 가점 1점 오류 시 1년간 전국 청약 정지",
+      "criticSummary": "안전마진 3억 중 절반은 정부 환수금입니다. 계약금 6천만 원 현금과 기존 대출 유무를 먼저 검증하십시오."
+    },
+    "tags": ["분양가상한제", "안전마진3억", "위례생활권", "로또청약", "신혼희망타운"]
+  },
+  {
+    "id": "2026-brownstone-wolgok-central",
+    "name": "브라운스톤 월곡 센트럴",
+    "region": "서울 성북구",
+    "locationDetail": "서울특별시 성북구 하월곡동 88-518 일원",
+    "status": "applying",
+    "category": "재건축/재개발",
+    "priceMin": 72000,
+    "priceMax": 89000,
+    "estimatedMarketPrice": 95000,
+    "safetyMargin": 12000,
+    "supplyScale": "총 214세대 중 일반분양 84세대",
+    "exclusiveArea": "전용 59㎡ ~ 84㎡",
+    "schedule": {
+      "specialSupply": "2026-09-08",
+      "firstRank": "2026-09-09",
+      "secondRank": "2026-09-10",
+      "announcement": "2026-09-19",
+      "contract": "2026-10-02"
+    },
+    "bareumFact": {
+      "sourceName": "한국부동산원 청약홈 공식 공고문",
+      "officialUrl": "https://www.applyhome.co.kr",
+      "announcementDate": "2026-08-29",
+      "regulations": [
+        "비규제지역 일반분양",
+        "전매제한 1년",
+        "실거주의무 없음",
+        "재당첨제한 없음"
+      ],
+      "verifiedDate": "2026-09-07"
+    },
+    "danhoRisk": {
+      "profitSharingRate": "없음 (민영 재건축)",
+      "dsrWarning": "스트레스 DSR 2단계(가산금리 1.2%) 적용으로 연봉 6천만 원 기준 최대 대출 약 3.8억 제한",
+      "disqualificationTrap": "소규모 재건축 특성상 단지 세대수가 214세대로 적어 향후 환금성 및 관리비 부담 점검 필수",
+      "criticSummary": "실거주의무가 없어 전세 놓기는 수월하나, 소규모 단지라 시세 상승 탄력은 대단지보다 제한적입니다."
+    },
+    "tags": ["서울신축", "전매제한1년", "실거주의무없음", "역세권"]
+  },
+  {
+    "id": "2026-hwaseo-lake-park-honors",
+    "name": "화서역 호수공원 아너스빌",
+    "region": "경기 수원시 권선구",
+    "locationDetail": "경기도 수원시 권선구 서둔동 일원",
+    "status": "upcoming",
+    "category": "민간분양",
+    "priceMin": 65000,
+    "priceMax": 78000,
+    "estimatedMarketPrice": 88000,
+    "safetyMargin": 15000,
+    "supplyScale": "총 480세대 일반분양",
+    "exclusiveArea": "전용 59㎡·84㎡",
+    "schedule": {
+      "specialSupply": "2026-09-22",
+      "firstRank": "2026-09-23",
+      "secondRank": "2026-09-24",
+      "announcement": "2026-10-02",
+      "contract": "2026-10-15"
+    },
+    "bareumFact": {
+      "sourceName": "수원시 분양 승인 고시 및 청약홈 예정 공고",
+      "officialUrl": "https://www.applyhome.co.kr",
+      "announcementDate": "2026-09-12 예정",
+      "regulations": [
+        "수도권 비규제지역",
+        "전매제한 1년",
+        "실거주의무 없음"
+      ],
+      "verifiedDate": "2026-09-07"
+    },
+    "danhoRisk": {
+      "profitSharingRate": "해당 없음",
+      "dsrWarning": "수원 화서역 스타필드 상권 프리미엄이 분양가에 상당 부분 선반영되었는지 철저 검증 필요",
+      "disqualificationTrap": "수원시 1년 이상 계속 거주자 우선 배정 비율 확인 필수",
+      "criticSummary": "스타필드 호재는 입증되었으나, 인근 화서역 파크푸르지오 실거래가 대비 가격 메리트를 재확인하십시오."
+    },
+    "tags": ["스타필드수원", "화서역세권", "전매1년", "수원신축"]
+  },
+  {
+    "id": "2026-incheon-gyeyang-a6",
+    "name": "인천계양 A6블록 3기 신도시",
+    "region": "인천 계양구",
+    "locationDetail": "인천광역시 계양구 동양동 일원 (계양 테크노밸리)",
+    "status": "upcoming",
+    "category": "공공분양",
+    "priceMin": 46000,
+    "priceMax": 53000,
+    "estimatedMarketPrice": 62000,
+    "safetyMargin": 13000,
+    "supplyScale": "총 614세대 (공공분양 본청약)",
+    "exclusiveArea": "전용 59㎡·74㎡",
+    "schedule": {
+      "specialSupply": "2026-09-30",
+      "firstRank": "2026-10-02",
+      "secondRank": "2026-10-04",
+      "announcement": "2026-10-16",
+      "contract": "2026-12-01"
+    },
+    "bareumFact": {
+      "sourceName": "LH 3기 신도시 계양 사전청약 본청약 확정 공고",
+      "officialUrl": "https://www.3rd-city.co.kr",
+      "announcementDate": "2026-09-20 예정",
+      "regulations": [
+        "3기 신도시 공공택지 분양가 상한제",
+        "전매제한 3년",
+        "실거주의무 3년",
+        "재당첨제한 10년"
+      ],
+      "verifiedDate": "2026-09-07"
+    },
+    "danhoRisk": {
+      "profitSharingRate": "일반 공공분양형 (수익공유 모기지 의무 아님)",
+      "dsrWarning": "초기 신도시 입주 특성상 대중교통(S-BRT 등) 개통 지연에 따른 초기 3년간 출퇴근 교통 불편 감수 필요",
+      "disqualificationTrap": "공공분양 소득 및 자산 요건(부동산 2억 1,550만 원 이하 등) 초과 시 당첨 무효",
+      "criticSummary": "분양가는 합리적이나 3기 신도시 초기 인프라 부족과 입주 지연 변수를 고려한 자금 플랜이 필수입니다."
+    },
+    "tags": ["3기신도시", "인천계양", "공공분양", "분양가상한제", "가성비"]
+  }
+]
