@@ -10,9 +10,9 @@ export default function Header() {
           <span className="brand-badge">팩트·리스크 랩</span>
         </Link>
         <nav className="nav-links">
-          <Link href="#calendar">청약 캘린더</Link>
-          <Link href="#calculator">가점·DSR 계산기</Link>
-          <Link href="#ranking">안전마진 랭킹</Link>
+          <Link href="#calculator" className="nav-calc-btn">
+            🧮 청약·DSR 계산기
+          </Link>
         </nav>
       </div>
     </header>

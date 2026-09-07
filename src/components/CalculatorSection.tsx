@@ -6,19 +6,17 @@ import AdPlaceholder from './AdPlaceholder';
 export default function CalculatorSection() {
   const [calcTab, setCalcTab] = useState<'point' | 'dsr'>('point');
 
-  // 1. 청약 가점 상태
+  // 청약 가점
   const [period, setPeriod] = useState<number>(32);
   const [family, setFamily] = useState<number>(15);
   const [bank, setBank] = useState<number>(17);
-
   const totalScore = period + family + bank;
 
-  // 2. DSR 상태
-  const [price, setPrice] = useState<number>(60000); // 6억
-  const [myCash, setMyCash] = useState<number>(12000); // 1.2억
-  const [income, setIncome] = useState<number>(6000); // 6천만원
+  // DSR
+  const [price, setPrice] = useState<number>(60000);
+  const [myCash, setMyCash] = useState<number>(12000);
+  const [income, setIncome] = useState<number>(6000);
 
-  // 계산
   const contract = Math.round(price * 0.1);
   const middle = Math.round(price * 0.6);
   const balance = Math.round(price * 0.3);
@@ -36,48 +34,42 @@ export default function CalculatorSection() {
   };
 
   return (
-    <section id="calculator" className="calc-section">
-      <div className="calc-title-box">
-        <span style={{ background: '#dbeafe', color: '#1e40af', padding: '6px 14px', borderRadius: '18px', fontSize: '14px', fontWeight: 900 }}>
-          정부 법정 기준 준수 · 노안 안심 대형 계산기
+    <section id="calculator" className="calc-clean-card">
+      <div style={{ marginBottom: '20px' }}>
+        <span style={{ fontSize: '13px', fontWeight: 800, color: '#3182f6', background: '#e8f3ff', padding: '3px 8px', borderRadius: '4px' }}>
+          모의 계산기
         </span>
-        <h3 style={{ marginTop: '12px' }}>
-          🏢 청약 가점 & 분양 필요자금 간편 계산기
+        <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#191f28', marginTop: '6px' }}>
+          {calcTab === 'point' ? '내 청약 가점 진단하기' : '분양 필요자금 & DSR 계산'}
         </h3>
-        <p>
-          작은 글씨 없이 돋보기 없이도 내 점수와 대출 가능액을 바로 확인하세요.
-        </p>
       </div>
 
-      <div style={{ display: 'flex', gap: '12px', marginBottom: '28px', maxWidth: '520px', margin: '0 auto 28px auto' }}>
+      {/* 세그먼트 네비게이션 */}
+      <div className="calc-nav-tabs">
         <button
           type="button"
-          className={`filter-btn ${calcTab === 'point' ? 'active' : ''}`}
-          style={{ flex: 1 }}
+          className={`calc-nav-btn ${calcTab === 'point' ? 'active' : ''}`}
           onClick={() => setCalcTab('point')}
         >
-          🎯 내 청약 가점 계산
+          🎯 청약 가점 (84점 만점)
         </button>
         <button
           type="button"
-          className={`filter-btn ${calcTab === 'dsr' ? 'active' : ''}`}
-          style={{ flex: 1 }}
+          className={`calc-nav-btn ${calcTab === 'dsr' ? 'active' : ''}`}
           onClick={() => setCalcTab('dsr')}
         >
-          💰 분양 필요자금 계산
+          💰 스트레스 DSR 자금계획
         </button>
       </div>
 
       {calcTab === 'point' ? (
-        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-          <div style={{ marginBottom: '22px' }}>
-            <label style={{ display: 'block', fontWeight: 900, fontSize: '17px', color: '#0f172a', marginBottom: '8px' }}>
-              1. 무주택 기간 (최대 32점)
-            </label>
+        <div>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ fontSize: '14px', fontWeight: 700, color: '#4e5968' }}>무주택 기간</label>
             <select
               value={period}
               onChange={(e) => setPeriod(Number(e.target.value))}
-              className="calc-control"
+              className="toss-select"
             >
               <option value={0}>유주택자 / 만 30세 미만 미혼 (0점)</option>
               <option value={2}>1년 미만 (2점)</option>
@@ -90,16 +82,14 @@ export default function CalculatorSection() {
             </select>
           </div>
 
-          <div style={{ marginBottom: '22px' }}>
-            <label style={{ display: 'block', fontWeight: 900, fontSize: '17px', color: '#0f172a', marginBottom: '8px' }}>
-              2. 부양가족 수 (배우자·자녀·부모 등, 최대 35점)
-            </label>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ fontSize: '14px', fontWeight: 700, color: '#4e5968' }}>부양가족 수</label>
             <select
               value={family}
               onChange={(e) => setFamily(Number(e.target.value))}
-              className="calc-control"
+              className="toss-select"
             >
-              <option value={5}>0명 (본인 1인 단독) (5점)</option>
+              <option value={5}>0명 (본인 단독 1인 가구) (5점)</option>
               <option value={10}>1명 (10점)</option>
               <option value={15}>2명 (15점)</option>
               <option value={20}>3명 (20점)</option>
@@ -109,14 +99,12 @@ export default function CalculatorSection() {
             </select>
           </div>
 
-          <div style={{ marginBottom: '26px' }}>
-            <label style={{ display: 'block', fontWeight: 900, fontSize: '17px', color: '#0f172a', marginBottom: '8px' }}>
-              3. 청약통장 가입기간 (최대 17점)
-            </label>
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{ fontSize: '14px', fontWeight: 700, color: '#4e5968' }}>청약통장 가입기간</label>
             <select
               value={bank}
               onChange={(e) => setBank(Number(e.target.value))}
-              className="calc-control"
+              className="toss-select"
             >
               <option value={1}>6개월 미만 (1점)</option>
               <option value={2}>6개월 이상 ~ 1년 미만 (2점)</option>
@@ -128,89 +116,77 @@ export default function CalculatorSection() {
             </select>
           </div>
 
-          {/* 대형 점수판 */}
-          <div style={{ background: '#f8fafc', border: '2.5px solid #0f2b5c', borderRadius: '20px', padding: '28px 20px', textAlign: 'center' }}>
-            <span style={{ fontSize: '16px', color: '#475569', fontWeight: 800 }}>내 최종 청약 가점 총점</span>
-            <div style={{ fontSize: '54px', fontWeight: 900, color: '#0f2b5c', margin: '10px 0' }}>{totalScore}점</div>
-            <p style={{ fontSize: '17px', color: totalScore >= 60 ? '#15803d' : '#b45309', fontWeight: 900 }}>
-              {totalScore >= 65 ? '🏆 서울 주요 상급지 및 수도권 대장단지 당첨 유력권' : totalScore >= 50 ? '🥈 수도권 신도시 및 분양가 상한제 단지 당첨 가시권' : '⚠️ 가점제 불리 구간 (생애최초·신혼 특공 및 추첨제 위주 공략 권장)'}
-            </p>
+          {/* 깔끔한 플랫 결과 박스 */}
+          <div className="toss-result-box">
+            <div style={{ fontSize: '13px', color: '#8b95a1', fontWeight: 600 }}>내 청약 가점</div>
+            <div style={{ fontSize: '48px', fontWeight: 900, color: '#191f28', margin: '4px 0' }}>{totalScore}점</div>
+            <div style={{ fontSize: '15px', color: totalScore >= 60 ? '#00b06b' : '#f04452', fontWeight: 800 }}>
+              {totalScore >= 65 ? '서울 핵심 상급지 당첨 유력' : totalScore >= 50 ? '수도권 신도시 당첨 가시권' : '추첨제 및 신혼·생초 특공 권장'}
+            </div>
           </div>
         </div>
       ) : (
-        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '18px', marginBottom: '24px' }}>
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '18px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '16px', fontWeight: 900, color: '#0f172a', marginBottom: '6px' }}>
-                아파트 분양가 (만원)
-              </label>
+              <label style={{ fontSize: '13px', fontWeight: 700, color: '#4e5968' }}>분양가 (만원)</label>
               <input
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(Number(e.target.value))}
-                className="calc-control"
+                className="toss-select"
+                style={{ background: '#f9fafb' }}
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '16px', fontWeight: 900, color: '#0f172a', marginBottom: '6px' }}>
-                보유 순수 현금 (만원)
-              </label>
+              <label style={{ fontSize: '13px', fontWeight: 700, color: '#4e5968' }}>보유 현금 (만원)</label>
               <input
                 type="number"
                 value={myCash}
                 onChange={(e) => setMyCash(Number(e.target.value))}
-                className="calc-control"
+                className="toss-select"
+                style={{ background: '#f9fafb' }}
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '16px', fontWeight: 900, color: '#0f172a', marginBottom: '6px' }}>
-                연 소득 (만원)
-              </label>
+              <label style={{ fontSize: '13px', fontWeight: 700, color: '#4e5968' }}>연 소득 (만원)</label>
               <input
                 type="number"
                 value={income}
                 onChange={(e) => setIncome(Number(e.target.value))}
-                className="calc-control"
+                className="toss-select"
+                style={{ background: '#f9fafb' }}
               />
             </div>
           </div>
 
-          {/* 필수 단계별 납부표 */}
-          <div style={{ background: '#f8fafc', border: '1.5px solid #cbd5e1', borderRadius: '16px', padding: '22px', marginBottom: '24px' }}>
-            <h4 style={{ fontSize: '18px', color: '#0f2b5c', fontWeight: 900, marginBottom: '14px' }}>📋 단계별 필수 납부 금액</h4>
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1.5px dashed #cbd5e1', fontSize: '17px' }}>
-              <span>1. 계약금 (10% - 대출 불가 / 순수 현금)</span>
-              <strong style={{ color: '#b91c1c' }}>{formatMan(contract)}</strong>
+          {/* 단계별 납부 한눈에 */}
+          <div style={{ background: '#f9fafb', borderRadius: '12px', padding: '16px', marginBottom: '16px', fontSize: '14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #e5e8eb' }}>
+              <span style={{ color: '#6b7684' }}>계약금 10% (순수현금)</span>
+              <strong style={{ color: '#f04452' }}>{formatMan(contract)}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1.5px dashed #cbd5e1', fontSize: '17px' }}>
-              <span>2. 중도금 (60% - 집단대출 가능)</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #e5e8eb' }}>
+              <span style={{ color: '#6b7684' }}>중도금 60% (대출)</span>
               <strong>{formatMan(middle)}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', fontSize: '17px' }}>
-              <span>3. 잔금 (30% - 입주 시 주담대 전환)</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0' }}>
+              <span style={{ color: '#6b7684' }}>잔금 30% (입주 시)</span>
               <strong>{formatMan(balance)}</strong>
             </div>
           </div>
 
-          {/* 대출 진단 */}
-          <div style={{ background: '#eff6ff', border: '2px solid #60a5fa', borderRadius: '18px', padding: '24px' }}>
-            <h4 style={{ fontSize: '19px', color: '#1e40af', fontWeight: 900, marginBottom: '10px' }}>
-              🔍 스트레스 DSR 2단계 주택담보대출 한도 진단
-            </h4>
-            <p style={{ fontSize: '17px', color: '#1e293b', lineHeight: '1.9' }}>
-              • <strong>최대 주담대 가능액:</strong> <span style={{ color: '#0f2b5c', fontWeight: 900, fontSize: '20px' }}>{formatMan(maxLoan)}</span><br />
-              • <strong>입주 시점 총 필요 현금:</strong> <span style={{ color: '#b91c1c', fontWeight: 900, fontSize: '20px' }}>{formatMan(reqCash)}</span><br />
-              • <strong>내 현재 자금 대비 상태:</strong> {cashGap <= 0 ? (
-                <span style={{ color: '#15803d', fontWeight: 900, fontSize: '19px' }}>보유 현금 충분 (자금 조달 안전권)</span>
-              ) : (
-                <span style={{ color: '#b91c1c', fontWeight: 900, fontSize: '19px' }}>약 {formatMan(cashGap)} 추가 현금 필요</span>
-              )}
-            </p>
+          <div style={{ background: '#e8f3ff', borderRadius: '14px', padding: '18px', textAlign: 'center' }}>
+            <div style={{ fontSize: '13px', color: '#1b64da', fontWeight: 700 }}>스트레스 DSR 2단계 최대 대출</div>
+            <div style={{ fontSize: '26px', fontWeight: 900, color: '#1b64da', margin: '4px 0' }}>{formatMan(maxLoan)}</div>
+            <div style={{ fontSize: '14px', color: cashGap <= 0 ? '#00b06b' : '#f04452', fontWeight: 800 }}>
+              {cashGap <= 0 ? '✓ 현재 보유 현금으로 충분합니다' : `⚠️ 입주 시 약 ${formatMan(cashGap)} 현금 추가 필요`}
+            </div>
           </div>
         </div>
       )}
 
-      {/* 결과창 직하단 광고 */}
+      {/* 직하단 골든 광고 */}
       <AdPlaceholder slotType="golden-result" />
     </section>
   );
