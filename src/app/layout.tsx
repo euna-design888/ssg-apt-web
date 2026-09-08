@@ -45,6 +45,20 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        {/* Google Analytics (GA4) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB0S"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-78JGV6PB0S');
+          `}
+        </Script>
       </head>
       <body>{children}</body>
     </html>
