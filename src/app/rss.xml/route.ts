@@ -2,7 +2,7 @@ import rawApartments from '@/data/apartments.json';
 import { Apartment } from '@/types/apartment';
 
 export async function GET() {
-  const baseUrl = 'https://fundmoney8.com';
+  const baseUrl = 'https://www.fundmoney8.com';
   const apartments = rawApartments as Apartment[];
 
   const itemsXml = apartments
