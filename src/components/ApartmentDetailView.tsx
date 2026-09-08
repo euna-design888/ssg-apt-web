@@ -63,21 +63,72 @@ export default function ApartmentDetailView({ apt }: Props) {
     }
   };
 
-  // 구글/네이버 SEO JSON-LD 구조화 데이터
+  // 구글/네이버 AEO & GEO 최적화 종합 JSON-LD 구조화 데이터
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'RealEstateListing',
-    name: apt.name,
-    description: `${apt.name} 분양가 및 안전마진 ${formatMoney(apt.safetyMargin)} 팩트체크 리포트`,
-    url: typeof window !== 'undefined' ? window.location.href : '',
-    price: apt.priceMin * 10000,
-    priceCurrency: 'KRW',
-    address: {
-      '@type': 'PostalAddress',
-      addressRegion: apt.region,
-      streetAddress: apt.locationDetail,
-      addressCountry: 'KR'
-    }
+    '@graph': [
+      {
+        '@type': 'RealEstateListing',
+        '@id': `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}#listing`,
+        name: `${apt.name} 분양가 & 안전마진 팩트체크`,
+        description: `${apt.name} 분양가 ${formatMoney(apt.priceMin)}부터, 안전마진 약 ${formatMoney(apt.safetyMargin)}, 실거주의무 및 DSR 2단계 분석`,
+        url: `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}`,
+        price: apt.priceMin * 10000,
+        priceCurrency: 'KRW',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: apt.region,
+          streetAddress: apt.locationDetail,
+          addressCountry: 'KR'
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: '쓱보는 청약 홈',
+            item: 'https://fundmoney8.com'
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: apt.name,
+            item: `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}`
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: `${apt.name}의 분양가와 예상 안전마진(시세차익)은 얼마인가요?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${apt.name}의 분양가는 최저 ${formatMoney(apt.priceMin)} ~ 최고 ${formatMoney(apt.priceMax)}입니다. 인근 준신축 시세(${formatMoney(apt.estimatedMarketPrice)}) 대비 약 ${formatMoney(apt.safetyMargin)}(약 ${discountRate}% 저렴)의 안전마진이 예상됩니다.`
+            }
+          },
+          {
+            '@type': 'Question',
+            name: `${apt.name}의 전매제한 및 실거주의무 규제는 어떻게 되나요?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${apt.name}은(는) ${apt.bareumFact.regulations.join(', ')} 조건이 적용됩니다. 입주 시점 전세 활용 여부와 실거주의무를 반드시 확인해야 합니다.`
+            }
+          },
+          {
+            '@type': 'Question',
+            name: `${apt.name} 청약 전 주의해야 할 대출 및 탈락 위험은 무엇인가요?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `수석 감사관 분석: ${apt.danhoRisk.criticSummary} (대출 주의사항: ${apt.danhoRisk.dsrWarning})`
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -142,6 +193,73 @@ export default function ApartmentDetailView({ apt }: Props) {
               <span>인근 준신축 시세 약 {formatMoney(apt.estimatedMarketPrice)}</span>
             </div>
           </div>
+        </section>
+
+        {/* 1-1. AEO 핵심 직답 브리핑 (구글 AI Overviews & 네이버 AI 브리핑 타겟) */}
+        <section className="aeo-direct-box" aria-label="AI 핵심 요약 브리핑">
+          <div className="aeo-direct-header">
+            <span className="aeo-badge">AEO 직답</span>
+            <h2 className="aeo-direct-title">{apt.name} 청약 3줄 핵심 팩트</h2>
+          </div>
+          <ul className="aeo-direct-list">
+            <li className="aeo-direct-item">
+              <span className="aeo-direct-bullet">①</span>
+              <span>
+                <strong>분양가 & 안전마진:</strong> 최저 {formatMoney(apt.priceMin)} ~ 최고 {formatMoney(apt.priceMax)}로 공급되며, 인근 시세 대비 <strong>약 +{formatMoney(apt.safetyMargin)}({discountRate}% 저렴)</strong>의 시세차익이 기대됩니다.
+              </span>
+            </li>
+            <li className="aeo-direct-item">
+              <span className="aeo-direct-bullet">②</span>
+              <span>
+                <strong>규제 & 거주의무:</strong> {apt.bareumFact.regulations.slice(0, 3).join(' · ')} 조건이 적용되며, 1차 출처({apt.bareumFact.sourceName}) 공고 기준 검증을 완료했습니다.
+              </span>
+            </li>
+            <li className="aeo-direct-item">
+              <span className="aeo-direct-bullet">③</span>
+              <span>
+                <strong>주의 리스크:</strong> {apt.danhoRisk.criticSummary}
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        {/* 1-2. AEO 정형 데이터 비교표 (검색 엔진 스니펫 인용 1순위) */}
+        <section className="aeo-table-wrapper" aria-label="단지 핵심 요약 비교표">
+          <div className="aeo-table-title">
+            <span>📊 {apt.name} 공공 팩트체크 요약표</span>
+          </div>
+          <table className="aeo-fact-table">
+            <tbody>
+              <tr>
+                <th scope="row">공급 위치</th>
+                <td>{apt.locationDetail}</td>
+              </tr>
+              <tr>
+                <th scope="row">분양가 범위</th>
+                <td><strong>{formatMoney(apt.priceMin)} ~ {formatMoney(apt.priceMax)}</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">인근 시세 / 안전마진</th>
+                <td>약 {formatMoney(apt.estimatedMarketPrice)} (<strong>+{formatMoney(apt.safetyMargin)}</strong>)</td>
+              </tr>
+              <tr>
+                <th scope="row">전매제한 및 거주의무</th>
+                <td>{apt.bareumFact.regulations.find((r) => r.includes('전매')) || '전매 1년'} · {apt.bareumFact.regulations.find((r) => r.includes('거주')) || '실거주의무 없음'}</td>
+              </tr>
+              <tr>
+                <th scope="row">1순위 청약일</th>
+                <td><strong>{apt.schedule.firstRank || '추후 공지'}</strong> (발표일: {apt.schedule.announcement || '추후 공지'})</td>
+              </tr>
+              <tr>
+                <th scope="row">공식 출처 검증</th>
+                <td>
+                  <a href={apt.bareumFact.officialUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#3182f6', textDecoration: 'underline' }}>
+                    {apt.bareumFact.sourceName} ↗
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         {/* 2. 호갱노노 스타일 4대 핵심 스펙 시트 (2x2 그리드) */}
@@ -413,6 +531,44 @@ export default function ApartmentDetailView({ apt }: Props) {
               </div>
             </div>
           )}
+        </section>
+
+        {/* 3-1. AEO 자연어 검색 타겟 Q&A (FAQ) */}
+        <section className="aeo-faq-section" aria-label="자주 묻는 질문 FAQ">
+          <h2 className="aeo-faq-heading">
+            <span>💬</span> {apt.name} 청약 자주 묻는 질문 (AptFact Q&A)
+          </h2>
+          <div className="aeo-faq-list">
+            <article className="aeo-faq-card">
+              <h3 className="aeo-faq-q">
+                <span className="aeo-q-badge">Q.</span>
+                <span>{apt.name} 분양가와 예상 시세차익(안전마진)은 얼마인가요?</span>
+              </h3>
+              <p className="aeo-faq-a">
+                최저 {formatMoney(apt.priceMin)}에서 최고 {formatMoney(apt.priceMax)}로 공급됩니다. 인근 준신축 시세({formatMoney(apt.estimatedMarketPrice)})와 비교 시 <strong>약 +{formatMoney(apt.safetyMargin)}({discountRate}% 저렴)</strong>의 시세차익이 기대됩니다.
+              </p>
+            </article>
+
+            <article className="aeo-faq-card">
+              <h3 className="aeo-faq-q">
+                <span className="aeo-q-badge">Q.</span>
+                <span>전매제한 및 실거주의무 규제는 어떻게 되나요?</span>
+              </h3>
+              <p className="aeo-faq-a">
+                해당 단지는 <strong>{apt.bareumFact.regulations.join(', ')}</strong> 규정이 적용됩니다. 입주 시점에 전세를 놓아 잔금을 충당할 수 있는지 실거주의무 유예 여부를 공고문에서 반드시 확인해야 합니다.
+              </p>
+            </article>
+
+            <article className="aeo-faq-card">
+              <h3 className="aeo-faq-q">
+                <span className="aeo-q-badge">Q.</span>
+                <span>청약 시 꼭 주의해야 할 부적격 및 자금 리스크는?</span>
+              </h3>
+              <p className="aeo-faq-a">
+                {apt.danhoRisk.criticSummary} (세부 대출 규제: {apt.danhoRisk.dsrWarning}) 계약 전 자금 계획을 면밀히 세우시기 바랍니다.
+              </p>
+            </article>
+          </div>
         </section>
 
         {/* 4. 본문 중간 핵심 반응형 애드센스 광고 */}

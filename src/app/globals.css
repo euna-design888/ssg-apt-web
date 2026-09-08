@@ -1171,3 +1171,164 @@ a {
     padding: 4px 10px;
   }
 }
+
+/* ==========================================================================
+   AEO & GEO 최적화 스타일 (Direct Answer Box, Semantic Fact Table, FAQ)
+   ========================================================================== */
+.aeo-direct-box {
+  background: #f0f7ff;
+  border: 1px solid #c8e1ff;
+  border-left: 4px solid var(--color-brand);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0 20px 0;
+}
+
+.aeo-direct-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.aeo-badge {
+  background: var(--color-brand);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+}
+
+.aeo-direct-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.aeo-direct-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aeo-direct-item {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #1f2937;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.aeo-direct-bullet {
+  font-weight: 800;
+  color: var(--color-brand);
+  min-width: 14px;
+}
+
+/* 정형화된 AEO Fact Table */
+.aeo-table-wrapper {
+  margin: 18px 0 22px 0;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.aeo-table-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-title);
+  padding: 14px 18px 10px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.aeo-fact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.aeo-fact-table th {
+  width: 30%;
+  background: #f8fafc;
+  color: #4b5563;
+  font-weight: 700;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.aeo-fact-table td {
+  padding: 11px 16px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.45;
+}
+
+.aeo-fact-table tr:last-child th,
+.aeo-fact-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* FAQ Q&A Card Section */
+.aeo-faq-section {
+  margin: 28px 0;
+}
+
+.aeo-faq-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-title);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aeo-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aeo-faq-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.aeo-faq-q {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.aeo-q-badge {
+  color: var(--color-brand);
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.aeo-faq-a {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #4b5563;
+  padding-left: 18px;
+}
