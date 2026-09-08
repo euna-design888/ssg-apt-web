@@ -26,7 +26,7 @@ export default function ApartmentCard({ apt }: Props) {
   );
 
   return (
-    <Link href={`/apt/${apt.id}`} className="feed-card-link">
+    <a href={`/apt/${apt.id}`} className="feed-card-link">
       <div className="feed-card">
         {/* 1. 상단 상태 배지 & 카테고리 */}
         <div className="card-top-row">
@@ -97,6 +97,6 @@ export default function ApartmentCard({ apt }: Props) {
           <span className="arrow-icon">→</span>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }

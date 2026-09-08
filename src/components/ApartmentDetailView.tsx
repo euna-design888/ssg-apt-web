@@ -142,9 +142,9 @@ export default function ApartmentDetailView({ apt }: Props) {
       <main className="container" style={{ flex: 1, padding: '24px 18px' }}>
         {/* 네비게이션 & 공유 버튼 행 */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-          <Link href="/" className="back-link">
+          <a href="/" className="back-link">
             ← 전체 분양 단지 목록
-          </Link>
+          </a>
           <button type="button" onClick={handleCopyLink} className="share-btn">
             {copied ? '✅ 복사 완료!' : '🔗 리포트 공유하기'}
           </button>
@@ -253,7 +253,7 @@ export default function ApartmentDetailView({ apt }: Props) {
               <tr>
                 <th scope="row">공식 출처 검증</th>
                 <td>
-                  <a href={apt.bareumFact.officialUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#3182f6', textDecoration: 'underline' }}>
+                  <a href={apt.bareumFact.officialUrl} style={{ color: '#3182f6', textDecoration: 'underline' }}>
                     {apt.bareumFact.sourceName} ↗
                   </a>
                 </td>
@@ -261,6 +261,9 @@ export default function ApartmentDetailView({ apt }: Props) {
             </tbody>
           </table>
         </section>
+
+        {/* 상단 팩트 요약 직후 핵심 중간 광고 (수익 극대화) */}
+        <AdPlaceholder slotType="infeed" />
 
         {/* 2. 호갱노노 스타일 4대 핵심 스펙 시트 (2x2 그리드) */}
         <section className="spec-grid-section">
@@ -345,8 +348,6 @@ export default function ApartmentDetailView({ apt }: Props) {
                 </div>
                 <a
                   href={apt.bareumFact.officialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="official-btn"
                 >
                   공식 공고문 원문 확인 ↗
@@ -579,9 +580,9 @@ export default function ApartmentDetailView({ apt }: Props) {
 
         {/* 하단 다른 단지 둘러보기 버튼 */}
         <div style={{ textAlign: 'center', margin: '32px 0' }}>
-          <Link href="/" className="bottom-back-btn">
+          <a href="/" className="bottom-back-btn">
             ← 다른 분양 단지 비교하기
-          </Link>
+          </a>
         </div>
       </main>
     </div>

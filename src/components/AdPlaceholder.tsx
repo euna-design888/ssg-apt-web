@@ -49,8 +49,6 @@ export default function AdPlaceholder({ slotType }: AdProps) {
         </div>
         <a
           href="https://fine.fss.or.kr"
-          target="_blank"
-          rel="noopener noreferrer"
           style={{
             background: '#1e40af',
             color: '#ffffff',
@@ -88,8 +86,6 @@ export default function AdPlaceholder({ slotType }: AdProps) {
         </h4>
         <a
           href="https://fine.fss.or.kr"
-          target="_blank"
-          rel="noopener noreferrer"
           style={{
             display: 'inline-block',
             background: '#b45309',
