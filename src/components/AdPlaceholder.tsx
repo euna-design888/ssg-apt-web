@@ -1,10 +1,28 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect } from 'react';
 
 interface AdProps {
   slotType: 'header-banner' | 'infeed' | 'sticky-sidebar' | 'golden-result';
 }
 
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
+
 export default function AdPlaceholder({ slotType }: AdProps) {
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch {
+      // Ignore push errors during hydration
+    }
+  }, []);
+
   if (slotType === 'header-banner') {
     return (
       <div style={{
@@ -91,17 +109,27 @@ export default function AdPlaceholder({ slotType }: AdProps) {
   return (
     <div style={{
       background: '#f8fafc',
-      border: '1px dashed #cbd5e1',
-      borderRadius: '10px',
-      padding: '14px',
+      border: '1px solid #e2e8f0',
+      borderRadius: '12px',
+      padding: '12px',
       textAlign: 'center',
-      color: '#64748b',
-      fontSize: '12px',
-      margin: '18px 0',
+      margin: '20px 0',
       boxSizing: 'border-box',
-      width: '100%'
+      width: '100%',
+      minHeight: '120px',
+      overflow: 'hidden'
     }}>
-      광고 슬롯 ({slotType}) — Google AdSense Auto-Responsive Slot
+      <div style={{ fontSize: '10px', color: '#94a3b8', marginBottom: '6px', textAlign: 'right' }}>
+        ADVERTISEMENT
+      </div>
+      {/* Google AdSense Responsive Unit */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', minHeight: '90px' }}
+        data-ad-client="ca-pub-6925161017862158"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </div>
   );
 }

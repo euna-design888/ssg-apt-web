@@ -415,7 +415,10 @@ export default function ApartmentDetailView({ apt }: Props) {
           )}
         </section>
 
-        {/* 하단 고단가 제휴 광고 슬롯 */}
+        {/* 4. 본문 중간 핵심 반응형 애드센스 광고 */}
+        <AdPlaceholder slotType="infeed" />
+
+        {/* 5. 하단 고단가 금융 제휴 배너 슬롯 */}
         <AdPlaceholder slotType="golden-result" />
 
         {/* 하단 다른 단지 둘러보기 버튼 */}

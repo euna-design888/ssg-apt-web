@@ -281,6 +281,9 @@ export default function CheongyakScoreCalculator({ apartments }: CheongyakScoreC
         </button>
       </div>
 
+      {/* 3-2. 진단 결과 바로 아래 고수익 반응형 애드센스 광고 */}
+      <AdPlaceholder slotType="infeed" />
+
       {/* 4. 실전 수도권 8대 단지 합격 가능성 매칭 리스트 */}
       <div style={{ background: '#fff', borderRadius: '18px', padding: '20px', marginBottom: '20px', border: '1px solid #e5e8eb' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>

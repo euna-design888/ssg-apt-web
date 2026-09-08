@@ -111,10 +111,18 @@ export default function HomePage() {
               </button>
             </div>
 
-            {/* 4-2. 피드 카드 리스트 */}
+            {/* 4-2. 피드 카드 리스트 + 중단 광고 최적 배치 */}
             <div className="feed-list">
-              {filteredList.map((apt) => (
-                <ApartmentCard key={apt.id} apt={apt} />
+              {filteredList.map((apt, idx) => (
+                <React.Fragment key={apt.id}>
+                  <ApartmentCard apt={apt} />
+                  {/* 피드 2번째 카드 뒤에 인피드 애드센스 광고 삽입 */}
+                  {idx === 1 && (
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <AdPlaceholder slotType="infeed" />
+                    </div>
+                  )}
+                </React.Fragment>
               ))}
             </div>
 
