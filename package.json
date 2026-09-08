@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ping:indexnow": "node scripts/ping-indexnow.mjs"
   },
   "dependencies": {
     "next": "16.3.4",
