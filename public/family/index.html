@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>우리 가족 사주 관계도 | 추석 가족 궁합 · 반려동물까지</title>
-<meta name="description" content="가족 생일만 넣으면 누가 누구의 귀인인지, 우리집 서열 1위는 누구인지, 윷놀이 필승 팀까지 한 장의 가계도로 보여드려요. 반려동물도 함께.">
+<meta name="description" content="가족 생일만 넣으면 누가 누구의 귀인인지, 우리집 서열 1위는 누구인지, 명절 당번까지 한 장의 가계도로 보여드려요. 반려동물도 함께.">
 <meta name="theme-color" content="#0E1226">
 <meta property="og:title" content="우리 가족 사주 관계도">
 <meta property="og:description" content="엄마랑 나 상극? 우리집 서열 1위는 강아지? 생일만 넣으면 가계도가 나와요.">
@@ -49,8 +49,6 @@ h2{font-size:23px;line-height:1.35;letter-spacing:-.3px;margin:0 0 6px}
 /* hero: 브랜드 영역이라 모드와 무관하게 밤 */
 .hero{position:relative;overflow:hidden;background:#0E1226;color:#F1EFE8;padding:40px 0 34px}
 .hero .wrap{position:relative;z-index:1}
-.moon{position:absolute;right:-60px;top:-50px;width:230px;height:230px;border-radius:50%;
-  background:radial-gradient(circle at 38% 36%,#FFE6A3 0,#F2C14E 55%,#D9A332 100%);box-shadow:0 0 90px rgb(242 193 78 / .35)}
 .hero h1{font-size:38px;line-height:1.2;letter-spacing:-1px;margin:0 0 14px;font-weight:800}
 .hero p{margin:0 0 24px;color:#DADDEE;font-size:18px;max-width:22em}
 .hero .row{display:flex;flex-wrap:wrap;gap:10px}
@@ -116,7 +114,8 @@ input::placeholder{color:var(--mute);font-size:17px}
 
 /* result */
 .verdict{background:#0E1226;color:#F1EFE8;border-radius:16px;padding:24px 18px;position:relative;overflow:hidden}
-.verdict .moon{width:140px;height:140px;right:-40px;top:-40px}
+.verdict .top{display:flex;align-items:center;gap:12px}
+.verdict .moonbox{width:72px}
 .verdict .k{position:relative;font-size:16px;color:#DADDEE}
 .verdict .v{position:relative;font-size:32px;font-weight:800;line-height:1.3;letter-spacing:-.6px;margin:6px 0 12px;white-space:pre-line}
 .verdict .s{position:relative;color:#F2C14E;font-weight:700;font-size:19px}
@@ -142,12 +141,28 @@ input::placeholder{color:var(--mute);font-size:17px}
 #map .node{fill:var(--surface)}
 #map .nm{fill:var(--text);font-size:21px;font-weight:800;stroke:var(--row-a);stroke-width:4;paint-order:stroke}
 #map .e-good{stroke:var(--good)}#map .e-bad{stroke:var(--bad)}#map .e-mid{stroke:var(--mid)}
-.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}
-.team{border-radius:16px;padding:16px;background:var(--surface-2)}
-.team h4{margin:0 0 4px;font-size:20px}
-.team .stars{color:var(--accent-ink);letter-spacing:2px;font-size:20px}
-.team ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px;font-size:19px}
-.team .mvp{font-size:14px;font-weight:800;color:var(--on-accent);background:var(--accent);border-radius:999px;padding:2px 8px;white-space:nowrap}
+/* 달토끼: 보름달 안에서 떡방아 */
+.moonbox{position:relative;aspect-ratio:1;border-radius:50%;flex:none;background:radial-gradient(circle at 38% 36%,#FFE6A3 0,#F2C14E 55%,#D9A332 100%);box-shadow:0 0 60px rgb(242 193 78 / .3)}
+.moonbox svg{position:absolute;left:7%;top:9%;width:86%;height:86%;overflow:visible}
+.hero-moon{width:min(44vw,190px);margin:0 -4px -30px auto}
+.qa-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.qa-head .phase{font-size:44px;line-height:1}
+.qa-head b{display:block;font-size:19px}
+.qa-list{display:grid;gap:10px;margin-top:14px}
+.qa{display:flex;align-items:center;gap:12px;width:100%;min-height:68px;padding:12px 16px;border-radius:16px;border:2px solid var(--line);background:var(--surface);text-align:left;font-size:19px;font-weight:700;line-height:1.35;transition:transform .15s cubic-bezier(.16,1,.3,1)}
+.qa:active{transform:scale(.98)}
+.qa .qe{font-size:32px;flex:none}
+.qa .go{margin-left:auto;flex:none;font-size:15px;font-weight:800;color:var(--on-accent);background:var(--accent);border-radius:999px;padding:6px 12px}
+.qa.spin,.qa.done{border-color:var(--accent);background:var(--surface-2)}
+.qa.done{align-items:flex-start;cursor:default}
+.qa .mm{width:64px}
+.qa .q{display:block;font-size:16px;color:var(--mute);font-weight:700}
+.qa .ans{display:block;font-size:24px;font-weight:800;margin-top:2px}
+.qa small{display:block;font-size:16px;font-weight:500;color:var(--mute);margin-top:4px}
+.full{margin-top:14px;border-radius:16px;background:#0E1226;color:#F1EFE8;padding:22px 18px;text-align:center}
+.full .moonbox{width:170px;margin:0 auto 14px}
+.full b{display:block;font-size:24px;margin-bottom:8px}
+.full p{margin:0 0 14px;font-size:18px;color:#DADDEE}
 .warn{margin:12px 0 0;font-size:17px;color:var(--mute)}
 .roles{display:grid;gap:10px;margin-top:14px}
 .role{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--surface-2)}
@@ -167,7 +182,9 @@ details.pairs[open] summary i{transform:rotate(180deg)}
 .pair+.pair{border-top:1px solid var(--line)}
 .pair small{display:block;color:var(--mute);margin-top:6px;font-size:16px}
 .share{display:grid;gap:10px;margin-top:14px}
-.ad{min-height:120px}
+/* 광고: 버튼과 붙지 않게 위아래 여백, "광고" 표시 */
+.ad{margin:22px 0;min-height:110px}
+.adlab{display:block;font-size:15px;color:var(--mute);margin-bottom:4px}
 .foot{color:var(--mute);font-size:15px;text-align:center;padding:28px 0}
 .foot a{color:var(--accent-ink)}
 
@@ -177,6 +194,10 @@ details.pairs[open] summary i{transform:rotate(180deg)}
 .dock .in .btn{flex:1 1 0;min-width:0;padding:6px 10px}
 
 @media (prefers-reduced-motion:no-preference){
+  .pounding .rb-pound{animation:pound .7s cubic-bezier(.5,0,.5,1) infinite}
+  .pounding .rb-body{animation:bob .7s ease-in-out infinite}
+  @keyframes pound{0%,100%{transform:translateY(-26px)}55%,65%{transform:translateY(0)}}
+  @keyframes bob{0%,100%{transform:translateY(0)}58%{transform:translateY(3px)}}
   .reveal{animation:up .55s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0)*70ms)}
   @keyframes up{from{opacity:0;transform:translateY(14px)}}
   #map path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.16,1,.3,1) forwards}
@@ -188,8 +209,8 @@ details.pairs[open] summary i{transform:rotate(180deg)}
 </head>
 <body>
 <header class="hero">
-  <div class="moon" aria-hidden="true"></div>
   <div class="wrap">
+    <div class="moonbox hero-moon pounding" id="heroMoon" aria-hidden="true"></div>
     <h1>우리 가족<br>사주 관계도</h1>
     <p>생일만 넣으면 누가 귀인이고 누가 앙숙인지, 우리집 서열 1위까지 한 장으로 나와요.</p>
     <div class="row">
@@ -217,47 +238,48 @@ details.pairs[open] summary i{transform:rotate(180deg)}
     <div id="sharedBanner" class="banner reveal hidden" style="margin-bottom:12px">가족이 보낸 관계도예요. 아래에서 본인을 눌러 보세요.</div>
 
     <div class="verdict reveal" style="--i:0">
-      <div class="moon" aria-hidden="true"></div>
-      <div class="k">한줄 판결</div>
+      <div class="top"><div class="moonbox" id="verdictMoon" aria-hidden="true"></div><div class="k">달토끼의 한줄 판결</div></div>
       <div class="v" id="verdict"></div>
       <div class="s" id="verdictSub"></div>
     </div>
 
     <div class="panel reveal" style="--i:1">
+      <h2>🐰 달토끼에게 물어보세요</h2>
+      <div class="qa-head"><span class="phase" id="qaPhase">🌑</span><div><b id="qaCount"></b><span class="lead" style="margin:0">하나 열 때마다 보름달이 차올라요. 다 채우면 달토끼의 선물이 있어요.</span></div></div>
+      <div class="qa-list" id="qaList"></div>
+      <div id="qaFull"></div>
+    </div>
+
+    <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+    <div class="panel reveal" style="--i:2">
       <h2 id="headline"></h2>
       <div class="bar" id="bar"></div>
       <div class="legend" id="legend"></div>
       <p id="missing" class="lead" style="margin:10px 0 0"></p>
     </div>
 
-    <div class="panel reveal" style="--i:2">
+    <div class="panel reveal" style="--i:3">
       <h2>누구 기준으로 볼까요?</h2>
       <p class="lead">본인을 누르면 내 귀인과 앙숙이 나와요.</p>
       <div class="pchips" id="meChips"></div>
       <div id="mePanel"></div>
     </div>
 
-    <div class="panel reveal" style="--i:3">
+    <div class="panel reveal" style="--i:4">
       <h2>우리집 가계도</h2>
       <p class="lead" style="margin:0">얼굴을 누르면 그 사람의 관계선만 보여요. 오른쪽 위 작은 그림은 집안 역할이에요.</p>
       <svg id="map" viewBox="0 0 330 400" width="100%" role="img" aria-label="가족 관계 가계도"></svg>
       <div class="legend" style="margin-top:6px"><span>💞 천생연분</span><span>✨ 귀인</span><span>🤝 찰떡</span><span>⚡ 티격태격</span><span>🔥 상극</span></div>
     </div>
 
-    <div class="panel reveal" style="--i:4">
-      <h2>🎲 윷놀이 필승 팀</h2>
-      <p class="lead" style="margin:0">팀 안에서 궁합이 가장 잘 맞는 조합으로 나눴어요.</p>
-      <div id="yut"></div>
-    </div>
+    <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
     <div class="panel reveal" style="--i:5">
       <h2>집안 역할</h2>
       <div class="roles" id="roles"></div>
     </div>
 
-    <div class="panel ad">
-      <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-6925161017862158" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    </div>
 
     <div class="panel">
       <h2>2027 정미년 가족 운 순위</h2>
@@ -274,6 +296,7 @@ details.pairs[open] summary i{transform:rotate(180deg)}
       <details class="pairs">
         <summary>1:1 궁합 전체 보기 <i class="ph ph-caret-down"></i></summary>
         <div id="pairs" style="margin-top:8px"></div>
+        <div class="ad" id="adPairs"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
       </details>
     </div>
   </section>
@@ -344,7 +367,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 const j=(w,a,b)=>{const c=w.charCodeAt(w.length-1)-0xAC00;return w+(c>=0&&c<=11171&&c%28?a:b)};
 const track=(e,p)=>{try{gtag('event',e,p||{})}catch(_){}};
 
-let adPushed=false, demo=false, family=[], kind='h', cal='s', editing=-1, draft=null, view='build', last=null, focus=-1, me=-1, shared=false;
+let demo=false, family=[], kind='h', cal='s', editing=-1, draft=null, view='build', last=null, focus=-1, me=-1, shared=false;
 // 공유 링크·저장본은 조작될 수 있으니 호칭 목록에 있는 항목만 받고 이모지·반려 여부는 목록에서 다시 채움
 const REL_MAP=new Map([...HUMANS.map(([l,e])=>[l,{e,pet:0}]),...PETS.map(([l,e])=>[l,{e,pet:1}])]);
 function clean(arr){
@@ -449,33 +472,6 @@ function yearLuck(m){
   return {m,sc,t:y[0],note};
 }
 
-// ---------- 윷놀이 팀 ----------
-// 사람만 두 팀. 팀 내부 궁합 합이 최대 = 필승, 최소 = 자폭. 10명이어도 2^10 전수조사로 충분
-const TEAM_N=['숲속팀','불꽃팀','바위산팀','강철팀','파도팀'];
-function yut(R){
-  const ppl=R.fam.filter(m=>!m.pet), n=ppl.length;
-  if(n<4)return null;
-  const S=(a,b)=>R.M[R.fam.indexOf(a)][R.fam.indexOf(b)];
-  const intra=t=>{let s=0;for(let i=0;i<t.length;i++)for(let k=i+1;k<t.length;k++)s+=S(t[i],t[k]);return s};
-  let best=null,worst=null;
-  for(let mask=1;mask<(1<<n);mask+=2){ // 0번은 항상 A팀 (좌우 뒤집힌 중복 제거)
-    let c=0;for(let i=0;i<n;i++)if(mask>>i&1)c++;
-    if(c!==Math.ceil(n/2))continue;
-    const A=ppl.filter((_,i)=>mask>>i&1), B=ppl.filter((_,i)=>!(mask>>i&1)), s=intra(A)+intra(B);
-    if(!best||s>best.s)best={A,B,s};
-    if(!worst||s<worst.s)worst={A,B,s};
-  }
-  const team=(t,taken)=>{
-    const cnt=[0,0,0,0,0];t.forEach(m=>cnt[m.s.el]++);
-    const d=[0,1,2,3,4].sort((x,y)=>cnt[y]-cnt[x]||x-y).find(e=>e!==taken);
-    const avg=intra(t)/(t.length*(t.length-1)/2);
-    const mvp=t.map(m=>[m,t.reduce((s,o)=>o===m?s:s+S(m,o),0)]).sort((x,y)=>y[1]-x[1])[0][0];
-    return {t,el:d,name:ELE[d]+' '+TEAM_N[d],stars:Math.max(1,Math.min(5,Math.round(avg+3))),mvp};
-  };
-  const a=team(best.A,-1), b=team(best.B,a.el);
-  return {a,b,worst,pets:R.fam.filter(m=>m.pet)};
-}
-
 function analyze(fam){
   fam.forEach(m=>m.s=saju(m));
   const pairs=[], M=fam.map(()=>fam.map(()=>0));
@@ -486,7 +482,6 @@ function analyze(fam){
   const R={fam,pairs,M,cnt,...domLow(cnt),years:fam.map(yearLuck).sort((x,y)=>y.sc-x.sc)};
   R.srt=pairs.slice().sort((x,y)=>y.sc-x.sc);
   R.best=R.srt[0];R.worst=R.srt[R.srt.length-1];
-  R.yut=yut(R);
   return R;
 }
 // 지지 12개 중 4개가 흙이라 그냥 세면 늘 흙이 1등. 글자 하나당 기대 개수(천간 1/5 + 지지 오행 비율)로 나눠 '평균보다 얼마나 많은지'로 판정
@@ -594,6 +589,7 @@ function render(){
   try{R=analyze(fam)}catch(e){alert('날짜를 계산할 수 없는 가족이 있어요. 음력·윤달 여부를 확인해 주세요.');return}
   last=R;focus=-1;
   me=shared?-1:fam.findIndex(m=>m.r==='나');
+  R.qa=buildQA(R,me>=0?fam[me]:null);opened=new Set();spinning=false;renderQA();
   const {cnt,years,dom,low}=R;
   const V=verdict(R);
   $('verdict').textContent=V.v;$('verdictSub').textContent=V.s;
@@ -604,7 +600,6 @@ function render(){
   $('legend').innerHTML=`<span>${DOM_S[dom]}</span>`;
   $('missing').innerHTML=`${cnt[low]?'가장 약한 기운':'없는 기운'} <b>${ELE[low]} ${EL[low]}</b>: ${LACK[low]}`;
   renderMe();
-  renderYut();
   $('roles').innerHTML=R.fam.map(m=>`<div class="role"><div class="av">${m.emo}</div><div>
     <b>${esc(m.name)}</b><span class="t">${m.role[1]} ${m.role[0]}</span>
     <small>${m.role[2]}. ${m.pet?PET_PERSONA[m.s.el]:PERSONA[m.s.ds][1]}</small>
@@ -615,9 +610,17 @@ function render(){
   $('build').classList.add('hidden');$('result').classList.remove('hidden');
   $('result').querySelectorAll('.reveal').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});
   scrollTo(0,0);
-  if(!adPushed){adPushed=true;try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(_){}}
+  pushAds();
   track('family_result',{members:fam.length,pets:fam.filter(m=>m.pet).length,shared:shared?1:0});
 }
+// 숨겨진 칸에 요청하면 크기 0 오류가 나서, 화면에 보이는 칸만 한 번씩
+function pushAds(){
+  document.querySelectorAll('#result ins.adsbygoogle:not([data-pushed])').forEach(el=>{
+    if(!el.offsetWidth||el.closest('details:not([open])'))return;
+    el.dataset.pushed=1;try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(_){}
+  });
+}
+document.querySelector('details.pairs').addEventListener('toggle',e=>{if(e.target.open)pushAds()});
 function renderMe(){
   const {fam,pairs,years}=last;
   $('meChips').innerHTML=fam.map((m,i)=>`<button type="button" class="pchip${i===me?' on':''}" data-me="${i}">${m.emo} ${esc(m.name)}</button>`).join('');
@@ -632,16 +635,86 @@ function renderMe(){
   focus=me;drawMap();
 }
 $('meChips').onclick=e=>{const b=e.target.closest('[data-me]');if(!b)return;const i=+b.dataset.me;me=me===i?-1:i;renderMe();track('family_me')};
-function renderYut(){
-  const Y=last.yut;
-  if(!Y){$('yut').innerHTML='<p class="warn">사람이 4명 이상이면 팀을 짜 드려요.</p>';return}
-  const card=T=>`<div class="team"><h4>${T.name}</h4><div class="stars" aria-label="팀 케미 5점 만점에 ${T.stars}점">${'★'.repeat(T.stars)}${'☆'.repeat(5-T.stars)}</div>
-    <ul>${T.t.map(m=>`<li>${m.emo} ${esc(m.name)}${m===T.mvp?' <span class="mvp">MVP</span>':''}</li>`).join('')}</ul></div>`;
-  const w=Y.worst;
-  $('yut').innerHTML=`<div class="teams">${card(Y.a)}${card(Y.b)}</div>`+
-    (Y.pets.length?`<p class="warn">${Y.pets.map(p=>p.emo+' '+esc(p.name)).join(', ')}: 공식 응원단장</p>`:'')+
-    `<p class="warn">💥 자폭 조합: ${w.A.map(m=>esc(m.name)).join('·')} vs ${w.B.map(m=>esc(m.name)).join('·')}. 이렇게 짜면 팀 안에서 싸워요.</p>`;
+// ---------- 달토끼 ----------
+const RABBIT='<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
+ '<g class="rb-body"><circle cx="44" cy="150" r="10" fill="#fff"/><ellipse cx="74" cy="142" rx="33" ry="36" fill="#fff"/>'+
+ '<ellipse cx="62" cy="178" rx="14" ry="7" fill="#EFE8DC"/><ellipse cx="92" cy="178" rx="14" ry="7" fill="#EFE8DC"/>'+
+ '<ellipse cx="62" cy="48" rx="10" ry="30" fill="#fff" transform="rotate(-14 62 48)"/><ellipse cx="62" cy="51" rx="5" ry="20" fill="#F7B8C4" transform="rotate(-14 62 51)"/>'+
+ '<ellipse cx="88" cy="46" rx="10" ry="30" fill="#fff" transform="rotate(12 88 46)"/><ellipse cx="88" cy="49" rx="5" ry="20" fill="#F7B8C4" transform="rotate(12 88 49)"/>'+
+ '<circle cx="78" cy="96" r="28" fill="#fff"/><circle cx="69" cy="93" r="3.8" fill="#2A2F55"/><circle cx="89" cy="93" r="3.8" fill="#2A2F55"/>'+
+ '<circle cx="70.2" cy="91.8" r="1.2" fill="#fff"/><circle cx="90.2" cy="91.8" r="1.2" fill="#fff"/>'+
+ '<ellipse cx="61" cy="103" rx="5" ry="3.4" fill="#F7B8C4"/><ellipse cx="97" cy="103" rx="5" ry="3.4" fill="#F7B8C4"/>'+
+ '<ellipse cx="79" cy="100" rx="2.6" ry="2" fill="#E88A9C"/><path d="M75 103 q4 4 8 0" stroke="#2A2F55" stroke-width="2" fill="none" stroke-linecap="round"/></g>'+
+ '<path d="M122 150 H184 L175 188 H131 Z" fill="#9A6440"/><ellipse cx="153" cy="150" rx="31" ry="8" fill="#6E4128"/>'+
+ '<ellipse cx="153" cy="148" rx="22" ry="7" fill="#fff"/><circle cx="143" cy="145" r="3" fill="#B8E0B0"/><circle cx="160" cy="144" r="3" fill="#F7B8C4"/>'+
+ '<g class="rb-pound"><rect x="147" y="58" width="12" height="86" rx="6" fill="#C98A58"/><ellipse cx="153" cy="139" rx="11" ry="7" fill="#A86C41"/>'+
+ '<path d="M97 128 Q124 112 145 104" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none"/><circle cx="147" cy="104" r="8.5" fill="#fff"/></g></svg>';
+const RABBIT_IMG=new Image();RABBIT_IMG.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(RABBIT);
+['heroMoon','verdictMoon'].forEach(id=>$(id).innerHTML=RABBIT);
+
+// ---------- 달토끼 질문 카드 ----------
+// 답은 사주로 정해져서 같은 가족이면 늘 같은 답. 한 사람이 다 차지하지 않게 이미 뽑힌 사람은 살짝 불리하게
+const elCount=(m,e)=>m.s.P.reduce((s,[st,b])=>s+((st>>1)===e)+(BREL[b]===e),0);
+const PH=['🌑','🌒','🌓','🌔','🌕'];
+function buildQA(R,I){
+  const {fam,M}=R, H=fam.filter(m=>!m.pet), idx=m=>fam.indexOf(m), used=new Map();
+  const pick=(cands,score)=>{
+    const c=cands.map(m=>[m,score(m)-.6*(used.get(m)||0)]).sort((a,b)=>b[1]-a[1]||idx(a[0])-idx(b[0]))[0];
+    if(c)used.set(c[0],(used.get(c[0])||0)+1);
+    return c&&c[0];
+  };
+  const gen=(a,b)=>(a.s.el+1)%5===b.s.el;
+  const age=m=>new Date().getFullYear()-+m.d.slice(0,4);
+  const Q=[];
+  const add=(e,q,short,f)=>{const a=f();if(a)Q.push({e,q,short,m:a[0],why:a[1]})};
+  add('💰',I?'나한테 용돈 줄 귀인은?':'우리집 용돈 귀인은?','용돈 귀인',()=>{
+    if(I){const o=pick(H.filter(m=>m!==I),m=>M[idx(I)][idx(m)]+(gen(m,I)?3:0));if(!o)return;
+      return [o,gen(o,I)?`${o.name}의 ${j(EL[o.s.el],'이','가')} ${I.name}의 ${j(EL[I.s.el],'을','를')} 키워주는 귀인이에요. 오늘은 옆자리를 지키세요`:`${j(I.name,'과','와')} 궁합이 제일 좋아요. 슬쩍 옆에 앉아 보세요`]}
+    const o=pick(H,m=>m.genOut);return o&&[o,`가족 ${o.genOut}명의 기운을 키워주는 베푸는 사주예요`]});
+  add('🎁',I?'내가 용돈 드려야 할 분은?':'올해 용돈 제일 많이 받을 사람은?','용돈 드릴 분',()=>{
+    if(I){const q1=Q[0]&&Q[0].m, pool=H.filter(m=>m!==I&&(m!==q1||H.length<3)), older=pool.filter(m=>m.d<I.d), c=older.length?older:pool;
+      const o=pick(c,m=>(gen(I,m)?3:0)+M[idx(I)][idx(m)]);if(!o)return;
+      return [o,gen(I,o)?`${I.name}의 기운이 ${j(o.name,'을','를')} 키워주는 관계라, 드릴수록 복이 돌아와요`:'나이도 궁합도 이분이 1순위예요']}
+    const o=pick(H,m=>m.genIn);return o&&[o,'다들 이 사람을 챙겨 주는 사주예요. 봉투가 몰려요']});
+  add('🍳','전 부치기 담당은?','전 부치기',()=>{const o=pick(H,m=>elCount(m,1)*2+elCount(m,0));if(!o)return;const n=elCount(o,1);
+    return [o,n?`불 기운이 ${n}개나 있어요. 불 앞이 적성이에요`:'불씨를 살리는 나무 기운이 제일 많아요']});
+  add('🧽','설거지 당번은?','설거지',()=>{const o=pick(H,m=>elCount(m,4));return o&&[o,elCount(o,4)?`물 기운이 ${elCount(o,4)}개. 물과 친한 운명이에요`:'물 기운이 없는 집이라 제일 덜 바쁜 사람이 당첨']});
+  add('🚗','귀경길 운전대 잡을 사람은?','운전 담당',()=>{const o=pick(H.filter(m=>age(m)>=20),m=>elCount(m,3));return o&&[o,`쇠 기운이 ${elCount(o,3)}개. 쇳덩이(자동차)와 궁합이 좋아요`]});
+  add('🗣️','오늘 잔소리 제일 많이 할 사람은?','잔소리 대장',()=>{const o=pick(H,m=>m.ctlOut*2+m.clash);return o&&[o,o.ctlOut?`가족 ${o.ctlOut}명의 기운을 누르는 사주예요. 오늘은 한마디만 참아 주세요`:'말 한마디가 제일 센 사주예요']});
+  add('😴','밥 먹고 제일 먼저 드러누울 사람은?','낮잠 1등',()=>{const o=pick(fam,m=>elCount(m,2)+(m.pet?1:0));return o&&[o,`흙 기운이 ${elCount(o,2)}개. 바닥과 한 몸이 되는 사주예요`]});
+  add('📸','단톡방에 사진 제일 많이 올릴 사람은?','사진 담당',()=>{const o=pick(H,m=>elCount(m,0)+elCount(m,1)*.5);return o&&[o,'쑥쑥 뻗어 나가는 나무 기운이 커서 보여 주고 싶은 게 많아요']});
+  const pet=fam.find(m=>m.pet);
+  if(pet&&H.length)add(pet.e,`${j(pet.name,'이','가')} 제일 좋아하는 사람은?`,pet.name+' 최애',()=>{const o=pick(H,m=>M[idx(pet)][idx(m)]);const p=R.pairs.find(p=>(p.a===o&&p.b===pet)||(p.a===pet&&p.b===o));
+    return [o,`${j(pet.name,'과','와')} ${p.lb[0]} 사이예요. 간식은 이분이 주세요`]});
+  add('🌕','보름달 소원이 제일 먼저 이뤄질 사람은?','소원 1등',()=>{const y=R.years[0];used.set(y.m,(used.get(y.m)||0)+1);return [y.m,`2027년 ${y.t}. ${y.note}`]});
+  return Q;
 }
+let opened=new Set(), spinning=false;
+function renderQA(){
+  const Q=last.qa, n=opened.size;
+  $('qaPhase').textContent=PH[Math.round(n/Q.length*4)];
+  $('qaCount').textContent=`보름달 ${n}/${Q.length}`;
+  $('qaList').innerHTML=Q.map((q,i)=>opened.has(i)
+    ?`<div class="qa done"><span class="qe">${q.m.emo}</span><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans">${esc(q.m.name)}</span><small>${esc(q.why)}</small></span></div>`
+    :`<button type="button" class="qa" data-q="${i}"><span class="qe">${q.e}</span><span>${esc(q.q)}</span><span class="go">열기</span></button>`).join('');
+  if(n===Q.length){
+    const {best:b,years}=last;
+    $('qaFull').innerHTML=`<div class="full reveal"><div class="moonbox pounding">${RABBIT}</div><b>🌕 보름달이 꽉 찼어요!</b>
+      <p>달토끼가 빚은 송편 한 줄: ${esc(b.a.name)}·${esc(j(b.b.name,'은','는'))} 올해도 서로의 복덩이. 2027년엔 ${esc(years[0].m.name)}의 '${years[0].t}' 기운이 온 가족에게 번져요.</p>
+      <button class="btn primary wide" type="button" data-act="save"><i class="ph ph-download-simple"></i>이 결과 사진으로 저장</button></div>`;
+    track('family_q_all');
+  }else $('qaFull').innerHTML='';
+}
+$('qaList').onclick=e=>{
+  const b=e.target.closest('button[data-q]');if(!b||spinning)return;
+  const i=+b.dataset.q, q=last.qa[i], fam=last.fam;
+  spinning=true;b.classList.add('spin');
+  b.innerHTML=`<div class="moonbox mm pounding">${RABBIT}</div><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans" id="roll">두구두구</span></span>`;
+  const fast=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let k=0;const t=setInterval(()=>{const m=fam[k++%fam.length];$('roll').textContent=m.emo+' '+m.name},110);
+  setTimeout(()=>{clearInterval(t);opened.add(i);spinning=false;renderQA();track('family_q',{q:q.short})},fast?250:1600);
+};
+$('qaFull').addEventListener('click',e=>{if(e.target.closest('[data-act=save]'))saveImage()});
 
 // ---------- 가계도 ----------
 // 세대별 가로줄(BW 폭 좌표계). 좁은 폰에서도 글자가 크게 보이도록 폭을 좁히고 한 줄 최대 3명
@@ -715,10 +788,14 @@ function makeImage(){
   x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
   const g=x.createRadialGradient(W-170,110,10,W-150,120,130);g.addColorStop(0,'#FFE6A3');g.addColorStop(.6,'#F2C14E');g.addColorStop(1,'#D9A332');
   x.fillStyle=g;x.beginPath();x.arc(W-150,120,110,0,7);x.fill();
+  if(RABBIT_IMG.complete)x.drawImage(RABBIT_IMG,W-150-95,120-92,190,190);
   x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('우리 가족 사주 관계도',70,110);
   x.fillStyle='#F1EFE8';x.font=`800 64px ${F}`;
   let y=wrap(x,verdict(last).v,70,196,W-300,78);
-  const {pos,rows,h}=tree(fam), top=y, sc=Math.min(940/BW,(1110-top)/h), ox=(W-BW*sc)/2;
+  const L=[[`${b.lb[1]} 최고 궁합  ${b.a.name} × ${b.b.name} (${b.lb[0]})`,'#5EDBA0']];
+  if(w.lb[2]==='bad')L.push([`${w.lb[1]} 우리집 앙숙  ${w.a.name} × ${w.b.name} (${w.lb[0]})`,'#FF8484']);
+  [...opened].slice(0,2).forEach(i=>{const q=last.qa[i];L.push([`${q.e} ${q.short}  ${q.m.name}`,'#F2C14E'])});
+  const {pos,rows,h}=tree(fam), top=y, sc=Math.min(940/BW,(H-120-L.length*56-top)/h), ox=(W-BW*sc)/2;
   x.save();x.translate(ox,top);x.scale(sc,sc);
   rows.forEach(([l,ry,r])=>{x.fillStyle=r%2?'#161B37':'#1C2244';x.beginPath();x.roundRect?x.roundRect(2,ry-52,BW-4,ROW_H-8,16):x.rect(2,ry-52,BW-4,ROW_H-8);x.fill();
     x.fillStyle='#F2C14E';x.font=`800 15px ${F}`;x.fillText(l,10,ry+5)});
@@ -735,10 +812,9 @@ function makeImage(){
     x.font=`20px ${F}`;x.fillText(m.role[1],px+R0-2,py-R0+12);
     x.fillStyle='#F1EFE8';x.font=`800 21px ${F}`;halo(short(m.name),px,py+R0+24);});
   x.restore();x.textAlign='left';
-  y=top+h*sc+60;
+  y=top+h*sc+56;
   const line=(t,yy,color)=>{let f=34;do{x.font=`700 ${f}px ${F}`}while(x.measureText(t).width>W-140&&--f>20);x.fillStyle=color;x.fillText(t,70,yy)};
-  line(`${b.lb[1]} 최고 궁합  ${b.a.name} × ${b.b.name} (${b.lb[0]})`,y,'#5EDBA0');
-  if(w.lb[2]==='bad')line(`${w.lb[1]} 우리집 앙숙  ${w.a.name} × ${w.b.name} (${w.lb[0]})`,y+56,'#FF8484');
+  L.forEach(([t,col],i)=>line(t,y+i*56,col));
   x.fillStyle='#A6ACCA';x.font=`500 26px ${F}`;x.fillText('fundmoney8.com/family   재미로 보는 가족 사주',70,H-50);
   return c;
 }
@@ -758,6 +834,8 @@ async function saveImage(){
 $('imgClose').onclick=()=>$('imgDlg').close();
 function summary(){
   const {best:b,worst:w}=last, V=verdict(last).v.replace('\n',' ');
+  const q=[...opened].map(i=>last.qa[i])[0];
+  if(q)return `달토끼한테 물어봤더니 우리집 ${q.short}은 ${q.m.name}래ㅋㅋ "${V}" 이것도 소름… 여러분 집은?`;
   return `우리집 사주 관계도 뽑아봤는데 "${V}" 나옴ㅋㅋ ${b.a.name}×${b.b.name} ${b.lb[0]}`+(w.lb[2]==='bad'?`, ${w.a.name}×${w.b.name} ${w.lb[0]}`:'')+' 여러분 집은?';
 }
 function toThreads(){track('family_threads');window.open('https://www.threads.net/intent/post?text='+encodeURIComponent(summary()+'\nhttps://fundmoney8.com/family'),'_blank')}
