@@ -174,9 +174,6 @@ input::placeholder{color:var(--mute);font-size:17px}
 .rank .no{font-weight:800;color:var(--accent-ink);font-size:20px;grid-row:span 2}
 .rank .r{font-size:17px}
 .rank .r small{color:var(--mute);font-size:16px}
-details.pairs summary{cursor:pointer;font-weight:800;font-size:21px;min-height:52px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px}
-details.pairs summary::-webkit-details-marker{display:none}
-details.pairs[open] summary i{transform:rotate(180deg)}
 .pair{padding:14px 0;font-size:18px}
 .pair+.pair{border-top:1px solid var(--line)}
 .pair small{display:block;color:var(--mute);margin-top:6px;font-size:16px}
@@ -291,13 +288,18 @@ details.pairs[open] summary i{transform:rotate(180deg)}
       <button class="btn ghost wide hidden" data-act="mine" type="button" id="mineBtn"><i class="ph ph-plus"></i>우리 가족도 해보기</button>
     </div>
 
+    <a class="btn ghost wide" id="pairsLink" href="#" style="margin-top:14px">💞 1:1 궁합 전체 보기 <i class="ph ph-arrow-right"></i></a>
+  </section>
+
+  <!-- ?v=pairs 로 들어왔을 때만 보이는 별도 화면 -->
+  <section id="pairsView" class="hidden">
     <div class="panel">
-      <details class="pairs">
-        <summary>1:1 궁합 전체 보기 <i class="ph ph-caret-down"></i></summary>
-        <div id="pairs" style="margin-top:8px"></div>
-        <div class="ad" id="adPairs"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-      </details>
+      <h2>💞 1:1 궁합 전체</h2>
+      <p class="lead" style="margin:0">우리 가족 모든 짝의 궁합이에요. 위에서부터 사이가 좋은 순서예요.</p>
+      <div id="pairs" style="margin-top:8px"></div>
     </div>
+    <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+    <a class="btn primary wide" id="backLink" href="#"><i class="ph ph-arrow-left"></i>결과로 돌아가기</a>
   </section>
 
   <p class="foot">재미로 보는 콘텐츠예요. 사주 계산은 한국천문연구원 음력 자료와 절입 시각 기준 만세력(ssaju)으로 하고, 궁합·역할 해석은 놀이용입니다.<br>입력한 생일은 서버로 보내지 않아요. <a href="/">fundmoney8.com</a></p>
@@ -342,12 +344,13 @@ details.pairs[open] summary i{transform:rotate(180deg)}
 <dialog id="imgDlg">
   <div class="sheet">
     <h3>사진 저장</h3>
-    <p class="lead" style="margin:4px 0 12px">사진을 <b>손가락으로 길게 눌러</b> '이미지 저장'을 누르세요.</p>
+    <p class="lead" style="margin:4px 0 12px">사진을 <b>손가락으로 길게 눌러</b> '이미지 저장'을 누르거나, 아래 버튼을 누르세요.</p>
     <img id="imgOut" alt="우리 가족 사주 관계도 결과 사진" style="display:block;width:100%;border-radius:12px">
     <div class="actions" style="margin-top:14px">
       <button class="btn ghost" type="button" id="imgClose">닫기</button>
       <a class="btn primary" id="imgDown" download="우리가족_사주관계도.png">파일로 받기</a>
     </div>
+    <button class="btn ghost wide hidden" type="button" id="imgShare" style="margin-top:10px"><i class="ph ph-paper-plane-tilt"></i>카톡 등으로 보내기</button>
   </div>
 </dialog>
 
@@ -375,7 +378,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 const j=(w,a,b)=>{const c=w.charCodeAt(w.length-1)-0xAC00;return w+(c>=0&&c<=11171&&c%28?a:b)};
 const track=(e,p)=>{try{gtag('event',e,p||{})}catch(_){}};
 
-let gsel='', demo=false, family=[], kind='h', cal='s', editing=-1, draft=null, view='build', last=null, focus=-1, me=-1, shared=false;
+let imgFile=null, gsel='', demo=false, family=[], kind='h', cal='s', editing=-1, draft=null, view='build', last=null, focus=-1, me=-1, shared=false;
 // 공유 링크·저장본은 조작될 수 있으니 호칭 목록에 있는 항목만 받고 이모지·반려 여부는 목록에서 다시 채움
 const REL_MAP=new Map([...HUMANS.map(([l,e])=>[l,{e,pet:0}]),...PETS.map(([l,e])=>[l,{e,pet:1}])]);
 function clean(arr){
@@ -593,7 +596,7 @@ function dock(){
       <button class="btn ghost" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유하기</button>`;
   }
 }
-function toBuild(){if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}
+function toBuild(){history.replaceState(null,'',location.pathname);if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}
 $('result').addEventListener('click',e=>{if(e.target.closest('.share [data-act]'))$('dock').onclick(e)});
 $('dock').onclick=e=>{
   const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
@@ -627,7 +630,11 @@ function render(){
     ${m.pet?'':`<small>${STR[m.s.str]||''}${m.s.ys.length?`, 필요한 기운 ${m.s.ys.map(e=>ELE[e]+EL[e]).join(' ')}`:''}${m.s.daeun?`, 지금 대운 ${m.s.daeun.ganzhi}(${m.s.daeun.startAge}~${m.s.daeun.endAge}세)`:''}</small>`}</div></div>`).join('');
   $('year').innerHTML=years.map((y,i)=>`<div class="rank"><span class="no">${i===0?'🏆':i+1}</span><b>${y.m.emo} ${esc(y.m.name)}</b><span class="r"><b>${y.t}</b><br><small>${y.note}</small></span></div>`).join('');
   $('pairs').innerHTML=R.srt.map(p=>`<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${p.txt.map(esc).join('<br>')}</small></div>`).join('');
+  const link=v=>`${location.pathname}?v=${v}${shared?'&s=1':''}#d=${enc(family)}`;
+  $('pairsLink').href=link('pairs');$('backLink').href=link('me');
+  if(!shared)history.replaceState(null,'',link('me')); // 1:1 화면에서 뒤로 와도 결과가 다시 그려지게
   view='result';dock();
+  $('pairsView').classList.add('hidden');
   $('build').classList.add('hidden');$('result').classList.remove('hidden');
   $('result').querySelectorAll('.reveal').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});
   scrollTo(0,0);
@@ -636,12 +643,11 @@ function render(){
 }
 // 숨겨진 칸에 요청하면 크기 0 오류가 나서, 화면에 보이는 칸만 한 번씩
 function pushAds(){
-  document.querySelectorAll('#result ins.adsbygoogle:not([data-pushed])').forEach(el=>{
-    if(!el.offsetWidth||el.closest('details:not([open])'))return;
+  document.querySelectorAll('main ins.adsbygoogle:not([data-pushed])').forEach(el=>{
+    if(!el.offsetWidth)return;
     el.dataset.pushed=1;try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(_){}
   });
 }
-document.querySelector('details.pairs').addEventListener('toggle',e=>{if(e.target.open)pushAds()});
 function renderMe(){
   const {fam,pairs,years}=last;
   $('meChips').innerHTML=fam.map((m,i)=>`<button type="button" class="pchip${i===me?' on':''}" data-me="${i}">${m.emo} ${esc(m.name)}</button>`).join('');
@@ -845,16 +851,23 @@ async function saveImage(){
   try{await document.fonts.ready}catch(_){}
   const c=makeImage();
   track('family_save');
-  c.toBlob(async blob=>{
-    const file=new File([blob],'우리가족_사주관계도.png',{type:'image/png'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){
-      try{await navigator.share({files:[file]});return}catch(e){if(e.name==='AbortError')return}
-    }
-    const url=c.toDataURL('image/png');
-    $('imgOut').src=url;$('imgDown').href=url;$('imgDlg').showModal();
-  },'image/png');
+  const url=c.toDataURL('image/png');
+  if(!matchMedia('(pointer:coarse)').matches){ // PC: 공유 창 대신 바로 파일로
+    const a=document.createElement('a');a.href=url;a.download='우리가족_사주관계도.png';document.body.appendChild(a);a.click();a.remove();return;
+  }
+  c.toBlob(blob=>{imgFile=new File([blob],'우리가족_사주관계도.png',{type:'image/png'});
+    $('imgShare').classList.toggle('hidden',!(navigator.canShare&&navigator.canShare({files:[imgFile]})))},'image/png');
+  $('imgOut').src=url;$('imgDown').href=url;$('imgDlg').showModal();
 }
 $('imgClose').onclick=()=>$('imgDlg').close();
+$('imgShare').onclick=async()=>{try{await navigator.share({files:[imgFile]})}catch(_){}};
+function showPairs(){
+  history.replaceState(null,'',$('pairsLink').getAttribute('href'));
+  $('result').classList.add('hidden');$('pairsView').classList.remove('hidden');scrollTo(0,0);pushAds();track('family_pairs');
+}
+$('pairsLink').addEventListener('click',()=>track('family_pairs_click'));
+// 돌아갈 때는 뒤로 가기(질문 카드 연 상태 유지), 바로 들어온 경우만 링크로 이동
+$('backLink').onclick=e=>{if(history.length>1&&document.referrer.includes(location.host)){e.preventDefault();history.back()}};
 function summary(){
   const {best:b,worst:w}=last, V=verdict(last).v.replace('\n',' ');
   const q=[...opened].map(i=>last.qa[i])[0];
@@ -884,8 +897,10 @@ $('demo').onclick=()=>{
 family=load();
 renderMembers();
 const hm=location.hash.match(/^#d=(.+)/);
+const qs=new URLSearchParams(location.search);
 if(hm){let f=[];try{f=clean(dec(hm[1]))}catch(_){}
-  if(f.length>=2){family=f;shared=true;renderMembers();render()}
+  // ?v= 로 온 건 내 결과 화면 사이 이동(저장본 덮어쓰지 않음), s=1이면 가족이 보낸 링크
+  if(f.length>=2){family=f;if(qs.get('v')&&qs.get('s')!=='1')demo=true;else shared=true;renderMembers();render();if(qs.get('v')==='pairs')showPairs()}
   else history.replaceState(null,'',location.pathname);}
 </script>
 </body>
