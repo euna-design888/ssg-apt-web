@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
+<!-- Microsoft Clarity (히트맵·세션 녹화, 입력칸은 기본 마스킹) 프로젝트 fundmoney8_수익사이트 -->
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ymu291xjgo");</script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-78JGV6PB8S');</script>
 <style>
 /* 모서리 규칙: 카드 16px / 입력 12px / 버튼·칩 pill */
@@ -391,7 +393,8 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 // 받침 있으면 a, 없으면 b (이/가, 을/를, 은/는)
 const j=(w,a,b)=>{const c=w.charCodeAt(w.length-1)-0xAC00;return w+(c>=0&&c<=11171&&c%28?a:b)};
-const track=(e,p)=>{try{gtag('event',e,p||{})}catch(_){}};
+// GA4 이벤트 + Clarity 이벤트(녹화에서 이 행동을 한 사람만 골라 보기용)
+const track=(e,p)=>{try{gtag('event',e,p||{})}catch(_){}try{window.clarity&&clarity('event',e)}catch(_){}};
 
 let imgFile=null, gsel='', demo=false, family=[], kind='h', cal='s', editing=-1, draft=null, view='build', last=null, focus=-1, me=-1, shared=false;
 // 공유 링크·저장본은 조작될 수 있으니 호칭 목록에 있는 항목만 받고 이모지·반려 여부는 목록에서 다시 채움
