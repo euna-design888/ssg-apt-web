@@ -134,6 +134,17 @@ input::placeholder{color:var(--mute);font-size:17px}
 .good{background:var(--good-bg);color:var(--good)}.bad{background:var(--bad-bg);color:var(--bad)}.mid{background:var(--mid-bg);color:var(--mid)}
 .rel-list{display:flex;flex-wrap:wrap;gap:8px}
 .rel-list span{background:var(--surface-2);border-radius:999px;padding:6px 12px;font-size:16px}
+#ego{display:block;width:calc(100% + 20px);max-width:480px;margin:6px -10px 0;touch-action:manipulation}
+#ego .node{fill:var(--surface)}
+#ego .e-good{stroke:var(--good)}#ego .e-bad{stroke:var(--bad)}#ego .e-mid{stroke:var(--mid)}
+#ego .nm{fill:var(--text);font-size:22px;font-weight:800;stroke:var(--surface);stroke-width:5;paint-order:stroke}
+#ego .pl-good{fill:var(--good-bg)}#ego .pl-bad{fill:var(--bad-bg)}#ego .pl-mid{fill:var(--mid-bg)}
+#ego .pt{font-size:17px;font-weight:800}#ego .pt-good{fill:var(--good)}#ego .pt-bad{fill:var(--bad)}#ego .pt-mid{fill:var(--mid)}
+.egoleg{margin:4px 0 8px}.egoleg .sw{display:inline-block;width:26px;height:6px;border-radius:3px;vertical-align:middle;margin-right:6px}
+.sw.g{background:var(--good)}.sw.b{background:var(--bad)}.sw.m{background:repeating-linear-gradient(90deg,var(--mid) 0 6px,transparent 6px 10px)}
+details.tree summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:52px;font-weight:800;font-size:21px;list-style:none}
+details.tree summary::-webkit-details-marker{display:none}
+details.tree[open] summary i{transform:rotate(180deg)}
 #map{display:block;width:calc(100% + 20px);max-width:460px;margin:10px -10px 0;touch-action:manipulation}
 #map .row-a{fill:var(--row-a)}#map .row-b{fill:var(--row-b)}
 #map .rlab{fill:var(--accent-ink);font-size:15px;font-weight:800}
@@ -256,17 +267,21 @@ input::placeholder{color:var(--mute);font-size:17px}
     </div>
 
     <div class="panel reveal" style="--i:3">
-      <h2>누구 기준으로 볼까요?</h2>
-      <p class="lead">본인을 누르면 내 귀인과 앙숙이 나와요.</p>
+      <h2>🌕 누구 기준으로 볼까요?</h2>
+      <p class="lead">이름을 누르면 그 사람이 가운데로 와요. 그림 속 얼굴을 눌러도 돼요.</p>
       <div class="pchips" id="meChips"></div>
+      <svg id="ego" viewBox="0 0 440 480" role="img" aria-label="한 사람 기준 가족 관계 그림"></svg>
+      <div class="legend egoleg"><span><i class="sw g"></i>잘 맞음 (굵을수록 강함)</span><span><i class="sw b"></i>부딪힘</span><span><i class="sw m"></i>무난</span></div>
       <div id="mePanel"></div>
     </div>
 
     <div class="panel reveal" style="--i:4">
-      <h2>우리집 가계도</h2>
-      <p class="lead" style="margin:0">얼굴을 누르면 그 사람의 관계선만 보여요. 오른쪽 위 작은 그림은 집안 역할이에요.</p>
-      <svg id="map" viewBox="0 0 330 400" width="100%" role="img" aria-label="가족 관계 가계도"></svg>
-      <div class="legend" style="margin-top:6px"><span>💞 천생연분</span><span>✨ 귀인</span><span>🤝 찰떡</span><span>⚡ 티격태격</span><span>🔥 상극</span></div>
+      <details class="tree">
+        <summary>👨‍👩‍👧 가족 전체 가계도 보기 <i class="ph ph-caret-down"></i></summary>
+        <p class="lead" style="margin:8px 0 0">세대별로 모아 본 그림이에요. 얼굴을 누르면 그 사람의 관계선만 보여요.</p>
+        <svg id="map" viewBox="0 0 330 400" width="100%" role="img" aria-label="가족 관계 가계도"></svg>
+        <div class="legend" style="margin-top:6px"><span>💞 천생연분</span><span>✨ 귀인</span><span>🤝 찰떡</span><span>⚡ 티격태격</span><span>🔥 상극</span></div>
+      </details>
     </div>
 
     <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
@@ -611,8 +626,9 @@ function render(){
   let R;
   try{R=analyze(fam)}catch(e){alert('날짜를 계산할 수 없는 가족이 있어요. 음력·윤달 여부를 확인해 주세요.');return}
   last=R;focus=-1;
-  me=shared?-1:fam.findIndex(m=>m.r==='나');
-  R.qa=buildQA(R,me>=0?fam[me]:null);opened=new Set();spinning=false;renderQA();
+  const meIdx=fam.findIndex(m=>m.r==='나');
+  me=shared?0:Math.max(0,meIdx);
+  R.qa=buildQA(R,!shared&&meIdx>=0?fam[meIdx]:null);opened=new Set();spinning=false;renderQA();
   const {cnt,years,dom,low}=R;
   const V=verdict(R);
   $('verdict').textContent=V.v;$('verdictSub').textContent=V.s;
@@ -651,7 +667,7 @@ function pushAds(){
 function renderMe(){
   const {fam,pairs,years}=last;
   $('meChips').innerHTML=fam.map((m,i)=>`<button type="button" class="pchip${i===me?' on':''}" data-me="${i}">${m.emo} ${esc(m.name)}</button>`).join('');
-  if(me<0){$('mePanel').innerHTML='';focus=-1;drawMap();return}
+  drawEgo();drawMap();
   const m=fam[me], mine=pairs.filter(p=>p.a===m||p.b===m).map(p=>({o:p.a===m?p.b:p.a,p})).sort((x,y)=>y.p.sc-x.p.sc);
   const b=mine[0], w=mine[mine.length-1], y=years.find(v=>v.m===m);
   $('mePanel').innerHTML=`<p style="margin:4px 0 0"><b>${esc(m.name)}</b>의 역할은 <b style="color:var(--accent-ink)">${m.role[1]} ${m.role[0]}</b></p>
@@ -660,9 +676,40 @@ function renderMe(){
     <div class="rel-list">${mine.map(x=>`<span>${x.o.emo} ${esc(x.o.name)} ${x.p.lb[1]}</span>`).join('')}</div>
     ${!m.pet&&m.s.ys.length?`<p style="margin:12px 0 0">나에게 필요한 기운(용신): <b>${m.s.ys.map(e=>ELE[e]+' '+EL[e]).join(', ')}</b>${(()=>{const t=fam.filter(o=>o!==m&&m.s.ys.includes(o.s.el));return t.length?`<br>이 기운을 타고난 <b>${t.map(o=>o.emo+' '+esc(o.name)).join(', ')}</b>, 나에게 보약 같은 사람이에요`:''})()}</p>`:''}
     <p class="lead" style="margin:12px 0 0">2027년 <b style="color:var(--text)">${y.t}</b>: ${y.note}</p>`;
-  focus=me;drawMap();
 }
-$('meChips').onclick=e=>{const b=e.target.closest('[data-me]');if(!b)return;const i=+b.dataset.me;me=me===i?-1:i;renderMe();track('family_me')};
+$('meChips').onclick=e=>{const b=e.target.closest('[data-me]');if(!b)return;me=+b.dataset.me;renderMe();track('family_me')};
+// ---------- 한 사람 중심 관계 그림 ----------
+// 기준 인물은 맨 위, 나머지는 사이 좋은 순으로 아래에 한 줄 cols명씩. 선은 첫 줄에만(아래 줄로 가는 선이 윗사람을 관통해서 헷갈림). 원형보다 폭을 덜 먹어서 좁은 폰에서도 글씨가 큼
+const EG={top:62,rc:44,r:32,row0:206,rowH:150,colW:120};
+const EGC={good:['#5EDBA0','#143A2C'],bad:['#FF8484','#45202A'],mid:['#9AA1C4','#252C4F']};
+function egoLayout(fam,pairs,ci,cols=3){
+  const c=fam[ci], E=fam.filter((_,i)=>i!==ci).map(o=>({o,i:fam.indexOf(o),p:pairs.find(p=>(p.a===c&&p.b===o)||(p.a===o&&p.b===c))})).sort((a,b)=>b.p.sc-a.p.sc);
+  cols=Math.min(cols,E.length);
+  const W=Math.max(360,cols*EG.colW), cx=W/2, rows=Math.ceil(E.length/cols);
+  E.forEach((e,k)=>{const row=Math.floor(k/cols), n=Math.min(cols,E.length-row*cols), col=k%cols;
+    e.row=row;e.x=cx+(col-(n-1)/2)*(W/cols);e.y=EG.row0+row*EG.rowH;
+    const dx=e.x-cx, dy=e.y-EG.top, d=Math.hypot(dx,dy);e.ux=dx/d;e.uy=dy/d});
+  return {c,E,W,H:EG.row0+(rows-1)*EG.rowH+110,cx};
+}
+const egoW=p=>p.lb[2]==='mid'?3:Math.abs(p.sc)>=4?10:6;
+const pillW=p=>p.lb[0].length*17+48;
+function drawEgo(){
+  const {fam,pairs}=last, {c,E,W,H,cx}=egoLayout(fam,pairs,me);
+  $('ego').setAttribute('viewBox',`0 0 ${W} ${H}`);
+  let s='';
+  E.filter(e=>!e.row).forEach(e=>{s+=`<line class="e-${e.p.lb[2]}" x1="${cx+e.ux*EG.rc}" y1="${EG.top+e.uy*EG.rc}" x2="${e.x-e.ux*EG.r}" y2="${e.y-e.uy*EG.r}" stroke-width="${egoW(e.p)}" stroke-linecap="round"${e.p.lb[2]==='mid'?' stroke-dasharray="8 9"':''}/>`});
+  E.forEach(e=>{const k=e.p.lb[2], w=pillW(e.p), py=e.y+EG.r+34;
+    s+=`<g data-i="${e.i}" style="cursor:pointer"><circle class="node" cx="${e.x}" cy="${e.y}" r="${EG.r}" stroke="${ELC[e.o.s.el]}" stroke-width="3"/>
+      <text x="${e.x}" y="${e.y+12}" font-size="32" text-anchor="middle">${e.o.emo}</text>
+      <text class="nm" x="${e.x}" y="${e.y+EG.r+24}" text-anchor="middle">${esc(short(e.o.name))}</text>
+      <rect class="pl-${k}" x="${e.x-w/2}" y="${py}" width="${w}" height="30" rx="15"/>
+      <text class="pt pt-${k}" x="${e.x}" y="${py+21}" text-anchor="middle">${e.p.lb[1]} ${e.p.lb[0]}</text></g>`});
+  s+=`<circle class="node" cx="${cx}" cy="${EG.top}" r="${EG.rc}" stroke="#F2C14E" stroke-width="6"/>
+    <text x="${cx}" y="${EG.top+16}" font-size="46" text-anchor="middle">${c.emo}</text>
+    <text class="nm" x="${cx+EG.rc+12}" y="${EG.top+8}">${esc(short(c.name))} 기준</text>`;
+  $('ego').innerHTML=s;
+}
+$('ego').addEventListener('click',e=>{const g=e.target.closest('g[data-i]');if(!g)return;me=+g.dataset.i;renderMe();track('family_me_tap')});
 // ---------- 달토끼 ----------
 const RABBIT='<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
  '<g class="rb-body"><circle cx="44" cy="150" r="10" fill="#fff"/><ellipse cx="74" cy="142" rx="33" ry="36" fill="#fff"/>'+
@@ -824,24 +871,26 @@ function makeImage(){
   const L=[[`${b.lb[1]} 최고 궁합  ${b.a.name} × ${b.b.name} (${b.lb[0]})`,'#5EDBA0']];
   if(w.lb[2]==='bad')L.push([`${w.lb[1]} 우리집 앙숙  ${w.a.name} × ${w.b.name} (${w.lb[0]})`,'#FF8484']);
   [...opened].slice(0,2).forEach(i=>{const q=last.qa[i];L.push([`${q.e} ${q.short}  ${q.m.name}`,'#F2C14E'])});
-  const {pos,rows,h}=tree(fam), top=y, sc=Math.min(940/BW,(H-120-L.length*56-top)/h), ox=(W-BW*sc)/2;
-  x.save();x.translate(ox,top);x.scale(sc,sc);
-  rows.forEach(([l,ry,r])=>{x.fillStyle=r%2?'#161B37':'#1C2244';x.beginPath();x.roundRect?x.roundRect(2,ry-52,BW-4,ROW_H-8,16):x.rect(2,ry-52,BW-4,ROW_H-8);x.fill();
-    x.fillStyle='#F2C14E';x.font=`800 15px ${F}`;x.fillText(l,10,ry+5)});
-  const key=keyPairs(pairs,fam.length), lab=[], col={good:'#5EDBA0',bad:'#FF8484',mid:'#9AA1C4'};
-  pairs.forEach((p,n)=>{if(!key.has(p))return;const P=pos[fam.indexOf(p.a)],Q=pos[fam.indexOf(p.b)],{c,mid}=curve(P,Q,n);
-    x.strokeStyle=col[p.lb[2]];x.lineWidth=3;x.globalAlpha=.85;x.beginPath();x.moveTo(...P);x.quadraticCurveTo(...c,...Q);x.stroke();x.globalAlpha=1;
-    lab.push([p.lb[1],mid])});
-  const halo=(t,a,bb)=>{x.strokeStyle='#161B37';x.lineWidth=4;x.strokeText(t,a,bb);x.fillText(t,a,bb)};
-  x.textAlign='center';
-  lab.forEach(([e,m])=>{x.font=`22px ${F}`;x.fillText(e,m[0],m[1]+8)});
-  fam.forEach((m,i)=>{const [px,py]=pos[i];
-    x.fillStyle='#171C36';x.strokeStyle=ELC[m.s.el];x.lineWidth=3;x.beginPath();x.arc(px,py,R0,0,7);x.fill();x.stroke();
-    x.font=`31px ${F}`;x.fillText(m.emo,px,py+11);
-    x.font=`20px ${F}`;x.fillText(m.role[1],px+R0-2,py-R0+12);
-    x.fillStyle='#F1EFE8';x.font=`800 21px ${F}`;halo(short(m.name),px,py+R0+24);});
-  x.restore();x.textAlign='left';
-  y=top+h*sc+56;
+  const {c:ctr,E,W:EW,H:EH,cx}=egoLayout(fam,pairs,me,4);
+  x.fillStyle='#F2C14E';x.font=`700 32px ${F}`;x.fillText(`🌕 ${ctr.name} 기준으로 본 우리 가족`,70,y+10);
+  const top=y+30, sc=Math.min(940/EW,(H-120-L.length*56-top)/EH), ox=(W-EW*sc)/2;
+  x.save();x.translate(ox,top);x.scale(sc,sc);x.lineCap='round';
+  const rr=(a,b,w,h,r)=>{x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h);x.fill()};
+  const halo=(t,a,bb)=>{x.strokeStyle='#0E1226';x.lineWidth=5;x.strokeText(t,a,bb);x.fillText(t,a,bb)};
+  E.filter(e=>!e.row).forEach(e=>{const k=e.p.lb[2];x.strokeStyle=EGC[k][0];x.lineWidth=egoW(e.p);x.setLineDash(k==='mid'?[8,9]:[]);
+    x.beginPath();x.moveTo(cx+e.ux*EG.rc,EG.top+e.uy*EG.rc);x.lineTo(e.x-e.ux*EG.r,e.y-e.uy*EG.r);x.stroke()});
+  x.setLineDash([]);x.textAlign='center';
+  E.forEach(e=>{const k=e.p.lb[2], w=pillW(e.p), py=e.y+EG.r+34;
+    x.fillStyle='#171C36';x.strokeStyle=ELC[e.o.s.el];x.lineWidth=3;x.beginPath();x.arc(e.x,e.y,EG.r,0,7);x.fill();x.stroke();
+    x.font=`32px ${F}`;x.fillText(e.o.emo,e.x,e.y+12);
+    x.fillStyle='#F1EFE8';x.font=`800 21px ${F}`;halo(short(e.o.name),e.x,e.y+EG.r+24);
+    x.fillStyle=EGC[k][1];rr(e.x-w/2,py,w,30,15);
+    x.fillStyle=EGC[k][0];x.font=`800 17px ${F}`;x.fillText(`${e.p.lb[1]} ${e.p.lb[0]}`,e.x,py+21)});
+  x.fillStyle='#171C36';x.strokeStyle='#F2C14E';x.lineWidth=6;x.beginPath();x.arc(cx,EG.top,EG.rc,0,7);x.fill();x.stroke();
+  x.font=`46px ${F}`;x.fillText(ctr.emo,cx,EG.top+16);
+  x.textAlign='left';x.fillStyle='#F1EFE8';x.font=`800 21px ${F}`;halo(`${short(ctr.name)} 기준`,cx+EG.rc+12,EG.top+8);
+  x.restore();
+  y=top+EH*sc+40;
   const line=(t,yy,color)=>{let f=34;do{x.font=`700 ${f}px ${F}`}while(x.measureText(t).width>W-140&&--f>20);x.fillStyle=color;x.fillText(t,70,yy)};
   L.forEach(([t,col],i)=>line(t,y+i*56,col));
   x.fillStyle='#A6ACCA';x.font=`500 26px ${F}`;x.fillText('fundmoney8.com/family   재미로 보는 가족 사주',70,H-50);
