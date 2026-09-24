@@ -254,6 +254,16 @@ details.tree[open] summary i{transform:rotate(180deg)}
       <div class="s" id="verdictSub"></div>
     </div>
 
+    <div class="share reveal" style="--i:1;margin:14px 0">
+      <button class="btn primary wide" data-act="share" type="button" id="shareTop"><i class="ph ph-chat-circle-dots"></i>가족 단톡에 보내기</button>
+      <p class="lead" style="margin:0;text-align:center">받은 가족이 자기 이름을 누르면<br>자기 기준 귀인·앙숙이 나와요</p>
+    </div>
+
+    <div class="panel reveal hidden" style="--i:1" id="inlawBox">
+      <h2>🍵 시댁·처가 궁합</h2>
+      <div id="inlaw"></div>
+    </div>
+
     <div class="panel reveal" style="--i:1">
       <h2>🐰 달토끼에게 물어보세요</h2>
       <div class="qa-head"><span class="phase" id="qaPhase">🌑</span><div><b id="qaCount"></b><span class="lead" style="margin:0">하나 열 때마다 보름달이 차올라요. 다 채우면 달토끼의 선물이 있어요.</span></div></div>
@@ -384,9 +394,11 @@ const ANIMAL=['쥐','소','호랑이','토끼','용','뱀','말','양','원숭�
 const PERSONA=[['큰 나무','곧고 고집 있는 리더형. 한번 정하면 절대 안 굽혀요'],['덩굴꽃','유연한데 생활력 최강. 결국 원하는 걸 얻어내요'],['태양','등장만 해도 분위기가 밝아지는 인싸'],['촛불','조용하지만 제일 세심하게 챙기는 사람'],['큰 산','말수는 적어도 묵직한 버팀목'],['논밭','뭐든 품어주는 살림꾼. 실속 1등'],['바위','의리와 결단력. 할 말은 하는 직진형'],['보석','섬세하고 깔끔한 완벽주의. 자존심 강함'],['바다','스케일 큰 자유로운 영혼. 속을 알 수 없음'],['빗물','눈치 빠르고 감성 풍부한 전략가']];
 const PET_PERSONA=['산책·탐험 좋아하는 호기심 대장','우다다 에너자이저. 새벽 운동회 담당','밥 앞에서 진심인 듬직한 먹보','자기 사람만 아는 츤데레','눈치 100단 애교쟁이'];
 const HUMANS=[['나','🙋'],['엄마','👩'],['아빠','👨'],['배우자','💍'],['할머니','👵'],['할아버지','👴'],['언니/누나','👩‍🦱'],['오빠/형','🧑'],['여동생','👧'],['남동생','👦'],['딸','👧'],['아들','👦'],
-  ['며느리','👩'],['사위','🤵'],['시어머니','👵'],['시아버지','👴'],['장모님','👵'],['장인어른','👴'],['이모','👩'],['고모','👩'],['삼촌','👨'],['사촌','🧑'],['조카','🧒'],['기타','🙂']];
+  ['며느리','👩'],['사위','🤵'],['시어머니','👵'],['시아버지','👴'],['장모님','👵'],['장인어른','👴'],['시누이','👩'],['동서','👩'],['아주버님','👨'],['시동생','🧑'],['처형/처제','👩'],['처남','🧑'],['이모','👩'],['고모','👩'],['삼촌','👨'],['사촌','🧑'],['조카','🧒'],['기타','🙂']];
 const PETS=[['강아지','🐶'],['고양이','🐱'],['토끼','🐰'],['햄스터','🐹'],['새','🦜'],['거북이','🐢'],['기타 반려동물','🐾']];
 const MAIN_N=12;
+const INLAW=['시어머니','시아버지','장모님','장인어른','시누이','동서','아주버님','시동생','처형/처제','처남'];
+const INLAW_TIP={good:'서로 편이 되어 주는 사이예요. 오늘은 옆자리에 앉으세요',mid:'무난한 사이예요. 칭찬 한마디가 제일 잘 통해요',bad:'오늘은 적당한 거리가 약이에요. 칭찬은 짧게, 부탁은 배우자를 통해서'};
 const HOURS=['자시 00:00~01:29 (새벽)','축시 01:30~03:29','인시 03:30~05:29','묘시 05:30~07:29','진시 07:30~09:29','사시 09:30~11:29','오시 11:30~13:29','미시 13:30~15:29','신시 15:30~17:29','유시 17:30~19:29','술시 19:30~21:29','해시 21:30~23:29','자시 23:30~24:00 (밤)'];
 // 시진 가운데 시각으로 계산해서 경계(30분 보정 여부)에 흔들리지 않게
 const HM=h=>h===12?[23,45]:h===0?[0,45]:[h*2,30];
@@ -559,7 +571,7 @@ function renderMembers(){
   renderRel();dock();store();
 }
 // 호칭으로 성별을 미리 골라 두고, 나·배우자·사촌처럼 모르는 경우만 직접 고르게
-const FEMALE=['엄마','할머니','언니/누나','여동생','딸','며느리','시어머니','장모님','이모','고모'], MALE=['아빠','할아버지','오빠/형','남동생','아들','사위','시아버지','장인어른','삼촌'];
+const FEMALE=['엄마','할머니','언니/누나','여동생','딸','며느리','시어머니','장모님','이모','고모','시누이','동서','처형/처제'], MALE=['아빠','할아버지','오빠/형','남동생','아들','사위','시아버지','장인어른','삼촌','아주버님','시동생','처남'];
 function setG(g){gsel=g;[...$('gSeg').children].forEach(b=>b.classList.toggle('on',b.dataset.g===g))}
 $('gSeg').onclick=e=>{const b=e.target.closest('button');if(b)setG(gsel===b.dataset.g&&draft.pet?'':b.dataset.g)};
 function setCal(t){cal=t;[...$('calSeg').children].forEach(b=>b.classList.toggle('on',b.dataset.t===t));$('leapWrap').classList.toggle('hidden',t==='s')}
@@ -612,8 +624,11 @@ function dock(){
     const ok=family.length>=2;
     d.innerHTML=`<button class="btn primary wide" data-act="go" ${ok?'':'disabled'}>${ok?`관계도 보기 (${family.length}명)`:'가족을 2명 이상 넣어 주세요'}</button>`;
   }else{
-    d.innerHTML=`<button class="btn primary" data-act="save"><i class="ph ph-download-simple"></i>사진 저장</button>
-      <button class="btn ghost" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유하기</button>`;
+    // 공유 링크로 들어온 가족은 자기 집도 해보게, 나머지는 단톡 공유를 주 버튼으로 (공유율이 유입의 핵심)
+    d.innerHTML=shared?`<button class="btn primary" data-act="mine"><i class="ph ph-plus"></i>나도 해보기</button>
+      <button class="btn ghost" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button>`
+      :`<button class="btn primary" data-act="share"><i class="ph ph-paper-plane-tilt"></i>가족 공유</button>
+      <button class="btn ghost" data-act="save"><i class="ph ph-download-simple"></i>사진 저장</button>`;
   }
 }
 function toBuild(){history.replaceState(null,'',location.pathname);if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}
@@ -650,6 +665,10 @@ function render(){
     <small>${ST[m.s.ds]+BR[m.s.db]} ${STK[m.s.ds]+BRK[m.s.db]}일주, ${ANIMAL[m.s.yb]}띠, ${ELE[m.s.el]} ${PERSONA[m.s.ds][0]}</small>
     ${m.pet?'':`<small>${STR[m.s.str]||''}${m.s.ys.length?`, 필요한 기운 ${m.s.ys.map(e=>ELE[e]+EL[e]).join(' ')}`:''}${m.s.daeun?`, 지금 대운 ${m.s.daeun.ganzhi}(${m.s.daeun.startAge}~${m.s.daeun.endAge}세)`:''}</small>`}</div></div>`).join('');
   $('year').innerHTML=years.map((y,i)=>`<div class="rank"><span class="no">${i===0?'🏆':i+1}</span><b>${y.m.emo} ${esc(y.m.name)}</b><span class="r"><b>${y.t}</b><br><small>${y.note}</small></span></div>`).join('');
+  // 시댁·처가 어른·형제와 나(며느리·사위) 사이만 따로: 스레드 반응 1위 앵글
+  const IL=R.pairs.filter(p=>[p.a.r,p.b.r].some(r=>INLAW.includes(r))&&[p.a.r,p.b.r].some(r=>['나','며느리','사위'].includes(r))).slice(0,3);
+  $('inlawBox').classList.toggle('hidden',!IL.length);
+  $('inlaw').innerHTML=IL.map(p=>`<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${p.txt.map(esc).join('<br>')}<br><b>명절 팁</b> ${INLAW_TIP[p.lb[2]]}</small></div>`).join('');
   $('pairs').innerHTML=R.srt.map(p=>`<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${p.txt.map(esc).join('<br>')}</small></div>`).join('');
   const link=v=>`${location.pathname}?v=${v}${shared?'&s=1':''}`;
   try{sessionStorage.setItem('fam8_view',enc(family))}catch(_){}
@@ -933,7 +952,8 @@ function toThreads(){track('family_threads');window.open('https://www.threads.ne
 async function shareLink(){
   const url=location.origin+location.pathname+'#d='+enc(family);
   track('family_share');
-  if(navigator.share){try{await navigator.share({title:'우리 가족 사주 관계도',text:'본인을 눌러서 내 귀인과 앙숙을 확인해 봐요!',url});return}catch(e){if(e.name==='AbortError')return}}
+  const text=`우리 가족 사주 관계도 나왔어요. "${verdict(last).v.replace('\n',' ')}" 본인 이름을 누르면 내 귀인·앙숙도 나와요!`;
+  if(navigator.share){try{await navigator.share({title:'우리 가족 사주 관계도',text,url});return}catch(e){if(e.name==='AbortError')return}}
   try{await navigator.clipboard.writeText(url);alert('링크를 복사했어요. 가족 단톡방에 붙여넣기 하세요! 링크에 생일이 들어가니 가족끼리만 공유하세요.')}catch(_){prompt('이 링크를 복사하세요',url)}
 }
 const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
