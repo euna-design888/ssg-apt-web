@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
         destination: `/family?utm_source=threads&utm_campaign=chuseok&utm_content=v${i + 1}`,
         permanent: false,
       })),
+      // 스레드 공통 링크(모든 계정 고정댓글에 같은 링크, 계정별 성과는 스레드 조회수로 봄)
+      { source: "/f", destination: "/family?utm_source=threads&utm_campaign=chuseok2", permanent: false },
       // 네이버 블로그 글 전용
       { source: "/fb", destination: "/family?utm_source=naver_blog&utm_campaign=chuseok", permanent: false },
     ];
