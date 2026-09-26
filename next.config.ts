@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
       { source: "/f", destination: "/family?utm_source=threads&utm_campaign=chuseok2", permanent: false },
       // 커플·부부 궁합 모드 (명절 밖 상시 홍보용)
       { source: "/fc", destination: "/family?m=c&utm_source=threads&utm_campaign=couple", permanent: false },
+      // 우리 아이 기질 & 부모 궁합 모드
+      { source: "/fk", destination: "/family?m=k&utm_source=threads&utm_campaign=kid", permanent: false },
       // 네이버 블로그 글 전용
       { source: "/fb", destination: "/family?utm_source=naver_blog&utm_campaign=chuseok", permanent: false },
     ];
