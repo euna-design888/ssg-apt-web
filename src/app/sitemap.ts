@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fundmoney8.com";
+  const baseUrl = "https://www.fundmoney8.com"; // 대표 주소는 www (루트는 www로 리다이렉트)
   const now = new Date();
 
   const complexes = [
@@ -41,6 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.9,
     },
+    ...["/airport", "/airport/incheon.html", "/airport/gimpo.html"].map((p) => ({
+      url: `${baseUrl}${p}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
 }

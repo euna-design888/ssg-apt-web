@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
         </div>
         <div style={{ borderTop: '1px solid #1e293b', paddingTop: '18px', textAlign: 'center', fontSize: '12px', color: '#64748b' }}>
-          © 2026 쓱보는 청약 (AptFact). All Rights Reserved. Hosted with zero-cost on Vercel Edge.
+          © 2026 쓱보는 청약 (AptFact). 방문 통계와 광고(구글 애드센스)에 쿠키를 씁니다 · <a href="/privacy" style={{ color: '#94a3b8', textDecoration: 'underline' }}>개인정보처리방침</a>
         </div>
       </div>
     </footer>
