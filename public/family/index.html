@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>우리 가족 사주 관계도 | 추석 가족 궁합 · 반려동물까지</title>
-<meta name="description" content="가족 생일만 넣으면 누가 누구의 귀인인지, 우리집 서열 1위는 누구인지, 명절 당번까지 한 장의 가계도로 보여드려요. 반려동물도 함께.">
+<title>우리 가족 사주 관계도 | 인연 궁합 · 오행 분석 · 반려동물까지</title>
+<meta name="description" content="가족 생일만 넣으면 누가 누구의 귀인인지, 우리집 서열 1위는 누구인지, 한 장의 가계도로 보여드려요. 각자의 세부 사주도 쉬운 말로 풀이해 드려요.">
 <meta name="theme-color" content="#0E1226">
-<meta property="og:title" content="우리 가족 사주 관계도">
-<meta property="og:description" content="엄마랑 나 상극? 우리집 서열 1위는 강아지? 생일만 넣으면 가계도가 나와요.">
+<meta property="og:title" content="우리 가족 사주 관계도 | 인연 궁합 · 오행 분석">
+<meta property="og:description" content="엄마랑 나 상극? 우리집 서열 1위는 강아지? 생일만 넣으면 인연 가계도가 나와요.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.fundmoney8.com/family">
 <meta property="og:image" content="https://www.fundmoney8.com/family/og.png">
@@ -155,10 +155,17 @@ details.tree[open] summary i{transform:rotate(180deg)}
 #map .node{fill:var(--surface)}
 #map .nm{fill:var(--text);font-size:21px;font-weight:800;stroke:var(--row-a);stroke-width:4;paint-order:stroke}
 #map .e-good{stroke:var(--good)}#map .e-bad{stroke:var(--bad)}#map .e-mid{stroke:var(--mid)}
-/* 달토끼: 보름달 안에서 떡방아 */
-.moonbox{position:relative;aspect-ratio:1;border-radius:50%;flex:none;background:radial-gradient(circle at 38% 36%,#FFE6A3 0,#F2C14E 55%,#D9A332 100%);box-shadow:0 0 60px rgb(242 193 78 / .3)}
-.moonbox svg{position:absolute;left:7%;top:9%;width:86%;height:86%;overflow:visible}
+/* 오행 인연 엠블럼: 목화토금수 5원소 노드 네트워크 */
+.moonbox{position:relative;aspect-ratio:1;border-radius:50%;flex:none;background:radial-gradient(circle at 45% 45%,rgba(37,45,88,.92) 0,rgba(14,18,38,.98) 72%);border:1.5px solid rgba(242,193,78,.35);box-shadow:0 0 35px rgba(242,193,78,.18)}
+.moonbox svg{position:absolute;left:5%;top:5%;width:90%;height:90%;overflow:visible}
 .hero-moon{width:min(44vw,190px);margin:0 -4px -30px auto}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.hero-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);color:#DADDEE;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 10px;font-size:14px;font-weight:700}
+.hero-tag.hi{background:rgba(242,193,78,.16);color:#F2C14E;border-color:rgba(242,193,78,.36)}
+.orbit-rotate{animation:orbit-spin 26s linear infinite}
+.orbit-pulse{animation:orbit-pulse 3.2s ease-in-out infinite}
+@keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes orbit-pulse{0%,100%{filter:drop-shadow(0 0 4px rgba(242,193,78,.4))}50%{filter:drop-shadow(0 0 14px rgba(242,193,78,.85))}}
 .qa-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
 .qa-head .phase{font-size:44px;line-height:1}
 .qa-head b{display:block;font-size:19px}
@@ -179,11 +186,15 @@ details.tree[open] summary i{transform:rotate(180deg)}
 .full p{margin:0 0 14px;font-size:18px;color:#DADDEE}
 .warn{margin:12px 0 0;font-size:17px;color:var(--mute)}
 .roles{display:grid;gap:10px;margin-top:14px}
-.role{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--surface-2)}
+.role{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--surface-2);position:relative}
 .role .av{font-size:40px;line-height:1;flex:none}
 .role b{font-size:20px}
 .role .t{display:block;color:var(--accent-ink);font-weight:800;font-size:19px}
 .role small{color:var(--mute);display:block;font-size:16px;margin-top:4px}
+.role .saju-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 16px;border-radius:999px;border:2px solid var(--accent);background:rgba(242,182,50,.08);color:var(--accent-ink);font-size:16px;font-weight:800;cursor:pointer;transition:all .2s ease}
+.role .saju-btn:hover{background:var(--accent);color:var(--on-accent);transform:scale(1.02)}
+.role .saju-btn:active{transform:scale(.97)}
+.role .saju-btn i{font-size:18px}
 .rank{display:grid;grid-template-columns:36px minmax(0,1fr);gap:4px 10px;align-items:start;padding:12px 0}
 .rank+.rank{border-top:1px solid var(--line)}
 .rank .no{font-weight:800;color:var(--accent-ink);font-size:20px;grid-row:span 2}
@@ -201,11 +212,6 @@ details.tree[open] summary i{transform:rotate(180deg)}
 .kcard .kd{display:block;color:var(--mute);font-size:16px;margin-top:2px}
 .say{display:grid;gap:8px;margin-top:10px;font-size:17px}
 .say b{display:block;color:var(--accent-ink);font-size:16px}
-.sibgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
-.sib{background:var(--surface-2);border-radius:12px;padding:12px 8px;text-align:center;font-size:16px}
-.sib .big{display:block;font-size:34px;line-height:1.2}
-.sib b{display:block;font-size:19px}
-body.kid .fam-only{display:none!important}
 .foot{color:var(--mute);font-size:15px;text-align:center;padding:28px 0}
 .foot a{color:var(--accent-ink)}
 
@@ -213,6 +219,45 @@ body.kid .fam-only{display:none!important}
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
 .dock .in{max-width:560px;margin:0 auto;display:flex;gap:8px}
 .dock .in .btn{flex:1 1 0;min-width:0;padding:6px 10px}
+
+/* 개인 사주 상세 화면 */
+.personal-saju{animation:fadeSlideIn .4s cubic-bezier(.16,1,.3,1) both}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(20px)}}
+.saju-header{background:#0E1226;color:#F1EFE8;border-radius:16px;padding:24px 18px;margin-bottom:14px}
+.saju-header .name-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.saju-header .name-row .av{font-size:48px}
+.saju-header .name-row h2{color:#F1EFE8;font-size:28px;margin:0}
+.saju-header .name-row small{color:#DADDEE;font-size:16px;display:block}
+/* 사주 원국표 */
+.pillar-table{width:100%;border-collapse:separate;border-spacing:4px;margin:14px 0}
+.pillar-table th{font-size:14px;color:#9AA1C4;font-weight:600;padding:4px 0}
+.pillar-table td{text-align:center;padding:12px 6px;border-radius:12px;font-size:20px;font-weight:800;line-height:1.3}
+.pillar-table .stem{background:#222A4C;color:#F2C14E}
+.pillar-table .branch{background:#1D2449;color:#DADDEE}
+.pillar-table .stem-day{background:linear-gradient(135deg,#3D3000,#5A4500);color:#F2C14E;box-shadow:0 0 12px rgba(242,193,78,.25)}
+.pillar-table .branch-day{background:linear-gradient(135deg,#2A2040,#352A58);color:#F1EFE8}
+.pillar-table .elem-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.pillar-label{font-size:13px;color:#9AA1C4;display:block;margin-top:2px;font-weight:400}
+/* 오행 분포 차트 */
+.oh-chart{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0}
+.oh-item{text-align:center;padding:12px 4px;border-radius:12px;background:var(--surface-2);transition:transform .2s}
+.oh-item:hover{transform:translateY(-2px)}
+.oh-item .oh-emoji{font-size:28px;display:block}
+.oh-item .oh-name{font-size:15px;font-weight:700;display:block;margin:4px 0}
+.oh-item .oh-bar-wrap{height:60px;display:flex;align-items:flex-end;justify-content:center}
+.oh-item .oh-bar{width:24px;border-radius:6px 6px 0 0;min-height:4px;transition:height .6s cubic-bezier(.16,1,.3,1)}
+.oh-item .oh-count{font-size:20px;font-weight:800;margin-top:6px;display:block}
+.oh-item.dominant{border:2px solid var(--accent);background:rgba(242,182,50,.08)}
+.oh-item.lacking{border:2px dashed var(--bad);background:var(--bad-bg);opacity:.8}
+/* 해석 카드 */
+.interp-card{padding:16px;border-radius:16px;background:var(--surface-2);margin-top:10px}
+.interp-card h3{margin:0 0 8px;font-size:20px;display:flex;align-items:center;gap:8px}
+.interp-card p{margin:0;font-size:17px;line-height:1.6;color:var(--text)}
+.interp-card .sub{color:var(--mute);font-size:16px;margin-top:6px}
+.year-card{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--line);margin-top:10px}
+.year-card .yr-emoji{font-size:36px;flex:none}
+.year-card b{font-size:19px;display:block}
+.year-card .yr-desc{font-size:16px;color:var(--mute);margin-top:4px}
 
 @media (prefers-reduced-motion:no-preference){
   .pounding .rb-pound{animation:pound .7s cubic-bezier(.5,0,.5,1) infinite}
@@ -226,14 +271,33 @@ body.kid .fam-only{display:none!important}
   dialog[open] .sheet{animation:sheet .3s cubic-bezier(.16,1,.3,1)}
   @keyframes sheet{from{transform:translateY(40px);opacity:.4}}
 }
+/* 글로벌 상단 서비스 탭 */
+.global-nav{background:rgba(14,18,38,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:100;padding:6px 0}
+.global-nav .wrap{display:flex;align-items:center;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.global-nav .wrap::-webkit-scrollbar{display:none}
+.g-tab{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;font-size:15px;font-weight:700;color:#9AA1C4;text-decoration:none;white-space:nowrap;transition:all .15s}
+.g-tab:hover{color:#F1EFE8;background:rgba(255,255,255,.05)}
+.g-tab.active{background:var(--accent);color:var(--on-accent);box-shadow:0 2px 10px rgba(242,182,50,.3)}
 </style>
 </head>
 <body>
+<nav class="global-nav" aria-label="사주 분석 서비스 목록">
+  <div class="wrap">
+    <a href="index.html" class="g-tab active">👨‍👩‍👧 가족 관계도</a>
+    <a href="couple.html" class="g-tab">💑 커플·부부 궁합</a>
+    <a href="kids.html" class="g-tab">👶 아이 기질 & 궁합</a>
+  </div>
+</nav>
 <header class="hero">
   <div class="wrap">
-    <div class="moonbox hero-moon pounding" id="heroMoon" aria-hidden="true"></div>
+    <div class="moonbox hero-moon" id="heroMoon" aria-hidden="true"></div>
+    <div class="hero-tags">
+      <span class="hero-tag hi">🔮 오행 인연 분석</span>
+      <span class="hero-tag">👨‍👩‍👧 가족 관계도</span>
+      <span class="hero-tag">🐾 반려동물 포함</span>
+    </div>
     <h1>우리 가족<br>사주 관계도</h1>
-    <p>생일만 넣으면 누가 귀인이고 누가 앙숙인지, 우리집 서열 1위까지 한 장으로 나와요.</p>
+    <p>생일만 넣으면 누가 귀인이고 누가 앙숙인지, 우리집 서열 1위와 각자의 세부 사주까지 한 장으로 나와요.</p>
     <div class="row">
       <a class="btn primary" href="#build">가족 넣기</a>
       <button class="btn ghost" id="demo" type="button">예시 보기</button>
@@ -259,7 +323,7 @@ body.kid .fam-only{display:none!important}
     <div id="sharedBanner" class="banner reveal hidden" style="margin-bottom:12px">가족이 보낸 관계도예요. 아래에서 본인을 눌러 보세요.</div>
 
     <div class="verdict reveal" style="--i:0">
-      <div class="top"><div class="moonbox" id="verdictMoon" aria-hidden="true"></div><div class="k">달토끼의 한줄 판결</div></div>
+      <div class="top"><div class="moonbox" id="verdictMoon" aria-hidden="true"></div><div class="k">사주로 본 우리 가족 한줄 총평</div></div>
       <div class="v" id="verdict"></div>
       <div class="s" id="verdictSub"></div>
     </div>
@@ -269,42 +333,28 @@ body.kid .fam-only{display:none!important}
       <p class="lead" style="margin:0;text-align:center">받은 가족이 자기 이름을 누르면<br>자기 기준 귀인·앙숙이 나와요</p>
     </div>
 
-    <div class="panel reveal hidden" style="--i:1" id="kidBox" data-clarity-mask="true">
-      <h2>🌱 우리 아이 기질 카드</h2>
-      <p class="lead" style="margin:0">태어난 날의 오행(일간)으로 본 타고난 성향과, 이럴 때 이렇게 말해 주면 좋은 말이에요.</p>
-      <div id="kids"></div>
-      <div id="sibs"></div>
-      <p class="warn">타고난 성향 참고용이고 아이는 자라면서 바뀝니다. 진단이 아니에요. 발달이 걱정되면 소아과나 발달센터에 상담해 보세요.</p>
-    </div>
-
     <div class="panel reveal hidden" style="--i:1" id="inlawBox">
       <h2>🍵 시댁·처가 궁합</h2>
       <div id="inlaw"></div>
     </div>
 
-    <div class="panel reveal fam-only" style="--i:1">
-      <h2>🐰 달토끼에게 물어보세요</h2>
-      <div class="qa-head"><span class="phase" id="qaPhase">🌑</span><div><b id="qaCount"></b><span class="lead" style="margin:0">하나 열 때마다 보름달이 차올라요. 다 채우면 달토끼의 선물이 있어요.</span></div></div>
+    <div class="panel reveal" style="--i:1">
+      <h2>🔮 우리 집 인연 시크릿 Q&A</h2>
+      <div class="qa-head"><span class="phase" id="qaPhase">🌱</span><div><b id="qaCount"></b><span class="lead" style="margin:0">카드를 열 때마다 인연 조각이 맞춰져요. 다 열면 종합 복덩이 카드가 열려요.</span></div></div>
       <div class="qa-list" id="qaList"></div>
       <div id="qaFull"></div>
     </div>
 
     <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-    <div class="panel reveal hidden" style="--i:2" id="pkBox" data-clarity-mask="true">
-      <h2>👨‍👩‍👧 엄마·아빠 × 아이 궁합</h2>
-      <p class="lead" style="margin:0">잘 맞는 점, 부딪히는 순간, 푸는 법을 짝마다 알려 드려요.</p>
-      <div id="pk"></div>
-    </div>
-
-    <div class="panel reveal fam-only" style="--i:2">
+    <div class="panel reveal" style="--i:2">
       <h2 id="headline"></h2>
       <div class="bar" id="bar"></div>
       <div class="legend" id="legend"></div>
       <p id="missing" class="lead" style="margin:10px 0 0"></p>
     </div>
 
-    <div class="panel reveal fam-only" style="--i:3">
+    <div class="panel reveal" style="--i:3">
       <h2>🌕 누구 기준으로 볼까요?</h2>
       <p class="lead">이름을 누르면 그 사람이 가운데로 와요. 그림 속 얼굴을 눌러도 돼요.</p>
       <div class="pchips" id="meChips"></div>
@@ -313,7 +363,7 @@ body.kid .fam-only{display:none!important}
       <div id="mePanel"></div>
     </div>
 
-    <div class="panel reveal fam-only" style="--i:4">
+    <div class="panel reveal" style="--i:4">
       <details class="tree">
         <summary>👨‍👩‍👧 가족 전체 가계도 보기 <i class="ph ph-caret-down"></i></summary>
         <p class="lead" style="margin:8px 0 0">세대별로 모아 본 그림이에요. 얼굴을 누르면 그 사람의 관계선만 보여요.</p>
@@ -324,13 +374,13 @@ body.kid .fam-only{display:none!important}
 
     <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-    <div class="panel reveal fam-only" style="--i:5">
-      <h2>집안 역할</h2>
+    <div class="panel reveal" style="--i:5">
+      <h2>👑 집안 역할 & 세부 사주</h2>
+      <p class="lead" style="margin:0 0 10px">각 가족의 역할이에요. <b>'세부 사주 보기'</b>를 눌러 개인 사주를 확인하세요.</p>
       <div class="roles" id="roles"></div>
     </div>
 
-
-    <div class="panel fam-only">
+    <div class="panel">
       <h2>2027 정미년 가족 운 순위</h2>
       <div id="year"></div>
     </div>
@@ -342,8 +392,21 @@ body.kid .fam-only{display:none!important}
     </div>
 
     <a class="btn ghost wide" id="pairsLink" href="#" style="margin-top:14px">💞 1:1 궁합 전체 보기 <i class="ph ph-arrow-right"></i></a>
-    <a class="btn ghost wide" id="coupleLink" href="?m=c" style="margin-top:10px">💑 커플·부부 궁합만 따로 보기 <i class="ph ph-arrow-right"></i></a>
-    <a class="btn ghost wide" id="kidLink" href="?m=k" style="margin-top:10px">👶 우리 아이 기질 따로 보기 <i class="ph ph-arrow-right"></i></a>
+
+    <div class="panel" style="margin-top:18px;text-align:center">
+      <h2>🔮 다른 사주 분석도 해보세요</h2>
+      <p class="lead" style="margin:0 0 12px">각각 따로 더 깊이 분석해 드려요</p>
+      <a class="btn ghost wide" href="couple.html" style="margin-bottom:10px">💑 커플·부부 궁합 따로 보기 <i class="ph ph-arrow-right"></i></a>
+      <a class="btn ghost wide" href="kids.html">👶 우리 아이 기질 & 부모 궁합 <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- 개인 사주 상세 화면 -->
+  <section id="personalView" class="hidden">
+    <div id="personalContent"></div>
+    <div style="margin-top:18px">
+      <button class="btn primary wide" id="backToResult" type="button"><i class="ph ph-arrow-left"></i>관계도로 돌아가기</button>
+    </div>
   </section>
 
   <!-- ?v=pairs 로 들어왔을 때만 보이는 별도 화면 -->
@@ -354,7 +417,7 @@ body.kid .fam-only{display:none!important}
       <div id="pairs" style="margin-top:8px"></div>
     </div>
     <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-    <a class="btn primary wide" id="backLink" href="#"><i class="ph ph-arrow-left"></i>결과로 돌아가기</a>
+    <a class="btn primary wide" id="backLink" href="#">결과로 돌아가기</a>
   </section>
 
   <p class="foot">재미로 보는 콘텐츠예요. 사주 계산은 한국천문연구원 음력 자료와 절입 시각 기준 만세력(ssaju)으로 하고, 궁합·역할 해석은 놀이용입니다.<br>입력한 생일은 서버로 보내지 않아요. 방문 통계(구글 애널리틱스, MS Clarity)와 광고(구글 애드센스)에 쿠키를 씁니다 · <a href="/privacy">개인정보처리방침</a> · <a href="/">fundmoney8.com</a></p>
@@ -418,9 +481,21 @@ const ST='甲乙丙丁戊己庚辛壬癸', STK='갑을병정무기경신임계',
 const BREL=[4,2,0,0,2,1,1,2,3,3,2,4];
 const ANIMAL=['쥐','소','호랑이','토끼','용','뱀','말','양','원숭이','닭','개','돼지'];
 const PERSONA=[['큰 나무','곧고 고집 있는 리더형. 한번 정하면 절대 안 굽혀요'],['덩굴꽃','유연한데 생활력 최강. 결국 원하는 걸 얻어내요'],['태양','등장만 해도 분위기가 밝아지는 인싸'],['촛불','조용하지만 제일 세심하게 챙기는 사람'],['큰 산','말수는 적어도 묵직한 버팀목'],['논밭','뭐든 품어주는 살림꾼. 실속 1등'],['바위','의리와 결단력. 할 말은 하는 직진형'],['보석','섬세하고 깔끔한 완벽주의. 자존심 강함'],['바다','스케일 큰 자유로운 영혼. 속을 알 수 없음'],['빗물','눈치 빠르고 감성 풍부한 전략가']];
+const PERSONA_LONG=[
+  ['큰 나무 (갑목)','곧게 자라는 큰 나무처럼 주관이 뚜렷하고 리더십이 있어요. 한번 결심하면 꿋꿋이 밀고 나가지만, 너무 고집부리면 혼자 남을 수 있어요. 새로운 도전을 좋아하고 앞에서 이끄는 걸 즐겨요.'],
+  ['덩굴꽃 (을목)','유연하고 적응력이 뛰어난 덩굴처럼, 어떤 환경에서도 생존하는 생활력 최강자예요. 겉으로는 부드럽지만 원하는 건 결국 얻어내는 강인함이 있어요. 사교적이고 인맥이 넓어요.'],
+  ['태양 (병화)','등장만 해도 분위기가 밝아지는 타고난 인싸예요. 열정적이고 에너지가 넘치지만, 가끔 과하게 달아오를 때가 있어요. 솔직하고 숨기지 못하는 성격이에요.'],
+  ['촛불 (정화)','조용하지만 주변을 따뜻하게 비추는 촛불 같아요. 세심하고 배려심이 깊지만, 바람에 흔들리듯 감정 기복이 있을 수 있어요. 예술적 감성이 뛰어나요.'],
+  ['큰 산 (무토)','묵직하고 듬직한 산처럼 안정감 있는 사람이에요. 말수는 적지만 한번 한 약속은 반드시 지켜요. 다른 사람의 이야기를 잘 들어주는 상담가 체질이에요.'],
+  ['논밭 (기토)','뭐든 받아들이고 키워내는 비옥한 땅 같아요. 실속 있고 살림을 잘하며, 주변 사람들을 먹여 살리는 걸 좋아해요. 겉은 느긋해 보여도 속은 꼼꼼해요.'],
+  ['바위 (경금)','단단하고 의리 있는 바위처럼, 할 말은 직설적으로 하는 사람이에요. 결단력이 있고 한번 시작하면 끝을 봐요. 가끔 날카로워질 수 있지만 속은 따뜻해요.'],
+  ['보석 (신금)','섬세하고 깔끔한 보석처럼, 완벽을 추구하는 성향이에요. 자존심이 강하고 품격을 중요하게 여겨요. 예리한 분석력과 정교한 손재주가 있어요.'],
+  ['바다 (임수)','끝이 안 보이는 바다처럼 스케일이 큰 자유로운 영혼이에요. 속을 잘 드러내지 않고, 상상력과 포용력이 넓어요. 한곳에 머물기보다 흘러 다니는 걸 좋아해요.'],
+  ['빗물 (계수)','눈치 빠르고 감성 풍부한 빗물처럼, 세상을 적시며 생명을 키우는 전략가예요. 머리가 좋고 직감이 뛰어나요. 부드러운 말솜씨로 사람의 마음을 얻어요.'],
+];
 const PET_PERSONA=['산책·탐험 좋아하는 호기심 대장','우다다 에너자이저. 새벽 운동회 담당','밥 앞에서 진심인 듬직한 먹보','자기 사람만 아는 츤데레','눈치 100단 애교쟁이'];
 const HUMANS=[['나','🙋'],['엄마','👩'],['아빠','👨'],['배우자','💍'],['할머니','👵'],['할아버지','👴'],['언니/누나','👩‍🦱'],['오빠/형','🧑'],['여동생','👧'],['남동생','👦'],['딸','👧'],['아들','👦'],
-  ['며느리','👩'],['사위','🤵'],['시어머니','👵'],['시아버지','👴'],['장모님','👵'],['장인어른','👴'],['시누이','👩'],['동서','👩'],['아주버님','👨'],['시동생','🧑'],['처형/처제','👩'],['처남','🧑'],['이모','👩'],['고모','👩'],['삼촌','👨'],['사촌','🧑'],['조카','🧒'],['애인','💕'],['기타','🙂']];
+  ['며느리','👩'],['사위','🤵'],['시어머니','👵'],['시아버지','👴'],['장모님','👵'],['장인어른','👴'],['시누이','👩'],['동서','👩'],['아주버님','👨'],['시동생','🧑'],['처형/처제','👩'],['처남','🧑'],['이모','👩'],['고모','👩'],['삼촌','👨'],['사촌','🧑'],['조카','🧒'],['기타','🙂']];
 const PETS=[['강아지','🐶'],['고양이','🐱'],['토끼','🐰'],['햄스터','🐹'],['새','🦜'],['거북이','🐢'],['기타 반려동물','🐾']];
 const MAIN_N=12;
 const INLAW=['시어머니','시아버지','장모님','장인어른','시누이','동서','아주버님','시동생','처형/처제','처남'];
@@ -429,15 +504,7 @@ const HOURS=['자시 00:00~01:29 (새벽)','축시 01:30~03:29','인시 03:30~05
 // 시진 가운데 시각으로 계산해서 경계(30분 보정 여부)에 흔들리지 않게
 const HM=h=>h===12?[23,45]:h===0?[0,45]:[h*2,30];
 const MAX=10;
-// ?m=c 커플·부부 모드: 두 사람만, 저장본은 가족과 따로(fam8c), 판결은 둘 궁합 한 줄 (스레드 상위 글이 전부 1:1 궁합이라 명절 밖 입구로)
-// ?m=k 아이 기질 모드: 부모(나·배우자)+아이(아들·딸)만, 최대 6명, 저장본 fam8k, 아이 이름은 받지 않음(호칭·출생 순서로만 표시)
-const MODE={c:'c',k:'k'}[new URLSearchParams(location.search).get('m')]||'', COUPLE=MODE==='c', KID=MODE==='k';
-const LIM=COUPLE?2:KID?6:MAX, SKEY='fam8'+MODE, MQ=MODE?'?m='+MODE:'';
-const MODE_REL=COUPLE?['나','배우자','애인']:KID?['나','배우자','아들','딸']:null;
-const isKid=m=>m.r==='아들'||m.r==='딸';
-const kidsOf=f=>f.filter(isKid).sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0); // 생일 빠른(나이 많은) 순
-// 결과 보기 조건: 아이 모드는 아이 1명 + 부모 1명 이상, 나머지는 2명 이상
-const ready=f=>KID?f.some(isKid)&&f.some(m=>!isKid(m)):f.length>=2;
+const SKEY='fam8', LIM=MAX;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 // 받침 있으면 a, 없으면 b (이/가, 을/를, 은/는)
@@ -452,9 +519,9 @@ function clean(arr){
   if(!Array.isArray(arr))return [];
   return arr.slice(0,LIM).flatMap(m=>{
     const k=m&&REL_MAP.get(m.r);
-    if(!k||MODE_REL&&!MODE_REL.includes(m.r)||!/^\d{4}-\d{2}-\d{2}$/.test(m.d))return [];
+    if(!k||!/^\d{4}-\d{2}-\d{2}$/.test(m.d))return [];
     const t=m.t==='l'?'l':'s';
-    const c={r:m.r,e:k.e,pet:k.pet,n:KID?'':String(m.n||'').slice(0,8),t,lp:t==='l'&&m.lp?1:0,d:m.d,h:!k.pet&&Number.isInteger(m.h)&&m.h>=0&&m.h<13?m.h:-1,g:m.g==='m'||m.g==='f'?m.g:''};
+    const c={r:m.r,e:k.e,pet:k.pet,n:String(m.n||'').slice(0,8),t,lp:t==='l'&&m.lp?1:0,d:m.d,h:!k.pet&&Number.isInteger(m.h)&&m.h>=0&&m.h<13?m.h:-1,g:m.g==='m'||m.g==='f'?m.g:''};
     try{saju(c)}catch(_){return []}
     return [c];
   });
@@ -472,9 +539,15 @@ function saju(m){
   return {P,ds:P[2][0],db:P[2][1],yb:P[0][1],el:P[2][0]>>1,sd:new Date(Date.UTC(r.solar.year,r.solar.month-1,r.solar.day)),
     str:A.dayStrength?.strength, score:A.dayStrength?.score,
     ys:[...new Set((A.yongsin||[]).map(c=>ST.indexOf(c)>>1).filter(e=>e>=0))],
-    daeun:human?r.daeun?.current:null, se27:r.seyun?.find(v=>v.year===2027)};
+    daeun:human?r.daeun?.current:null, se27:r.seyun?.find(v=>v.year===2027),
+    pillarDetails:pd, keys, advanced:A};
 }
-const STR={strong:'기운이 센 편',neutral:'균형 잡힌 편',weak:'기운이 여린 편'};
+const STR_K={strong:'기운이 센 편 (신강)',neutral:'균형 잡힌 편 (중화)',weak:'기운이 여린 편 (신약)'};
+const STR_DESC={
+  strong:'타고난 기운이 강해서 주관이 뚜렷하고 추진력이 있어요. 다만 고집이 세다는 소리를 들을 수 있어요. 내 기운을 빼주는 (설기하는) 오행이 필요해요.',
+  neutral:'음양의 균형이 잘 맞아서 성격이 안정적이에요. 큰 기복 없이 꾸준한 편이에요.',
+  weak:'타고난 기운이 여려서 다른 사람의 영향을 잘 받아요. 배려심이 깊지만, 내 기운을 도와주는 (생해주는) 오행이 필요해요.',
+};
 function brRel(a,b){
   if(a===b)return 'same';
   if((a+b)%12===1)return 'yuk';
@@ -491,12 +564,12 @@ function pair(a,b){
   if(d===0)why.push([1,`둘 다 ${ea} 기운. 닮아서 편한데 고집 대결은 늘 무승부`]);
   if(d===1){gen=[na,nb];why.push([1.5,`${na}의 ${j(ea,'이','가')} ${nb}의 ${j(eb,'을','를')} 키워줘요. ${j(na,'은','는')} ${nb}의 귀인`]);}
   if(d===4){gen=[nb,na];why.push([1.5,`${nb}의 ${j(eb,'이','가')} ${na}의 ${j(ea,'을','를')} 키워줘요. ${j(nb,'은','는')} ${na}의 귀인`]);}
-  if(d===2)why.push([-1.5,KID?`${na}의 ${j(ea,'이','가')} ${nb}의 ${j(eb,'을','를')} 다듬어요. ${nb}, ${na} 앞에서 말수가 줄 수 있어요`:`${na}의 ${j(ea,'이','가')} ${nb}의 ${j(eb,'을','를')} 눌러요. ${nb}, ${na} 앞에서 은근 작아짐`]);
-  if(d===3)why.push([-1.5,KID?`${nb}의 ${j(eb,'이','가')} ${na}의 ${j(ea,'을','를')} 다듬어요. ${na}, ${nb} 앞에서 말수가 줄 수 있어요`:`${nb}의 ${j(eb,'이','가')} ${na}의 ${j(ea,'을','를')} 눌러요. ${na}, ${nb} 앞에서 은근 작아짐`]);
+  if(d===2)why.push([-1.5,`${na}의 ${j(ea,'이','가')} ${nb}의 ${j(eb,'을','를')} 눌러요. ${nb}, ${na} 앞에서 은근 작아짐`]);
+  if(d===3)why.push([-1.5,`${nb}의 ${j(eb,'이','가')} ${na}의 ${j(ea,'을','를')} 눌러요. ${na}, ${nb} 앞에서 은근 작아짐`]);
   const r=brRel(A.db,B.db), bk=BRK[A.db]+BRK[B.db];
   if(r==='yuk')why.push([2,`일지 육합(${bk}합). 붙어 있으면 편안한 사이`]);
-  if(r==='chung')why.push([-2.5,KID?`일지 충(${bk}충). 생활 리듬이 달라 부딪히기 쉬워요`:`일지 충(${bk}충). 같은 방에 오래 두면 위험 ⚠️`]);
-  if(r==='wonjin')why.push([-1.5,KID?`원진(${bk}). 서운함이 쌓이기 쉬워요. 말로 먼저 풀어 주세요`:`원진(${bk}). 이유 없이 서운하고 섭섭해지는 사이`]);
+  if(r==='chung')why.push([-2.5,`일지 충(${bk}충). 같은 방에 오래 두면 위험 ⚠️`]);
+  if(r==='wonjin')why.push([-1.5,`원진(${bk}). 이유 없이 서운하고 섭섭해지는 사이`]);
   if(r==='sam')why.push([1,`같은 팀 기운(삼합). 편 먹으면 무적`]);
   if(r==='same')why.push([0.5,`일지가 같아요. 생활 패턴이 판박이`]);
   const t=brRel(A.yb,B.yb), tt=`${ANIMAL[A.yb]}띠·${ANIMAL[B.yb]}띠`;
@@ -509,7 +582,7 @@ function pair(a,b){
   else if(sc>=2)lb=['찰떡궁합','🤝','good'];
   else if(sc>=0.5)lb=['무난무난','🙂','mid'];
   else if(sc>-2)lb=['티격태격','⚡','bad'];
-  else lb=KID?['속도 차이','🌗','bad']:['상극','🔥','bad']; // 아이 모드는 '상극'이란 말을 쓰지 않음
+  else lb=['상극','🔥','bad'];
   const txt=why.slice().sort((x,y)=>Math.abs(y[0])-Math.abs(x[0])).slice(0,2).map(w=>w[1]);
   if(a.pet||b.pet)txt.push(lb[2]==='good'?'🐾 전생에 한 가족이었던 게 확실':lb[2]==='bad'?'🐾 서로 간식·소파 자리 뺏는 라이벌':'🐾 적당한 거리의 룸메이트');
   return {a,b,sc,lb,txt,gen,why};
@@ -573,9 +646,6 @@ function domLow(cnt){
   return {dom:ratio.indexOf(Math.max(...ratio)),low:ratio.indexOf(Math.min(...ratio))};
 }
 function verdict(R){
-  if(KID){const b=kidPairs(R).sort((x,y)=>y.p.sc-x.p.sc)[0];
-    return {v:kidsOf(R.fam).map(k=>`${k.name} ${KT[k.s.el][1]} ${KT[k.s.el][0]}`).join('\n'),s:b?`${j(b.P.name,'과','와')} ${j(b.k.name,'은','는')} ${b.p.lb[1]} ${b.p.lb[0]} 사이`:''}}
-  if(COUPLE&&R.pairs.length===1){const p=R.pairs[0];return {v:`${p.a.name}·${p.b.name}\n${p.lb[1]} ${p.lb[0]}`,s:p.txt[0]||''}}
   const top=R.fam.find(m=>m.role[0]==='진짜 서열 1위')||R.fam.find(m=>m.role[0]==='집안 실세');
   const v=top?(top.pet?`이 집 서열 1위는\n${top.name}입니다`:`이 집의 실세는\n${top.name}입니다`):'이 집은\n평화 그 자체입니다';
   const w=R.worst, b=R.best;
@@ -588,21 +658,13 @@ const DOM_S=['다들 자기 주장이 강해서 메뉴 하나 정하는 데 30�
 const LACK=['새로운 도전을 밀어줄 사람이 없어요. 여행 계획은 늘 말로만','분위기 띄울 사람이 없어서 명절이 조용해요','중재자가 없어요. 한번 싸우면 끝까지 가는 집','결단을 못 내려요. 외식 장소 정하다 연휴 끝남','싸우면 아무도 식혀 주지 못하는 집. 물 한 잔씩 돌리세요'];
 
 // ---------- 입력 화면 ----------
-// 아이 모드: 부모는 성별로 엄마·아빠, 아이가 둘 이상이면 생일 순서로 첫째·둘째…
-const ORD=['첫째','둘째','셋째','넷째','다섯째'];
-function baseName(m,fam){
-  if(!KID)return m.n||m.r;
-  if(!isKid(m))return m.g==='f'?'엄마':m.g==='m'?'아빠':m.r;
-  const ks=kidsOf(fam);
-  return ks.length>1?ORD[ks.indexOf(m)]:m.r;
-}
 function dispName(m,fam){
-  const base=baseName(m,fam), same=fam.filter(x=>baseName(x,fam)===base);
+  const base=m.n||m.r, same=fam.filter(x=>(x.n||x.r)===base);
   return same.length>1?base+(same.indexOf(m)+1):base;
 }
 function relBtn([l,e]){const done=family.some(m=>m.r===l);return `<button type="button" class="rel${done?' done':''}" data-r="${l}" data-e="${e}"><span>${e}</span>${l}</button>`}
 function renderRel(){
-  const list=MODE_REL?HUMANS.filter(h=>MODE_REL.includes(h[0])):kind==='h'?HUMANS:PETS, open=$('relArea').querySelector('details')?.open;
+  const list=kind==='h'?HUMANS:PETS, open=$('relArea').querySelector('details')?.open;
   $('relArea').innerHTML=`<div class="relgrid">${list.slice(0,MAIN_N).map(relBtn).join('')}</div>`+
     (list.length>MAIN_N?`<details class="more"${open?' open':''}><summary>+ 시댁·처가·친척 더 보기</summary><div class="relgrid">${list.slice(MAIN_N).map(relBtn).join('')}</div></details>`:'');
 }
@@ -613,7 +675,7 @@ function renderMembers(){
     return `<li class="member"><span class="av">${m.e}</span><button type="button" class="info" data-edit="${i}"><b>${esc(dispName(m,family))}</b><small>${y}.${+mo}.${+d} ${m.g?(m.pet?(m.g==='f'?'암컷, ':'수컷, '):(m.g==='f'?'여, ':'남, ')):''}${m.t==='l'?'음력'+(m.lp?'(윤)':''):'양력'}${m.h>=0?', '+HOURS[m.h].split(' ')[0]+(m.h===0?'(새벽)':m.h===12?'(밤)':''):''}</small></button>
       <button type="button" class="iconbtn" data-edit="${i}" aria-label="수정"><i class="ph ph-pencil-simple"></i></button>
       <button type="button" class="iconbtn" data-del="${i}" aria-label="삭제"><i class="ph ph-trash"></i></button></li>`;
-  }).join(''):`<li class="empty">아직 아무도 없어요. 위에서 ${COUPLE?'나와 상대를 눌러 두 사람 다':KID?'아이와 엄마·아빠를 눌러':'가족을 눌러 2명 이상'} 넣어 주세요.</li>`;
+  }).join(''):`<li class="empty">아직 아무도 없어요. 위에서 가족을 눌러 2명 이상 넣어 주세요.</li>`;
   renderRel();dock();store();
 }
 // 호칭으로 성별을 미리 골라 두고, 나·배우자·사촌처럼 모르는 경우만 직접 고르게
@@ -637,7 +699,7 @@ function openSheet(m,idx){
 }
 $('relArea').onclick=e=>{
   const b=e.target.closest('button[data-r]');if(!b)return;
-  if(family.length>=LIM){alert(COUPLE?'두 사람까지 넣을 수 있어요. 바꾸려면 아래에서 지우고 다시 넣어 주세요':`최대 ${LIM}명까지 넣을 수 있어요`);return}
+  if(family.length>=LIM){alert(`최대 ${LIM}명까지 넣을 수 있어요`);return}
   openSheet({r:b.dataset.r,e:b.dataset.e,pet:kind==='p'?1:0},-1);
 };
 $('members').onclick=e=>{
@@ -656,7 +718,7 @@ $('sheetForm').onsubmit=e=>{
   if(!calculateSaju){err.textContent='달력 계산기를 불러오지 못했어요. 인터넷 연결을 확인하고 새로고침해 주세요';return}
   if(!draft.pet&&!gsel){err.textContent='성별을 골라 주세요';return}
   if(!(y>=1900&&y<=new Date().getFullYear()&&mo>=1&&mo<=12&&d>=1&&d<=31)){err.textContent='생일을 숫자로 정확히 넣어 주세요. 예: 1965 / 3 / 12';return}
-  const m={...draft,n:KID?'':$('nm').value.trim().slice(0,8),t:cal,lp:cal==='l'&&$('leap').checked?1:0,d:`${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`,h:draft.pet?-1:+$('hr').value,g:gsel};
+  const m={...draft,n:$('nm').value.trim().slice(0,8),t:cal,lp:cal==='l'&&$('leap').checked?1:0,d:`${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`,h:draft.pet?-1:+$('hr').value,g:gsel};
   let sj;try{sj=saju(m)}catch(_){err.textContent='없는 날짜예요. 날짜와 음력·윤달 여부를 확인해 주세요';return}
   if(sj.sd>new Date()){err.textContent='미래 날짜는 넣을 수 없어요';return}
   if(editing>=0)family[editing]=m;else family.push(m);
@@ -667,8 +729,11 @@ $('sheetForm').onsubmit=e=>{
 function dock(){
   const d=$('dock');document.body.dataset.view=view;
   if(view==='build'){
-    const ok=ready(family);
-    d.innerHTML=`<button class="btn primary wide" data-act="go" ${ok?'':'disabled'}>${ok?(COUPLE?'궁합 보기':KID?'아이 기질 보기':`관계도 보기 (${family.length}명)`):(COUPLE?'두 사람 다 넣어 주세요':KID?'아이 1명과 엄마·아빠를 넣어 주세요':'가족을 2명 이상 넣어 주세요')}</button>`;
+    const ok=family.length>=2;
+    d.innerHTML=`<button class="btn primary wide" data-act="go" ${ok?'':'disabled'}>${ok?`관계도 보기 (${family.length}명)`:'가족을 2명 이상 넣어 주세요'}</button>`;
+  }else if(view==='personal'){
+    d.innerHTML=`<button class="btn primary" data-act="backResult"><i class="ph ph-arrow-left"></i>관계도</button>
+      <button class="btn ghost" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button>`;
   }else{
     // 공유 링크로 들어온 가족은 자기 집도 해보게, 나머지는 단톡 공유를 주 버튼으로 (공유율이 유입의 핵심)
     d.innerHTML=shared?`<button class="btn primary" data-act="mine"><i class="ph ph-plus"></i>나도 해보기</button>
@@ -677,18 +742,19 @@ function dock(){
       <button class="btn ghost" data-act="save"><i class="ph ph-download-simple"></i>사진 저장</button>`;
   }
 }
-function toBuild(){history.replaceState(null,'',location.pathname+MQ);if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}
+function toBuild(){history.replaceState(null,'',location.pathname);if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('personalView').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}
+function toResult(){view='result';$('personalView').classList.add('hidden');$('result').classList.remove('hidden');dock();scrollTo(0,0)}
 $('result').addEventListener('click',e=>{if(e.target.closest('.share [data-act]'))$('dock').onclick(e)});
 $('dock').onclick=e=>{
   const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
-  ({go:render,save:saveImage,threads:toThreads,share:shareLink,edit:toBuild,
-    mine:()=>{shared=false;family=load();history.replaceState(null,'',location.pathname+MQ);renderMembers();toBuild()}})[b.dataset.act]();
+  ({go:render,save:saveImage,threads:toThreads,share:shareLink,edit:toBuild,backResult:toResult,
+    mine:()=>{shared=false;family=load();history.replaceState(null,'',location.pathname);renderMembers();toBuild()}})[b.dataset.act]();
 };
 
 // ---------- 결과 ----------
 function render(){
   const fam=family.map(m=>({...m}));
-  fam.forEach((m,i)=>{m.name=dispName(family[i],family);m.emo=KID&&!isKid(m)?(m.g==='f'?'👩':'👨'):m.e});
+  fam.forEach((m,i)=>{m.name=dispName(family[i],family);m.emo=m.e});
   let R;
   try{R=analyze(fam)}catch(e){alert('날짜를 계산할 수 없는 가족이 있어요. 음력·윤달 여부를 확인해 주세요.');return}
   last=R;focus=-1;
@@ -705,65 +771,142 @@ function render(){
   $('legend').innerHTML=`<span>${DOM_S[dom]}</span>`;
   $('missing').innerHTML=`${cnt[low]?'가장 약한 기운':'없는 기운'} <b>${ELE[low]} ${EL[low]}</b>: ${LACK[low]}`;
   renderMe();
-  if(KID)renderKid(R);
-  $('roles').innerHTML=R.fam.map(m=>`<div class="role"><div class="av">${m.emo}</div><div>
+  // 역할 + 세부 사주 버튼
+  $('roles').innerHTML=R.fam.map((m,i)=>`<div class="role"><div class="av">${m.emo}</div><div>
     <b>${esc(m.name)}</b><span class="t">${m.role[1]} ${m.role[0]}</span>
     <small>${m.role[2]}. ${m.pet?PET_PERSONA[m.s.el]:PERSONA[m.s.ds][1]}</small>
     <small>${ST[m.s.ds]+BR[m.s.db]} ${STK[m.s.ds]+BRK[m.s.db]}일주, ${ANIMAL[m.s.yb]}띠, ${ELE[m.s.el]} ${PERSONA[m.s.ds][0]}</small>
-    ${m.pet?'':`<small>${STR[m.s.str]||''}${m.s.ys.length?`, 필요한 기운 ${m.s.ys.map(e=>ELE[e]+EL[e]).join(' ')}`:''}${m.s.daeun?`, 지금 대운 ${m.s.daeun.ganzhi}(${m.s.daeun.startAge}~${m.s.daeun.endAge}세)`:''}</small>`}</div></div>`).join('');
+    ${m.pet?'':`<small>${STR_K[m.s.str]||''}${m.s.ys.length?`, 필요한 기운 ${m.s.ys.map(e=>ELE[e]+EL[e]).join(' ')}`:''}${m.s.daeun?`, 지금 대운 ${m.s.daeun.ganzhi}(${m.s.daeun.startAge}~${m.s.daeun.endAge}세)`:''}</small>`}
+    <button type="button" class="saju-btn" data-saju="${i}"><i class="ph ph-magnifying-glass-plus"></i>${m.pet?'반려동물 사주 보기':'세부 사주 보기'}</button>
+    </div></div>`).join('');
   $('year').innerHTML=years.map((y,i)=>`<div class="rank"><span class="no">${i===0?'🏆':i+1}</span><b>${y.m.emo} ${esc(y.m.name)}</b><span class="r"><b>${y.t}</b><br><small>${y.note}</small></span></div>`).join('');
   // 시댁·처가 어른·형제와 나(며느리·사위) 사이만 따로: 스레드 반응 1위 앵글
   const IL=R.pairs.filter(p=>[p.a.r,p.b.r].some(r=>INLAW.includes(r))&&[p.a.r,p.b.r].some(r=>['나','며느리','사위'].includes(r))).slice(0,3);
   $('inlawBox').classList.toggle('hidden',!IL.length);
   $('inlaw').innerHTML=IL.map(p=>`<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${p.txt.map(esc).join('<br>')}<br><b>명절 팁</b> ${INLAW_TIP[p.lb[2]]}</small></div>`).join('');
   $('pairs').innerHTML=R.srt.map(p=>`<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${p.txt.map(esc).join('<br>')}</small></div>`).join('');
-  const link=v=>`${location.pathname}?v=${v}${MODE?'&m='+MODE:''}${shared?'&s=1':''}`;
+  const link=v=>`${location.pathname}?v=${v}${shared?'&s=1':''}`;
   try{sessionStorage.setItem('fam8_view',enc(family))}catch(_){}
   $('pairsLink').href=link('pairs');$('backLink').href=link('me');
-  history.replaceState(null,'',link('me')); // 새로고침·1:1 화면에서 뒤로 와도 결과가 다시 그려지게 (데이터는 sessionStorage)
+  history.replaceState(null,'',link('me'));
   view='result';dock();
-  $('pairsView').classList.add('hidden');
+  $('pairsView').classList.add('hidden');$('personalView').classList.add('hidden');
   $('build').classList.add('hidden');$('result').classList.remove('hidden');
   $('result').querySelectorAll('.reveal').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});
   scrollTo(0,0);
   pushAds();
-  track('family_result',{members:fam.length,pets:fam.filter(m=>m.pet).length,shared:shared?1:0,couple:COUPLE?1:0,mode:MODE||'f'});
+  track('family_result',{members:fam.length,pets:fam.filter(m=>m.pet).length,shared:shared?1:0});
 }
-// ---------- 아이 기질 (일간 오행 5유형). 단정 금지: "~일 수 있어요", 건강·발달·성적·직업 얘기 없음 ----------
-// [유형, 이모지, 한 줄, 칭찬할 때, 혼낼 때, 지쳤을 때]
-const KT=[
-  ['새싹형','🌱','궁금한 게 많고 스스로 해 보려는 아이일 수 있어요','"네가 스스로 해 봤구나!" 결과보다 도전한 과정을 짚어 주세요','"하지 마"보다 "이렇게 해 볼까?" 하고 다른 길을 알려 주세요','밖에서 몸을 움직이면 금방 기운을 찾는 편이에요'],
-  ['햇살형','☀️','표현이 풍부하고 반응해 주면 더 빛나는 아이일 수 있어요','크게 반응해 주고, 가족 앞에서 한 번 더 칭찬해 주세요','다른 사람 앞은 피하고 둘만 있을 때 짧게 말해 주세요','"오늘 제일 재밌던 거 뭐야?" 하고 이야기를 들어 주세요'],
-  ['흙단지형','🏺','느긋하고 자기 속도가 있는, 정이 많은 아이일 수 있어요','"매일 했구나" 꾸준히 해낸 것을 칭찬해 주세요','재촉하지 말고 할 일을 하나씩 순서대로 알려 주세요','익숙한 자리에서 좋아하는 간식과 함께 쉬게 해 주세요'],
-  ['단단형','💎','옳고 그름이 분명하고 약속을 중요하게 여기는 아이일 수 있어요','약속을 지킨 것을 콕 집어 구체적으로 칭찬해 주세요','왜 안 되는지 이유를 차분히 설명해 주세요. 억울함이 풀리면 잘 따라요','혼자 정리할 시간을 주고 조용히 기다려 주세요'],
-  ['물결형','🌊','섬세하고 눈치가 빠르며 생각이 깊은 아이일 수 있어요','"그렇게 생각했구나" 결과보다 마음과 생각을 알아봐 주세요','큰 소리보다 조용히, 마음부터 물어봐 주세요','꼭 안아 주고 말하고 싶을 때까지 기다려 주세요'],
-];
-const GEN_EX=['나무가 불을 살리듯','불이 흙을 데우듯','흙이 쇠를 품듯','쇠가 물을 맑게 하듯','물이 나무를 키우듯'];
-const CTL_EX=['나무가 흙을 뚫고 자라듯','불이 쇠를 단련하듯','흙이 물길을 잡듯','쇠가 나무를 다듬듯','물이 불을 식히듯'];
-function kidPairs(R){return R.pairs.filter(p=>isKid(p.a)!==isKid(p.b)).map(p=>isKid(p.a)?{p,k:p.a,P:p.b}:{p,k:p.b,P:p.a})}
-// 부모 기준 오행 관계 → [비유, 부딪히는 순간, 푸는 법]
-function pkTip(P,k){
-  const d=(k.s.el-P.s.el+5)%5, pe=EL[P.s.el], ke=EL[k.s.el];
-  return [
-    [`${P.name}도 ${k.name}도 ${pe} 기운. 닮아서 잘 통해요`,'둘 다 물러서지 않을 때','"너도 그렇게 생각했구나" 하고 한 번 받아 주면 금방 풀려요'],
-    [`${P.name}의 ${j(pe,'이','가')} ${k.name}의 ${j(ke,'을','를')} 키워 줘요 (${GEN_EX[P.s.el]})`,'다 해 주고 싶어서 먼저 나설 때','한 번은 기다려 주세요. 스스로 해낸 경험이 아이를 키워요'],
-    [`${P.name}의 ${j(pe,'이','가')} ${k.name}의 ${j(ke,'을','를')} 다듬어 주는 사이 (${CTL_EX[P.s.el]})`,'말이 길어지고 세질 때 아이가 움츠러들 수 있어요','짧게 한 번만 말하고, 잘한 것부터 먼저 말해 주세요'],
-    [`${k.name}의 ${j(ke,'이','가')} ${P.name}의 ${j(pe,'을','를')} 다듬는 사이 (${CTL_EX[k.s.el]})`,'아이가 부모 말에 하나하나 따질 때','이기려 하지 말고 "왜 그렇게 생각해?" 하고 이유를 물어봐 주세요'],
-    [`${k.name}의 ${j(ke,'이','가')} 오히려 ${P.name}에게 힘을 줘요 (${GEN_EX[k.s.el]})`,'아이 기분에 부모 기분까지 따라 흔들릴 때','부모 마음부터 챙겨도 괜찮아요. 편안한 부모가 아이를 편하게 해요'],
-  ][d];
+
+// ---------- 개인 사주 상세 화면 ----------
+function showPersonalSaju(idx){
+  const m=last.fam[idx], s=m.s;
+  const cnt=[0,0,0,0,0];
+  s.P.forEach(([st,b])=>{cnt[st>>1]++;cnt[BREL[b]]++});
+  const total=cnt.reduce((a,b)=>a+b,0);
+  const maxCnt=Math.max(...cnt,1);
+  const {dom:pDom,low:pLow}=domLow(cnt);
+  // 사주 원국표
+  const pillarNames=s.keys.map(k=>({year:'년주 (조상·사회)',month:'월주 (부모·직업)',day:'일주 (나·배우자)',hour:'시주 (자녀·노년)'}[k]));
+  const pillarLabels=s.keys.map(k=>({year:'년',month:'월',day:'일',hour:'시'}[k]));
+  let pillarHTML=`<table class="pillar-table"><thead><tr>${pillarLabels.map((l,i)=>`<th>${l}<br><span style="font-size:12px;opacity:.7">${pillarNames[i]}</span></th>`).join('')}</tr></thead><tbody>`;
+  pillarHTML+=`<tr>${s.P.map(([st,_],i)=>`<td class="${i===2?'stem-day':'stem'}"><span class="elem-dot" style="background:${ELC[st>>1]}"></span>${ST[st]}<br><span style="font-size:14px;color:${i===2?'#F2C14E':'#9AA1C4'}">${STK[st]} (${EL[st>>1]})</span></td>`).join('')}</tr>`;
+  pillarHTML+=`<tr>${s.P.map(([_,b],i)=>`<td class="${i===2?'branch-day':'branch'}"><span class="elem-dot" style="background:${ELC[BREL[b]]}"></span>${BR[b]}<br><span style="font-size:14px;color:${i===2?'#C9CDE3':'#9AA1C4'}">${BRK[b]} (${EL[BREL[b]]})</span>${i===0?`<br><span style="font-size:13px;color:#9AA1C4">${ANIMAL[b]}띠</span>`:''}</td>`).join('')}</tr>`;
+  pillarHTML+=`</tbody></table>`;
+  // 오행 분포 차트
+  let ohHTML=`<div class="oh-chart">${cnt.map((c,i)=>{
+    const h=Math.round(c/maxCnt*50)+4;
+    const cls=i===pDom?'oh-item dominant':i===pLow?'oh-item lacking':'oh-item';
+    return `<div class="${cls}"><span class="oh-emoji">${ELE[i]}</span><span class="oh-name">${EL[i]}</span><div class="oh-bar-wrap"><div class="oh-bar" style="height:${h}px;background:${ELC[i]}"></div></div><span class="oh-count">${c}개</span>${i===pDom?'<span style="font-size:13px;color:var(--accent-ink);font-weight:800">가장 강함</span>':i===pLow?'<span style="font-size:13px;color:var(--bad);font-weight:800">가장 약함</span>':''}</div>`}).join('')}</div>`;
+  // 관계도에서의 위치
+  const myPairs=last.pairs.filter(p=>p.a===m||p.b===m).map(p=>({o:p.a===m?p.b:p.a,p})).sort((a,b)=>b.p.sc-a.p.sc);
+  const bestP=myPairs[0], worstP=myPairs[myPairs.length-1];
+  const yearInfo=last.years.find(v=>v.m===m);
+  let html=`<div class="personal-saju">`;
+  // 헤더
+  html+=`<div class="saju-header"><div class="name-row"><span class="av">${m.emo}</span><div><h2>${esc(m.name)}의 사주 풀이</h2><small>${ANIMAL[s.yb]}띠 · ${ELE[s.el]} ${PERSONA[s.ds][0]} · ${ST[s.ds]+BR[s.db]}일주</small></div></div>`;
+  html+=pillarHTML;
+  html+=`<p style="font-size:15px;color:#9AA1C4;margin:8px 0 0">위 표가 ${esc(m.name)}의 사주 원국이에요. '일주'(가운데 굵은 칸)가 나 자신을 나타내요.</p>`;
+  html+=`</div>`;
+  // 일간 성격
+  html+=`<div class="panel"><div class="interp-card" style="background:transparent;padding:0;margin:0">
+    <h3>${ELE[s.el]} ${PERSONA_LONG[s.ds][0]}</h3>
+    <p>${PERSONA_LONG[s.ds][1]}</p>
+    ${!m.pet&&s.str?`<p class="sub" style="margin-top:10px"><b>일간 강약:</b> ${STR_K[s.str]}</p><p class="sub">${STR_DESC[s.str]}</p>`:''}
+  </div></div>`;
+  // 오행 분포
+  html+=`<div class="panel"><h2>${ELE[pDom]} ${esc(m.name)}의 오행 분포</h2>
+    <p class="lead" style="margin:0 0 4px">사주 8글자에 담긴 목·화·토·금·수의 비율이에요.</p>
+    ${ohHTML}
+    <div class="interp-card"><h3>🔍 오행 풀이</h3>
+    <p><b>가장 강한 기운: ${ELE[pDom]} ${EL[pDom]} (${cnt[pDom]}개)</b><br>
+    ${['새로운 도전과 성장의 기운이 넘쳐요. 주도적이고 추진력이 있지만, 가끔 참을성이 필요해요.',
+       '열정과 표현의 기운이 강해요. 분위기 메이커이지만, 에너지를 너무 쓰면 번아웃에 주의하세요.',
+       '안정과 포용의 기운이 넘쳐요. 사람을 모으는 힘이 있지만, 변화가 필요한 순간엔 좀 더 과감해져도 좋아요.',
+       '결단과 원칙의 기운이 강해요. 일 처리가 깔끔하지만, 유연함도 가끔은 필요해요.',
+       '지혜와 감성의 기운이 풍부해요. 눈치가 빠르고 창의적이지만, 결단의 순간엔 머리보다 마음을 믿어 보세요.'][pDom]}</p>
+    <p style="margin-top:8px"><b>가장 약한 기운: ${ELE[pLow]} ${EL[pLow]} (${cnt[pLow]}개)</b><br>
+    ${['도전 정신이 좀 약해요. 새로운 시도를 해보면 삶에 활력이 생겨요.',
+       '표현을 좀 더 적극적으로 해보세요. 마음을 밖으로 드러내면 관계가 더 좋아져요.',
+       '중심을 잡아줄 사람(흙 기운)이 곁에 있으면 든든해요. 저축과 정리를 습관화해 보세요.',
+       '결단력을 보완해 줄 사람이 필요해요. 우유부단할 때 "그냥 해보자" 한마디가 약이에요.',
+       '감성과 여유가 좀 부족해요. 물가에서 산책하거나 음악을 듣는 시간이 약이 돼요.'][pLow]}</p>
+    </div>
+  </div>`;
+  // 용신
+  if(!m.pet&&s.ys.length){
+    const ysList=s.ys.map(e=>`${ELE[e]} ${EL[e]}`).join(', ');
+    const helpers=last.fam.filter(o=>o!==m&&s.ys.includes(o.s.el));
+    html+=`<div class="panel"><div class="interp-card" style="background:transparent;padding:0;margin:0">
+      <h3>💎 나에게 필요한 기운 (용신)</h3>
+      <p><b>${ysList}</b></p>
+      <p class="sub">용신이란 내 사주에서 부족하거나 균형을 맞춰 줄 기운이에요. 이 기운을 가까이하면 운이 잘 풀려요.</p>
+      ${helpers.length?`<p style="margin-top:8px">🤝 우리 가족 중 이 기운을 타고난 사람: <b>${helpers.map(o=>o.emo+' '+esc(o.name)+' ('+ELE[o.s.el]+' '+EL[o.s.el]+')').join(', ')}</b><br>이 사람 옆에 있으면 나에게 보약 같은 효과가 있어요!</p>`:
+      `<p style="margin-top:8px">우리 가족 중에는 이 기운을 가진 사람이 없어요. ${ELE[s.ys[0]]} ${EL[s.ys[0]]} 기운의 물건이나 색깔을 가까이 해보세요.</p>`}
+    </div></div>`;
+  }
+  // 대운
+  if(!m.pet&&s.daeun){
+    html+=`<div class="panel"><div class="interp-card" style="background:transparent;padding:0;margin:0">
+      <h3>🌊 현재 대운</h3>
+      <p><b>${s.daeun.ganzhi}</b> (${s.daeun.startAge}세~${s.daeun.endAge}세)</p>
+      <p class="sub">대운은 10년 단위로 바뀌는 큰 흐름이에요. 지금 이 시기에 들어오는 기운이 삶의 방향에 영향을 줘요.</p>
+    </div></div>`;
+  }
+  // 2027년 운세
+  if(yearInfo){
+    html+=`<div class="panel"><h2>🐴 2027 정미년 운세</h2>
+      <div class="year-card"><span class="yr-emoji">${yearInfo.sc>=2.5?'🏆':yearInfo.sc>=1.5?'✨':'🌿'}</span>
+      <div><b>${yearInfo.t}</b><span class="yr-desc">${yearInfo.note}</span>
+      <p style="font-size:16px;color:var(--text);margin:8px 0 0">${['새 일을 벌이기 좋은 해예요. 그동안 하고 싶었던 걸 시작해 보세요. 재능이 빛나는 시기입니다.',
+        '비슷한 생각을 가진 사람들이 모여들어요. 팀을 이루면 더 큰 힘을 발휘해요.',
+        '공부, 자격증, 계약 등 문서와 관련된 일이 잘 풀려요. 스승이나 귀인을 만날 수 있어요.',
+        '책임감이 커지는 해예요. 승진이나 새 직함이 생길 수 있지만, 부담도 따라와요.',
+        '재물운이 올라가는 해예요. 투자보다는 본업에서의 수익이 안정적이에요.'][['재능 폭발','내 편 증가','귀인·문서운','승진·감투','재물운 상승'].indexOf(yearInfo.t)]||''}</p>
+      </div></div></div>`;
+  }
+  // 가족 내 관계 요약
+  if(myPairs.length){
+    html+=`<div class="panel"><h2>👨‍👩‍👧 가족 속 ${esc(m.name)}의 관계</h2>`;
+    if(bestP)html+=`<div class="interp-card" style="background:var(--good-bg)"><h3>${bestP.p.lb[1]} 최고 궁합: ${bestP.o.emo} ${esc(bestP.o.name)}</h3><p>${bestP.p.lb[0]} — ${bestP.p.txt[0]||''}</p></div>`;
+    if(worstP&&worstP!==bestP)html+=`<div class="interp-card" style="background:var(--bad-bg)"><h3>${worstP.p.lb[1]} 주의 관계: ${worstP.o.emo} ${esc(worstP.o.name)}</h3><p>${worstP.p.lb[0]} — ${worstP.p.txt[0]||''}</p></div>`;
+    html+=`<div style="margin-top:10px" class="rel-list">${myPairs.map(x=>`<span>${x.o.emo} ${esc(x.o.name)} ${x.p.lb[1]}</span>`).join('')}</div>`;
+    html+=`</div>`;
+  }
+  html+=`</div>`;
+  $('personalContent').innerHTML=html;
+  view='personal';
+  $('result').classList.add('hidden');$('personalView').classList.remove('hidden');$('pairsView').classList.add('hidden');
+  dock();scrollTo(0,0);
+  track('personal_saju',{name:m.name,idx});
 }
-const SIB=['닮은꼴이라 같이 놀 땐 찰떡, 장난감 하나엔 양보가 어려울 수 있어요','한 아이가 다른 아이를 챙겨 주는 사이예요','성향이 달라 부딪히기 쉬워요. 각자 자기 자리와 물건을 정해 주세요'];
-function renderKid(R){
-  const ks=kidsOf(R.fam);
-  $('kids').innerHTML=ks.map(k=>{const t=KT[k.s.el];return `<div class="kcard" style="border-left-color:${ELC[k.s.el]}">
-    <span class="kt">${k.emo} ${esc(k.name)}: ${t[1]} ${t[0]}</span><span class="kd">${ELE[k.s.el]} ${EL[k.s.el]} 기운 · ${t[2]}</span>
-    <div class="say"><div><b>칭찬할 때</b>${t[3]}</div><div><b>혼낼 때</b>${t[4]}</div><div><b>지쳤을 때</b>${t[5]}</div></div></div>`}).join('');
-  const sp=R.pairs.filter(p=>isKid(p.a)&&isKid(p.b));
-  $('sibs').innerHTML=ks.length<2?'':`<h2 style="margin-top:22px">👧👦 형제자매 나란히 보기</h2><div class="sibgrid">${ks.map(k=>`<div class="sib"><span class="big">${KT[k.s.el][1]}</span><b>${esc(k.name)}</b>${KT[k.s.el][0]}</div>`).join('')}</div>`+
-    sp.map(p=>{const d=(p.b.s.el-p.a.s.el+5)%5;return `<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${esc(p.a.name)} × ${esc(p.b.name)}</b><small>${SIB[d===0?0:d===1||d===4?1:2]}</small></div>`}).join('');
-  $('pk').innerHTML=kidPairs(R).map(({p,P,k})=>{const [a,b,c]=pkTip(P,k);return `<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${P.emo} ${esc(P.name)} × ${k.emo} ${esc(k.name)}</b>
-    <small>${esc(a)}</small><small><b>부딪히는 순간</b> ${esc(b)}</small><small><b>푸는 법</b> ${esc(c)}</small></div>`}).join('');
-}
+// 역할 카드의 세부 사주 버튼
+$('roles').addEventListener('click',e=>{
+  const b=e.target.closest('[data-saju]');
+  if(b)showPersonalSaju(+b.dataset.saju);
+});
+$('backToResult').onclick=toResult;
+
 // 숨겨진 칸에 요청하면 크기 0 오류가 나서, 화면에 보이는 칸만 한 번씩
 function pushAds(){
   document.querySelectorAll('main ins.adsbygoogle:not([data-pushed])').forEach(el=>{
@@ -786,7 +929,6 @@ function renderMe(){
 }
 $('meChips').onclick=e=>{const b=e.target.closest('[data-me]');if(!b)return;me=+b.dataset.me;renderMe();track('family_me')};
 // ---------- 한 사람 중심 관계 그림 ----------
-// 기준 인물은 맨 위, 나머지는 사이 좋은 순으로 아래에 한 줄 cols명씩. 선은 첫 줄에만(아래 줄로 가는 선이 윗사람을 관통해서 헷갈림). 원형보다 폭을 덜 먹어서 좁은 폰에서도 글씨가 큼
 const EG={top:62,rc:44,r:32,row0:206,rowH:150,colW:120};
 const EGC={good:['#5EDBA0','#143A2C'],bad:['#FF8484','#45202A'],mid:['#9AA1C4','#252C4F']};
 function egoLayout(fam,pairs,ci,cols=3){
@@ -817,27 +959,27 @@ function drawEgo(){
   $('ego').innerHTML=s;
 }
 $('ego').addEventListener('click',e=>{const g=e.target.closest('g[data-i]');if(!g)return;me=+g.dataset.i;renderMe();track('family_me_tap')});
-// ---------- 달토끼 ----------
-const RABBIT='<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
- '<g class="rb-body"><circle cx="44" cy="150" r="10" fill="#fff"/><ellipse cx="74" cy="142" rx="33" ry="36" fill="#fff"/>'+
- '<ellipse cx="62" cy="178" rx="14" ry="7" fill="#EFE8DC"/><ellipse cx="92" cy="178" rx="14" ry="7" fill="#EFE8DC"/>'+
- '<ellipse cx="62" cy="48" rx="10" ry="30" fill="#fff" transform="rotate(-14 62 48)"/><ellipse cx="62" cy="51" rx="5" ry="20" fill="#F7B8C4" transform="rotate(-14 62 51)"/>'+
- '<ellipse cx="88" cy="46" rx="10" ry="30" fill="#fff" transform="rotate(12 88 46)"/><ellipse cx="88" cy="49" rx="5" ry="20" fill="#F7B8C4" transform="rotate(12 88 49)"/>'+
- '<circle cx="78" cy="96" r="28" fill="#fff"/><circle cx="69" cy="93" r="3.8" fill="#2A2F55"/><circle cx="89" cy="93" r="3.8" fill="#2A2F55"/>'+
- '<circle cx="70.2" cy="91.8" r="1.2" fill="#fff"/><circle cx="90.2" cy="91.8" r="1.2" fill="#fff"/>'+
- '<ellipse cx="61" cy="103" rx="5" ry="3.4" fill="#F7B8C4"/><ellipse cx="97" cy="103" rx="5" ry="3.4" fill="#F7B8C4"/>'+
- '<ellipse cx="79" cy="100" rx="2.6" ry="2" fill="#E88A9C"/><path d="M75 103 q4 4 8 0" stroke="#2A2F55" stroke-width="2" fill="none" stroke-linecap="round"/></g>'+
- '<path d="M122 150 H184 L175 188 H131 Z" fill="#9A6440"/><ellipse cx="153" cy="150" rx="31" ry="8" fill="#6E4128"/>'+
- '<ellipse cx="153" cy="148" rx="22" ry="7" fill="#fff"/><circle cx="143" cy="145" r="3" fill="#B8E0B0"/><circle cx="160" cy="144" r="3" fill="#F7B8C4"/>'+
- '<g class="rb-pound"><rect x="147" y="58" width="12" height="86" rx="6" fill="#C98A58"/><ellipse cx="153" cy="139" rx="11" ry="7" fill="#A86C41"/>'+
- '<path d="M97 128 Q124 112 145 104" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none"/><circle cx="147" cy="104" r="8.5" fill="#fff"/></g></svg>';
-const RABBIT_IMG=new Image();RABBIT_IMG.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(RABBIT);
-['heroMoon','verdictMoon'].forEach(id=>$(id).innerHTML=RABBIT);
+// ---------- 오행 인연 엠블럼 ----------
+const EMBLEM='<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
+ '<defs><radialGradient id="egCore" cx="40%" cy="40%" r="60%"><stop offset="0%" stop-color="#FFEBB3"/><stop offset="60%" stop-color="#F2C14E"/><stop offset="100%" stop-color="#C28716"/></radialGradient></defs>'+
+ '<g class="orbit-rotate" style="transform-origin:100px 100px">'+
+ '<circle cx="100" cy="100" r="68" fill="none" stroke="rgba(242,193,78,0.22)" stroke-width="1.5" stroke-dasharray="4 5"/>'+
+ '<polygon points="100,32 165,79 140,155 60,155 35,79" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>'+
+ '<g transform="translate(100,32)"><circle r="13" fill="#5EDBA0"/><circle r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><text y="4" font-size="11" font-weight="800" text-anchor="middle" fill="#0E2E1D">木</text></g>'+
+ '<g transform="translate(165,79)"><circle r="13" fill="#FF8484"/><circle r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><text y="4" font-size="11" font-weight="800" text-anchor="middle" fill="#3D1212">火</text></g>'+
+ '<g transform="translate(140,155)"><circle r="13" fill="#F2C14E"/><circle r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><text y="4" font-size="11" font-weight="800" text-anchor="middle" fill="#2E1D00">土</text></g>'+
+ '<g transform="translate(60,155)"><circle r="13" fill="#E2E6F5"/><circle r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><text y="4" font-size="11" font-weight="800" text-anchor="middle" fill="#1C2138">金</text></g>'+
+ '<g transform="translate(35,79)"><circle r="13" fill="#5EB7DB"/><circle r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><text y="4" font-size="11" font-weight="800" text-anchor="middle" fill="#0D2533">水</text></g></g>'+
+ '<g class="orbit-pulse" style="transform-origin:100px 100px">'+
+ '<circle cx="100" cy="100" r="26" fill="url(#egCore)"/>'+
+ '<circle cx="100" cy="100" r="21" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>'+
+ '<text x="100" y="106" font-size="17" font-weight="900" text-anchor="middle" fill="#1A1200" letter-spacing="-0.5">緣</text></g></svg>';
+const EMBLEM_IMG=new Image();EMBLEM_IMG.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(EMBLEM);
+['heroMoon','verdictMoon'].forEach(id=>$(id).innerHTML=EMBLEM);
 
-// ---------- 달토끼 질문 카드 ----------
-// 답은 사주로 정해져서 같은 가족이면 늘 같은 답. 한 사람이 다 차지하지 않게 이미 뽑힌 사람은 살짝 불리하게
+// ---------- 인연 시크릿 질문 카드 ----------
 const elCount=(m,e)=>m.s.P.reduce((s,[st,b])=>s+((st>>1)===e)+(BREL[b]===e),0);
-const PH=['🌑','🌒','🌓','🌔','🌕'];
+const PH=['🌱','🌿','🌸','✨','🔮'];
 function buildQA(R,I){
   const {fam,M}=R, H=fam.filter(m=>!m.pet), idx=m=>fam.indexOf(m), used=new Map();
   const pick=(cands,score)=>{
@@ -859,31 +1001,31 @@ function buildQA(R,I){
       const o=pick(c,m=>(gen(I,m)?3:0)+M[idx(I)][idx(m)]);if(!o)return;
       return [o,gen(I,o)?`${I.name}의 기운이 ${j(o.name,'을','를')} 키워주는 관계라, 드릴수록 복이 돌아와요`:'나이도 궁합도 이분이 1순위예요']}
     const o=pick(H,m=>m.genIn);return o&&[o,'다들 이 사람을 챙겨 주는 사주예요. 봉투가 몰려요']});
-  add('🍳','전 부치기 담당은?','전 부치기',()=>{const o=pick(H,m=>elCount(m,1)*2+elCount(m,0));if(!o)return;const n=elCount(o,1);
-    return [o,n?`불 기운이 ${n}개나 있어요. 불 앞이 적성이에요`:'불씨를 살리는 나무 기운이 제일 많아요']});
-  add('🧽','설거지 당번은?','설거지',()=>{const o=pick(H,m=>elCount(m,4));return o&&[o,elCount(o,4)?`물 기운이 ${elCount(o,4)}개. 물과 친한 운명이에요`:'물 기운이 없는 집이라 제일 덜 바쁜 사람이 당첨']});
-  add('🚗','귀경길 운전대 잡을 사람은?','운전 담당',()=>{const o=pick(H.filter(m=>age(m)>=20),m=>elCount(m,3));return o&&[o,`쇠 기운이 ${elCount(o,3)}개. 쇳덩이(자동차)와 궁합이 좋아요`]});
+  add('🍳','가족 모임 요리·맛집 담당은?','요리 담당',()=>{const o=pick(H,m=>elCount(m,1)*2+elCount(m,0));if(!o)return;const n=elCount(o,1);
+    return [o,n?`불 기운이 ${n}개나 있어요. 맛과 요리가 적성이에요`:'불씨를 살리는 나무 기운이 제일 많아요']});
+  add('🧽','설거지·정리 당번은?','설거지',()=>{const o=pick(H,m=>elCount(m,4));return o&&[o,elCount(o,4)?`물 기운이 ${elCount(o,4)}개. 물과 친한 운명이에요`:'물 기운이 없는 집이라 제일 덜 바쁜 사람이 당첨']});
+  add('🚗','가족 여행 운전대 잡을 사람은?','운전 담당',()=>{const o=pick(H.filter(m=>age(m)>=20),m=>elCount(m,3));return o&&[o,`쇠 기운이 ${elCount(o,3)}개. 쇳덩이(자동차)와 궁합이 좋아요`]});
   add('🗣️','오늘 잔소리 제일 많이 할 사람은?','잔소리 대장',()=>{const o=pick(H,m=>m.ctlOut*2+m.clash);return o&&[o,o.ctlOut?`가족 ${o.ctlOut}명의 기운을 누르는 사주예요. 오늘은 한마디만 참아 주세요`:'말 한마디가 제일 센 사주예요']});
   add('😴','밥 먹고 제일 먼저 드러누울 사람은?','낮잠 1등',()=>{const o=pick(fam,m=>elCount(m,2)+(m.pet?1:0));return o&&[o,`흙 기운이 ${elCount(o,2)}개. 바닥과 한 몸이 되는 사주예요`]});
   add('📸','단톡방에 사진 제일 많이 올릴 사람은?','사진 담당',()=>{const o=pick(H,m=>elCount(m,0)+elCount(m,1)*.5);return o&&[o,'쑥쑥 뻗어 나가는 나무 기운이 커서 보여 주고 싶은 게 많아요']});
   const pet=fam.find(m=>m.pet);
   if(pet&&H.length)add(pet.e,`${j(pet.name,'이','가')} 제일 좋아하는 사람은?`,pet.name+' 최애',()=>{const o=pick(H,m=>M[idx(pet)][idx(m)]);const p=R.pairs.find(p=>(p.a===o&&p.b===pet)||(p.a===pet&&p.b===o));
     return [o,`${j(pet.name,'과','와')} ${p.lb[0]} 사이예요. 간식은 이분이 주세요`]});
-  add('🌕','보름달 소원이 제일 먼저 이뤄질 사람은?','소원 1등',()=>{const y=R.years[0];used.set(y.m,(used.get(y.m)||0)+1);return [y.m,`2027년 ${y.t}. ${y.note}`]});
+  add('✨','올해 소원이 제일 먼저 이뤄질 사람은?','소원 1등',()=>{const y=R.years[0];used.set(y.m,(used.get(y.m)||0)+1);return [y.m,`2027년 ${y.t}. ${y.note}`]});
   return Q;
 }
 let opened=new Set(), spinning=false;
 function renderQA(){
   const Q=last.qa, n=opened.size;
-  $('qaPhase').textContent=PH[Math.round(n/Q.length*4)];
-  $('qaCount').textContent=`보름달 ${n}/${Q.length}`;
+  $('qaPhase').textContent=PH[Math.round(n/Q.length*4)]||'🔮';
+  $('qaCount').textContent=`인연 조각 ${n}/${Q.length}`;
   $('qaList').innerHTML=Q.map((q,i)=>opened.has(i)
     ?`<div class="qa done"><span class="qe">${q.m.emo}</span><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans">${esc(q.m.name)}</span><small>${esc(q.why)}</small></span></div>`
     :`<button type="button" class="qa" data-q="${i}"><span class="qe">${q.e}</span><span>${esc(q.q)}</span><span class="go">열기</span></button>`).join('');
   if(n===Q.length){
     const {best:b,years}=last;
-    $('qaFull').innerHTML=`<div class="full reveal"><div class="moonbox pounding">${RABBIT}</div><b>🌕 보름달이 꽉 찼어요!</b>
-      <p>달토끼가 빚은 송편 한 줄: ${esc(b.a.name)}·${esc(j(b.b.name,'은','는'))} 올해도 서로의 복덩이. 2027년엔 ${esc(years[0].m.name)}의 '${years[0].t}' 기운이 온 가족에게 번져요.</p>
+    $('qaFull').innerHTML=`<div class="full reveal"><div class="moonbox mm" style="margin:0 auto 14px;width:120px">${EMBLEM}</div><b>🔮 우리 집 인연 조각이 모두 맞춰졌어요!</b>
+      <p>가족 인연 종합 분석: ${esc(b.a.name)}·${esc(j(b.b.name,'은','는'))} 올해도 서로의 든든한 복덩이. 서로를 감싸줄수록 집안 운이 활짝 피어납니다.</p>
       <button class="btn primary wide" type="button" data-act="save"><i class="ph ph-download-simple"></i>이 결과 사진으로 저장</button></div>`;
     track('family_q_all');
   }else $('qaFull').innerHTML='';
@@ -892,7 +1034,7 @@ $('qaList').onclick=e=>{
   const b=e.target.closest('button[data-q]');if(!b||spinning)return;
   const i=+b.dataset.q, q=last.qa[i], fam=last.fam;
   spinning=true;b.classList.add('spin');
-  b.innerHTML=`<div class="moonbox mm pounding">${RABBIT}</div><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans" id="roll">두구두구</span></span>`;
+  b.innerHTML=`<div class="moonbox mm" style="width:48px">${EMBLEM}</div><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans" id="roll">인연 분석 중…</span></span>`;
   const fast=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let k=0;const t=setInterval(()=>{const m=fam[k++%fam.length];$('roll').textContent=m.emo+' '+m.name},110);
   setTimeout(()=>{clearInterval(t);opened.add(i);spinning=false;renderQA();track('family_q',{q:q.short})},fast?250:1600);
@@ -900,7 +1042,6 @@ $('qaList').onclick=e=>{
 $('qaFull').addEventListener('click',e=>{if(e.target.closest('[data-act=save]'))saveImage()});
 
 // ---------- 가계도 ----------
-// 세대별 가로줄(BW 폭 좌표계). 좁은 폰에서도 글자가 크게 보이도록 폭을 좁히고 한 줄 최대 3명
 const GEN={할머니:-2,할아버지:-2,엄마:-1,아빠:-1,시어머니:-1,시아버지:-1,장모님:-1,장인어른:-1,이모:-1,고모:-1,삼촌:-1,딸:1,아들:1,며느리:1,사위:1,조카:1};
 const GEN_LABEL={'-2':'조부모','-1':'부모','0':'우리','1':'자녀','9':'반려'};
 const BW=330, ROW_H=128, TOP=58, PER_ROW=3, R0=31;
@@ -918,13 +1059,11 @@ function tree(fam){
   });
   return {pos,rows,h:y-ROW_H+TOP+10};
 }
-// 같은 줄끼리·여러 줄 건너는 선은 크게 휘어서 중간 사람을 피해 감
 function curve(p,q,k){
   const dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy)||1,b=(Math.abs(dy)<1?.32:Math.abs(dy)>ROW_H*1.5?.28:.12)*d*(k%2?1:-1);
   const c=[(p[0]+q[0])/2-dy/d*b,(p[1]+q[1])/2+dx/d*b];
   return {c,mid:[(p[0]+2*c[0]+q[0])/4,(p[1]+2*c[1]+q[1])/4]};
 }
-// 6명 넘으면 선이 엉키니 최고 5개·최악 4개만 (사람을 누르면 그 사람 선 전부)
 function keyPairs(pairs,n){
   if(n<=6)return new Set(pairs.filter(p=>p.lb[2]!=='mid'));
   const s=pairs.slice().sort((a,b)=>b.sc-a.sc);
@@ -956,7 +1095,7 @@ $('map').addEventListener('click',e=>{
   focus=focus===i?-1:i; drawMap();
 });
 
-// ---------- 결과 이미지 (1080x1350, 모드와 무관하게 밤 테마) ----------
+// ---------- 결과 이미지 ----------
 function wrap(ctx,t,x,y,maxW,lh){
   for(const para of t.split('\n')){
     let line='';
@@ -965,41 +1104,14 @@ function wrap(ctx,t,x,y,maxW,lh){
   }
   return y;
 }
-// 아이 모드 사진: 아이 기질 카드(최대 3장) + 부모×아이 궁합 줄
-function makeKidImage(){
-  const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;
-  const x=c.getContext('2d'),F='Pretendard,system-ui,sans-serif';
-  const rr=(a,b,w,h,r)=>{x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h);x.fill()};
-  x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
-  x.fillStyle='#F2C14E';x.font=`800 40px ${F}`;x.fillText('우리 아이 기질 & 부모 궁합',70,100);
-  const ks=kidsOf(last.fam), show=ks.slice(0,3), n=show.length, adv=n===1?3:1;
-  const pk=kidPairs(last).sort((a,b)=>b.p.sc-a.p.sc).slice(0,n===1?4:3);
-  let y=140;const bottom=H-pk.length*54-150, gap=24, ch=(bottom-y-gap*(n-1))/n;
-  show.forEach(k=>{const t=KT[k.s.el];
-    x.fillStyle='#171C36';rr(70,y,W-140,ch,24);x.fillStyle=ELC[k.s.el];rr(70,y,12,ch,6);
-    x.save();x.beginPath();x.rect(70,y,W-140,ch);x.clip();
-    x.fillStyle='#F1EFE8';x.font=`800 ${n===1?56:46}px ${F}`;let yy=y+(n===1?90:72);x.fillText(`${k.emo} ${k.name}  ${t[1]} ${t[0]}`,110,yy);
-    x.fillStyle='#C9CDE3';x.font=`500 ${n===1?32:28}px ${F}`;yy=wrap(x,t[2],110,yy+(n===1?60:50),W-260,n===1?46:40);
-    [['칭찬할 때',t[3]],['혼낼 때',t[4]],['지쳤을 때',t[5]]].slice(0,adv).forEach(([h,v])=>{
-      x.fillStyle='#F2C14E';x.font=`800 28px ${F}`;x.fillText(h,110,yy+24);
-      x.fillStyle='#F1EFE8';x.font=`500 30px ${F}`;yy=wrap(x,v,110,yy+68,W-260,42)});
-    x.restore();y+=ch+gap});
-  y=bottom+50;
-  const line=(t,yy,color)=>{let f=32;do{x.font=`700 ${f}px ${F}`}while(x.measureText(t).width>W-140&&--f>20);x.fillStyle=color;x.fillText(t,70,yy)};
-  pk.forEach(({p,P,k},i)=>line(`${P.emo} ${P.name} × ${k.emo} ${k.name}   ${p.lb[1]} ${p.lb[0]}`,y+i*54,p.lb[2]==='good'?'#5EDBA0':p.lb[2]==='bad'?'#F2C14E':'#C9CDE3'));
-  x.fillStyle='#A6ACCA';x.font=`500 24px ${F}`;
-  x.fillText(`타고난 성향 참고용이에요. 아이는 자라면서 바뀌어요.${ks.length>3?`  (아이 ${ks.length-3}명 더는 사이트에서)`:''}`,70,H-86);
-  x.font=`500 26px ${F}`;x.fillText('fundmoney8.com/fk   생일로 보는 우리 아이 기질',70,H-44);
-  return c;
-}
 function makeImage(){
-  if(KID)return makeKidImage();
   const {fam,pairs,best:b,worst:w}=last, W=1080,H=1350, c=document.createElement('canvas');
   c.width=W;c.height=H;const x=c.getContext('2d'), F='Pretendard,system-ui,sans-serif';
   x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
-  const g=x.createRadialGradient(W-170,110,10,W-150,120,130);g.addColorStop(0,'#FFE6A3');g.addColorStop(.6,'#F2C14E');g.addColorStop(1,'#D9A332');
-  x.fillStyle=g;x.beginPath();x.arc(W-150,120,110,0,7);x.fill();
-  if(RABBIT_IMG.complete)x.drawImage(RABBIT_IMG,W-150-95,120-92,190,190);
+  const g=x.createRadialGradient(W-150,120,10,W-150,120,100);g.addColorStop(0,'rgba(37,45,88,.9)');g.addColorStop(1,'rgba(14,18,38,.98)');
+  x.fillStyle=g;x.beginPath();x.arc(W-150,120,95,0,7);x.fill();
+  x.strokeStyle='rgba(242,193,78,.35)';x.lineWidth=2;x.stroke();
+  if(EMBLEM_IMG.complete)x.drawImage(EMBLEM_IMG,W-150-80,120-80,160,160);
   x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('우리 가족 사주 관계도',70,110);
   x.fillStyle='#F1EFE8';x.font=`800 64px ${F}`;
   let y=wrap(x,verdict(last).v,70,196,W-300,78);
@@ -1007,7 +1119,7 @@ function makeImage(){
   if(w.lb[2]==='bad')L.push([`${w.lb[1]} 우리집 앙숙  ${w.a.name} × ${w.b.name} (${w.lb[0]})`,'#FF8484']);
   [...opened].slice(0,2).forEach(i=>{const q=last.qa[i];L.push([`${q.e} ${q.short}  ${q.m.name}`,'#F2C14E'])});
   const {c:ctr,E,W:EW,H:EH,cx}=egoLayout(fam,pairs,me,4);
-  x.fillStyle='#F2C14E';x.font=`700 32px ${F}`;x.fillText(`🌕 ${ctr.name} 기준으로 본 우리 가족`,70,y+10);
+  x.fillStyle='#F2C14E';x.font=`700 32px ${F}`;x.fillText(`🔮 ${ctr.name} 기준으로 본 우리 가족`,70,y+10);
   const top=y+30, sc=Math.min(940/EW,(H-120-L.length*56-top)/EH), ox=(W-EW*sc)/2;
   x.save();x.translate(ox,top);x.scale(sc,sc);x.lineCap='round';
   const rr=(a,b,w,h,r)=>{x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h);x.fill()};
@@ -1035,8 +1147,8 @@ async function saveImage(){
   try{await document.fonts.ready}catch(_){}
   const c=makeImage();
   track('family_save');
-  const url=c.toDataURL('image/png'), fn=KID?'우리아이_기질카드.png':'우리가족_사주관계도.png';
-  if(!matchMedia('(pointer:coarse)').matches){ // PC: 공유 창 대신 바로 파일로
+  const url=c.toDataURL('image/png'), fn='우리가족_사주관계도.png';
+  if(!matchMedia('(pointer:coarse)').matches){
     const a=document.createElement('a');a.href=url;a.download=fn;document.body.appendChild(a);a.click();a.remove();return;
   }
   c.toBlob(blob=>{imgFile=new File([blob],fn,{type:'image/png'});
@@ -1050,36 +1162,26 @@ function showPairs(){
   $('result').classList.add('hidden');$('pairsView').classList.remove('hidden');scrollTo(0,0);pushAds();track('family_pairs');
 }
 $('pairsLink').addEventListener('click',()=>track('family_pairs_click'));
-// 돌아갈 때는 뒤로 가기(질문 카드 연 상태 유지), 바로 들어온 경우만 링크로 이동
 $('backLink').onclick=e=>{if(history.length>1&&document.referrer.includes(location.host)){e.preventDefault();history.back()}};
 function summary(){
   const {best:b,worst:w}=last, V=verdict(last).v.replace('\n',' ');
-  if(KID)return `우리 아이 기질 봤더니 "${verdict(last).v.replace(/\n/g,', ')}" 나옴. 칭찬할 때·혼낼 때 이렇게 말해 주라고 알려줘서 캡처함. 여러분 아이는 뭐 나왔어요?`;
   const q=[...opened].map(i=>last.qa[i])[0];
-  if(q)return `달토끼한테 물어봤더니 우리집 ${q.short}은 ${q.m.name}래ㅋㅋ "${V}" 이것도 소름… 여러분 집은?`;
+  if(q)return `우리 집 사주 인연 카드 열어봤더니 ${q.short}은 ${q.m.name}래ㅋㅋ "${V}" 이것도 소름… 여러분 집은?`;
   return `우리집 사주 관계도 뽑아봤는데 "${V}" 나옴ㅋㅋ ${b.a.name}×${b.b.name} ${b.lb[0]}`+(w.lb[2]==='bad'?`, ${w.a.name}×${w.b.name} ${w.lb[0]}`:'')+' 여러분 집은?';
 }
-function toThreads(){track('family_threads');window.open('https://www.threads.net/intent/post?text='+encodeURIComponent(summary()+'\nhttps://www.fundmoney8.com/family'+MQ),'_blank')}
+function toThreads(){track('family_threads');window.open('https://www.threads.net/intent/post?text='+encodeURIComponent(summary()+'\nhttps://www.fundmoney8.com/family'),'_blank')}
 async function shareLink(){
-  const url=location.origin+location.pathname+MQ+'#d='+enc(family);
+  const url=location.origin+location.pathname+'#d='+enc(family);
   track('family_share');
-  const text=KID?`우리 아이 기질 카드 나왔어: "${verdict(last).v.replace(/\n/g,', ')}" 눌러서 엄마·아빠 궁합도 봐봐!`:COUPLE?`우리 둘 사주 궁합 나왔어: "${verdict(last).v.replace('\n',' ')}" 눌러서 이유 봐봐!`:`우리 가족 사주 관계도 나왔어요. "${verdict(last).v.replace('\n',' ')}" 본인 이름을 누르면 내 귀인·앙숙도 나와요!`;
-  if(navigator.share){try{await navigator.share({title:KID?'우리 아이 기질 & 부모 궁합':'우리 가족 사주 관계도',text,url});return}catch(e){if(e.name==='AbortError')return}}
+  const text=`우리 가족 사주 관계도 나왔어요. "${verdict(last).v.replace('\n',' ')}" 본인 이름을 누르면 내 귀인·앙숙도 나와요!`;
+  if(navigator.share){try{await navigator.share({title:'우리 가족 사주 관계도',text,url});return}catch(e){if(e.name==='AbortError')return}}
   try{await navigator.clipboard.writeText(url);alert('링크를 복사했어요. 가족 단톡방에 붙여넣기 하세요! 링크에 생일이 들어가니 가족끼리만 공유하세요.')}catch(_){prompt('이 링크를 복사하세요',url)}
 }
 const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const dec=s=>JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/')))));
 
 $('demo').onclick=()=>{
-  family=KID?[
-    {r:'나',n:'',t:'s',lp:0,d:'1989-04-17',h:-1,pet:0,g:'f',e:'🙋'},
-    {r:'배우자',n:'',t:'s',lp:0,d:'1987-10-02',h:-1,pet:0,g:'m',e:'💍'},
-    {r:'딸',n:'',t:'s',lp:0,d:'2018-03-09',h:-1,pet:0,g:'f',e:'👧'},
-    {r:'아들',n:'',t:'s',lp:0,d:'2021-08-25',h:-1,pet:0,g:'m',e:'👦'},
-  ]:COUPLE?[
-    {r:'나',n:'',t:'s',lp:0,d:'1994-05-21',h:-1,pet:0,g:'f',e:'🙋'},
-    {r:'애인',n:'',t:'s',lp:0,d:'1992-11-03',h:-1,pet:0,g:'m',e:'💕'},
-  ]:[
+  family=[
     {r:'엄마',n:'',t:'l',lp:0,d:'1966-09-03',h:-1,pet:0,g:'f',e:'👩'},
     {r:'아빠',n:'',t:'s',lp:0,d:'1963-12-14',h:-1,pet:0,g:'m',e:'👨'},
     {r:'나',n:'',t:'s',lp:0,d:'1994-05-21',h:-1,pet:0,g:'f',e:'🙋'},
@@ -1088,49 +1190,14 @@ $('demo').onclick=()=>{
   ];shared=false;demo=true;renderMembers();render();track('family_demo');
 };
 
-if(COUPLE){
-  document.title='커플·부부 사주 궁합 | 생일만 넣으면 천생연분·상극까지';
-  document.querySelector('.hero h1').innerHTML='커플·부부<br>사주 궁합';
-  document.querySelector('.hero p').textContent='두 사람 생일만 넣으면 천생연분인지 티격태격인지, 그 이유까지 바로 나와요.';
-  document.querySelector('.hero .btn.primary').textContent='둘이 넣기';
-  document.querySelector('.mini').lastChild.textContent='커플·부부 사주 궁합';
-  $('build').querySelector('h2').textContent='누구랑 볼까요?';
-  $('build').querySelector('.lead').textContent='나를 먼저 넣고, 배우자나 애인을 넣어요.';
-  $('kindSeg').classList.add('hidden');
-  $('build').querySelectorAll('h2')[1].firstChild.textContent='우리 둘 ';
-  $('shareTop').lastChild.textContent='상대에게 보내기';
-  $('shareTop').nextElementSibling.textContent='받은 사람도 궁합 이유를 바로 볼 수 있어요';
-  $('coupleLink').classList.add('hidden');$('pairsLink').classList.add('hidden'); // 짝이 하나뿐이라 1:1 전체 화면은 의미 없음
-}
-if(KID){
-  document.body.classList.add('kid');
-  document.title='우리 아이 기질 & 부모 궁합 | 아이 기질 테스트 · 부모 자식 궁합 (사주 오행)';
-  document.querySelector('.hero h1').innerHTML='우리 아이 기질<br>& 부모 궁합';
-  document.querySelector('.hero p').textContent='아이 생일만 넣으면 어떤 기질인지, 칭찬할 때·혼낼 때 어떻게 말하면 좋은지, 엄마·아빠와는 어떻게 맞는지 한 장으로 나와요. (사주 오행 기준)';
-  document.querySelector('.hero .btn.primary').textContent='아이랑 넣기';
-  document.querySelector('.mini').lastChild.textContent='우리 아이 기질 & 부모 궁합';
-  $('build').querySelector('h2').textContent='누구를 넣을까요?';
-  $('build').querySelector('.lead').textContent='나(엄마·아빠)와 배우자, 아이를 넣어요. 아이 이름은 받지 않아요.';
-  $('kindSeg').classList.add('hidden');
-  $('nm').closest('.field').classList.add('hidden'); // 아이 이름 대신 호칭·출생 순서로만
-  $('shareTop').lastChild.textContent='가족에게 보내기';
-  $('shareTop').nextElementSibling.textContent='받은 가족도 아이 기질 카드와 궁합을 바로 볼 수 있어요';
-  $('sharedBanner').textContent='가족이 보낸 우리 아이 기질 카드예요. 아래에서 궁합까지 볼 수 있어요.';
-  ['kidBox','pkBox'].forEach(id=>$(id).classList.remove('hidden'));
-  $('coupleLink').classList.add('hidden');$('kidLink').classList.add('hidden');$('pairsLink').classList.add('hidden');
-}
-if(COUPLE)$('kidLink').classList.add('hidden');
-$('coupleLink').addEventListener('click',()=>track('family_couple_click'));
-$('kidLink').addEventListener('click',()=>track('family_kid_click'));
 family=load();
 renderMembers();
 const qs=new URLSearchParams(location.search);
 const ss=k=>{try{const v=sessionStorage.getItem(k);if(k==='fam8_in')sessionStorage.removeItem(k);return v}catch(_){return null}};
 const incoming=ss('fam8_in'), hm=incoming||(qs.get('v')?ss('fam8_view'):null);
 if(hm){let f=[];try{f=clean(dec(hm))}catch(_){}
-  // ?v= 로 온 건 내 결과 화면 사이 이동(저장본 덮어쓰지 않음), s=1이면 가족이 보낸 링크
-  if(ready(f)){family=f;if(qs.get('v')&&qs.get('s')!=='1')demo=true;else shared=true;renderMembers();render();if(qs.get('v')==='pairs')showPairs()}
-  else history.replaceState(null,'',location.pathname+MQ);}
+  if(f.length>=2){family=f;if(qs.get('v')&&qs.get('s')!=='1')demo=true;else shared=true;renderMembers();render();if(qs.get('v')==='pairs')showPairs()}
+  else history.replaceState(null,'',location.pathname);}
 </script>
 </body>
 </html>
