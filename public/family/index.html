@@ -900,7 +900,7 @@ function showPersonalSaju(idx){
   view='personal';
   $('result').classList.add('hidden');$('personalView').classList.remove('hidden');$('pairsView').classList.add('hidden');
   dock();scrollTo(0,0);
-  track('personal_saju',{name:m.name,idx});
+  track('personal_saju',{idx});
 }
 // 역할 카드의 세부 사주 버튼
 $('roles').addEventListener('click',e=>{
@@ -1039,7 +1039,7 @@ $('qaList').onclick=e=>{
   b.innerHTML=`<div class="moonbox mm" style="width:48px">${EMBLEM}</div><span><span class="q">${q.e} ${esc(q.q)}</span><span class="ans" id="roll">인연 분석 중…</span></span>`;
   const fast=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let k=0;const t=setInterval(()=>{const m=fam[k++%fam.length];$('roll').textContent=m.emo+' '+m.name},110);
-  setTimeout(()=>{clearInterval(t);opened.add(i);spinning=false;renderQA();track('family_q',{q:q.short})},fast?250:1600);
+  setTimeout(()=>{clearInterval(t);opened.add(i);spinning=false;renderQA();track('family_q',{q:q.short.endsWith(' 최애')?'pet_fav':q.short})},fast?250:1600);
 };
 $('qaFull').addEventListener('click',e=>{if(e.target.closest('[data-act=save]'))saveImage()});
 

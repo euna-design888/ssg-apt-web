@@ -399,6 +399,7 @@ function footer(x,W,H,cta,url){
 function makeImage(){
   const {fam,p,pct}=last, W=1080,H=1350, c=document.createElement('canvas');
   c.width=W;c.height=H;const x=c.getContext('2d'), tone=TONE[p.lb[2]], type=coupleType(fam,p);
+  if(!x.roundRect)x.roundRect=x.rect; // iOS 15 이하: 둥근 모서리 대신 사각형
   x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
   x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('💑 커플·부부 사주 궁합',70,100);
   x.fillStyle='#F2C14E';fit(x,type,800,68,W-140);x.fillText(type,70,190);
