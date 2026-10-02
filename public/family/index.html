@@ -393,13 +393,13 @@ details.tree[open] summary i{transform:rotate(180deg)}
       <button class="btn ghost wide hidden" data-act="mine" type="button" id="mineBtn"><i class="ph ph-plus"></i>우리 가족도 해보기</button>
     </div>
 
-    <a class="btn ghost wide" id="pairsLink" href="#" style="margin-top:14px">💞 1:1 궁합 전체 보기 <i class="ph ph-arrow-right"></i></a>
+    <a class="btn ghost wide" id="pairsLink" href="#" style="margin-top:14px">💞 1:1 궁합 다 보기 <i class="ph ph-arrow-right"></i></a>
 
     <div class="panel" style="margin-top:18px;text-align:center">
       <h2>🔮 다른 사주 분석도 해보세요</h2>
       <p class="lead" style="margin:0 0 12px">각각 따로 더 깊이 분석해 드려요</p>
-      <a class="btn ghost wide" href="/family/couple.html" style="margin-bottom:10px">💑 커플·부부 궁합 따로 보기 <i class="ph ph-arrow-right"></i></a>
-      <a class="btn ghost wide" href="/family/kids.html">👶 우리 아이 기질 & 부모 궁합 <i class="ph ph-arrow-right"></i></a>
+      <a class="btn ghost wide" href="/family/couple.html" style="margin-bottom:10px">💑 커플 궁합 보기 <i class="ph ph-arrow-right"></i></a>
+      <a class="btn ghost wide" href="/family/kids.html">👶 우리 아이 기질 보기 <i class="ph ph-arrow-right"></i></a>
     </div>
   </section>
 
@@ -732,7 +732,7 @@ function dock(){
   const d=$('dock');document.body.dataset.view=view;
   if(view==='build'){
     const ok=family.length>=2;
-    d.innerHTML=`<button class="btn primary wide" data-act="go" ${ok?'':'disabled'}>${ok?`관계도 보기 (${family.length}명)`:'가족을 2명 이상 넣어 주세요'}</button>`;
+    d.innerHTML=`<button class="btn primary wide" data-act="go" ${ok?'':'disabled'}>${ok?`관계도 보기 (${family.length}명)`:'2명 넣으면 열려요'}</button>`;
   }else if(view==='personal'){
     d.innerHTML=`<button class="btn primary" data-act="backResult"><i class="ph ph-arrow-left"></i>관계도</button>
       <button class="btn ghost" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button>`;
