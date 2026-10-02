@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
       { source: "/fk", destination: "/family?m=k&utm_source=threads&utm_campaign=kid", permanent: false },
       // 네이버 블로그 글 전용
       { source: "/fb", destination: "/family?utm_source=naver_blog&utm_campaign=chuseok", permanent: false },
+      // 축제 가는 법 스레드 고정댓글 (e = event): 진주남강유등축제 / 횡성한우축제
+      { source: "/ej", destination: "/festival/jinju-lantern.html?utm_source=threads&utm_campaign=festival_jinju", permanent: false },
+      { source: "/eh", destination: "/festival/hoengseong-hanwoo.html?utm_source=threads&utm_campaign=festival_hoengseong", permanent: false },
     ];
   },
 };
