@@ -211,7 +211,7 @@ const ORD=['첫째','둘째','셋째','넷째'];
 
 let family=[], gsel='', cal='s', editing=-1, draft=null, view='build', demo=false;
 const SKEY='fam8k', LIM=6;
-const load=()=>{try{const a=JSON.parse(localStorage.getItem(SKEY)||'[]');return Array.isArray(a)?a.slice(0,LIM):[]}catch(_){return []}};
+const load=()=>{try{const a=JSON.parse(localStorage.getItem(SKEY)||'[]');return Array.isArray(a)?a.filter(m=>m&&/^\d{4}-\d\d-\d\d$/.test(m.d)).slice(0,LIM):[]}catch(_){return []}};
 const store=()=>{if(!demo)try{localStorage.setItem(SKEY,JSON.stringify(family))}catch(_){}};
 
 function saju(m){
@@ -311,7 +311,8 @@ $('sheetForm').onsubmit=e=>{
   if(!gsel){err.textContent='성별을 골라 주세요';return}
   if(!(y>=1900&&y<=new Date().getFullYear()&&mo>=1&&mo<=12&&d>=1&&d<=31)){err.textContent='생일을 정확히 넣어 주세요';return}
   const m={...draft,n:'',t:cal,lp:cal==='l'&&$('leap').checked?1:0,d:`${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`,h:+$('hr').value,g:gsel};
-  try{saju(m)}catch(_){err.textContent='없는 날짜예요. 확인해 주세요';return}
+  let sj;try{sj=saju(m)}catch(_){err.textContent='없는 날짜예요. 확인해 주세요';return}
+  if(sj.sd>new Date()){err.textContent='미래 날짜는 넣을 수 없어요';return}
   if(editing>=0)family[editing]=m;else family.push(m);$('sheet').close();renderMembers();
 };
 
@@ -322,7 +323,7 @@ function dock(){
   else d.innerHTML=`<button class="btn primary" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button><button class="btn ghost" data-act="edit"><i class="ph ph-pencil-simple"></i>다시</button>`;
 }
 $('dock').onclick=e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
-  ({go:render,share:shareLink,threads:toThreads,save:saveImage,edit:()=>{view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock()}})[b.dataset.act]?.()};
+  ({go:render,share:shareLink,threads:toThreads,save:saveImage,edit:()=>{if(demo){demo=false;family=load();renderMembers()}view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock()}})[b.dataset.act]?.()};
 $('result').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b)$('dock').onclick(e)});
 
 function render(){
