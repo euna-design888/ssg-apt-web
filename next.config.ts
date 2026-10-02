@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/family", destination: "/family/index.html" },
       { source: "/airport", destination: "/airport/index.html" },
+      { source: "/festival", destination: "/festival/index.html" },
       { source: "/privacy", destination: "/privacy/index.html" },
     ];
   },
