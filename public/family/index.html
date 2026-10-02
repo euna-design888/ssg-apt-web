@@ -19,7 +19,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
 <script>/* 공유 링크의 생일 데이터가 GA·Clarity 기록에 남지 않게, 추적 스크립트보다 먼저 주소에서 떼어 냄 */
-try{if(location.hash.startsWith('#d=')){sessionStorage.setItem('fam8_in',location.hash.slice(3));history.replaceState(null,'',location.pathname+location.search)}}catch(_){}</script>
+try{if(location.hash.startsWith('#d=')){sessionStorage.setItem('fam8_in',location.hash.slice(3));history.replaceState(null,'',location.pathname+location.search)}}catch(_){}
+/* 옛 모드 주소(/fc → ?m=c, /fk → ?m=k)는 10/1에 분리된 페이지로 보냄. UTM은 그대로 */
+(()=>{const q=new URLSearchParams(location.search),p={c:'couple',k:'kids'}[q.get('m')];if(p){q.delete('m');location.replace('/family/'+p+'.html'+(q+''?'?'+q:''))}})();</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
 <!-- Microsoft Clarity (히트맵·세션 녹화, 입력칸은 기본 마스킹) 프로젝트 fundmoney8_수익사이트 -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ymu291xjgo");</script>
@@ -283,9 +285,9 @@ details.tree[open] summary i{transform:rotate(180deg)}
 <body>
 <nav class="global-nav" aria-label="사주 분석 서비스 목록">
   <div class="wrap">
-    <a href="index.html" class="g-tab active">👨‍👩‍👧 가족 관계도</a>
-    <a href="couple.html" class="g-tab">💑 커플·부부 궁합</a>
-    <a href="kids.html" class="g-tab">👶 아이 기질 & 궁합</a>
+    <a href="/family" class="g-tab active">👨‍👩‍👧 가족 관계도</a>
+    <a href="/family/couple.html" class="g-tab">💑 커플·부부 궁합</a>
+    <a href="/family/kids.html" class="g-tab">👶 아이 기질 & 궁합</a>
   </div>
 </nav>
 <header class="hero">
@@ -396,8 +398,8 @@ details.tree[open] summary i{transform:rotate(180deg)}
     <div class="panel" style="margin-top:18px;text-align:center">
       <h2>🔮 다른 사주 분석도 해보세요</h2>
       <p class="lead" style="margin:0 0 12px">각각 따로 더 깊이 분석해 드려요</p>
-      <a class="btn ghost wide" href="couple.html" style="margin-bottom:10px">💑 커플·부부 궁합 따로 보기 <i class="ph ph-arrow-right"></i></a>
-      <a class="btn ghost wide" href="kids.html">👶 우리 아이 기질 & 부모 궁합 <i class="ph ph-arrow-right"></i></a>
+      <a class="btn ghost wide" href="/family/couple.html" style="margin-bottom:10px">💑 커플·부부 궁합 따로 보기 <i class="ph ph-arrow-right"></i></a>
+      <a class="btn ghost wide" href="/family/kids.html">👶 우리 아이 기질 & 부모 궁합 <i class="ph ph-arrow-right"></i></a>
     </div>
   </section>
 
@@ -1112,9 +1114,10 @@ function makeImage(){
   x.fillStyle=g;x.beginPath();x.arc(W-150,120,95,0,7);x.fill();
   x.strokeStyle='rgba(242,193,78,.35)';x.lineWidth=2;x.stroke();
   if(EMBLEM_IMG.complete)x.drawImage(EMBLEM_IMG,W-150-80,120-80,160,160);
-  x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('우리 가족 사주 관계도',70,110);
-  x.fillStyle='#F1EFE8';x.font=`800 64px ${F}`;
-  let y=wrap(x,verdict(last).v,70,196,W-300,78);
+  x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('우리 가족 사주 관계도',70,100);
+  x.fillStyle='#F2C14E';fit(x,famType(last),800,58,W-300,F);x.fillText(famType(last),70,178);
+  x.fillStyle='#F1EFE8';x.font=`800 52px ${F}`;
+  let y=wrap(x,verdict(last).v,70,256,W-300,64);
   const L=[[`${b.lb[1]} 최고 궁합  ${b.a.name} × ${b.b.name} (${b.lb[0]})`,'#5EDBA0']];
   if(w.lb[2]==='bad')L.push([`${w.lb[1]} 우리집 앙숙  ${w.a.name} × ${w.b.name} (${w.lb[0]})`,'#FF8484']);
   [...opened].slice(0,2).forEach(i=>{const q=last.qa[i];L.push([`${q.e} ${q.short}  ${q.m.name}`,'#F2C14E'])});
@@ -1140,8 +1143,22 @@ function makeImage(){
   y=top+EH*sc+40;
   const line=(t,yy,color)=>{let f=34;do{x.font=`700 ${f}px ${F}`}while(x.measureText(t).width>W-140&&--f>20);x.fillStyle=color;x.fillText(t,70,yy)};
   L.forEach(([t,col],i)=>line(t,y+i*56,col));
-  x.fillStyle='#A6ACCA';x.font=`500 26px ${F}`;x.fillText('fundmoney8.com/family   재미로 보는 가족 사주',70,H-50);
+  footer(x,W,H,'👨‍👩‍👧 우리 가족도 해보기','fundmoney8.com/f',F);
   return c;
+}
+// 결과 그림용: 글자 폭이 넘치면 글씨를 줄임(최소 60%)
+function fit(x,t,wt,size,maxW,F){let f=size;do{x.font=`${wt} ${f}px ${F}`}while(x.measureText(t).width>maxW&&--f>size*.6)}
+// 그림 맨 아래 공유 루프 띠: 한 줄 권유 + 짧은 주소
+function footer(x,W,H,cta,url,F){
+  x.fillStyle='#1B2142';x.fillRect(0,H-100,W,100);x.fillStyle='#F2C14E';x.fillRect(0,H-100,W,4);
+  x.textAlign='left';x.fillStyle='#F1EFE8';x.font=`700 34px ${F}`;x.fillText(cta,60,H-38);
+  x.textAlign='right';x.fillStyle='#F2C14E';x.font=`800 40px ${F}`;x.fillText(url,W-60,H-36);x.textAlign='left';
+}
+// 가족 유형 이름: 가장 센 오행 + 관계 분위기로 정함(같은 입력 = 같은 이름)
+const TYPE_EL=['쑥쑥 나무','활활 불꽃','든든 흙','단단 쇠','촉촉 물'];
+function famType(R){
+  const mood=R.worst.lb[2]==='bad'?'밀당':R.best.lb[2]==='good'?'찰떡':'평화';
+  return `${TYPE_EL[R.dom]} ${mood} 가족`;
 }
 async function saveImage(){
   try{await document.fonts.ready}catch(_){}

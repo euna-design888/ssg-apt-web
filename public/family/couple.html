@@ -167,7 +167,8 @@ input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}inpu
     </div>
 
     <div class="share" style="margin-top:18px;display:grid;gap:10px">
-      <button class="btn primary wide" data-act="share" type="button"><i class="ph ph-paper-plane-tilt"></i>상대에게 보내기</button>
+      <button class="btn primary wide" data-act="save" type="button"><i class="ph ph-download-simple"></i>결과 사진으로 저장</button>
+      <button class="btn ghost wide" data-act="share" type="button"><i class="ph ph-paper-plane-tilt"></i>상대에게 보내기</button>
       <button class="btn ghost wide" data-act="threads" type="button"><i class="ph ph-threads-logo"></i>스레드에 올리기</button>
       <button class="btn ghost wide" data-act="edit" type="button"><i class="ph ph-pencil-simple"></i>다시 넣기</button>
     </div>
@@ -199,6 +200,19 @@ input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}inpu
     <div class="err" id="err" role="alert"></div>
     <div class="actions"><button class="btn ghost" type="button" id="cancel">취소</button><button class="btn primary" type="submit" id="saveMember">추가</button></div>
   </form>
+</dialog>
+
+<dialog id="imgDlg">
+  <div class="sheet">
+    <h3>사진 저장</h3>
+    <p class="lead" style="margin:4px 0 12px">사진을 <b>손가락으로 길게 눌러</b> '이미지 저장'을 누르거나, 아래 버튼을 누르세요.</p>
+    <img id="imgOut" alt="커플 사주 궁합 결과 사진" style="display:block;width:100%;border-radius:12px">
+    <div class="actions" style="margin-top:14px">
+      <button class="btn ghost" type="button" id="imgClose">닫기</button>
+      <a class="btn primary" id="imgDown">파일로 받기</a>
+    </div>
+    <button class="btn ghost wide hidden" type="button" id="imgShare" style="margin-top:10px"><i class="ph ph-paper-plane-tilt"></i>카톡 등으로 보내기</button>
+  </div>
 </dialog>
 
 <script type="module">
@@ -323,7 +337,7 @@ function dock(){
   else d.innerHTML=`<button class="btn primary" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button><button class="btn ghost" data-act="edit"><i class="ph ph-pencil-simple"></i>다시</button>`;
 }
 $('dock').onclick=e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
-  ({go:render,share:shareLink,threads:toThreads,edit:()=>{view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}})[b.dataset.act]?.()};
+  ({go:render,share:shareLink,threads:toThreads,save:saveImage,edit:()=>{view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock();$('build').scrollIntoView()}})[b.dataset.act]?.()};
 $('result').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b)$('dock').onclick(e)});
 
 function personCard(m,id){
@@ -352,6 +366,7 @@ function render(){
     <span class="vs-x">×</span>
     <div class="vs-person"><span class="av">${fam[1].emo}</span><b>${esc(fam[1].name)}</b><small>${ELE[fam[1].s.el]} ${PERSONA[fam[1].s.ds][0]}</small></div>`;
   const pct=Math.round(Math.min(100,Math.max(0,(p.sc+5)/10*100)));
+  last={fam,p,pct};
   $('scoreBar').innerHTML=`<div class="pin" style="left:${pct}%">${pct}</div>`;
   $('scoreTxt').textContent=pct>=70?'사주로 보면 아주 잘 맞는 사이예요!':pct>=40?'무난한 궁합이에요. 서로 노력하면 더 좋아져요.':'부딪히는 부분이 있어요. 서로 다름을 인정하는 게 핵심이에요.';
   $('reasons').innerHTML=p.why.sort((a,b)=>Math.abs(b[0])-Math.abs(a[0])).map(w=>`<div class="reason">
@@ -364,6 +379,62 @@ function render(){
   document.querySelectorAll('ins.adsbygoogle:not([data-pushed])').forEach(el=>{if(!el.offsetWidth)return;el.dataset.pushed=1;try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(_){}});
   track('couple_result');
 }
+
+// ---------- 결과 사진(canvas로 직접 그림, 광고 안 섞임) ----------
+let last=null, imgFile=null;
+const F='Pretendard,system-ui,sans-serif', TONE={good:'#5EDBA0',mid:'#F2C14E',bad:'#FF8484'};
+const NICK={천생연분:'천생연분',찰떡궁합:'찰떡',무난무난:'포근',티격태격:'밀당',상극:'불꽃 케미'};
+// 커플 유형 이름: 두 사람 오행 + 궁합 등급(같은 입력 = 같은 이름, 순서 바꿔도 같음)
+function coupleType(fam,p){
+  const [a,b]=[fam[0].s.el,fam[1].s.el].sort();
+  return `${a===b?EL[a]+' 쌍둥이':EL[a]+'·'+EL[b]} ${NICK[p.lb[0]]} 커플`;
+}
+function fit(x,t,wt,size,maxW){let f=size;do{x.font=`${wt} ${f}px ${F}`}while(x.measureText(t).width>maxW&&--f>size*.6)}
+function wrap(x,t,X,y,maxW,lh){let line='';for(const ch of t){if(x.measureText(line+ch).width>maxW){x.fillText(line,X,y);y+=lh;line=ch}else line+=ch}x.fillText(line,X,y);return y+lh}
+function footer(x,W,H,cta,url){
+  x.fillStyle='#1B2142';x.fillRect(0,H-100,W,100);x.fillStyle='#F2C14E';x.fillRect(0,H-100,W,4);
+  x.textAlign='left';x.fillStyle='#F1EFE8';x.font=`700 34px ${F}`;x.fillText(cta,60,H-38);
+  x.textAlign='right';x.fillStyle='#F2C14E';x.font=`800 40px ${F}`;x.fillText(url,W-60,H-36);x.textAlign='left';
+}
+function makeImage(){
+  const {fam,p,pct}=last, W=1080,H=1350, c=document.createElement('canvas');
+  c.width=W;c.height=H;const x=c.getContext('2d'), tone=TONE[p.lb[2]], type=coupleType(fam,p);
+  x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
+  x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('💑 커플·부부 사주 궁합',70,100);
+  x.fillStyle='#F2C14E';fit(x,type,800,68,W-140);x.fillText(type,70,190);
+  x.fillStyle='#F1EFE8';const nm=`${fam[0].name} × ${fam[1].name}`;fit(x,nm,800,48,W-140);x.fillText(nm,70,268);
+  x.fillStyle=tone;x.font=`800 44px ${F}`;x.fillText(`${p.lb[1]} ${p.lb[0]}  ·  궁합 ${pct}점`,70,342);
+  x.fillStyle='#252B4D';x.beginPath();x.roundRect(70,372,W-140,22,11);x.fill();
+  x.fillStyle=tone;x.beginPath();x.roundRect(70,372,Math.max(22,(W-140)*pct/100),22,11);x.fill();
+  fam.forEach((m,i)=>{const X=70+i*480,cw=460;
+    x.fillStyle='#171C36';x.beginPath();x.roundRect(X,440,cw,330,24);x.fill();
+    x.fillStyle=ELC[m.s.el];x.fillRect(X,440,8,330);
+    x.textAlign='center';x.font=`72px ${F}`;x.fillText(m.emo,X+cw/2,535);
+    x.fillStyle='#F1EFE8';fit(x,m.name,800,38,cw-40);x.fillText(m.name,X+cw/2,600);
+    x.fillStyle=ELC[m.s.el];x.font=`800 34px ${F}`;x.fillText(`${ELE[m.s.el]} ${PERSONA[m.s.ds][0]}`,X+cw/2,656);
+    x.fillStyle='#C9CDE3';fit(x,PERSONA[m.s.ds][1],600,28,cw-40);x.fillText(PERSONA[m.s.ds][1],X+cw/2,712);
+    x.textAlign='left'});
+  x.fillStyle='#F2C14E';x.font=`700 32px ${F}`;x.fillText('🔍 이런 궁합이에요',70,846);
+  let y=906;
+  p.why.slice(0,3).forEach(w=>{if(y>H-290)return;x.fillStyle=w[4]==='pos'?TONE.good:w[4]==='neg'?TONE.bad:TONE.mid;
+    const t=`${w[1]} · ${w[2]}`;fit(x,t,800,36,W-140);x.fillText(t,70,y);y+=50;
+    x.fillStyle='#C9CDE3';x.font=`500 27px ${F}`;y=wrap(x,w[3],70,y,W-140,38)+18});
+  footer(x,W,H,'💑 우리 둘도 해보기','fundmoney8.com/fc');
+  return c;
+}
+async function saveImage(){
+  if(!last)return;
+  try{await document.fonts.ready}catch(_){}
+  const c=makeImage();track('couple_save');
+  const url=c.toDataURL('image/png'), fn='커플_사주궁합.png';
+  if(!matchMedia('(pointer:coarse)').matches){const a=document.createElement('a');a.href=url;a.download=fn;document.body.appendChild(a);a.click();a.remove();return}
+  c.toBlob(blob=>{imgFile=new File([blob],fn,{type:'image/png'});
+    $('imgShare').classList.toggle('hidden',!(navigator.canShare&&navigator.canShare({files:[imgFile]})))},'image/png');
+  $('imgOut').src=url;$('imgDown').href=url;$('imgDown').download=fn;$('imgDlg').showModal();
+}
+$('imgClose').onclick=()=>$('imgDlg').close();
+$('imgDlg').addEventListener('click',e=>{if(e.target===$('imgDlg'))$('imgDlg').close()});
+$('imgShare').onclick=async()=>{try{await navigator.share({files:[imgFile]})}catch(_){}};
 
 function toThreads(){
   const a=family[0],b=family[1];

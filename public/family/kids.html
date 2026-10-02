@@ -143,7 +143,8 @@ input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}inpu
     <p class="warn">타고난 성향 참고용이고 아이는 자라면서 바뀝니다. 진단이 아니에요. 발달이 걱정되면 소아과나 발달센터에 상담해 보세요.</p>
 
     <div class="share" style="margin-top:18px;display:grid;gap:10px">
-      <button class="btn primary wide" data-act="share" type="button"><i class="ph ph-paper-plane-tilt"></i>가족에게 보내기</button>
+      <button class="btn primary wide" data-act="save" type="button"><i class="ph ph-download-simple"></i>결과 사진으로 저장</button>
+      <button class="btn ghost wide" data-act="share" type="button"><i class="ph ph-paper-plane-tilt"></i>가족에게 보내기</button>
       <button class="btn ghost wide" data-act="threads" type="button"><i class="ph ph-threads-logo"></i>스레드에 올리기</button>
       <button class="btn ghost wide" data-act="edit" type="button"><i class="ph ph-pencil-simple"></i>다시 넣기</button>
     </div>
@@ -175,6 +176,19 @@ input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}inpu
     <div class="err" id="err" role="alert"></div>
     <div class="actions"><button class="btn ghost" type="button" id="cancel">취소</button><button class="btn primary" type="submit" id="saveMember">추가</button></div>
   </form>
+</dialog>
+
+<dialog id="imgDlg">
+  <div class="sheet">
+    <h3>사진 저장</h3>
+    <p class="lead" style="margin:4px 0 12px">사진을 <b>손가락으로 길게 눌러</b> '이미지 저장'을 누르거나, 아래 버튼을 누르세요.</p>
+    <img id="imgOut" alt="우리 아이 기질 결과 사진" style="display:block;width:100%;border-radius:12px">
+    <div class="actions" style="margin-top:14px">
+      <button class="btn ghost" type="button" id="imgClose">닫기</button>
+      <a class="btn primary" id="imgDown">파일로 받기</a>
+    </div>
+    <button class="btn ghost wide hidden" type="button" id="imgShare" style="margin-top:10px"><i class="ph ph-paper-plane-tilt"></i>카톡 등으로 보내기</button>
+  </div>
 </dialog>
 
 <script type="module">
@@ -308,7 +322,7 @@ function dock(){
   else d.innerHTML=`<button class="btn primary" data-act="share"><i class="ph ph-paper-plane-tilt"></i>공유</button><button class="btn ghost" data-act="edit"><i class="ph ph-pencil-simple"></i>다시</button>`;
 }
 $('dock').onclick=e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
-  ({go:render,share:shareLink,threads:toThreads,edit:()=>{view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock()}})[b.dataset.act]?.()};
+  ({go:render,share:shareLink,threads:toThreads,save:saveImage,edit:()=>{view='build';$('result').classList.add('hidden');$('build').classList.remove('hidden');dock()}})[b.dataset.act]?.()};
 $('result').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b)$('dock').onclick(e)});
 
 function render(){
@@ -331,10 +345,61 @@ function render(){
   // 부모×아이
   $('pk').innerHTML=kidPairs.map(({p,P,k})=>{const [a,b,c]=pkTip(P,k);return `<div class="pair"><span class="tag ${p.lb[2]}">${p.lb[1]} ${p.lb[0]}</span> <b>${P.emo} ${esc(P.name)} × ${k.emo} ${esc(k.name)}</b>
     <small>${esc(a)}</small><small><b>부딪히는 순간:</b> ${esc(b)}</small><small><b>푸는 법:</b> ${esc(c)}</small></div>`}).join('');
+  last={ks,kidPairs};
   view='result';dock();$('build').classList.add('hidden');$('result').classList.remove('hidden');scrollTo(0,0);
   document.querySelectorAll('ins.adsbygoogle:not([data-pushed])').forEach(el=>{if(!el.offsetWidth)return;el.dataset.pushed=1;try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(_){}});
   track('kid_result',{kids:ks.length,parents:parents.length});
 }
+
+// ---------- 결과 사진(canvas로 직접 그림, 광고 안 섞임) ----------
+let last=null, imgFile=null;
+const F='Pretendard,system-ui,sans-serif', TONE={good:'#5EDBA0',mid:'#F2C14E',bad:'#FF8484'};
+// 유형 이름: 아이 기질 5유형에서 바로(같은 입력 = 같은 이름)
+function kidType(ks){
+  const u=[...new Set(ks.map(k=>KT[k.s.el][0]))];
+  return u.length===1?`${KT[ks[0].s.el][1]} ${u[0]} ${ks.length>1?'아이들':'아이'}`:`${u.join('·')} 아이들`;
+}
+function fit(x,t,wt,size,maxW){let f=size;do{x.font=`${wt} ${f}px ${F}`}while(x.measureText(t).width>maxW&&--f>size*.6)}
+function wrap(x,t,X,y,maxW,lh){let line='';for(const ch of t){if(x.measureText(line+ch).width>maxW){x.fillText(line,X,y);y+=lh;line=ch}else line+=ch}x.fillText(line,X,y);return y+lh}
+function footer(x,W,H,cta,url){
+  x.fillStyle='#1B2142';x.fillRect(0,H-100,W,100);x.fillStyle='#F2C14E';x.fillRect(0,H-100,W,4);
+  x.textAlign='left';x.fillStyle='#F1EFE8';x.font=`700 34px ${F}`;x.fillText(cta,60,H-38);
+  x.textAlign='right';x.fillStyle='#F2C14E';x.font=`800 40px ${F}`;x.fillText(url,W-60,H-36);x.textAlign='left';
+}
+function makeImage(){
+  const {ks,kidPairs}=last, W=1080,H=1350, c=document.createElement('canvas');
+  c.width=W;c.height=H;const x=c.getContext('2d'), type=kidType(ks);
+  x.fillStyle='#0E1226';x.fillRect(0,0,W,H);
+  x.fillStyle='#C9CDE3';x.font=`600 30px ${F}`;x.fillText('🌱 우리 아이 기질 카드',70,100);
+  x.fillStyle='#F2C14E';fit(x,type,800,68,W-140);x.fillText(type,70,190);
+  let y=250;
+  ks.forEach((k,i)=>{const t=KT[k.s.el];
+    if(i<2){ // 앞의 두 아이는 카드로 자세히
+      const top=y;y+=58;x.fillStyle=ELC[k.s.el];fit(x,`${k.emo} ${k.name} · ${t[1]} ${t[0]}`,800,40,W-200);x.fillText(`${k.emo} ${k.name} · ${t[1]} ${t[0]}`,100,y);
+      y+=48;x.fillStyle='#F1EFE8';x.font=`500 29px ${F}`;y=wrap(x,t[2],100,y,W-200,40);
+      x.fillStyle='#5EDBA0';x.font=`700 28px ${F}`;y=wrap(x,'✅ 칭찬할 때: '+t[3],100,y+4,W-200,40);
+      x.fillStyle=ELC[k.s.el];x.fillRect(70,top+20,8,y-top-36);y+=22;
+    }else if(y<H-260){x.fillStyle=ELC[k.s.el];fit(x,`${k.emo} ${k.name} · ${t[1]} ${t[0]}`,800,36,W-140);x.fillText(`${k.emo} ${k.name} · ${t[1]} ${t[0]}`,70,y+40);y+=60}
+  });
+  y+=30;x.fillStyle='#F2C14E';x.font=`700 32px ${F}`;x.fillText('👨‍👩‍👧 엄마·아빠 × 아이 궁합',70,y);y+=58;
+  kidPairs.forEach(({p,P,k})=>{if(y>H-130)return;const t=`${P.emo} ${P.name} × ${k.emo} ${k.name}   ${p.lb[1]} ${p.lb[0]}`;
+    x.fillStyle=TONE[p.lb[2]];fit(x,t,700,34,W-140);x.fillText(t,70,y);y+=52});
+  footer(x,W,H,'👶 우리 아이도 해보기','fundmoney8.com/fk');
+  return c;
+}
+async function saveImage(){
+  if(!last)return;
+  try{await document.fonts.ready}catch(_){}
+  const c=makeImage();track('kid_save');
+  const url=c.toDataURL('image/png'), fn='우리아이_기질카드.png';
+  if(!matchMedia('(pointer:coarse)').matches){const a=document.createElement('a');a.href=url;a.download=fn;document.body.appendChild(a);a.click();a.remove();return}
+  c.toBlob(blob=>{imgFile=new File([blob],fn,{type:'image/png'});
+    $('imgShare').classList.toggle('hidden',!(navigator.canShare&&navigator.canShare({files:[imgFile]})))},'image/png');
+  $('imgOut').src=url;$('imgDown').href=url;$('imgDown').download=fn;$('imgDlg').showModal();
+}
+$('imgClose').onclick=()=>$('imgDlg').close();
+$('imgDlg').addEventListener('click',e=>{if(e.target===$('imgDlg'))$('imgDlg').close()});
+$('imgShare').onclick=async()=>{try{await navigator.share({files:[imgFile]})}catch(_){}};
 
 function toThreads(){
   const txt=`우리 아이 기질 테스트 해봤어요! 여러분 아이는 뭐 나왔어요?\nhttps://www.fundmoney8.com/family/kids.html`;
