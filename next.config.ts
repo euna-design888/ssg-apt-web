@@ -3,12 +3,21 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // public/family/index.html(추석 가족 사주 관계도, 원본은 family-saju-map 레포)을 /family로 노출
   async rewrites() {
-    return [
-      { source: "/family", destination: "/family/index.html" },
-      { source: "/airport", destination: "/airport/index.html" },
-      { source: "/festival", destination: "/festival/index.html" },
-      { source: "/privacy", destination: "/privacy/index.html" },
-    ];
+    return {
+      // gold.fundmoney8.com 전용: 같은 프로젝트의 public/gold/ 정적 사이트(금은 거래 가이드)를 이 주소의 루트로 보여준다.
+      // beforeFiles여야 루트("/")가 앱 홈보다 먼저 이 규칙에 걸린다. 다른 주소(www 등)에는 영향 없음.
+      beforeFiles: [
+        { source: "/", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/index.html" },
+        { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/:path" },
+      ],
+      afterFiles: [
+        { source: "/family", destination: "/family/index.html" },
+        { source: "/airport", destination: "/airport/index.html" },
+        { source: "/festival", destination: "/festival/index.html" },
+        { source: "/privacy", destination: "/privacy/index.html" },
+      ],
+      fallback: [],
+    };
   },
   // 스레드 홍보용 짧은 링크: /f1~/f80 → 글 버전별 추적 꼬리표가 붙은 /family (임시 이동이라 GA에 UTM이 남음)
   async redirects() {

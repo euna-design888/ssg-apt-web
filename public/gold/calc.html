@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>내 금·은 예상 금액 계산 | 금은 거래 가이드</title>
+<meta name="description" content="거래소에서 확인한 1돈 가격을 넣으면 내 금·은의 예상 금액을 돈과 g 단위로 계산합니다.">
+<!-- canonical·og:url·og:image: 배포 주소 확정 뒤 채움 -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="내 금·은 예상 금액 계산 | 금은 거래 가이드">
+<meta property="og:description" content="거래소에서 확인한 1돈 가격을 넣으면 내 금·은의 예상 금액을 돈과 g 단위로 계산합니다.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+
+<a class="back" href="index.html">← 처음으로</a>
+<h1>내 금·은, 얼마쯤일까요?</h1>
+<p class="sub">① 팔 때 가격을 조회하고 ② 아래에 적으세요.</p>
+<div class="btns"><a class="btn main" href="https://www.koreagoldx.co.kr/" target="_blank" rel="noopener">팔 때 가격 조회하기</a></div>
+<p class="hint">거래소 화면의 "내가 팔 때" 1돈 가격을 확인하세요.</p>
+
+<div class="card" style="margin-top:20px">
+  <label for="price">거래소에서 본 1돈 가격 (원)</label>
+  <input id="price" type="number" inputmode="numeric" min="0" step="any" placeholder="예: 680000">
+  <div class="two">
+    <div><label for="qty">수량</label><input id="qty" type="number" inputmode="decimal" min="0" step="any" value="1"></div>
+    <div><label for="unit">단위</label><select id="unit"><option value="don">돈</option><option value="g">g (그램)</option></select></div>
+  </div>
+  <div class="res" aria-live="polite">
+    <p class="big" id="rtotal">가격을 적어 주세요</p>
+    <p class="hint" id="rinfo" style="margin-top:6px"></p>
+  </div>
+  <p class="hint">수수료·세금·감가는 가게마다 다릅니다. 실제 금액은 거래 전에 확인하세요.</p>
+</div>
+
+<div class="grid" style="margin-top:16px">
+<div class="cell"><p class="big2">1돈</p><span>= 3.75g</span></div>
+<div class="cell"><p class="big2">10돈</p><span>= 37.5g</span></div>
+</div>
+<p class="hint">금과 은 모두 같은 단위입니다.</p>
+
+<aside class="ad" aria-label="광고"><p class="adl">광고</p>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="3789227222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
+
+<nav class="nav" aria-label="다른 페이지">
+<a href="check.html">시세 보는 법</a><a href="calc.html">내 금 계산</a>
+<a href="price.html">가격 구조</a><a href="safe.html">사기 예방</a>
+</nav>
+<footer>
+<p><b>연결</b> 한국금거래소 (<a href="https://www.koreagoldx.co.kr/" target="_blank" rel="noopener">koreagoldx.co.kr</a>)</p>
+<p><b>면책</b> 투자 권유가 아니며 계산 결과는 입력한 가격 기준 예상 금액입니다. 세금·수수료는 변경될 수 있으니 거래 전에 해당 기관에 확인하세요. 작성 시세 기록원 · 최종 확인 2026.10.05</p>
+</footer>
+</main>
+
+<script>
+const DON=3.75, $=id=>document.getElementById(id);
+function calc(){
+  const p=parseFloat($("price").value), q=parseFloat($("qty").value), u=$("unit").value;
+  if(!(p>0)||!(q>=0)){ $("rtotal").textContent="가격을 적어 주세요"; $("rinfo").textContent=""; return; }
+  const don=u==="don"?q:q/DON;
+  $("rtotal").textContent="약 "+Math.round(p*don).toLocaleString("ko-KR")+"원";
+  $("rinfo").textContent=(don*DON).toLocaleString("ko-KR",{maximumFractionDigits:2})+"g = "+don.toLocaleString("ko-KR",{maximumFractionDigits:3})+"돈";
+}
+["price","qty","unit"].forEach(i=>$(i).addEventListener("input",calc));
+$("unit").addEventListener("change",()=>{const v=parseFloat($("qty").value);if(!(v>=0))return;$("qty").value=$("unit").value==="g"?+(v*DON).toFixed(2):+(v/DON).toFixed(3);calc();});
+</script>
+</body>
+</html>
