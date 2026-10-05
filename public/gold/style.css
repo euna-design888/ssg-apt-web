@@ -3,7 +3,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 :root{--f-body:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;--f-head:"Black Han Sans","Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif}
-body{margin:0;background:var(--bg);color:var(--fg);font:20px/1.65 var(--f-body)}
+body{margin:0;background:var(--bg);color:var(--fg);font:20px/1.65 var(--f-body);word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden}
 main{max-width:640px;margin:0 auto;padding:20px 16px 48px}
 h1,h2,.btn,.res .big,.nav a,.links a,.cell b,.rowline b,summary{font-family:var(--f-head);font-weight:400;letter-spacing:-.01em}
 h1{font-size:34px;line-height:1.3;margin:6px 0 8px}
@@ -45,7 +45,7 @@ th{background:var(--card);font-size:17px}
 details{border-bottom:1px solid var(--line);padding:12px 0}
 summary{cursor:pointer;font-weight:700;font-size:20px;min-height:44px}
 details p{margin:6px 0 0;color:var(--sub);font-size:18px}
-.ad{margin:44px 0;text-align:center}
+.ad{margin:44px 0;text-align:center;overflow:hidden;max-width:100%}
 .ad .adl{font-size:14px;color:var(--sub);margin:0 0 6px;letter-spacing:.1em}
 .links{display:grid;gap:10px;margin-top:20px}
 .links a{display:flex;align-items:center;min-height:56px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;font-size:19px;font-weight:700;background:var(--card)}
