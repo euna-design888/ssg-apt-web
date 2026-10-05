@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gold.fundmoney8.com/sitemap.xml
