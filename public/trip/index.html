@@ -17,10 +17,10 @@ function ev(n,p){try{gtag('event',n,p||{})}catch(_){}}</script>
 <style>
 /* Stitch 시안(10/6) 토큰: 따뜻한 종이색 · 남색 · 주황 · 세리프 제목 */
 :root{
-  --bg:#FBF9F4;--s1:#F5F3EE;--s2:#F0EEE9;--s3:#E4E2DD;--card:#FFFFFF;
-  --ink:#1B1C19;--ink2:#44474E;--line:#C4C6CF;
-  --navy:#002046;--navy2:#1B365D;--navy-ink:#FFFFFF;
-  --fest:#AC3400;--fest-bg:#FFDBD0;--camp:#144C61;--camp-bg:#BEE9FF;--fol:#A3202C;--fol-bg:#FFDAD6;
+  --bg:#F7F5F0;--s1:#F1EEE6;--s2:#ECE8DE;--s3:#E5E0D6;--card:#FFFFFF;
+  --ink:#1A1A1A;--ink2:#44474E;--line:#D8D3C8;
+  --navy:#1B365D;--navy2:#002046;--navy-ink:#FFFFFF;
+  --fest:#C2410C;--fest-bg:#FFDBD0;--camp:#164E63;--camp-bg:#D3EAF2;--fol:#A3202C;--fol-bg:#FFDAD6;
   --focus:#1F4FD8;--serif:"Noto Serif KR",serif;--sans:"Noto Sans KR",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
@@ -41,16 +41,16 @@ h1{margin:6px 0 8px;font:900 clamp(26px,6.6vw,38px)/1.28 var(--serif);color:var(
 @media(min-width:760px){.tabs{position:sticky;top:0;bottom:auto;border-top:0;border-bottom:1px solid var(--line);max-width:760px;margin:0 auto;min-height:56px}.tabs button{flex-direction:row;gap:8px;font-size:17px}body{padding-bottom:40px}}
 /* 칩·버튼 */
 .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;min-height:48px;padding:0 18px;border-radius:24px;border:1px solid var(--line);background:var(--s2);font-weight:700;font-size:16px;white-space:nowrap}
+.chip{flex:none;min-height:54px;padding:0 18px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);font-weight:700;font-size:16px;white-space:nowrap}
 .chip[aria-pressed=true]{background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
 select.chip{appearance:auto;padding:0 12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border-radius:6px;border:2px solid var(--navy);background:var(--navy);color:var(--navy-ink);font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border-radius:6px;border:2px solid var(--navy);background:var(--navy);color:var(--navy-ink);font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap}
 .btn.o{background:var(--card);color:var(--navy)}
 .btn:active{transform:translateY(1px)}
 .count{margin:14px 0 4px;color:var(--ink2);font-size:16px}
 /* 카드 */
 .list{display:grid;gap:14px;margin:8px 0 0;padding:0;list-style:none}
-.card{display:grid;grid-template-columns:minmax(0,1fr);background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--s3);border-top:5px solid var(--fest)}
+.card{display:grid;grid-template-columns:minmax(0,1fr);background:var(--card);border-radius:4px;overflow:hidden;border:1.5px solid var(--line);border-top:5px solid var(--fest)}
 .card.c{border-top-color:var(--camp)}.card.g{border-top-color:var(--fol)}
 .card img{width:100%;height:200px;object-fit:contain;display:block;background:var(--s3)}
 .cb{padding:16px}
@@ -72,6 +72,13 @@ select.chip{appearance:auto;padding:0 12px}
 .disc{margin:6px 0 10px!important;padding:8px 10px;background:#FFF3C4;border-radius:4px;font-size:16px;font-weight:500}.disc b{background:var(--navy);color:#fff;padding:0 6px;border-radius:3px;margin-right:4px}
 .ad{background:var(--navy);color:#fff;font-size:13px;padding:1px 6px;border-radius:3px;margin-right:8px}.pr small{font-weight:400;color:var(--ink2)}
 .credit{font-size:13px;color:var(--ink2);margin:8px 0 0}
+/* 주간 7칸 표 (디자인 시스템: 토 청록 · 일 감주황 · 오늘 남색) */
+.strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;margin-top:16px;border:1.5px solid var(--line);background:var(--card);border-radius:4px;overflow:hidden}
+.dc{display:grid;justify-items:center;gap:2px;padding:8px 0;min-height:96px;border-left:1.5px solid var(--line);align-content:start}.dc:first-child{border-left:0}
+.dc .dw{font-size:16px;font-weight:700}.dc b{font-size:20px}.dc.sa .dw{color:var(--camp)}.dc.su .dw{color:var(--fest)}
+.dc.td{background:var(--navy);color:#fff}.dc.td .dw{color:#fff}
+.n{font-weight:700;font-size:16px;line-height:1.3;min-width:24px;text-align:center;padding:0 4px;border-radius:3px}.n.f{background:var(--fest);color:#fff}.n.c{background:var(--camp);color:#fff}
+.legend{margin:8px 0 0;font-size:15px;color:var(--ink2)}
 /* 주간 */
 .weeks{margin-top:18px;padding-left:22px;border-left:4px solid var(--navy)}
 .wk{position:relative;margin-bottom:28px}
@@ -162,7 +169,13 @@ function vWeek(){
       (wf.length?'<h4>🎪 축제</h4><ul class="list">'+wf.map(function(f){return fcard(f,false)}).join('')+'</ul>':'')+
       (wc.length?'<h4>⛺ 캠핑장 예약 오픈</h4><ul class="list">'+wc.map(function(x){return '<li><article class="card c"><div class="cb"><span class="when">'+span(x.o.S,x.o.E)+(x.o.at?' '+esc(x.o.at):'')+'</span><h3>'+esc(x.c.name)+'</h3><p class="meta">'+esc(x.o.l)+'</p><div class="acts"><a class="btn" href="/camping/'+esc(x.c.slug)+'.html?utm_source=trip">예약 방법 보기</a></div></div></article></li>'}).join('')+'</ul>':'')+'</article>';
   }
-  return (nx?'<p class="hint">가장 가까운 캠핑 예약 · <b>'+span(nx.o.S,nx.o.E)+(nx.o.at?' '+esc(nx.o.at):'')+'</b> '+esc(nx.c.name)+'</p>':'')+
+  var mon0=addD(T,-((T.getDay()+6)%7)),strip='';
+  for(var i=0;i<7;i++){
+    var dd=addD(mon0,i),nf=F.filter(function(f){return f.S<=dd&&f.E>=dd}).length,nc=camps.filter(function(x){return x.o.S<=dd&&x.o.E>=dd}).length,td=dd.getTime()===T.getTime();
+    strip+='<div class="dc'+(td?' td':'')+(i===5?' sa':'')+(i===6?' su':'')+'"><span class="dw">'+WD[i]+'</span><b>'+dd.getDate()+'</b><span class="n f">'+nf+'</span><span class="n c">'+nc+'</span></div>';
+  }
+  strip='<div class="strip" role="group" aria-label="이번 주 7일 일정 수">'+strip+'</div><p class="legend"><span class="n f">숫자</span> 그날 열리는 축제 · <span class="n c">숫자</span> 그날 열리는 캠핑 예약</p>';
+  return strip+(nx?'<p class="hint">가장 가까운 캠핑 예약 ·<b>'+span(nx.o.S,nx.o.E)+(nx.o.at?' '+esc(nx.o.at):'')+'</b> '+esc(nx.c.name)+'</p>':'')+
     (out?'<div class="weeks">'+out+'</div>':'<p class="empty">이번 달 남은 일정이 없어요. 축제·캠핑 탭에서 다음 일정을 확인하세요.</p>')+
     '<p class="count">상세 안내가 있는 축제만 보여줘요. 전체 '+F.length+'곳은 <b>축제</b> 탭에서 지역별로 찾아보세요.</p>';
 }
