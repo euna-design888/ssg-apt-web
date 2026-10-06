@@ -7,7 +7,7 @@
 <meta property="og:url" content="https://www.fundmoney8.com/trip"><meta property="og:image" content="https://www.fundmoney8.com/trip/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23002046'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23FFFFFF' font-family='serif' font-weight='700'>10</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@700;900&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
@@ -170,6 +170,38 @@ body{background:linear-gradient(180deg,#EAF3FB 0,#F7F5F0 340px)}
 .list{gap:16px}
 .hint{border-left:0;border-radius:var(--r);background:var(--c2);box-shadow:var(--sh)}
 .sec{margin-top:30px}
+/* ── 웹앱 틀 + 시니어 가독성 (10/6 대표님: 앱처럼, 글자 크고 굵고 선명하게) ── */
+:root{--ink:#111418;--ink2:#2E3541}
+html{background:#CBD7E3}
+body{max-width:520px;margin:0 auto;min-height:100vh;box-shadow:0 0 44px rgba(27,54,93,.22);font-size:20px;font-weight:500;line-height:1.65;padding-bottom:96px}
+.wrap,.foot{max-width:none;padding-left:18px;padding-right:18px}
+.foot{font-size:16px}
+.appbar .ab{max-width:none;padding:10px 18px}
+.ab h1{font-weight:800;font-size:clamp(20px,5.6vw,25px)}
+.tabs{position:fixed;left:50%;right:auto;transform:translateX(-50%);width:100%;max-width:520px;top:auto;bottom:0;border-radius:24px 24px 0 0;min-height:72px}
+.tabs button{font-size:16px;font-weight:800;color:var(--ink2)}
+.tabs button b{font-size:26px}
+.tabs button[aria-current=true]{color:var(--navy)}
+strong,b{font-weight:800}
+.meta,.count,.legend{font-size:18px;font-weight:500;color:var(--ink2)}
+.sub{font-size:18px}
+.when{font-size:18px;font-weight:800}
+.cb h3{font-size:24px;font-weight:800;line-height:1.4}
+.hb b{font-size:24px;font-weight:800}
+.tag{font-size:17px;font-weight:700;padding:3px 12px}
+.btn{font-size:19px;font-weight:800;min-height:56px;padding:0 22px}
+.chip{font-size:18px;font-weight:800;min-height:56px}
+.catc{font-size:17px;font-weight:700}.catc b{font-size:21px;font-weight:800}
+.dc .dw{font-size:17px;font-weight:800}.dc b{font-size:23px;font-weight:800}
+.n{font-size:17px;font-weight:800}
+.hint{font-size:19px;font-weight:600}
+.banner h2{font-size:26px;font-weight:800}.banner .bk{font-size:17px;font-weight:800}
+.sec,.wk h2{font-weight:800}.sec{font-size:25px}.wk h2{font-size:19px}.wk h4{font-size:19px;font-weight:800}
+.nmv{font-size:17px;font-weight:500;color:var(--ink2)}.pr{font-size:19px;font-weight:800}.gi b{font-size:20px;font-weight:800}.go{font-size:18px;font-weight:800}
+.disc{font-size:17px;font-weight:600}.alt h4{font-size:21px;font-weight:800}.alt p{font-size:18px}
+.credit{font-size:15px;color:var(--ink2)}
+.gh h2{font-size:23px;font-weight:800}
+.empty{font-size:19px}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:no-preference){.btn,.chip{transition:background-color .12s ease-out}}
 </style></head>
@@ -216,7 +248,7 @@ function alt(c){
   if(!/추첨/.test(c.method))return '';
   var A=D.aff||{},st=(A.stay||[]),gr=[],ad=st.length;
   var lk=function(x,k){return '<a class="btn o" target="_blank" rel="sponsored nofollow noopener" href="'+esc(x.url)+'" onclick="ev(\'trip_aff\',{k:\''+k+'\',s:\''+esc(c.slug)+'\'})"><span class="ad">광고</span>'+esc(x.name)+'</a>'};
-  return '<aside class="alt"><h4>추첨에서 떨어졌다면</h4>'+(ad?'<p class="disc"><b>광고</b> 아래 표시된 ‘광고’ 버튼은 제휴 링크입니다. 이 링크로 예약하면 운영자가 수수료를 받습니다.</p>':'')+'<p>근처 민간 글램핑·카라반은 자리가 남아 있을 수 있어요.</p><div class="acts"><a class="btn bw" target="_blank" rel="noopener" href="'+nav('글램핑 '+c.region)+'" onclick="ev(\'trip_alt\',{s:\''+esc(c.slug)+'\'})">'+esc(c.region)+' 근처 글램핑 찾기</a>'+st.map(function(x){return lk(x,'stay')}).join('')+'</div></aside>';
+  return '<aside class="alt"><h4>추첨에서 떨어졌다면</h4>'+(ad?'<p class="disc"><b>광고</b> 아래 표시된 ‘광고’ 버튼은 제휴 링크입니다. 이 링크로 예약하면 운영자가 수수료를 받습니다.</p>':'')+'<p>'+esc(c.region)+' 근처 민간 글램핑·카라반은 자리가 남아 있을 수 있어요.</p><div class="acts"><a class="btn bw" target="_blank" rel="noopener" href="'+nav('글램핑 '+c.region)+'" onclick="ev(\'trip_alt\',{s:\''+esc(c.slug)+'\'})">근처 글램핑 찾기</a>'+st.map(function(x){return lk(x,'stay')}).join('')+'</div></aside>';
 }
 function ccard(c){
   var o=opens(c).slice(0,2).map(function(x){return '<p class="meta"><b>'+span(x.S,x.E)+(x.at?' '+esc(x.at):'')+'</b> '+esc(x.l)+'</p>'}).join('');
