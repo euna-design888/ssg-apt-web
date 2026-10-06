@@ -116,6 +116,60 @@ body.big{zoom:1.18}
 .hl{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .sec{margin:26px 0 0;font:700 22px/1.4 var(--serif);color:var(--navy)}
 .hubs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+/* ── 소프트 여행 테마 (10/6 대표님: 각지고 틈이 갈라져 누르고 싶지 않다 → 둥글게·종류별 버튼 색·지도 맨 위) ── */
+:root{--sh:0 3px 14px rgba(27,54,93,.12);--r:20px;
+  --f:#F26A1B;--f2:#FFE9DA;--c:#1E9E8A;--c2:#DDF3EF;--g:#D6303F;--g2:#FFE0E3;--m:#2F7DE1;--m2:#E1EDFC;--w:#2E9F5B;--w2:#E0F4E7}
+body{background:linear-gradient(180deg,#EAF3FB 0,#F7F5F0 340px)}
+.appbar{background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:0;box-shadow:0 2px 10px rgba(27,54,93,.08)}
+.fz{border-radius:999px;border-width:2px}
+.tabs{border-top:0;border-radius:24px 24px 0 0;box-shadow:0 -4px 16px rgba(27,54,93,.12);background:#fff;padding:0 6px}
+.tabs button{border-radius:18px;margin:6px 2px}
+.tabs button[aria-current=true]{box-shadow:none;background:var(--m2);color:var(--navy)}
+@media(min-width:760px){.tabs{border-radius:0 0 24px 24px;box-shadow:0 4px 16px rgba(27,54,93,.12);margin-top:0}}
+/* 지도 */
+.mapwrap{margin-top:16px}
+.mapwrap .chips{padding:0 0 10px}
+#map{border:0;border-radius:var(--r);box-shadow:var(--sh)}
+.mapwrap.short #map{height:min(46vh,340px)}
+.chip{border-radius:999px;border:0;background:#fff;box-shadow:0 1px 6px rgba(27,54,93,.12)}
+.chip[aria-pressed=true]{background:var(--navy)}
+.chip.cf[aria-pressed=true]{background:var(--f)}.chip.cc[aria-pressed=true]{background:var(--c)}.chip.cg[aria-pressed=true]{background:var(--g)}
+.chip[aria-pressed=false]{color:var(--ink2)}
+/* 카드·배너 */
+.banner{background:linear-gradient(135deg,#E3EEFB,#FFEBDD);border-radius:var(--r);box-shadow:var(--sh)}
+.banner .bk{color:var(--f)}
+.cats{gap:10px}
+.catc{border:0;border-radius:var(--r);box-shadow:var(--sh);padding:14px 2px}
+.catc[data-t=fest]{background:var(--f2)}.catc[data-t=camp]{background:var(--c2)}.catc[data-t=fol]{background:var(--g2)}.catc[data-t=map]{background:var(--m2)}
+.catc[data-t=fest] b{color:#B8470B}.catc[data-t=camp] b{color:#126F60}.catc[data-t=fol] b{color:#A3202C}.catc[data-t=map] b{color:#1B5FBF}
+.catc .ci{background:#fff;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:26px;box-shadow:0 1px 5px rgba(0,0,0,.1)}
+.hero,.card,.strip,.alt,.gear,.gi{border:0;border-radius:var(--r);box-shadow:var(--sh)}
+.card{border-top:0;position:relative}
+.card::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:6px;border-radius:0 6px 6px 0;background:var(--f)}
+.card.c::before{background:var(--c)}.card.g::before{background:var(--g)}
+.card img,.hero img{border-radius:var(--r) var(--r) 0 0}
+.cb{padding:18px 18px 18px 22px}
+.alt{background:#F1F7FD;border-left:0}.gear{background:#fff}
+.strip{overflow:hidden}.dc{border-left-color:#E7ECF2}
+.dc.td{background:var(--m);border-radius:14px;margin:4px}
+.hl .btn,.acts .btn{box-shadow:0 2px 6px rgba(27,54,93,.14)}
+/* 종류별 버튼 색 */
+.btn{border:0;border-radius:14px;min-height:54px;padding:0 20px;color:#fff;background:var(--navy)}
+.btn.bf{background:var(--f)}.btn.bc{background:var(--c)}.btn.bg{background:var(--g)}
+.btn.bm{background:var(--m2);color:#1B5FBF;box-shadow:none}.btn.bw{background:var(--w2);color:#1F7A44;box-shadow:none}
+.btn.o{background:#fff;color:var(--navy);box-shadow:0 1px 6px rgba(27,54,93,.14)}
+.btn.bf:active,.btn.bc:active,.btn.bg:active{filter:brightness(.92)}
+.ad{background:rgba(0,0,0,.15)}
+.live{background:var(--f)}.when{color:#C4510B}.c .when{color:#12806F}.g .when{color:#B3202C}
+/* 주별 구획: 척추선 대신 둥근 칩 머리 */
+.weeks{border-left:0;padding-left:0}
+.wk::before{display:none}
+.wk h2{display:inline-block;background:var(--navy);color:#fff;padding:6px 16px;border-radius:999px;font:700 18px/1.4 var(--sans);margin:0 0 12px}
+.wk.cur h2{background:var(--m)}
+.wk h4{font-size:17px;color:var(--navy)}
+.list{gap:16px}
+.hint{border-left:0;border-radius:var(--r);background:var(--c2);box-shadow:var(--sh)}
+.sec{margin-top:30px}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:no-preference){.btn,.chip{transition:background-color .12s ease-out}}
 </style></head>
@@ -153,26 +207,26 @@ try{if(localStorage.getItem('tripBig')){document.body.classList.add('big');$('#f
 function nav(q){return 'https://map.naver.com/p/search/'+encodeURIComponent(q)}
 function when(f){return f.S<=T?'<span class="live">진행 중</span>~'+md(f.E):span(f.S,f.E)}
 function fcard(f,img){
-  var a=f.d?'<a class="btn" href="/festival/'+esc(f.d)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'fest\',s:\''+esc(f.d)+'\'})">주차·일정 보기</a>':'';
-  var m=f.x?'<button class="btn o" data-map="f'+f.i+'">지도에서 보기</button>':'';
-  return '<li><article class="card f">'+(img&&f.img?'<img loading="lazy" alt="" src="'+esc(f.img)+'" onerror="this.remove()">':'')+'<div class="cb"><span class="when">'+when(f)+'</span><h3>'+esc(f.t)+'</h3><p class="meta">'+esc(f.a)+'</p><div class="acts">'+a+m+'<a class="btn o" target="_blank" rel="noopener" href="'+nav(f.t)+'">길찾기</a></div>'+(img&&f.img?'<p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p>':'')+'</div></article></li>';
+  var a=f.d?'<a class="btn bf" href="/festival/'+esc(f.d)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'fest\',s:\''+esc(f.d)+'\'})">주차·일정 보기</a>':'';
+  var m=f.x?'<button class="btn bm" data-map="f'+f.i+'">지도에서 보기</button>':'';
+  return '<li><article class="card f">'+(img&&f.img?'<img loading="lazy" alt="" src="'+esc(f.img)+'" onerror="this.remove()">':'')+'<div class="cb"><span class="when">'+when(f)+'</span><h3>'+esc(f.t)+'</h3><p class="meta">'+esc(f.a)+'</p><div class="acts">'+a+m+'<a class="btn bw" target="_blank" rel="noopener" href="'+nav(f.t)+'">길찾기</a></div>'+(img&&f.img?'<p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p>':'')+'</div></article></li>';
 }
 function opens(c){return c.opens.map(function(o){o.S=P(o.s);o.E=P(o.e||o.s);return o}).filter(function(o){return o.E>=T}).sort(function(a,b){return a.S-b.S})}
 function alt(c){
   if(!/추첨/.test(c.method))return '';
   var A=D.aff||{},st=(A.stay||[]),gr=[],ad=st.length;
   var lk=function(x,k){return '<a class="btn o" target="_blank" rel="sponsored nofollow noopener" href="'+esc(x.url)+'" onclick="ev(\'trip_aff\',{k:\''+k+'\',s:\''+esc(c.slug)+'\'})"><span class="ad">광고</span>'+esc(x.name)+'</a>'};
-  return '<aside class="alt"><h4>추첨에서 떨어졌다면</h4>'+(ad?'<p class="disc"><b>광고</b> 아래 표시된 ‘광고’ 버튼은 제휴 링크입니다. 이 링크로 예약하면 운영자가 수수료를 받습니다.</p>':'')+'<p>근처 민간 글램핑·카라반은 자리가 남아 있을 수 있어요.</p><div class="acts"><a class="btn o" target="_blank" rel="noopener" href="'+nav('글램핑 '+c.region)+'" onclick="ev(\'trip_alt\',{s:\''+esc(c.slug)+'\'})">'+esc(c.region)+' 근처 글램핑 찾기</a>'+st.map(function(x){return lk(x,'stay')}).join('')+'</div></aside>';
+  return '<aside class="alt"><h4>추첨에서 떨어졌다면</h4>'+(ad?'<p class="disc"><b>광고</b> 아래 표시된 ‘광고’ 버튼은 제휴 링크입니다. 이 링크로 예약하면 운영자가 수수료를 받습니다.</p>':'')+'<p>근처 민간 글램핑·카라반은 자리가 남아 있을 수 있어요.</p><div class="acts"><a class="btn bw" target="_blank" rel="noopener" href="'+nav('글램핑 '+c.region)+'" onclick="ev(\'trip_alt\',{s:\''+esc(c.slug)+'\'})">'+esc(c.region)+' 근처 글램핑 찾기</a>'+st.map(function(x){return lk(x,'stay')}).join('')+'</div></aside>';
 }
 function ccard(c){
   var o=opens(c).slice(0,2).map(function(x){return '<p class="meta"><b>'+span(x.S,x.E)+(x.at?' '+esc(x.at):'')+'</b> '+esc(x.l)+'</p>'}).join('');
-  var m=c.lat?'<button class="btn o" data-map="c'+esc(c.slug)+'">지도에서 보기</button>':'';
-  return '<li><article class="card c"><div class="cb"><span class="when">'+esc(c.type)+' · '+esc(c.region)+'</span><h3>'+esc(c.name)+'</h3><span class="tag">'+esc(c.method)+'</span>'+(o||'<p class="meta">이번 달 남은 오픈 일정 없음</p>')+'<div class="acts"><a class="btn" href="/camping/'+esc(c.slug)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'camp\',s:\''+esc(c.slug)+'\'})">예약 방법 보기</a>'+m+'</div>'+alt(c)+'</div></article></li>';
+  var m=c.lat?'<button class="btn bm" data-map="c'+esc(c.slug)+'">지도에서 보기</button>':'';
+  return '<li><article class="card c"><div class="cb"><span class="when">'+esc(c.type)+' · '+esc(c.region)+'</span><h3>'+esc(c.name)+'</h3><span class="tag">'+esc(c.method)+'</span>'+(o||'<p class="meta">이번 달 남은 오픈 일정 없음</p>')+'<div class="acts"><a class="btn bc" href="/camping/'+esc(c.slug)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'camp\',s:\''+esc(c.slug)+'\'})">예약 방법 보기</a>'+m+'</div>'+alt(c)+'</div></article></li>';
 }
 function gcard(g){
   var pk=g.peak_2026?'2026 절정 예상 '+md(P(g.peak_2026)):(g.peak_normal?'평년 절정 '+esc(g.peak_normal):'절정 시기 공식 발표 대기');
   var src=g.peak_source&&g.peak_source.url?'<a target="_blank" rel="noopener" href="'+esc(g.peak_source.url)+'">'+esc(g.peak_source.name||'출처')+'</a>':'';
-  return '<li><article class="card g"><div class="cb"><span class="when">'+esc(g.region)+' · '+pk+'</span><h3>'+esc(g.name)+'</h3>'+(g.summary?'<p class="meta">'+esc(g.summary)+'</p>':'')+(g.fee?'<span class="tag">'+esc(g.fee)+'</span>':'')+(g.parking_note?'<span class="tag">'+esc(g.parking_note)+'</span>':'')+'<div class="acts">'+(g.official_url?'<a class="btn" target="_blank" rel="noopener" href="'+esc(g.official_url)+'">공식 안내 보기</a>':'')+(g.lat?'<button class="btn o" data-map="g'+esc(g.slug)+'">지도에서 보기</button>':'')+'<a class="btn o" target="_blank" rel="noopener" href="'+nav(g.name)+'">길찾기</a></div>'+(src?'<p class="credit">출처 '+src+' · 확인 '+esc(g.checked||'')+'</p>':'')+'</div></article></li>';
+  return '<li><article class="card g"><div class="cb"><span class="when">'+esc(g.region)+' · '+pk+'</span><h3>'+esc(g.name)+'</h3>'+(g.summary?'<p class="meta">'+esc(g.summary)+'</p>':'')+(g.fee?'<span class="tag">'+esc(g.fee)+'</span>':'')+(g.parking_note?'<span class="tag">'+esc(g.parking_note)+'</span>':'')+'<div class="acts">'+(g.official_url?'<a class="btn bg" target="_blank" rel="noopener" href="'+esc(g.official_url)+'">공식 안내 보기</a>':'')+(g.lat?'<button class="btn bm" data-map="g'+esc(g.slug)+'">지도에서 보기</button>':'')+'<a class="btn bw" target="_blank" rel="noopener" href="'+nav(g.name)+'">길찾기</a></div>'+(src?'<p class="credit">출처 '+src+' · 확인 '+esc(g.checked||'')+'</p>':'')+'</div></article></li>';
 }
 /* ── 이번 주 ── */
 function vWeek(){
@@ -187,7 +241,7 @@ function vWeek(){
     if(!wf.length&&!wc.length)continue;n++;
     out+='<article class="wk'+(first?' cur':'')+'"><h2>'+(first?'이번 주':'다음 주')+' · '+(w.getMonth()+1)+'/'+w.getDate()+'~'+(we.getMonth()+1)+'/'+we.getDate()+'</h2>'+
       (wf.length?'<h4>🎪 축제</h4><ul class="list">'+wf.map(function(f){return fcard(f,false)}).join('')+'</ul>':'')+
-      (wc.length?'<h4>⛺ 캠핑장 예약 오픈</h4><ul class="list">'+wc.map(function(x){return '<li><article class="card c"><div class="cb"><span class="when">'+span(x.o.S,x.o.E)+(x.o.at?' '+esc(x.o.at):'')+'</span><h3>'+esc(x.c.name)+'</h3><p class="meta">'+esc(x.o.l)+'</p><div class="acts"><a class="btn" href="/camping/'+esc(x.c.slug)+'.html?utm_source=trip">예약 방법 보기</a></div></div></article></li>'}).join('')+'</ul>':'')+'</article>';
+      (wc.length?'<h4>⛺ 캠핑장 예약 오픈</h4><ul class="list">'+wc.map(function(x){return '<li><article class="card c"><div class="cb"><span class="when">'+span(x.o.S,x.o.E)+(x.o.at?' '+esc(x.o.at):'')+'</span><h3>'+esc(x.c.name)+'</h3><p class="meta">'+esc(x.o.l)+'</p><div class="acts"><a class="btn bc" href="/camping/'+esc(x.c.slug)+'.html?utm_source=trip">예약 방법 보기</a></div></div></article></li>'}).join('')+'</ul>':'')+'</article>';
   }
   var mon0=addD(T,-((T.getDay()+6)%7)),strip='';
   for(var i=0;i<7;i++){
@@ -197,10 +251,10 @@ function vWeek(){
   strip='<div class="strip" role="group" aria-label="이번 주 7일 일정 수">'+strip+'</div><p class="legend"><span class="n f">숫자</span> 그날 열리는 축제 · <span class="n c">숫자</span> 그날 열리는 캠핑 예약</p>';
   var hero=F.filter(function(f){return f.d&&f.img}).sort(function(a,b){return (a.S<=T?0:1)-(b.S<=T?0:1)||a.S-b.S})[0];
   var cat=function(t,ic,nm,n){return '<button class="catc" data-t="'+t+'"><span class="ci" aria-hidden="true">'+ic+'</span><b>'+nm+'</b><span>'+n+(typeof n==='number'?'곳':'')+'</span></button>'};
-  var top='<section class="banner"><p class="bk">'+T.getFullYear()+'년 '+mon+'월 · 공식 공지 기준 · 확인 '+esc(D.built.slice(5).replace('-','/'))+'</p><h2>어디 갈지, 언제 예약할지<br>한 곳에서 골라보세요</h2><p>전국 축제 일정, 캠핑장 예약 오픈일, 단풍 명소를 모았어요. 자세한 안내는 각 길잡이 페이지로 이어져요.</p></section>'+
+  var top=mapBlock('short')+'<section class="banner"><p class="bk">'+T.getFullYear()+'년 '+mon+'월 · 공식 공지 기준 · 확인 '+esc(D.built.slice(5).replace('-','/'))+'</p><h2>어디 갈지, 언제 예약할지<br>한 곳에서 골라보세요</h2></section>'+
     '<nav class="cats" aria-label="분류">'+cat('fest','🎪','축제',F.length)+cat('camp','⛺','캠핑',C.length)+cat('fol','🍁','단풍',G.length)+cat('map','🗺️','지도','전국')+'</nav>'+
     (hero?'<a class="hero" href="/festival/'+esc(hero.d)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hero\',s:\''+esc(hero.d)+'\'})"><img alt="" src="'+esc(hero.img)+'" onerror="this.remove()"><span class="hb"><span class="tg">'+(hero.S<=T?'지금 진행 중':'곧 시작')+'</span><b>'+esc(hero.t)+'</b><span>'+when(hero)+' · '+esc(hero.a)+'</span></span></a><p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p>':'')+
-    '<div class="hl"><a class="btn o" href="/festival?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'festival\'})">축제 길잡이 전체 보기</a><a class="btn o" href="/camping?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'camping\'})">캠핑 길잡이 전체 보기</a></div>'+
+    '<div class="hl"><a class="btn bf" href="/festival?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'festival\'})">축제 길잡이 전체 보기</a><a class="btn o" href="/camping?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'camping\'})">캠핑 길잡이 전체 보기</a></div>'+
     '<h2 class="sec">이번 주 일정</h2>';
   return top+strip+(nx?'<p class="hint">가장 가까운 캠핑 예약 · <b>'+span(nx.o.S,nx.o.E)+(nx.o.at?' '+esc(nx.o.at):'')+'</b> '+esc(nx.c.name)+'</p>':'')+
     (out?'<div class="weeks">'+out+'</div>':'<p class="empty">이번 달 남은 일정이 없어요. 축제·캠핑 탭에서 다음 일정을 확인하세요.</p>')+
@@ -244,10 +298,11 @@ function vFol(){
 }
 /* ── 지도 ── */
 var map,layers={f:null,c:null,g:null},on={f:true,c:true,g:true},pts={};
-var COL={f:'#AC3400',c:'#144C61',g:'#A3202C'};
-function vMap(){
-  return '<div class="chips"><button class="chip" data-ml="f" aria-pressed="true">🎪 축제</button><button class="chip" data-ml="c" aria-pressed="true">⛺ 캠핑</button><button class="chip" data-ml="g" aria-pressed="true">🍁 단풍</button></div><div id="map" role="application" aria-label="전국 지도"></div><div class="sheet" id="sheet"><p class="meta">지도의 핀을 누르면 여기에 안내가 나와요.</p></div>';
+var COL={f:'#F26A1B',c:'#1E9E8A',g:'#D6303F'};
+function mapBlock(c){
+  return '<section class="mapwrap '+c+'"><div class="chips"><button class="chip cf" data-ml="f" aria-pressed="true">🎪 축제</button><button class="chip cc" data-ml="c" aria-pressed="true">⛺ 캠핑</button><button class="chip cg" data-ml="g" aria-pressed="true">🍁 단풍</button></div><div id="map" role="application" aria-label="전국 지도"></div><div class="sheet" id="sheet"><p class="meta">지도의 핀을 누르면 여기에 안내가 나와요.</p></div></section>';
 }
+function vMap(){return mapBlock('')}
 function pin(k){return L.divIcon({className:'',html:'<div class="pin" style="background:'+COL[k]+'"></div>',iconSize:[26,26],iconAnchor:[6,30]})}
 function sheet(id){
   var k=id[0],r=id.slice(1),html='';
@@ -278,7 +333,7 @@ var cur='week',V={week:vWeek,fest:vFest,camp:vCamp,fol:vFol,map:vMap};
 function show(t,focus){
   cur=t;app.innerHTML=V[t]();
   document.querySelectorAll('#tabs button').forEach(function(b){b.setAttribute('aria-current',b.dataset.t===t)});
-  if(t==='map')initMap(focus);
+  if(t==='map'||t==='week')initMap(t==='map'?focus:null);
   if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);
   scrollTo(0,0);ev('trip_tab',{t:t});
 }
