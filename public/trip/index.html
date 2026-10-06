@@ -41,7 +41,7 @@ h1{margin:6px 0 8px;font:900 clamp(26px,6.6vw,38px)/1.28 var(--serif);color:var(
 @media(min-width:760px){.tabs{position:sticky;top:0;bottom:auto;border-top:0;border-bottom:1px solid var(--line);max-width:760px;margin:0 auto;min-height:56px}.tabs button{flex-direction:row;gap:8px;font-size:17px}body{padding-bottom:40px}}
 /* 칩·버튼 */
 .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;min-height:54px;padding:0 18px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);font-weight:700;font-size:16px;white-space:nowrap}
+.chip{flex:none;min-height:54px;padding:0 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-weight:700;font-size:16px;white-space:nowrap}
 .chip[aria-pressed=true]{background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
 select.chip{appearance:auto;padding:0 12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border-radius:6px;border:2px solid var(--navy);background:var(--navy);color:var(--navy-ink);font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap}
@@ -95,14 +95,34 @@ select.chip{appearance:auto;padding:0 12px}
 .empty{color:var(--ink2);font-size:17px;padding:24px 0}
 .foot{max-width:760px;margin:24px auto 0;padding:20px 20px 0;color:var(--ink2);font-size:15px;border-top:1px solid var(--line)}
 .foot a{font-weight:700}
+/* 앱 상단바·허브 (Stitch 시안) */
+.appbar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1.5px solid var(--line)}
+.ab{max-width:760px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px;color:var(--navy)}
+.ab h1{margin:0;font:700 clamp(19px,5.2vw,26px)/1.3 var(--serif);flex:1;min-width:0}
+.fz{flex:none;min-height:54px;padding:0 10px;border:2px solid var(--navy);background:var(--card);color:var(--navy);border-radius:6px;font-weight:700;font-size:15px;line-height:1.2;white-space:nowrap}
+.fz[aria-pressed=true]{background:var(--navy);color:#fff}
+body.big{zoom:1.18}
+.banner{margin-top:18px;padding:18px;background:var(--s2);border-radius:8px}
+.banner .bk{margin:0 0 6px;font-weight:700;color:var(--fest);font-size:16px}
+.banner h2{margin:0 0 8px;font:700 24px/1.4 var(--serif);color:var(--navy)}.banner p{margin:0;font-size:17px}.banner .bk{font-size:16px}
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.catc{display:grid;justify-items:center;gap:2px;padding:12px 2px;min-height:96px;background:var(--card);border:1.5px solid var(--line);border-radius:8px;font-size:16px;color:var(--ink2)}
+.catc b{font-size:18px;color:var(--navy)}.catc .ci{font-size:28px;line-height:1}
+.catc:active{background:var(--s1)}
+.hero{display:block;margin-top:16px;background:var(--card);border:1.5px solid var(--line);border-radius:8px;overflow:hidden;text-decoration:none}
+.hero img{width:100%;height:220px;object-fit:contain;display:block;background:var(--s3)}
+.hb{display:grid;gap:4px;padding:14px 16px}.hb b{font:700 22px/1.4 var(--serif);color:var(--navy)}
+.hb .tg{justify-self:start;background:var(--fest);color:#fff;font-weight:700;font-size:16px;padding:1px 10px;border-radius:4px}
+.hl{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.sec{margin:26px 0 0;font:700 22px/1.4 var(--serif);color:var(--navy)}
 .hubs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:no-preference){.btn,.chip{transition:background-color .12s ease-out}}
 </style></head>
 <body>
-<header class="wrap top"><p class="kick" id="kick"></p><h1 id="h1">10월 어디 갈까? 축제·캠핑·단풍 한 곳에서</h1><p class="sub" id="sub"></p></header>
+<header class="appbar"><div class="ab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h1 id="h1">10월 어디 갈까? 축제·캠핑·단풍 한 곳에서</h1><button class="fz" id="fz" type="button" aria-pressed="false">글자 크게</button></div></header>
 <nav class="tabs" id="tabs" aria-label="보기 선택">
-<button data-t="week" aria-current="true"><b>📅</b>이번 주</button>
+<button data-t="week" aria-current="true"><b>🏠</b>홈</button>
 <button data-t="fest" aria-current="false"><b>🎪</b>축제</button>
 <button data-t="camp" aria-current="false"><b>⛺</b>캠핑</button>
 <button data-t="fol" aria-current="false"><b>🍁</b>단풍</button>
@@ -127,9 +147,9 @@ function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
 var mon=T.getMonth()+1,m1=new Date(T.getFullYear(),T.getMonth()+1,0);
 var F=D.fest.map(function(f){f.S=P(f.s);f.E=P(f.e);return f}).filter(function(f){return f.E>=T}).sort(function(a,b){return a.S-b.S||a.t.localeCompare(b.t)});
 var C=D.camp,G=D.fol||[];
-$('#kick').textContent=T.getFullYear()+'년 '+mon+'월';
-$('#h1').textContent=mon+'월 어디 갈까? 축제·캠핑·단풍 한 곳에서';
-$('#sub').textContent='축제 '+F.length+'곳 · 캠핑장 '+C.length+'곳 · 단풍 명소 '+G.length+'곳';
+$('#h1').textContent=mon+'월 전국 축제·캠핑·단풍';
+$('#fz').addEventListener('click',function(){var on=document.body.classList.toggle('big');this.setAttribute('aria-pressed',on);try{localStorage.setItem('tripBig',on?'1':'')}catch(_){}});
+try{if(localStorage.getItem('tripBig')){document.body.classList.add('big');$('#fz').setAttribute('aria-pressed','true')}}catch(_){}
 function nav(q){return 'https://map.naver.com/p/search/'+encodeURIComponent(q)}
 function when(f){return f.S<=T?'<span class="live">진행 중</span>~'+md(f.E):span(f.S,f.E)}
 function fcard(f,img){
@@ -175,7 +195,14 @@ function vWeek(){
     strip+='<div class="dc'+(td?' td':'')+(i===5?' sa':'')+(i===6?' su':'')+'"><span class="dw">'+WD[i]+'</span><b>'+dd.getDate()+'</b><span class="n f">'+nf+'</span><span class="n c">'+nc+'</span></div>';
   }
   strip='<div class="strip" role="group" aria-label="이번 주 7일 일정 수">'+strip+'</div><p class="legend"><span class="n f">숫자</span> 그날 열리는 축제 · <span class="n c">숫자</span> 그날 열리는 캠핑 예약</p>';
-  return strip+(nx?'<p class="hint">가장 가까운 캠핑 예약 ·<b>'+span(nx.o.S,nx.o.E)+(nx.o.at?' '+esc(nx.o.at):'')+'</b> '+esc(nx.c.name)+'</p>':'')+
+  var hero=F.filter(function(f){return f.d&&f.img}).sort(function(a,b){return (a.S<=T?0:1)-(b.S<=T?0:1)||a.S-b.S})[0];
+  var cat=function(t,ic,nm,n){return '<button class="catc" data-t="'+t+'"><span class="ci" aria-hidden="true">'+ic+'</span><b>'+nm+'</b><span>'+n+(typeof n==='number'?'곳':'')+'</span></button>'};
+  var top='<section class="banner"><p class="bk">'+T.getFullYear()+'년 '+mon+'월 · 공식 공지 기준 · 확인 '+esc(D.built.slice(5).replace('-','/'))+'</p><h2>어디 갈지, 언제 예약할지<br>한 곳에서 골라보세요</h2><p>전국 축제 일정, 캠핑장 예약 오픈일, 단풍 명소를 모았어요. 자세한 안내는 각 길잡이 페이지로 이어져요.</p></section>'+
+    '<nav class="cats" aria-label="분류">'+cat('fest','🎪','축제',F.length)+cat('camp','⛺','캠핑',C.length)+cat('fol','🍁','단풍',G.length)+cat('map','🗺️','지도','전국')+'</nav>'+
+    (hero?'<a class="hero" href="/festival/'+esc(hero.d)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hero\',s:\''+esc(hero.d)+'\'})"><img alt="" src="'+esc(hero.img)+'" onerror="this.remove()"><span class="hb"><span class="tg">'+(hero.S<=T?'지금 진행 중':'곧 시작')+'</span><b>'+esc(hero.t)+'</b><span>'+when(hero)+' · '+esc(hero.a)+'</span></span></a><p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p>':'')+
+    '<div class="hl"><a class="btn o" href="/festival?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'festival\'})">축제 길잡이 전체 보기</a><a class="btn o" href="/camping?utm_source=trip" onclick="ev(\'trip_go\',{k:\'hub\',s:\'camping\'})">캠핑 길잡이 전체 보기</a></div>'+
+    '<h2 class="sec">이번 주 일정</h2>';
+  return top+strip+(nx?'<p class="hint">가장 가까운 캠핑 예약 · <b>'+span(nx.o.S,nx.o.E)+(nx.o.at?' '+esc(nx.o.at):'')+'</b> '+esc(nx.c.name)+'</p>':'')+
     (out?'<div class="weeks">'+out+'</div>':'<p class="empty">이번 달 남은 일정이 없어요. 축제·캠핑 탭에서 다음 일정을 확인하세요.</p>')+
     '<p class="count">상세 안내가 있는 축제만 보여줘요. 전체 '+F.length+'곳은 <b>축제</b> 탭에서 지역별로 찾아보세요.</p>';
 }
@@ -258,6 +285,7 @@ function show(t,focus){
 $('#tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.t)});
 app.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
+  if(b.dataset.t){show(b.dataset.t);return}
   if(b.dataset.map){show('map',b.dataset.map);return}
   if(b.dataset.fp){fs.p=b.dataset.fp;fs.n=20;show('fest');return}
   if(b.dataset.ct){cs.t=b.dataset.ct;show('camp');return}
