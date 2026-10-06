@@ -1,0 +1,82 @@
+/* Hallmark · macrostructure: Index-First · theme: Almanac · pre-emit critique: P4 H5 E4 S4 R5 V5 */
+:root{
+  --paper:#F6F7F3;--paper-2:#EEF0EA;--ink:#1B2420;--ink-2:#4A554F;--line:#C9CFC8;
+  --red:#C8372D;--red-ink:#FFFFFF;--focus:#1F4FD8;
+  --font-body:"Pretendard Variable",Pretendard,"Noto Sans KR",system-ui,sans-serif;
+  --font-display:"Noto Serif KR","Nanum Myeongjo",serif;
+  --font-mono:"IBM Plex Mono","Noto Sans Mono",ui-monospace,monospace;
+  --fs-body:18px;--fs-min:15px;--lh:1.65;--tap:52px;
+  --s1:8px;--s2:16px;--s3:28px;--s4:48px;--ease-out:cubic-bezier(.2,.7,.2,1);--dur:.26s
+}
+@media (prefers-color-scheme:dark){:root{--paper:#15181A;--paper-2:#1E2325;--ink:#ECEFEA;--ink-2:#A9B2AC;--line:#2E3537;--red:#E0574C;--red-ink:#15181A}}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh);word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:var(--s3) var(--s2) var(--s4)}
+h1,h2,h3{font-family:var(--font-display);font-style:normal;font-weight:700;line-height:1.3;margin:0}
+h1{font-size:26px}
+.sub,.small,.meta{font-size:var(--fs-min);color:var(--ink-2)}
+.top{padding-bottom:var(--s2);border-bottom:1px solid var(--ink)}
+.top .sub{margin:var(--s1) 0 0}
+
+/* 필터 칩: 글자 + 밑줄, 안 눌러도 전체 보임 */
+.chips{display:flex;flex-direction:column;gap:6px;padding:var(--s2) 0;border-bottom:1px solid var(--line);font-size:var(--fs-min)}
+.chips div{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.chips .lb{color:var(--ink-2);min-width:36px}
+.chips a{text-decoration:none;padding:10px 2px;min-height:var(--tap);display:inline-flex;align-items:center;border-bottom:2px solid transparent}
+.chips a[aria-current="true"]{border-bottom-color:var(--ink);font-weight:700}
+.empty{padding:var(--s3) 0;color:var(--ink-2)}
+
+/* 주 묶음 머리: sticky */
+.wk{position:sticky;top:0;z-index:2;background:var(--paper-2);font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;font-size:var(--fs-min);letter-spacing:.02em;padding:10px var(--s1);margin:var(--s3) 0 0;border-bottom:1px solid var(--line)}
+.rows{list-style:none;margin:0;padding:0}
+.row a{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:var(--s2);align-items:center;padding:14px var(--s1);min-height:var(--tap);text-decoration:none;border-bottom:1px solid var(--line);transition:background var(--dur) var(--ease-out)}
+.row a:hover{background:var(--paper-2)}
+.dt{font-family:var(--font-mono);font-variant-numeric:tabular-nums;line-height:1.1}
+.dt b{display:block;font-size:32px;font-weight:600}
+.dt span{display:block;font-size:13px;color:var(--ink-2);margin-top:2px}
+.nm strong{display:block;font-weight:700}
+.bd{font-style:normal;font-size:13px;border:1px solid var(--ink);padding:1px 6px;margin-left:6px;white-space:nowrap}
+.st{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:14px;text-align:right;white-space:nowrap;color:var(--ink-2)}
+/* 빨강은 "다음 오픈" 1곳만 */
+.row.next a{border-left:3px solid var(--red);padding-left:calc(var(--s1) - 3px)}
+.row.next .dt,.row.next .st{color:var(--red)}
+.row.next .st{font-weight:600}
+@media (max-width:420px){.row a{grid-template-columns:56px minmax(0,1fr)}.st{grid-column:2;text-align:left;white-space:normal}}
+
+.end{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap);padding:0 22px;border:1px solid var(--ink);text-decoration:none;font-weight:700;white-space:nowrap;max-width:100%;transition:background var(--dur) var(--ease-out)}
+.btn:hover{background:var(--paper-2)}
+.btn:active{background:var(--line)}
+.btn.primary{width:100%;margin:6px 0 var(--s3)}
+
+/* 상세 */
+.detail .base{margin:0 0 var(--s2)}
+.lead{margin:var(--s2) 0 var(--s3)}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-body)}
+.glance th,.glance td,.cancel th,.cancel td{text-align:left;padding:10px var(--s1);border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--ink-2);width:30%;font-size:var(--fs-min)}
+@media (max-width:360px){.glance tr{display:grid}.glance th{width:auto;border-bottom:0;padding-bottom:0}}
+section{margin-top:var(--s3)}
+section h2{font-size:21px;margin-bottom:var(--s1)}
+section p{margin:0}
+.ad{margin:var(--s3) 0;position:relative;min-height:90px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s2) 0}
+.adtag{position:absolute;top:-10px;left:0;font-size:13px;font-weight:700;background:var(--ink);color:var(--paper);padding:0 8px}
+.disclose{margin-top:var(--s3);font-size:var(--fs-min);color:var(--ink-2)}
+.box{border:1px solid var(--ink);padding:var(--s2);margin-top:var(--s2)}
+.box h3{font-size:19px;margin-bottom:var(--s1)}
+.box ul{margin:0;padding-left:1.1em}
+.box li,.box a{line-height:2}
+details{border-bottom:1px solid var(--line);padding:8px 0}
+summary{cursor:pointer;font-weight:700;min-height:var(--tap);display:flex;align-items:center}
+.src ul,.others{padding-left:1.1em;margin:0}
+.back{display:inline-flex;align-items:center;min-height:var(--tap);text-decoration:underline;font-weight:700}
+
+/* 푸터 Index columns */
+.foot{border-top:1px solid var(--ink);margin-top:var(--s4);padding:var(--s3) var(--s2) var(--s4);max-width:760px;margin-left:auto;margin-right:auto;font-size:var(--fs-min);color:var(--ink-2)}
+.foot p{margin:0 0 var(--s2)}
+.idx{list-style:none;padding:0;margin:0 0 var(--s2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px}
+@media (max-width:360px){.idx{grid-template-columns:minmax(0,1fr)}}
+.idx span{display:block;color:var(--ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

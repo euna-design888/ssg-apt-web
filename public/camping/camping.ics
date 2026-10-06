@@ -1,0 +1,495 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//캠핑 길잡이//fundmoney8//KO
+X-WR-CALNAME:캠핑장 예약 오픈일
+BEGIN:VEVENT
+UID:foresttrip-cheongtaesan-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립청태산자연휴양림 야영장 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0106 · https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립청태산자연휴양림 야영장 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-cheongtaesan-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립청태산자연휴양림 야영장 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0106 · https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립청태산자연휴양림 야영장 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-cheongtaesan-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립청태산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0106 · https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-cheongtaesan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립청태산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-daegwallyeong-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립대관령자연휴양림 야영장 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0111 · https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+URL:https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립대관령자연휴양림 야영장 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-daegwallyeong-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립대관령자연휴양림 야영장 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0111 · https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+URL:https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립대관령자연휴양림 야영장 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-daegwallyeong-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립대관령자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0111 · https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+URL:https://www.fundmoney8.com/camping/foresttrip-daegwallyeong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립대관령자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-jungmisan-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립중미산자연휴양림 야영장 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0108 · https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립중미산자연휴양림 야영장 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-jungmisan-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립중미산자연휴양림 야영장 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0108 · https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립중미산자연휴양림 야영장 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-jungmisan-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립중미산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0108 · https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-jungmisan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립중미산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-national-weekend-lottery-nov-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/rep/drlts/drltsUseGdnc.do?hmpgId=FRIP&menuId=001003004 · https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+URL:https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-national-weekend-lottery-nov-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/rep/drlts/drltsUseGdnc.do?hmpgId=FRIP&menuId=001003004 · https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+URL:https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-national-weekend-lottery-nov-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/rep/drlts/drltsUseGdnc.do?hmpgId=FRIP&menuId=001003004 · https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+URL:https://www.fundmoney8.com/camping/foresttrip-national-weekend-lottery-nov.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립자연휴양림 11월 주말 추첨 (숲나들e) 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-saneum-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립산음자연휴양림 야영장 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0103 · https://www.fundmoney8.com/camping/foresttrip-saneum.html
+URL:https://www.fundmoney8.com/camping/foresttrip-saneum.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립산음자연휴양림 야영장 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-saneum-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립산음자연휴양림 야영장 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0103 · https://www.fundmoney8.com/camping/foresttrip-saneum.html
+URL:https://www.fundmoney8.com/camping/foresttrip-saneum.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립산음자연휴양림 야영장 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-saneum-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립산음자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0103 · https://www.fundmoney8.com/camping/foresttrip-saneum.html
+URL:https://www.fundmoney8.com/camping/foresttrip-saneum.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립산음자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-yumyeongsan-2026-10-04@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261004T090000
+DTEND;TZID=Asia/Seoul:20261004T090000
+SUMMARY:국립유명산자연휴양림 야영장 11월 주말분 추첨 신청
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0101 · https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립유명산자연휴양림 야영장 11월 주말분 추첨 신청 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-yumyeongsan-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T160000
+DTEND;TZID=Asia/Seoul:20261010T160000
+SUMMARY:국립유명산자연휴양림 야영장 11월 주말분 추첨 발표
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0101 · https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립유명산자연휴양림 야영장 11월 주말분 추첨 발표 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:foresttrip-yumyeongsan-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T090000
+DTEND;TZID=Asia/Seoul:20261015T090000
+SUMMARY:국립유명산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환
+DESCRIPTION:https://www.foresttrip.go.kr/indvz/main.do?hmpgId=0101 · https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+URL:https://www.fundmoney8.com/camping/foresttrip-yumyeongsan.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:국립유명산자연휴양림 야영장 11월 주말분 미당첨 잔여 선착순 전환 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gapyeong-jaraseom-autocamping-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T140000
+DTEND;TZID=Asia/Seoul:20261008T140000
+SUMMARY:가평 자라섬 오토캠핑장 11월분 관광취약계층 우선예약
+DESCRIPTION:https://m.thankqcamping.com/resv/view.hbb?cseq=1 · https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+URL:https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:가평 자라섬 오토캠핑장 11월분 관광취약계층 우선예약 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gapyeong-jaraseom-autocamping-2026-10-09@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261009T140000
+DTEND;TZID=Asia/Seoul:20261009T140000
+SUMMARY:가평 자라섬 오토캠핑장 11월분 가평군민 우선예약
+DESCRIPTION:https://m.thankqcamping.com/resv/view.hbb?cseq=1 · https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+URL:https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:가평 자라섬 오토캠핑장 11월분 가평군민 우선예약 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gapyeong-jaraseom-autocamping-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T140000
+DTEND;TZID=Asia/Seoul:20261010T140000
+SUMMARY:가평 자라섬 오토캠핑장 11월분(~11/30) 일반예약 오픈
+DESCRIPTION:https://m.thankqcamping.com/resv/view.hbb?cseq=1 · https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+URL:https://www.fundmoney8.com/camping/gapyeong-jaraseom-autocamping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:가평 자라섬 오토캠핑장 11월분(~11/30) 일반예약 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-bukhansan-sagimak-2026-10-06@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261006T160000
+DTEND;TZID=Asia/Seoul:20261006T160000
+SUMMARY:북한산 사기막 야영장 6차 당첨자 결제 기한
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-bukhansan-sagimak.html
+URL:https://www.fundmoney8.com/camping/knps-bukhansan-sagimak.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:북한산 사기막 야영장 6차 당첨자 결제 기한 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-bukhansan-sagimak-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T100000
+DTEND;TZID=Asia/Seoul:20261008T100000
+SUMMARY:북한산 사기막 야영장 11~12월분 잔여 영지 선착순 오픈
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-bukhansan-sagimak.html
+URL:https://www.fundmoney8.com/camping/knps-bukhansan-sagimak.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:북한산 사기막 야영장 11~12월분 잔여 영지 선착순 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-chiaksan-guryong-2026-10-06@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261006T160000
+DTEND;TZID=Asia/Seoul:20261006T160000
+SUMMARY:치악산 구룡 야영장 6차 당첨자 결제 기한
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-chiaksan-guryong.html
+URL:https://www.fundmoney8.com/camping/knps-chiaksan-guryong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:치악산 구룡 야영장 6차 당첨자 결제 기한 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-chiaksan-guryong-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T100000
+DTEND;TZID=Asia/Seoul:20261008T100000
+SUMMARY:치악산 구룡 야영장 11~12월분 잔여 영지 선착순 오픈
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-chiaksan-guryong.html
+URL:https://www.fundmoney8.com/camping/knps-chiaksan-guryong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:치악산 구룡 야영장 11~12월분 잔여 영지 선착순 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-jirisan-dalgung-2026-10-06@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261006T160000
+DTEND;TZID=Asia/Seoul:20261006T160000
+SUMMARY:지리산 달궁 야영장 6차 당첨자 결제 기한
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-jirisan-dalgung.html
+URL:https://www.fundmoney8.com/camping/knps-jirisan-dalgung.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:지리산 달궁 야영장 6차 당첨자 결제 기한 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-jirisan-dalgung-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T100000
+DTEND;TZID=Asia/Seoul:20261008T100000
+SUMMARY:지리산 달궁 야영장 11~12월분 잔여 영지 선착순 오픈
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-jirisan-dalgung.html
+URL:https://www.fundmoney8.com/camping/knps-jirisan-dalgung.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:지리산 달궁 야영장 11~12월분 잔여 영지 선착순 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-seoraksan-seorakdong-2026-10-06@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261006T160000
+DTEND;TZID=Asia/Seoul:20261006T160000
+SUMMARY:설악산 설악동 야영장 6차 당첨자 결제 기한
+DESCRIPTION:https://res.knps.or.kr/contents/C/serviceGuide.do?parkId=B03 · https://www.fundmoney8.com/camping/knps-seoraksan-seorakdong.html
+URL:https://www.fundmoney8.com/camping/knps-seoraksan-seorakdong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:설악산 설악동 야영장 6차 당첨자 결제 기한 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-seoraksan-seorakdong-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T100000
+DTEND;TZID=Asia/Seoul:20261008T100000
+SUMMARY:설악산 설악동 야영장 11~12월분 잔여 영지 선착순 오픈
+DESCRIPTION:https://res.knps.or.kr/contents/C/serviceGuide.do?parkId=B03 · https://www.fundmoney8.com/camping/knps-seoraksan-seorakdong.html
+URL:https://www.fundmoney8.com/camping/knps-seoraksan-seorakdong.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:설악산 설악동 야영장 11~12월분 잔여 영지 선착순 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-taean-mongsanpo-hakampo-2026-10-06@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261006T160000
+DTEND;TZID=Asia/Seoul:20261006T160000
+SUMMARY:태안해안 몽산포·학암포 야영장 6차 당첨자 결제 기한
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-taean-mongsanpo-hakampo.html
+URL:https://www.fundmoney8.com/camping/knps-taean-mongsanpo-hakampo.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:태안해안 몽산포·학암포 야영장 6차 당첨자 결제 기한 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:knps-taean-mongsanpo-hakampo-2026-10-08@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261008T100000
+DTEND;TZID=Asia/Seoul:20261008T100000
+SUMMARY:태안해안 몽산포·학암포 야영장 11~12월분 잔여 영지 선착순 오픈
+DESCRIPTION:https://res.knps.or.kr/ · https://www.fundmoney8.com/camping/knps-taean-mongsanpo-hakampo.html
+URL:https://www.fundmoney8.com/camping/knps-taean-mongsanpo-hakampo.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:태안해안 몽산포·학암포 야영장 11~12월분 잔여 영지 선착순 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:seoul-jungnang-camping-forest-2026-10-10@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261010T090000
+DTEND;TZID=Asia/Seoul:20261010T090000
+SUMMARY:서울 중랑캠핑숲 가족캠핑장 11월분 예약 오픈
+DESCRIPTION:https://map.naver.com/p/entry/place/13466661 · https://www.fundmoney8.com/camping/seoul-jungnang-camping-forest.html
+URL:https://www.fundmoney8.com/camping/seoul-jungnang-camping-forest.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:서울 중랑캠핑숲 가족캠핑장 11월분 예약 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:seoul-noeul-camping-2026-10-15@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261015T140000
+DTEND;TZID=Asia/Seoul:20261015T140000
+SUMMARY:서울 노을캠핑장 (월드컵공원) 11월분 예약 오픈
+DESCRIPTION:https://tickets.interpark.com/goods/22002652 · https://www.fundmoney8.com/camping/seoul-noeul-camping.html
+URL:https://www.fundmoney8.com/camping/seoul-noeul-camping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:서울 노을캠핑장 (월드컵공원) 11월분 예약 오픈 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yeoncheon-hantangang-autocamping-2026-10-25@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261025T110000
+DTEND;TZID=Asia/Seoul:20261025T110000
+SUMMARY:연천 한탄강관광지 오토캠핑장 관광취약계층 우선예약(3일간)
+DESCRIPTION:https://www.yccs.or.kr/sisul/sisul_01_2/ · https://www.fundmoney8.com/camping/yeoncheon-hantangang-autocamping.html
+URL:https://www.fundmoney8.com/camping/yeoncheon-hantangang-autocamping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:연천 한탄강관광지 오토캠핑장 관광취약계층 우선예약(3일간) 30분 전
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yeoncheon-hantangang-autocamping-2026-11-01@fundmoney8.com
+DTSTAMP:20261006T092713Z
+DTSTART;TZID=Asia/Seoul:20261101T110000
+DTEND;TZID=Asia/Seoul:20261101T110000
+SUMMARY:연천 한탄강관광지 오토캠핑장 12월분 일반예약 오픈
+DESCRIPTION:https://www.yccs.or.kr/sisul/sisul_01_2/ · https://www.fundmoney8.com/camping/yeoncheon-hantangang-autocamping.html
+URL:https://www.fundmoney8.com/camping/yeoncheon-hantangang-autocamping.html
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:연천 한탄강관광지 오토캠핑장 12월분 일반예약 오픈 30분 전
+END:VALARM
+END:VEVENT
+END:VCALENDAR
