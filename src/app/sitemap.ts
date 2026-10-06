@@ -59,6 +59,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: p.startsWith("/region") ? 0.7 : 0.8,
     })),
+    // 캠핑 길잡이 (원본 camping-guide 레포, 상세 목록은 WEB_캠핑길잡이/sitemap_경로.md)
+    ...["", "/foresttrip-national-weekend-lottery-nov.html", "/foresttrip-yumyeongsan.html", "/foresttrip-cheongtaesan.html",
+      "/foresttrip-saneum.html", "/foresttrip-daegwallyeong.html", "/foresttrip-jungmisan.html",
+      "/knps-seoraksan-seorakdong.html", "/knps-jirisan-dalgung.html", "/knps-chiaksan-guryong.html",
+      "/knps-taean-mongsanpo-hakampo.html", "/knps-bukhansan-sagimak.html",
+      "/seoul-noeul-camping.html", "/seoul-jungnang-camping-forest.html",
+      "/gapyeong-jaraseom-autocamping.html", "/yeoncheon-hantangang-autocamping.html"].map((p) => ({
+      url: `https://www.fundmoney8.com/camping${p}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
