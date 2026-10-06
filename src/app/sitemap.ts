@@ -71,6 +71,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // 여행 모아보기 (축제·캠핑·단풍 허브, 원본 trip-guide 레포)
+    { url: "https://www.fundmoney8.com/trip", lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
