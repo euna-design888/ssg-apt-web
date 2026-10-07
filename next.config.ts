@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         { source: "/", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/index.html" },
         { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/:path" },
+        // trip.fundmoney8.com 전용: public/trip/ 정적 사이트(여행 모아보기)를 이 주소의 루트로 (gold와 같은 방식)
+        { source: "/", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/index.html" },
+        { source: "/:path((?!_next|trip/).*)", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/:path" },
       ],
       afterFiles: [
         { source: "/family", destination: "/family/index.html" },
