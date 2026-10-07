@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="어디갈까? 로고">
+<rect width="120" height="120" rx="30" fill="#F25C00"/>
+<path d="M60 20c-17 0-30 13-30 30 0 22 30 50 30 50s30-28 30-50c0-17-13-30-30-30z" fill="#fff"/>
+<circle cx="60" cy="50" r="13" fill="#F25C00"/>
+<circle cx="60" cy="50" r="5" fill="#fff"/>
+<circle cx="92" cy="96" r="9" fill="#008F7E"/><circle cx="26" cy="98" r="6" fill="#D90F3A"/>
+</svg>

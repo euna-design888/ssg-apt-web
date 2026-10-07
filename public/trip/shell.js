@@ -5,7 +5,7 @@
   var p=location.pathname,sec=p.indexOf('/camping')===0?'camp':p.indexOf('/festival')===0?'fest':'';
   var tabs=[['홈','/trip#week','h'],['둘러보기','/trip#'+(sec||'fest'),'e'],['지도','/trip#map','m']];
   var bar=document.createElement('div');bar.id='tripshell';
-  bar.innerHTML='<div class="ts-in"><a class="ts-brand" href="/trip#week">여행 모아보기</a><nav class="ts-nav" aria-label="앱 메뉴">'+
+  bar.innerHTML='<div class="ts-in"><a class="ts-brand" href="/trip#week">떠나볼지도</a><nav class="ts-nav" aria-label="앱 메뉴">'+
     tabs.map(function(t){return '<a href="'+t[1]+'" class="ts-'+t[2]+'">'+t[0]+'</a>'}).join('')+'</nav></div>';
   document.body.insertBefore(bar,document.body.firstChild);
   document.documentElement.classList.add('trip-shell',sec?'ts-'+sec:'ts-x');
