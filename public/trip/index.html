@@ -280,6 +280,7 @@ h1,h2,h3,.ab h1,.cb h3,.sec,.banner h2,.gh h2,.ah b,.alt h4{font-weight:900;colo
 .np .btn,.np .alt .btn{background:#111;color:#fff;border:2px solid #111;box-shadow:none}
 .np .btn.bm,.np .btn.bw,.np .btn.o,.np .alt .btn.bw{background:#fff;color:#111;border:2px solid #111}
 .np .alt{background:#F4F4F4}
+.btn.bs{background:#002046;color:#fff}
 .mapwrap #map{height:min(72vh,640px)}.mapwrap.short #map{height:min(46vh,340px)}
 .bigmap{width:100%;margin-top:12px;min-height:58px}
 [hidden]{display:none!important}
@@ -321,7 +322,8 @@ function ir(ic,t){return '<li><i aria-hidden="true">'+ic+'</i><span>'+t+'</span>
 function fcard(f,img){
   var a=f.d?'<a class="btn bf" href="/festival/'+esc(f.d)+'.html?utm_source=trip" onclick="ev(\'trip_go\',{k:\'fest\',s:\''+esc(f.d)+'\'})">주차·일정 보기</a>':'';
   var m=f.x?'<button class="btn bm" data-map="f'+f.i+'">지도에서 보기</button>':'';
-  var acts='<div class="acts">'+a+m+'<a class="btn bw" target="_blank" rel="noopener" href="'+nav(f.t)+'">길찾기</a></div>';
+  var st=f.d?'<a class="btn bs" href="/festival/'+esc(f.d)+'.html?utm_source=trip#stay" onclick="ev(\'trip_stay\',{s:\''+esc(f.d)+'\',from:\'card\'})">숙소 가격 보기</a>':'';
+  var acts='<div class="acts">'+a+st+m+'<a class="btn bw" target="_blank" rel="noopener" href="'+nav(f.t)+'">길찾기</a></div>';
   if(img&&f.img)return '<li><article class="card f"><div class="ph" style="background-image:url(&quot;'+esc(f.img)+'&quot;)"><img loading="lazy" alt="" src="'+esc(f.img)+'" onerror="this.parentNode.remove()"></div><div class="cb"><span class="when">'+when(f)+'</span><h3>'+esc(f.t)+'</h3><p class="meta">'+esc(f.a)+'</p>'+acts+'<p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p></div></article></li>';
   return '<li><article class="card f np"><div class="nh"><span>축제 · '+esc(f.r)+'</span><h3>'+esc(f.t)+'</h3></div><div class="cb"><ul class="info">'+ir('📅','<b>'+when(f)+'</b>')+ir('📍','<b>장소</b> '+esc(f.a))+'</ul>'+acts+'</div></article></li>';
 }
