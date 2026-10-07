@@ -3,8 +3,8 @@
 <title>10월 전국 축제·캠핑장·단풍 명소 지도와 일정 | 놀멍지도</title>
 <meta name="description" content="10월 전국 축제 일정, 캠핑장 예약 오픈일, 단풍 명소를 지도와 목록으로 한 곳에서 확인하세요. 공식 공지 기준, 확인일 표기.">
 <link rel="canonical" href="https://www.fundmoney8.com/trip">
-<meta property="og:type" content="website"><meta property="og:title" content="오늘 어디 갈까? 놀멍지도 · 10월 축제·캠핑·단풍 지도"><meta property="og:description" content="10월 전국 축제 일정, 캠핑장 예약 오픈일, 단풍 명소를 지도와 목록으로 한 곳에서 확인하세요. 공식 공지 기준, 확인일 표기.">
-<meta property="og:url" content="https://www.fundmoney8.com/trip"><meta property="og:image" content="https://www.fundmoney8.com/trip/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:title" content="놀멍지도 오늘 뭐 할까? · 10월 축제·캠핑·단풍 지도"><meta property="og:description" content="10월 전국 축제 일정, 캠핑장 예약 오픈일, 단풍 명소를 지도와 목록으로 한 곳에서 확인하세요. 공식 공지 기준, 확인일 표기.">
+<meta property="og:url" content="https://www.fundmoney8.com/trip"><meta property="og:image" content="https://www.fundmoney8.com/trip/og.png?v=2"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/trip/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@700;900&display=swap">
@@ -285,9 +285,11 @@ h1,h2,h3,.ab h1,.cb h3,.sec,.banner h2,.gh h2,.ah b,.alt h4{font-weight:900;colo
 .bigmap{width:100%;margin-top:12px;min-height:58px}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:no-preference){.btn,.chip{transition:background-color .12s ease-out}}
+.ab h1 .bn{font-weight:900;font-size:clamp(26px,7.4vw,32px);color:#002046;letter-spacing:-.03em;-webkit-text-stroke:.6px #002046;-webkit-font-smoothing:antialiased;text-shadow:none}
+.ab h1 .tl{font-weight:900;font-size:16px}
 </style></head>
 <body>
-<header class="appbar"><div class="ab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h1 id="h1"><svg class="lg" viewBox="0 0 120 120" width="40" height="40" aria-hidden="true"><rect width="120" height="120" rx="30" fill="#F25C00"/><path d="M60 20c-17 0-30 13-30 30 0 22 30 50 30 50s30-28 30-50c0-17-13-30-30-30z" fill="#fff"/><circle cx="60" cy="50" r="13" fill="#F25C00"/><circle cx="60" cy="50" r="5" fill="#fff"/><circle cx="92" cy="96" r="9" fill="#008F7E"/><circle cx="26" cy="98" r="6" fill="#D90F3A"/></svg><span class="bn">놀멍지도</span><span class="tl">오늘 어디 갈까?</span><span class="vh">10월 어디 갈까? 축제·캠핑·단풍 한 곳에서</span></h1><button class="fz" id="fz" type="button" aria-pressed="true">글자 작게</button></div></header>
+<header class="appbar"><div class="ab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h1 id="h1"><svg class="lg" viewBox="0 0 120 120" width="40" height="40" aria-hidden="true"><rect width="120" height="120" rx="30" fill="#F25C00"/><path d="M60 20c-17 0-30 13-30 30 0 22 30 50 30 50s30-28 30-50c0-17-13-30-30-30z" fill="#fff"/><circle cx="60" cy="50" r="13" fill="#F25C00"/><circle cx="60" cy="50" r="5" fill="#fff"/><circle cx="92" cy="96" r="9" fill="#008F7E"/><circle cx="26" cy="98" r="6" fill="#D90F3A"/></svg><span class="bn">놀멍지도</span><span class="tl">오늘 어디 갈까?</span><span class="vh">10월 어디 갈까? 축제·캠핑·단풍 한 곳에서</span></h1></div></header>
 <nav class="tabs" id="tabs" aria-label="보기 선택">
 <button data-t="week" aria-current="true"><b>🏠</b>홈</button>
 <button data-t="fest" aria-current="false"><b>🧭</b>둘러보기</button>
@@ -312,10 +314,7 @@ function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
 var mon=T.getMonth()+1,m1=new Date(T.getFullYear(),T.getMonth()+1,0);
 var F=D.fest.map(function(f){f.S=P(f.s);f.E=P(f.e);return f}).filter(function(f){return f.E>=T}).sort(function(a,b){return a.S-b.S||a.t.localeCompare(b.t)});
 var C=D.camp,G=D.fol||[];
-function setBig(on){document.body.classList.toggle('big',on);var z=$('#fz');z.setAttribute('aria-pressed',on);z.textContent=on?'글자 작게':'글자 크게';try{localStorage.setItem('tripBig',on?'1':'0')}catch(_){}}
-$('#fz').addEventListener('click',function(){setBig(!document.body.classList.contains('big'))});
-var bigOn=true;try{if(localStorage.getItem('tripBig')==='0')bigOn=false}catch(_){}
-setBig(bigOn);
+document.body.classList.add('big');
 function nav(q){return 'https://map.naver.com/p/search/'+encodeURIComponent(q)}
 function when(f){return f.S<=T?'<span class="live">진행 중</span>~'+md(f.E):span(f.S,f.E)}
 function ir(ic,t){return '<li><i aria-hidden="true">'+ic+'</i><span>'+t+'</span></li>'}
@@ -448,6 +447,12 @@ function mapBlock(c){
 }
 function vMap(){return mapBlock('')}
 function pin(k){return L.divIcon({className:'',html:'<div class="pin" style="background:'+COL[k]+'"></div>',iconSize:[26,26],iconAnchor:[6,30]})}
+function detail(id){
+  var k=id[0],r=id.slice(1);
+  if(k==='f'){var f=F.filter(function(x){return String(x.i)===r})[0];return f&&f.d?'/festival/'+f.d+'.html?utm_source=trip':''}
+  if(k==='c')return '/camping/'+r+'.html?utm_source=trip';
+  return '';
+}
 function sheet(id){
   var k=id[0],r=id.slice(1),html='';
   if(k==='f'){var f=F.filter(function(x){return String(x.i)===r})[0];if(f)html=fcard(f,true)}
@@ -465,12 +470,12 @@ function initMap(focus){
     var src=k==='f'?F.filter(function(f){return f.x&&f.S<=m1}):k==='c'?C.filter(function(c){return c.lat}):G.filter(function(g){return g.lat});
     src.forEach(function(o){
       var id=k==='f'?'f'+o.i:k==='c'?'c'+o.slug:'g'+o.slug,ll=k==='f'?[o.y,o.x]:[o.lat,o.lng];
-      var m=L.marker(ll,{icon:pin(k),title:k==='f'?o.t:o.name,keyboard:true}).on('click',function(){sheet(id);ev('trip_pin',{k:k})});
+      var m=L.marker(ll,{icon:pin(k),title:k==='f'?o.t:o.name,keyboard:true}).on('click',function(){var h=detail(id);ev('trip_pin',{k:k,d:h?1:0});if(h)location.href=h;else sheet(id)});
       layers[k].addLayer(m);pts[id]=ll;
     });
     if(on[k])layers[k].addTo(map);
   });
-  if(cur==='week')map.on('click',function(){show('map')});
+  
   if(focus&&pts[focus]){map.setView(pts[focus],11);sheet(focus)}
 }
 /* ── 라우터 ── */
