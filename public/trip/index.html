@@ -455,7 +455,7 @@ function inP(f){
 }
 function mpSummary(){
   if(mp==='a')return '<p class="meta">지도의 핀을 누르면 상세 페이지로 이동해요.</p>';
-  var L=F.filter(function(f){return f.x&&inP(f)});
+  var L=F.filter(function(f){return f.x&&inP(f)}).sort(function(a,b){return (b.d?1:0)-(a.d?1:0)||(a.E-a.S)-(b.E-b.S)});
   var rows=L.slice(0,8).map(function(f){return '<a class="up f" href="'+fhref(f)+'" onclick="ev(\'trip_go\',{k:\'mp\',s:\''+mp+'\'})"><span class="ud">'+(f.S<=T?'<b>진행</b><span>중</span>':'<b>'+(f.S.getMonth()+1)+'.'+String(f.S.getDate()).padStart(2,'0')+'</b><span>('+wd(f.S)+')</span>')+'</span><span class="ut"><b>'+esc(f.t)+'</b><span>'+esc(f.r)+'</span></span><span class="uc" aria-hidden="true">›</span></a>'}).join('');
   return '<h2 class="sec">'+MPL[mp]+' 열리는 축제 '+L.length+'곳</h2>'+(rows?'<div class="ups">'+rows+'</div>':'<p class="meta">이 기간에 열리는 축제를 못 찾았어요. 다른 기간을 눌러 보세요.</p>')+(L.length>8?'<p class="meta">나머지는 지도의 핀을 눌러 보세요.</p>':'');
 }
