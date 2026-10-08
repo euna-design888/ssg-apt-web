@@ -44,6 +44,7 @@ h1{margin:6px 0 8px;font:900 clamp(26px,6.6vw,38px)/1.28 var(--serif);color:var(
 .chip{flex:none;min-height:54px;padding:0 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-weight:700;font-size:16px;white-space:nowrap}
 .chip[aria-pressed=true]{background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
 select.chip{appearance:auto;padding:0 12px}
+.mpc .chip{flex:1 1 0;padding:0 6px;font-size:16px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border-radius:6px;border:2px solid var(--navy);background:var(--navy);color:var(--navy-ink);font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap}
 .btn.o{background:var(--card);color:var(--navy)}
 .btn:active{transform:translateY(1px)}
@@ -443,9 +444,24 @@ function vFol(){
 }
 /* ── 지도 ── */
 var map,layers={f:null,c:null,g:null},on={f:true,c:true,g:true},pts={};
+/* ── 지도 기간 필터: a 전체 · t 오늘 · w 이번 주말 · n 다음 주말 (10/8) ── */
+var mp='a';try{var qp=new URLSearchParams(location.search).get('p');if('atwn'.indexOf(qp)>-1&&qp)mp=qp}catch(_){}
+var MPL={a:'전체',t:'오늘',w:'이번 주말',n:'다음 주말'};
+function wkend(n){var dw=T.getDay(),s=dw===6?T:dw===0?addD(T,-1):addD(T,6-dw);s=addD(s,7*n);return [s,addD(s,1)]}
+function inP(f){
+  if(mp==='a')return f.S<=m1;
+  if(mp==='t')return f.S<=T&&f.E>=T;
+  var w=wkend(mp==='w'?0:1),a=w[0]<T?T:w[0];return f.S<=w[1]&&f.E>=a;
+}
+function mpSummary(){
+  if(mp==='a')return '<p class="meta">지도의 핀을 누르면 상세 페이지로 이동해요.</p>';
+  var L=F.filter(function(f){return f.x&&inP(f)});
+  var rows=L.slice(0,8).map(function(f){return '<a class="up f" href="'+fhref(f)+'" onclick="ev(\'trip_go\',{k:\'mp\',s:\''+mp+'\'})"><span class="ud">'+(f.S<=T?'<b>진행</b><span>중</span>':'<b>'+(f.S.getMonth()+1)+'.'+String(f.S.getDate()).padStart(2,'0')+'</b><span>('+wd(f.S)+')</span>')+'</span><span class="ut"><b>'+esc(f.t)+'</b><span>'+esc(f.r)+'</span></span><span class="uc" aria-hidden="true">›</span></a>'}).join('');
+  return '<h2 class="sec">'+MPL[mp]+' 열리는 축제 '+L.length+'곳</h2>'+(rows?'<div class="ups">'+rows+'</div>':'<p class="meta">이 기간에 열리는 축제를 못 찾았어요. 다른 기간을 눌러 보세요.</p>')+(L.length>8?'<p class="meta">나머지는 지도의 핀을 눌러 보세요.</p>':'');
+}
 var COL={f:'#F25C00',c:'#008F7E',g:'#D90F3A'};
 function mapBlock(c){
-  return '<section class="mapwrap '+c+'"><div class="chips"><button class="chip cf" data-ml="f" aria-pressed="true">🎪 축제</button><button class="chip cc" data-ml="c" aria-pressed="true">⛺ 캠핑</button><button class="chip cg" data-ml="g" aria-pressed="true">🍁 단풍</button></div><div id="map" role="application" aria-label="전국 지도"></div>'+(c==='short'?'<button class="btn bm bigmap" data-t="map">지도 크게 보기 · 확대해서 찾기</button>':'')+'<div class="sheet" id="sheet"><p class="meta">지도의 핀을 누르면 여기에 안내가 나와요.</p></div></section>';
+  return '<section class="mapwrap '+c+'"><div class="chips mpc" aria-label="기간">'+['a','t','w','n'].map(function(k){return '<button class="chip" data-mp="'+k+'" aria-pressed="'+(mp===k)+'">'+MPL[k]+'</button>'}).join('')+'</div><div class="chips"><button class="chip cf" data-ml="f" aria-pressed="true">🎪 축제</button><button class="chip cc" data-ml="c" aria-pressed="true">⛺ 캠핑</button><button class="chip cg" data-ml="g" aria-pressed="true">🍁 단풍</button></div><div id="map" role="application" aria-label="전국 지도"></div>'+(c==='short'?'<button class="btn bm bigmap" data-t="map">지도 크게 보기 · 확대해서 찾기</button>':'')+'<div class="sheet" id="sheet">'+mpSummary()+'</div></section>';
 }
 function vMap(){return mapBlock('')}
 function pin(k){return L.divIcon({className:'',html:'<div class="pin" style="background:'+COL[k]+'"></div>',iconSize:[26,26],iconAnchor:[6,30]})}
@@ -463,21 +479,21 @@ function sheet(id){
   if(k==='g'){var g=G.filter(function(x){return x.slug===r})[0];if(g)html=gcard(g)}
   $('#sheet').innerHTML='<ul class="list">'+html+'</ul>';
 }
+function mkLayer(k){
+  layers[k]=L.markerClusterGroup({maxClusterRadius:45,showCoverageOnHover:false,iconCreateFunction:function(c){return L.divIcon({className:"",html:"<div class=\"cl\" style=\"background:"+COL[k]+"\">"+c.getChildCount()+"</div>",iconSize:[40,40]})}});
+  var src=k==='f'?F.filter(function(f){return f.x&&inP(f)}):k==='c'?C.filter(function(c){return c.lat}):G.filter(function(g){return g.lat});
+  src.forEach(function(o){
+    var id=k==='f'?'f'+o.i:k==='c'?'c'+o.slug:'g'+o.slug,ll=k==='f'?[o.y,o.x]:[o.lat,o.lng];
+    var m=L.marker(ll,{icon:pin(k),title:k==='f'?o.t:o.name,keyboard:true}).on('click',function(){var h=detail(id);ev('trip_pin',{k:k,d:h?1:0});if(h)location.href=h;else sheet(id)});
+    layers[k].addLayer(m);pts[id]=ll;
+  });
+}
 function initMap(focus){
   if(!window.L||!L.markerClusterGroup){setTimeout(function(){initMap(focus)},200);return}
   if(map){map.remove();map=null}
   map=L.map('map',{scrollWheelZoom:false}).setView([36.3,127.9],7);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-  ['f','c','g'].forEach(function(k){
-    layers[k]=L.markerClusterGroup({maxClusterRadius:45,showCoverageOnHover:false,iconCreateFunction:function(c){return L.divIcon({className:"",html:"<div class=\"cl\" style=\"background:"+COL[k]+"\">"+c.getChildCount()+"</div>",iconSize:[40,40]})}});
-    var src=k==='f'?F.filter(function(f){return f.x&&f.S<=m1}):k==='c'?C.filter(function(c){return c.lat}):G.filter(function(g){return g.lat});
-    src.forEach(function(o){
-      var id=k==='f'?'f'+o.i:k==='c'?'c'+o.slug:'g'+o.slug,ll=k==='f'?[o.y,o.x]:[o.lat,o.lng];
-      var m=L.marker(ll,{icon:pin(k),title:k==='f'?o.t:o.name,keyboard:true}).on('click',function(){var h=detail(id);ev('trip_pin',{k:k,d:h?1:0});if(h)location.href=h;else sheet(id)});
-      layers[k].addLayer(m);pts[id]=ll;
-    });
-    if(on[k])layers[k].addTo(map);
-  });
+  ['f','c','g'].forEach(function(k){mkLayer(k);if(on[k])layers[k].addTo(map)});
   
   if(focus&&pts[focus]){map.setView(pts[focus],11);sheet(focus)}
 }
@@ -500,6 +516,9 @@ app.addEventListener('click',function(e){
   if(b.dataset.fp){fs.p=b.dataset.fp;fs.n=20;show('fest');return}
   if(b.dataset.ct){cs.t=b.dataset.ct;show('camp');return}
   if(b.id==='more'){fs.n+=20;var y=scrollY;show('fest');scrollTo(0,y);return}
+  if(b.dataset.mp){mp=b.dataset.mp;document.querySelectorAll('[data-mp]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.mp===mp)});
+    if(map){if(map.hasLayer(layers.f))map.removeLayer(layers.f);mkLayer('f');if(on.f)layers.f.addTo(map)}
+    $('#sheet').innerHTML=mpSummary();ev('trip_mp',{p:mp});return}
   if(b.dataset.ml){var k=b.dataset.ml;on[k]=!on[k];b.setAttribute('aria-pressed',on[k]);on[k]?layers[k].addTo(map):map.removeLayer(layers[k])}
 });
 app.addEventListener('change',function(e){if(e.target.id==='fr'){fs.r=e.target.value;fs.n=20;show('fest')}});
