@@ -23,3 +23,11 @@ html.trip-shell .tbtn{background:var(--tm);color:#fff;border-color:var(--tm)}
 /* 광고·제휴 표시는 그대로 두되 둥글게 */
 html.trip-shell .ad,html.trip-shell .aff,html.trip-shell .coupang,html.trip-shell .stay{border-radius:var(--tr)}
 html.trip-shell .back{display:inline-flex;align-items:center;min-height:54px;padding:0 20px;border-radius:14px;background:#111;color:#fff;font-weight:900;text-decoration:none}
+/* 다크모드 (10/8): 위에서 배경·글자를 밝은 색으로 고정해 두면 카드는 어두워지는데 글자는 검정이라 안 보임 → 다크일 땐 같이 뒤집는다 */
+@media (prefers-color-scheme:dark){
+html.trip-shell body{background:#101315;color:#F3F5F0}
+html.trip-shell h1,html.trip-shell h2,html.trip-shell h3,html.trip-shell table.glance th,html.trip-shell table.kv th{color:#fff}
+html.trip-shell .lead,html.trip-shell .answer p{color:#F3F5F0}
+html.trip-shell .card,html.trip-shell section.card,html.trip-shell .others a,html.trip-shell .mini{box-shadow:none}
+html.trip-shell .back{background:#2A3033}
+}
