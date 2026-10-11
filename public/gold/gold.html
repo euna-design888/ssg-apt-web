@@ -108,7 +108,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 var n,c=a.className||"",h=a.getAttribute("href")||"";
 if(a.closest(".nav"))n="gold_nav_click";else if(a.closest(".links"))n="gold_link_click";
 else if(a.closest("section[aria-labelledby=t-mine]"))n="gold_mine_click";
-else if(/main/.test(c))n="gold_main_click";else if(/btn/.test(c))n="gold_btn_click";else return;
+else if(a.classList.contains("main"))n="gold_main_click";else if(a.classList.contains("btn"))n="gold_btn_click";else return;
 var p={label:(a.textContent||"").trim().slice(0,30),page:location.pathname,to:h.slice(0,80)};
 if(/^https?:/.test(h)){p.transport_type="beacon";gtag("event","gold_outbound_click",p)}
 gtag("event",n,p)});
