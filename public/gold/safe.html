@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://gold.fundmoney8.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="모르면 시세보다 못 받습니다. 금 팔기 전에 확인하세요">
+<meta property="og:image:alt" content="시세만 보고 가면 덜 받을 수 있어요. 금 팔기 전에 확인하세요">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="사기·바가지 피하는 6가지 | 금은 거래 가이드">
@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-78JGV6PB8S");</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ymu291xjgo");</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -60,5 +61,15 @@
 <p><b>면책</b> 투자 권유가 아니며 계산 결과는 입력한 가격 기준 예상 금액입니다. 세금·수수료는 변경될 수 있으니 거래 전에 해당 기관에 확인하세요. 작성 시세 기록원 · 최종 확인 2026.10.05</p>
 </footer>
 </main>
+<script>
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a||typeof gtag!="function")return;
+var n,c=a.className||"",h=a.getAttribute("href")||"";
+if(a.closest(".nav"))n="gold_nav_click";else if(a.closest(".links"))n="gold_link_click";
+else if(a.closest("section[aria-labelledby=t-mine]"))n="gold_mine_click";
+else if(/main/.test(c))n="gold_main_click";else if(/btn/.test(c))n="gold_btn_click";else return;
+var p={label:(a.textContent||"").trim().slice(0,30),page:location.pathname,to:h.slice(0,80)};
+if(/^https?:/.test(h)){p.transport_type="beacon";gtag("event","gold_outbound_click",p)}
+gtag("event",n,p)});
+</script>
 </body>
 </html>

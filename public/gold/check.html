@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://gold.fundmoney8.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="모르면 시세보다 못 받습니다. 금 팔기 전에 확인하세요">
+<meta property="og:image:alt" content="시세만 보고 가면 덜 받을 수 있어요. 금 팔기 전에 확인하세요">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="금·은 시세 보는 법 | 금은 거래 가이드">
@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-78JGV6PB8S");</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ymu291xjgo");</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "금 1돈은 몇 g인가요?", "acceptedAnswer": {"@type": "Answer", "text": "3.75g입니다. 10돈은 37.5g입니다. 은도 1돈은 3.75g으로 같습니다."}}, {"@type": "Question", "name": "이 사이트에서 실시간 시세를 볼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 이 사이트는 시세를 직접 보여주지 않고 거래소 화면으로 연결합니다."}}, {"@type": "Question", "name": "18K·14K 금은 어떻게 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "순금이 아닌 금은 순도에 따라 가격이 달라 거래소 화면의 제품시세 항목에서 팔 때 가격을 확인합니다."}}]}
@@ -35,9 +36,9 @@
 <main>
 
 <a class="back" href="index.html">← 처음으로</a>
-<h1>금·은 시세, 이렇게 봅니다</h1>
-<p class="sub">거래소 화면에서 <mark>노란 테두리 두 줄</mark>만 보면 됩니다.</p>
-<div class="btns"><a class="btn main" href="https://www.koreagoldx.co.kr/" target="_blank" rel="noopener">금·은 시세 조회하기</a></div>
+<h1>금·은 시세는 노란 두 줄만 보세요</h1>
+<p class="sub"><mark>살 때 칸</mark>으로 내 금을 계산하면 실제보다 많게 나와요.</p>
+<div class="btns"><a class="btn main" href="https://www.koreagoldx.co.kr/" target="_blank" rel="noopener">노란 두 줄 찾으러 가기</a></div>
 <p class="hint">새 창에서 거래소 사이트가 열립니다. 시세는 거래소 화면 기준입니다.</p>
 
 <h2>화면에서 볼 곳</h2>
@@ -77,5 +78,15 @@
 <p><b>면책</b> 투자 권유가 아니며 계산 결과는 입력한 가격 기준 예상 금액입니다. 세금·수수료는 변경될 수 있으니 거래 전에 해당 기관에 확인하세요. 작성 시세 기록원 · 최종 확인 2026.10.05</p>
 </footer>
 </main>
+<script>
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a||typeof gtag!="function")return;
+var n,c=a.className||"",h=a.getAttribute("href")||"";
+if(a.closest(".nav"))n="gold_nav_click";else if(a.closest(".links"))n="gold_link_click";
+else if(a.closest("section[aria-labelledby=t-mine]"))n="gold_mine_click";
+else if(/main/.test(c))n="gold_main_click";else if(/btn/.test(c))n="gold_btn_click";else return;
+var p={label:(a.textContent||"").trim().slice(0,30),page:location.pathname,to:h.slice(0,80)};
+if(/^https?:/.test(h)){p.transport_type="beacon";gtag("event","gold_outbound_click",p)}
+gtag("event",n,p)});
+</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://gold.fundmoney8.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="모르면 시세보다 못 받습니다. 금 팔기 전에 확인하세요">
+<meta property="og:image:alt" content="시세만 보고 가면 덜 받을 수 있어요. 금 팔기 전에 확인하세요">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="금은방 가격은 어떻게 정해지나요? | 금은 거래 가이드">
@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-78JGV6PB8S");</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ymu291xjgo");</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925161017862158" crossorigin="anonymous"></script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "금 살 때·팔 때 가격은 왜 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "살 때는 부가세 10%와 거래소 마진이 포함되고, 팔 때는 부가세가 붙지 않아 그만큼 차이가 벌어집니다. 차이 폭은 거래소와 상품마다 다릅니다."}}, {"@type": "Question", "name": "팔 때 거래소, 금은방, KRX 중 어디가 좋은가요?", "acceptedAnswer": {"@type": "Answer", "text": "정해진 정답은 없습니다. 감정 수수료, 순도에 따른 정제비, 매입 수수료가 곳마다 다르므로 두 곳 이상에서 총 수령액을 비교하세요."}}, {"@type": "Question", "name": "금반지를 팔면 만들 때 낸 공임도 돌려받나요?", "acceptedAnswer": {"@type": "Answer", "text": "받기 어렵습니다. 살 때는 공임이 붙지만 팔 때는 이 비용을 인정받기 어렵다는 보도가 있습니다."}}]}
@@ -35,9 +36,9 @@
 <main>
 
 <a class="back" href="index.html">← 처음으로</a>
-<h1>금은방 가격은 이렇게 정해집니다</h1>
+<h1>금은방 가격에는 부가세와 공임이 붙어요</h1>
 <div class="key">살 때는 <mark>부가세 10%</mark>가 포함되고 팔 때는 없어서 <mark>가격이 벌어집니다.</mark></div>
-<div class="btns"><a class="btn main" href="calc.html">내 금 얼마인지 계산하기</a></div>
+<div class="btns"><a class="btn main" href="calc.html">내 금 예상액 계산</a></div>
 
 <h2>무엇이 붙고, 무엇이 빠지나요?</h2>
 <table>
@@ -77,5 +78,15 @@
 <p><b>면책</b> 투자 권유가 아니며 계산 결과는 입력한 가격 기준 예상 금액입니다. 세금·수수료는 변경될 수 있으니 거래 전에 해당 기관에 확인하세요. 작성 시세 기록원 · 최종 확인 2026.10.05</p>
 </footer>
 </main>
+<script>
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a||typeof gtag!="function")return;
+var n,c=a.className||"",h=a.getAttribute("href")||"";
+if(a.closest(".nav"))n="gold_nav_click";else if(a.closest(".links"))n="gold_link_click";
+else if(a.closest("section[aria-labelledby=t-mine]"))n="gold_mine_click";
+else if(/main/.test(c))n="gold_main_click";else if(/btn/.test(c))n="gold_btn_click";else return;
+var p={label:(a.textContent||"").trim().slice(0,30),page:location.pathname,to:h.slice(0,80)};
+if(/^https?:/.test(h)){p.transport_type="beacon";gtag("event","gold_outbound_click",p)}
+gtag("event",n,p)});
+</script>
 </body>
 </html>
