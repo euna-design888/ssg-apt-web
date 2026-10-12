@@ -9,7 +9,7 @@ if (!KEY) { console.error("DATA_GO_KR_KEY 없음"); process.exit(1); }
 
 const BASE = "https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/";
 const OUT = new URL("../src/data/cheongyak.json", import.meta.url);
-const today = new Date();
+const today = new Date(Date.now() + 9 * 3600 * 1000); // 한국 날짜 기준 (Actions는 UTC라 06:00 KST = 전날 21:00 UTC)
 const iso = (d) => d.toISOString().slice(0, 10);
 const shift = (days) => { const d = new Date(today); d.setDate(d.getDate() + days); return d; };
 

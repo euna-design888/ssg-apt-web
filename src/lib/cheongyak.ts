@@ -50,7 +50,8 @@ export function sidoCounts() {
   return m;
 }
 
-export function addDays(d: string, n: number) { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); }
+// 시간대 무관(UTC 계산) — 로컬(KST)과 Vercel(UTC) 빌드에서 "이번 주" 범위가 달라지던 것 (10/12: 7곳 vs 15곳)
+export function addDays(d: string, n: number) { const [y, m, dd] = d.split("-").map(Number); return new Date(Date.UTC(y, m - 1, dd + n)).toISOString().slice(0, 10); }
 export function md(d?: string | null) { return d ? `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}` : "-"; }
 export function ymd(d?: string | null) { return d ? d.replace(/-/g, ".") : "미정"; }
 export function rangeText(r: Range) { return r ? (r[0] === r[1] ? ymd(r[0]) : `${ymd(r[0])} ~ ${ymd(r[1])}`) : "미정"; }
