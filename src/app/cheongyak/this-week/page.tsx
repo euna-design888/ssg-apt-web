@@ -5,10 +5,10 @@ import CheongyakCard from "@/components/CheongyakCard";
 import { BASIS, SOURCE, thisWeek, upcoming, ymd, addDays } from "@/lib/cheongyak";
 
 export const metadata = {
-  title: "이번 주 청약 접수 단지 — 청약홈 공식 데이터로 매일 갱신",
+  title: "이번 주 청약 접수 단지 — 청약홈 공공데이터로 매일 갱신",
   description: "이번 주 청약 접수가 시작되는 전국 아파트 단지를 공급 세대 순으로 모았습니다. 접수 일정·분양가·특별공급 세대까지 한 번에.",
   alternates: { canonical: "https://www.fundmoney8.com/cheongyak/this-week" },
-  openGraph: { title: "이번 주 청약 접수 단지 — 청약홈 공식 데이터로 매일 갱신", description: "이번 주 접수 단지를 공급 세대 순으로. 접수 일정·분양가·특별공급 세대.", url: "https://www.fundmoney8.com/cheongyak/this-week" },
+  openGraph: { title: "이번 주 청약 접수 단지 — 청약홈 공공데이터로 매일 갱신", description: "이번 주 접수 단지를 공급 세대 순으로. 접수 일정·분양가·특별공급 세대.", url: "https://www.fundmoney8.com/cheongyak/this-week" },
 };
 
 export default function ThisWeekPage() {

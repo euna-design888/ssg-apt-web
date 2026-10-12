@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params; const c = byId(id);
   if (!c) return { title: "단지를 찾을 수 없습니다" };
   const title = `${c.name} 청약 일정·분양가·특별공급 (${ymd(BASIS)} 기준)`;
-  const description = `${c.name}(${c.sido}, 총 ${c.supply.toLocaleString()}세대) 청약 접수 ${rangeText(c.schedule.receipt)}, 당첨자 발표 ${ymd(c.schedule.announce)}, 분양가 ${money(c.priceMin)}${c.priceMax > c.priceMin ? `~${money(c.priceMax)}` : ""}. 청약홈 공식 데이터.`;
+  const description = `${c.name}(${c.sido}, 총 ${c.supply.toLocaleString()}세대) 청약 접수 ${rangeText(c.schedule.receipt)}, 당첨자 발표 ${ymd(c.schedule.announce)}, 분양가 ${money(c.priceMin)}${c.priceMax > c.priceMin ? `~${money(c.priceMax)}` : ""}. 청약홈 공공데이터.`;
   return { title, description, alternates: { canonical: `https://www.fundmoney8.com/cheongyak/${c.id}` }, openGraph: { title, description, url: `https://www.fundmoney8.com/cheongyak/${c.id}` } };
 }
 

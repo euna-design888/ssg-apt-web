@@ -11,7 +11,7 @@ export async function generateStaticParams() { return Object.values(SIDO_SLUG).m
 export async function generateMetadata({ params }: { params: Promise<{ sido: string }> }) {
   const { sido } = await params; const name = SLUG_SIDO[sido];
   if (!name) return { title: "지역을 찾을 수 없습니다" };
-  const title = `${name} 청약 일정 ${ymd(BASIS).slice(0, 7)} — 접수 예정·진행 단지`, description = `${name} 아파트 청약 접수 예정·진행 단지와 분양가, 발표일을 청약홈 공식 데이터로 정리했습니다.`;
+  const title = `${name} 청약 일정 ${ymd(BASIS).slice(0, 7)} — 접수 예정·진행 단지`, description = `${name} 아파트 청약 접수 예정·진행 단지와 분양가, 발표일을 청약홈 공공데이터로 정리했습니다.`;
   const empty = (sidoCounts()[name] || 0) === 0; // 단지 0곳인 지역은 색인에서 뺌 (지이오 10/12)
   return { title, description, alternates: { canonical: `https://www.fundmoney8.com/cheongyak/region/${sido}` }, openGraph: { title, description, url: `https://www.fundmoney8.com/cheongyak/region/${sido}` }, robots: empty ? { index: false, follow: true } : undefined };
 }

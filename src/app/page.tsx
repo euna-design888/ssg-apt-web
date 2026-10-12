@@ -12,9 +12,9 @@ const legacy = rawApartments as Apartment[]; // 가점 계산기가 아직 옛 8
 
 export const metadata = {
   title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기',
-  description: '이번 주 청약 접수 단지와 일정·분양가·특별공급 세대를 청약홈 공식 데이터로 매일 갱신합니다. 84점 만점 청약 가점 계산기 무료.',
+  description: '이번 주 청약 접수 단지와 일정·분양가·특별공급 세대를 청약홈 공공데이터로 매일 갱신합니다. 84점 만점 청약 가점 계산기 무료.',
   alternates: { canonical: 'https://www.fundmoney8.com/' },
-  openGraph: { title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기', description: '청약홈 공식 데이터로 매일 갱신하는 청약 일정·분양가·특별공급 세대. 가점 계산기 무료.', url: 'https://www.fundmoney8.com/' },
+  openGraph: { title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기', description: '청약홈 공공데이터로 매일 갱신하는 청약 일정·분양가·특별공급 세대. 가점 계산기 무료.', url: 'https://www.fundmoney8.com/' },
 };
 
 export default function HomePage() {
@@ -41,7 +41,7 @@ export default function HomePage() {
               <StatFigure value={week.length} /><span className="sb-hero__unit">개 단지</span>
             </div>
             <h1 className="sb-hero__title">이번 주 접수 {week.length}곳, 내 가점으로 갈 곳이 보입니다</h1>
-            <p className="sb-hero__lede">총 {weekHouseholds.toLocaleString()}세대. 접수일·분양가·특별공급 세대를 청약홈 공식 데이터로 매일 아침 갱신합니다.</p>
+            <p className="sb-hero__lede">총 {weekHouseholds.toLocaleString()}세대. 접수일·분양가·특별공급 세대를 청약홈 공공데이터로 매일 아침 갱신합니다.</p>
             <div className="sb-hero__actions">
               <a href="#calculator" className="sb-btn sb-btn--primary">내 가점 계산하기</a>
               <a href="/cheongyak/this-week" className="sb-btn sb-btn--outline">이번 주 단지 모두 보기</a>

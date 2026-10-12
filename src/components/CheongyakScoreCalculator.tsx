@@ -24,39 +24,41 @@ export default function CheongyakScoreCalculator({ apartments }: CheongyakScoreC
 
   // 등급 및 조언 판정
   const getScoreVerdict = (score: number) => {
+    // 10/12 한결 점검: "당첨권·당첨 유력·100% 당첨 가능" 같은 단정 표현은 표시광고법·애드센스 허위진술에 걸린다.
+    // 점수 구간만 말하고, 판단은 청약홈이 공개하는 주택형별 최저 당첨가점과 비교하라고 안내한다.
     if (score >= 70) {
       return {
-        badge: '👑 서울 로또 분상제 당첨권',
+        badge: '70점 이상 · 상위 가점대',
         color: '#00b06b',
         bgColor: '#e6fcf5',
-        title: '강남·서초·송파 핵심 상급지 당첨 유력권',
-        desc: '디에이치 방배, 잠실 래미안 등 수도권 최고 로또 단지의 가점제 커트라인에 도달 가능한 최상위 가점입니다. 특별공급보다는 일반공급 가점제 승부를 적극 추천합니다.',
+        title: '가점제 물량 지원을 검토할 구간',
+        desc: '같은 지역·비슷한 주택형의 청약홈 공개 최저 당첨가점과 비교해 보세요. 당첨은 단지·주택형·경쟁률에 따라 달라집니다.',
       };
     }
     if (score >= 60) {
       return {
-        badge: '🎯 수도권 1급지 당첨 가시권',
+        badge: '60~69점 · 중상위 가점대',
         color: '#1b64da',
         bgColor: '#e8f3ff',
-        title: '과천·판교·서울 준상급지 적극 공략권',
-        desc: '과천 지정타, 성남, 서울 주요 재개발 단지에서 높은 확률로 당첨을 노릴 수 있습니다. 인기 평형(84A)보다는 비인기 타워형이나 저층을 전략 선택하면 당첨 확률이 2배 높아집니다.',
+        title: '지역과 주택형에 따라 가점제 지원을 검토할 구간',
+        desc: '최근 공개된 당첨가점이 이 점수대와 비슷한 단지를 찾아 비교하세요. 선호도가 낮은 주택형은 공개 당첨가점이 낮은 경우가 있습니다.',
       };
     }
     if (score >= 48) {
       return {
-        badge: '⚖️ 수도권 택지지구 소신 지원권',
+        badge: '48~59점 · 중위 가점대',
         color: '#e87400',
         bgColor: '#fff4e6',
-        title: '수도권 공공분양 및 민간 틈새 평형 공략권',
-        desc: '인천계양, 화서, 고덕강일 등 수도권 외곽 공공분양 및 일반 민간분양의 가점 틈새를 노려볼 만합니다. 추첨제 비율(60~80%)이 높은 중대형 평형도 함께 고려하세요.',
+        title: '가점제와 추첨제를 함께 볼 구간',
+        desc: '공공분양·비규제지역 단지의 공개 당첨가점과 비교하세요. 추첨제 비율이 있는 주택형은 가점과 별도로 추첨합니다(비율은 공고문 확인).',
       };
     }
     return {
-      badge: '💡 가점제 대신 특별공급 & 추첨제 집중',
+      badge: '48점 미만 · 추첨제·특별공급 확인',
       color: '#f04452',
       bgColor: '#feeef0',
-      title: '일반 가점제 경쟁 불리 ➔ 추첨제·특공 우회 필수',
-      desc: '가점제로는 서울 상급지 진입이 어렵습니다. 하지만 신혼부부, 생애최초, 다자녀 특별공급이나 규제지역 내 추첨제(최대 60~80% 추첨)를 노리면 가점과 무관하게 100% 운으로 당첨 가능합니다.',
+      title: '추첨제 물량과 특별공급 자격을 먼저 확인할 구간',
+      desc: '추첨제 물량은 가점 없이 추첨으로 뽑습니다. 신혼부부·생애최초·다자녀 등 특별공급 자격은 입주자모집공고 원문에서 확인하세요.',
     };
   };
 
@@ -64,24 +66,19 @@ export default function CheongyakScoreCalculator({ apartments }: CheongyakScoreC
 
   // 단지별 합격 난이도 판정
   const getComplexStatus = (apt: Apartment, score: number) => {
-    // 단지별 예상 가점 커트라인
-    let minTarget = 65;
-    if (apt.name.includes('방배') || apt.name.includes('잠실')) minTarget = 70;
-    else if (apt.name.includes('과천')) minTarget = 67;
-    else if (apt.name.includes('고덕강일') || apt.name.includes('복정')) minTarget = 55;
-    else minTarget = 50;
-
-    if (score >= minTarget) {
-      return { text: '안정권', class: 'status-safe', tag: '가점제 승부 유력' };
-    } else if (score >= minTarget - 8) {
-      return { text: '소신/경합', class: 'status-caution', tag: '비선호 타입 공략' };
+    // 10/12 한결 점검: 임의 커트라인(방배 70·과천 67…)은 근거 없는 단정이라 제거. 구간 안내만 하고 판단은 공개 당첨가점으로.
+    void apt;
+    if (score >= 60) {
+      return { text: '공개 가점과 비교', class: 'status-safe', tag: '가점제 검토 구간' };
+    } else if (score >= 48) {
+      return { text: '가점·추첨 함께', class: 'status-caution', tag: '주택형별 확인' };
     } else {
-      return { text: '추첨제 노림', class: 'status-danger', tag: '특공/추첨제 필수' };
+      return { text: '추첨제·특공 확인', class: 'status-danger', tag: '공고문 자격 확인' };
     }
   };
 
   const handleShareScore = () => {
-    const text = `[쓱보는 청약] 내 청약 가점 결과: ${totalScore}점 / 84점 만점 (${verdict.title})\n수도권 분양단지 안전마진 & DSR 자금 확인하기 👉 https://ssgapt.com`;
+    const text = `[쓱보는 청약] 내 청약 가점: ${totalScore}점 / 84점 (${verdict.badge})\n쓱보는 청약 가점 계산기에서 확인하기 👉 https://www.fundmoney8.com/#calculator`;
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -99,10 +96,10 @@ export default function CheongyakScoreCalculator({ apartments }: CheongyakScoreC
           <span style={{ fontSize: '12px', color: '#8b95a1' }}>총 84점 만점 기준</span>
         </div>
         <h2 style={{ fontSize: '20px', fontWeight: 900, color: '#191f28', margin: '4px 0 8px' }}>
-          내 청약 가점 3초 정밀 진단
+          내 청약 가점 계산
         </h2>
         <p style={{ fontSize: '13px', color: '#4e5968', lineHeight: 1.5, margin: 0 }}>
-          무주택 기간(32점), 부양가족 수(35점), 통장 가입기간(17점)을 선택하면 수도권 8대 분양 단지 합격 가능성을 즉시 비교해 드립니다.
+          무주택 기간(32점), 부양가족 수(35점), 통장 가입기간(17점)을 선택하면 84점 만점 기준 점수가 나옵니다. 당첨 여부는 단지·주택형별 공개 당첨가점과 비교해 판단하세요.
         </p>
       </div>
 
