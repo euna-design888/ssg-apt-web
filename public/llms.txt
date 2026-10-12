@@ -1,0 +1,14 @@
+# 쓱보는 청약 (www.fundmoney8.com)
+
+> 한국부동산원 청약홈 공공데이터로 매일 아침 갱신하는 아파트 청약 정보 서비스. 단지별 청약 접수 일정·분양가(주택형별)·특별공급 세대·규제 구분과 84점 만점 청약 가점 계산기를 제공합니다. 투자 권유가 아니며 당첨을 보장하지 않습니다.
+
+## 주요 페이지
+- [이번 주 청약 접수 단지](https://www.fundmoney8.com/cheongyak/this-week): 이번 주 접수 단지를 공급 세대 순으로
+- [지역별 청약 일정](https://www.fundmoney8.com/cheongyak/region/seoul): 17개 시도별 접수 예정·진행 단지
+- [단지 페이지](https://www.fundmoney8.com/cheongyak/): /cheongyak/<청약홈 주택관리번호> — 일정표·주택형별 분양가·특별공급 세대·FAQ
+- [청약 가점 계산기](https://www.fundmoney8.com/#calculator): 무주택 기간·부양가족·통장 가입 기간으로 84점 계산
+- [사이트맵](https://www.fundmoney8.com/sitemap.xml)
+
+## 데이터
+- 출처: 한국부동산원 청약홈 (공공데이터포털 ApplyhomeInfoDetailSvc), 매일 06:00 KST 갱신
+- 각 페이지 상단에 기준일 표기. 분양가는 주택형별 최고가(공고 기준).

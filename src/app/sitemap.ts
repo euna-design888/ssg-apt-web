@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { ITEMS, BASIS, SIDO_SLUG, sidoCounts } from "@/lib/cheongyak";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.fundmoney8.com"; // 대표 주소는 www (루트는 www로 리다이렉트)
@@ -22,6 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // 10/12: 청약홈 공공데이터 단지·지역·이번 주 페이지 (매일 갱신)
+  const cheongyakUrls = [
+    { url: `${baseUrl}/cheongyak/this-week`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.9 },
+    ...Object.entries(SIDO_SLUG).filter(([name]) => (sidoCounts()[name] || 0) > 0).map(([, s]) => ({ url: `${baseUrl}/cheongyak/region/${s}`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.7 })),
+    ...ITEMS.map((c) => ({ url: `${baseUrl}/cheongyak/${c.id}`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.8 })),
+  ];
+
   return [
     {
       url: baseUrl,
@@ -29,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 1.0,
     },
+    ...cheongyakUrls,
     {
       url: `${baseUrl}/onnuri`,
       lastModified: now,

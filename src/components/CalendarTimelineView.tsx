@@ -113,7 +113,7 @@ export default function CalendarTimelineView({ apartments }: Props) {
                   <span style={{ fontSize: '13px', color: '#4e5968', fontWeight: 600 }}>
                     분양가 {formatMoney(apt.priceMin)}~
                   </span>
-                  <a href={`/apt/${apt.id}`} className="timeline-link-btn">
+                  <a href={`/cheongyak/${apt.id}`} className="timeline-link-btn">
                     리포트 & 자금계산 ➔
                   </a>
                 </div>

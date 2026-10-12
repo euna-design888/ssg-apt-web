@@ -1,27 +1,23 @@
 import React from 'react';
+import { BASIS, SOURCE, ymd } from '@/lib/cheongyak';
 
+// 쓱보는 청약 푸터 (Hallmark Ft1 Mast-headed, 10/12). 출처·기준일·고지가 한 덩어리.
 export default function Footer() {
   return (
-    <footer style={{ background: '#0f172a', color: '#94a3b8', padding: '40px 0', borderTop: '1px solid #1e293b', fontSize: '13px' }}>
-      <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', marginBottom: '24px' }}>
-          <div>
-            <strong style={{ color: '#ffffff', fontSize: '16px', display: 'block', marginBottom: '8px' }}>
-              🏢 쓱보는 청약 (AptFact)
-            </strong>
-            <p>공공 팩트체크(바름)와 악마의 변호인 리스크(단호)로 검증하는 차세대 청약 정보 포털</p>
-          </div>
-          <div style={{ maxWidth: '400px' }}>
-            <strong style={{ color: '#ffffff', display: 'block', marginBottom: '6px' }}>법적 고지 및 데이터 원천</strong>
-            <p style={{ lineHeight: '1.6' }}>
-              본 서비스의 청약 일정 및 분양가는 한국부동산원 청약홈, 한국토지주택공사(LH)의 공식 입주자모집공고문을 1차 원천으로 합니다. 
-              시세 안전마진은 국토교통부 실거래가 공개시스템 기준 실측치이며, 최종 청약 신청 전 반드시 주무관청 공고문을 재확인하시기 바랍니다.
-            </p>
-          </div>
-        </div>
-        <div style={{ borderTop: '1px solid #1e293b', paddingTop: '18px', textAlign: 'center', fontSize: '12px', color: '#64748b' }}>
-          © 2026 쓱보는 청약 (AptFact). 방문 통계와 광고(구글 애드센스)에 쿠키를 씁니다 · <a href="/privacy" style={{ color: '#94a3b8', textDecoration: 'underline' }}>개인정보처리방침</a>
-        </div>
+    <footer className="sb-foot">
+      <div className="sb-wrap">
+        <p className="sb-foot__mast">쓱보는 청약</p>
+        <p className="sb-foot__tag">청약홈 공공데이터로 매일 아침 갱신하는 청약 일정·분양가·가점 안내</p>
+        <ul className="sb-foot__links">
+          <li><a href="/cheongyak/this-week">이번 주 접수</a></li>
+          <li><a href="/cheongyak/region/seoul">지역별 일정</a></li>
+          <li><a href="/#calculator">가점 계산기</a></li>
+          <li><a href="/privacy">개인정보처리방침</a></li>
+        </ul>
+        <p className="sb-foot__note">
+          출처 {SOURCE} · 기준일 {ymd(BASIS)}. 이 사이트는 공공데이터를 가공해 보여주는 정보 서비스이며 투자 권유나 당첨 보장이 아닙니다. 접수 전 반드시 입주자모집공고 원문을 확인하세요.
+        </p>
+        <p className="sb-foot__note">© 2026 쓱보는 청약 · 방문 통계와 광고(구글 애드센스)에 쿠키를 씁니다.</p>
       </div>
     </footer>
   );

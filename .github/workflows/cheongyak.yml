@@ -1,0 +1,25 @@
+# 청약홈 데이터 매일 갱신 (2026-10-12). 변경 있을 때만 커밋 → main 푸시 → Vercel 자동 배포
+name: cheongyak-daily
+on:
+  schedule:
+    - cron: "0 21 * * *"   # UTC 21:00 = 한국 06:00
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/fetch-cheongyak.mjs
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+      - name: commit if changed
+        run: |
+          git config user.name "cheongyak-bot"
+          git config user.email "bot@fundmoney8.com"
+          git add src/data/cheongyak.json
+          git diff --cached --quiet && echo "변경 없음" || (git commit -m "data: 청약홈 $(date -u +%Y-%m-%d) 갱신" && git push)

@@ -1,0 +1,57 @@
+/* 쓱보는 청약 · 디자인 토큰 (Hallmark · theme: Cobalt · 2026-10-12)
+ * 모든 색·글꼴·간격은 여기서만 정의한다. 페이지 CSS는 var()로만 쓴다. */
+:root {
+  /* paper band: cool light · display: grotesk-sans(Pretendard GOV) · accent: electric cobalt */
+  --color-paper:      oklch(98.5% 0.004 250);
+  --color-paper-2:    oklch(96.5% 0.006 250);
+  --color-graphite:   oklch(22% 0.016 260);
+  --color-graphite-2: oklch(27% 0.016 260);
+  --color-rule:       oklch(88% 0.008 252);
+  --color-rule-2:     oklch(80% 0.010 252);
+  --color-ink:        oklch(24% 0.02 258);
+  --color-ink-2:      oklch(34% 0.018 257);
+  --color-muted:      oklch(52% 0.016 256);
+  --color-on-dark:    oklch(94% 0.006 250);
+  --color-on-dark-2:  oklch(72% 0.012 252);
+  --color-accent:     oklch(58% 0.20 256);
+  --color-accent-ink: oklch(99% 0.004 250);
+  --color-accent-soft: oklch(94% 0.03 256);
+  --color-focus:      oklch(58% 0.20 256);
+  --color-live:       oklch(58% 0.17 150);
+  --color-live-soft:  oklch(95% 0.04 150);
+
+  --font-display: 'Pretendard GOV', 'Pretendard', -apple-system, system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-body:    'Pretendard', -apple-system, system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --fs-body:   1.125rem;  /* 18px 어르신 기준 */
+  --fs-small:  0.9375rem; /* 15px 최소 */
+  --fs-lg:     1.375rem;
+  --fs-2xl:    1.75rem;
+  --fs-3xl:    2.25rem;
+  --fs-display: clamp(2.25rem, 4.5vw + 1rem, 3.75rem);
+  --fs-figure:  clamp(4.5rem, 10vw + 1rem, 9rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --radius-ctl: 6px;
+  --radius-card: 10px;
+  --tap: 52px;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long:  420ms;
+
+  --page-max: 1120px;
+  --page-gutter: clamp(16px, 4vw, 40px);
+}
