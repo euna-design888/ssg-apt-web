@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# 청약 갱신 로그 (PC 전용)
+scripts/daily-cheongyak.log

@@ -1,8 +1,8 @@
-# 청약홈 데이터 매일 갱신 (2026-10-12). 변경 있을 때만 커밋 → main 푸시 → Vercel 자동 배포
+# 청약홈 데이터 갱신 (2026-10-12). 변경 있을 때만 커밋 → main 푸시 → Vercel 자동 배포
+# 매일 자동 갱신은 PC 작업 스케줄러 CheongyakDailyFetch 09:30(scripts/daily-cheongyak.ps1)이 한다.
+# 이 워크플로는 수동 실행 전용 — 레포 시크릿 DATA_GO_KR_KEY를 등록한 뒤 schedule을 되살리면 서버에서도 돈다.
 name: cheongyak-daily
 on:
-  schedule:
-    - cron: "0 21 * * *"   # UTC 21:00 = 한국 06:00
   workflow_dispatch:
 permissions:
   contents: write
