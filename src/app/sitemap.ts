@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 10/12: 청약홈 공공데이터 단지·지역·이번 주 페이지 (매일 갱신)
   const cheongyakUrls = [
     { url: `${baseUrl}/cheongyak/this-week`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.9 },
+    { url: `${baseUrl}/cheongyak/region`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.9 },
     ...Object.entries(SIDO_SLUG).filter(([name]) => (sidoCounts()[name] || 0) > 0).map(([, s]) => ({ url: `${baseUrl}/cheongyak/region/${s}`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.7 })),
     ...ITEMS.map((c) => ({ url: `${baseUrl}/cheongyak/${c.id}`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.8 })),
   ];

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 // 쓱보는 청약 내비 (Hallmark N1b · 3링크, 10/12). 모바일은 브랜드 + 버튼만.
-const LINKS: [string, string][] = [['/cheongyak/this-week', '이번 주 접수'], ['/cheongyak/region/seoul', '지역별'], ['/#calculator', '가점 계산기']];
+const LINKS: [string, string][] = [['/cheongyak/this-week', '이번 주 접수'], ['/cheongyak/region', '전국·지역별'], ['/#calculator', '가점 계산기']];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

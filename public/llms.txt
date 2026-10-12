@@ -4,7 +4,8 @@
 
 ## 주요 페이지
 - [이번 주 청약 접수 단지](https://www.fundmoney8.com/cheongyak/this-week): 이번 주 접수 단지를 공급 세대 순으로
-- [지역별 청약 일정](https://www.fundmoney8.com/cheongyak/region/seoul): 17개 시도별 접수 예정·진행 단지
+- [전국 청약 일정 한눈에](https://www.fundmoney8.com/cheongyak/region): 17개 시도별로 묶은 접수 예정·진행 단지 전체
+- [지역별 청약 일정](https://www.fundmoney8.com/cheongyak/region/seoul): 시도별 페이지 (/cheongyak/region/<시도 영문>)
 - [단지 페이지](https://www.fundmoney8.com/cheongyak/): /cheongyak/<청약홈 주택관리번호> — 일정표·주택형별 분양가·특별공급 세대·FAQ
 - [청약 가점 계산기](https://www.fundmoney8.com/#calculator): 무주택 기간·부양가족·통장 가입 기간으로 84점 계산
 - [사이트맵](https://www.fundmoney8.com/sitemap.xml)

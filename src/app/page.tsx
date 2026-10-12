@@ -82,7 +82,7 @@ export default function HomePage() {
         {/* 지역 */}
         <section className="sb-section">
           <div className="sb-wrap">
-            <h2 className="sb-h2">지역별 청약 일정<small>최근 45일부터 앞으로 75일까지 공고 기준</small></h2>
+            <h2 className="sb-h2">지역별 청약 일정<small>최근 45일부터 앞으로 75일까지 공고 기준 · <a href="/cheongyak/region">전국 한눈에 보기 →</a></small></h2>
             <div className="sb-chips">
               {Object.entries(SIDO_SLUG).map(([name, slug]) => (
                 <a key={slug} href={`/cheongyak/region/${slug}`} className={`sb-chip ${counts[name] ? '' : 'sb-chip--empty'}`}>{name} <b>{counts[name] || 0}</b></a>

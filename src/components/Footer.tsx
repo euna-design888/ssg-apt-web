@@ -10,7 +10,7 @@ export default function Footer() {
         <p className="sb-foot__tag">청약홈 공공데이터로 매일 아침 갱신하는 청약 일정·분양가·가점 안내</p>
         <ul className="sb-foot__links">
           <li><a href="/cheongyak/this-week">이번 주 접수</a></li>
-          <li><a href="/cheongyak/region/seoul">지역별 일정</a></li>
+          <li><a href="/cheongyak/region">전국·지역별 일정</a></li>
           <li><a href="/#calculator">가점 계산기</a></li>
           <li><a href="/privacy">개인정보처리방침</a></li>
         </ul>
