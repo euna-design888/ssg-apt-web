@@ -92,5 +92,14 @@ details p{margin:6px 0 0;color:var(--sub);font-size:17px}
 .big2{font-size:28px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}
 footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--sub)}
 footer p{margin:6px 0}
-a{color:inherit}
+a{color:inherit;text-decoration-color:var(--gold);text-underline-offset:3px}
+/* 10/13 도구 페이지(돌반지·내 금 합계·각인): 개수 ± 버튼 */
+.step{display:flex;align-items:center;gap:6px;flex:none}
+.step button{width:52px;height:52px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:26px;line-height:1;cursor:pointer;font-family:inherit}
+.step button:hover{border-color:var(--sub)}
+.step output{min-width:36px;text-align:center;font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.rowline .no{width:32px;height:32px;font-size:16px}
+.item{border:1px solid var(--line);border-radius:12px;padding:4px 14px 14px;margin-bottom:10px}
+.item .x{display:block;margin:0 -6px -10px auto;min-height:44px;padding:0 6px;background:none;border:0;color:var(--sub);font-size:16px;cursor:pointer;font-family:inherit}
+.btn.add{border-style:dashed}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:active{transform:none}}
