@@ -61,7 +61,16 @@ p{margin:0 0 12px}
 .when{font-weight:700;margin:0 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .answer{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:16px 18px;border-left:6px solid var(--primary);margin:0 0 8px}
 .answer p{margin:0}
-.affnote{font-size:16px;font-weight:500;color:var(--text);background:var(--primary-bg);border-radius:12px;padding:10px 14px;margin:0 0 12px}
+.affnote{font-size:15px;font-weight:500;color:var(--text);margin:8px 2px 12px;line-height:1.5}
+.qa{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);border-top:6px solid var(--primary);padding:6px 16px 12px;margin:0 0 4px}
+.qa ul{list-style:none;margin:0;padding:0}
+.qa li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qk{font-size:16px;color:var(--mute);font-weight:500;padding-top:2px}
+.qv b{display:block;font-size:19px;font-weight:800;line-height:1.35}
+.qv small{display:block;font-size:15px;color:var(--mute);margin-top:2px}
+.qbtn{display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:8px;border-radius:12px;background:var(--primary-bg);color:var(--primary-text);font-weight:800;font-size:17px;text-decoration:none}
+.qsrc{font-size:15px;color:var(--mute);margin:10px 0 0}
+body.ended .qa{display:none}
 
 /* 상태 배지: 진행 중 초록 / 곧 시작 주황 / 오늘·내일 종료 빨강 / 종료 회색 */
 .badge{display:inline-block;font-size:15px;font-weight:800;line-height:1.4;border-radius:999px;padding:3px 10px;white-space:nowrap}
@@ -232,14 +241,14 @@ main>.ph.l{margin:16px 0 14px}
 <header class="wrap top">
 <p class="crumb"><a href="/festival">축제 가는 법</a> › 2026 대전 빵축제</p>
 <h1>2026 대전 빵축제 <span class="nw">주차·셔틀·일정</span></h1>
-<p class="affnote">이 페이지의 숙소·투어·준비물 링크는 제휴 링크로, 이 링크로 구매·예약하면 운영자가 수수료를 받습니다.</p>
-<p class="asof">기준일 2026.10.15</p>
-<p class="when" data-s="2026-10-17" data-e="2026-10-18"><span class="badge soon">D-2</span> 10.17(토)~10.18(일) · 대전 유성구</p>
+<p class="when" data-s="2026-10-17" data-e="2026-10-18"><span class="badge soon">D-2</span> 10.17(토)~10.18(일) · 대전 유성구 · 무료</p>
 
 <p class="ribbon endband"><b>2026 축제는 끝났어요.</b> 내년 일정이 나오면 이 주소에서 다시 정리합니다.</p>
-<div class="answer"><p>2026 대전 빵축제는 10월 17일(토)~18일(일) 이틀간 대전엑스포과학공원 한빛탑 일원에서 13:00부터 열리며 입장은 무료입니다. 로컬 빵집 120곳이 A~E존에서 판매하고, 행사장 인근 주차장 8곳(3,600면)과 정부청사역·대전역 셔틀버스가 운영됩니다. 개막식은 17일 18:00입니다.</p></div>
+<section class="qa" aria-label="한눈에 답"><ul><li><span class="qk">🕐 몇 시</span><span class="qv"><b>13:00~20:30</b></span></li><li><span class="qk">🅿️ 주차</span><span class="qv"><b>8곳</b><small>행사장 인근 주차장 8곳 (총 3,600면)</small><a class="qbtn" href="#parking" data-ev="qa_click" data-p="parking">주차장 목록 보기</a></span></li><li><span class="qk">🚌 셔틀</span><span class="qv"><b>도시철도 정부청사역</b><small>15분 간격 · 노선 2개</small><a class="qbtn" href="#shuttle" data-ev="qa_click" data-p="shuttle">셔틀 타는 곳 보기</a></span></li></ul><p class="qsrc">확인일 2026.10.15 · 공식 공지·보도 기준 · 출발 전 공식 확인</p></section>
+<p class="affnote"><b>광고</b> · 이 페이지의 숙소·쿠팡 링크로 예약·구매하면 운영자가 수수료를 받습니다(쿠팡 파트너스·링크프라이스).</p>
 </header>
 <main class="wrap">
+<div class="answer"><p>2026 대전 빵축제는 10월 17일(토)~18일(일) 이틀간 대전엑스포과학공원 한빛탑 일원에서 13:00부터 열리며 입장은 무료입니다. 로컬 빵집 120곳이 A~E존에서 판매하고, 행사장 인근 주차장 8곳(3,600면)과 정부청사역·대전역 셔틀버스가 운영됩니다. 개막식은 17일 18:00입니다.</p></div>
 <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 <figure class="ph t3 l"><img src="/festival/img/2770434.jpg" width="940" height="627" loading="lazy" decoding="async" alt="2026 대전 빵축제 풍경 사진"><figcaption>사진: 한국관광공사 · 공공누리 제3유형(변경금지)</figcaption></figure>
 <section class="card"><h2>2026 대전 빵축제 한눈에 보기</h2><table class="kv"><tr><th>기간</th><td>10.17(토)~10.18(일)</td></tr><tr><th>운영 시간</th><td>13:00~20:30</td></tr><tr><th>장소</th><td>대전엑스포과학공원 한빛탑 일원<small>대전 유성구 대덕대로 480 (도룡동)</small></td></tr><tr><th>입장료</th><td>무료</td></tr><tr><th>주차</th><td>8곳 (아래 목록)</td></tr><tr><th>셔틀</th><td>2개 노선</td></tr><tr><th>대중교통</th><td>D-유니버스 2층 순환버스: 대전역 동광장 → 한밭수목원 → 엑스포물빛광장 순환, 10/16~11/8 금·토·일 낮 11:00~21:30 8회, 현금 1,000원 (보도 기준)</td></tr><tr><th>문의</th><td>042-477-5181</td></tr></table><p class="src">확인일 2026.10.15 · 출처 <a class="" href="https://www.instagram.com/bakery_festival_daejeon/" target="_blank" rel="noopener">공식 인스타그램 @bakery_festival_daejeon <span aria-hidden="true">↗</span></a> · <a class="" href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?cmsCntntsId=2770434&amp;Flag=Y" target="_blank" rel="noopener">대한민국 구석구석 <span aria-hidden="true">↗</span></a></p></section>

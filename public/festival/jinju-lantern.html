@@ -61,7 +61,16 @@ p{margin:0 0 12px}
 .when{font-weight:700;margin:0 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .answer{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:16px 18px;border-left:6px solid var(--primary);margin:0 0 8px}
 .answer p{margin:0}
-.affnote{font-size:16px;font-weight:500;color:var(--text);background:var(--primary-bg);border-radius:12px;padding:10px 14px;margin:0 0 12px}
+.affnote{font-size:15px;font-weight:500;color:var(--text);margin:8px 2px 12px;line-height:1.5}
+.qa{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);border-top:6px solid var(--primary);padding:6px 16px 12px;margin:0 0 4px}
+.qa ul{list-style:none;margin:0;padding:0}
+.qa li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qk{font-size:16px;color:var(--mute);font-weight:500;padding-top:2px}
+.qv b{display:block;font-size:19px;font-weight:800;line-height:1.35}
+.qv small{display:block;font-size:15px;color:var(--mute);margin-top:2px}
+.qbtn{display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:8px;border-radius:12px;background:var(--primary-bg);color:var(--primary-text);font-weight:800;font-size:17px;text-decoration:none}
+.qsrc{font-size:15px;color:var(--mute);margin:10px 0 0}
+body.ended .qa{display:none}
 
 /* 상태 배지: 진행 중 초록 / 곧 시작 주황 / 오늘·내일 종료 빨강 / 종료 회색 */
 .badge{display:inline-block;font-size:15px;font-weight:800;line-height:1.4;border-radius:999px;padding:3px 10px;white-space:nowrap}
@@ -232,14 +241,14 @@ main>.ph.l{margin:16px 0 14px}
 <header class="wrap top">
 <p class="crumb"><a href="/festival">축제 가는 법</a> › 진주남강유등축제</p>
 <h1>진주남강유등축제 <span class="nw">2026 주차·셔틀·일정</span></h1>
-<p class="affnote">이 페이지의 숙소·투어·준비물 링크는 제휴 링크로, 이 링크로 구매·예약하면 운영자가 수수료를 받습니다.</p>
-<p class="asof">기준일 2026.10.15</p>
-<p class="when" data-s="2026-10-03" data-e="2026-10-18"><span class="badge on">진행 중</span> 10.03(토)~10.18(일) · 경남 진주시</p>
+<p class="when" data-s="2026-10-03" data-e="2026-10-18"><span class="badge on">진행 중</span> 10.03(토)~10.18(일) · 경남 진주시 · 무료</p>
 
 <p class="ribbon endband"><b>2026 축제는 끝났어요.</b> 내년 일정이 나오면 이 주소에서 다시 정리합니다.</p>
-<div class="answer"><p>2026 진주남강유등축제는 10월 3일(토)부터 18일(일)까지 진주성과 남강 일원에서 열리며, 입장은 무료이고 남강 부교만 편도 2,000원입니다. 외지 차량은 IC 방면 임시주차장 17곳에 대고 무료 셔틀(7개 노선)을 타면 되며, 셔틀은 10/3~5·9~11·16~18 오후 4시~밤 11시에만 다닙니다.</p></div>
+<section class="qa" aria-label="한눈에 답"><ul><li><span class="qk">🕐 몇 시</span><span class="qv"><b>유등 전시 매일 18:00~24:00 (체험 부스 13:00~23:00)</b></span></li><li><span class="qk">🅿️ 주차</span><span class="qv"><b>12곳</b><small>① 혁신도시(윙스타워 인근) 임시주차장 등</small><a class="qbtn" href="#parking" data-ev="qa_click" data-p="parking">주차장 목록 보기</a></span></li><li><span class="qk">🚌 셔틀</span><span class="qv"><b>혁신도시(윙스타워 인근)</b><small>10/3~5·9~11·16~18 16:00~23:00 · 노선 8개</small><a class="qbtn" href="#shuttle" data-ev="qa_click" data-p="shuttle">셔틀 타는 곳 보기</a></span></li></ul><p class="qsrc">확인일 2026.10.15 · 공식 공지·보도 기준 · 출발 전 공식 확인</p></section>
+<p class="affnote"><b>광고</b> · 이 페이지의 숙소·쿠팡 링크로 예약·구매하면 운영자가 수수료를 받습니다(쿠팡 파트너스·링크프라이스).</p>
 </header>
 <main class="wrap">
+<div class="answer"><p>2026 진주남강유등축제는 10월 3일(토)부터 18일(일)까지 진주성과 남강 일원에서 열리며, 입장은 무료이고 남강 부교만 편도 2,000원입니다. 외지 차량은 IC 방면 임시주차장 17곳에 대고 무료 셔틀(7개 노선)을 타면 되며, 셔틀은 10/3~5·9~11·16~18 오후 4시~밤 11시에만 다닙니다.</p></div>
 <div class="ad"><span class="adlab">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 <figure class="ph t3 l"><img src="/festival/img/506926.png" width="940" height="705" loading="lazy" decoding="async" alt="진주남강유등축제 풍경 사진"><figcaption>사진: 한국관광공사 · 공공누리 제3유형(변경금지)</figcaption></figure>
 <section class="card"><h2>진주남강유등축제 한눈에 보기</h2><table class="kv"><tr><th>기간</th><td>10.03(토)~10.18(일)</td></tr><tr><th>운영 시간</th><td>유등 전시 매일 18:00~24:00 (체험 부스 13:00~23:00)</td></tr><tr><th>장소</th><td>진주성·진주남강 일원<small>경남 진주시 남강로 626 (본성동)</small></td></tr><tr><th>입장료</th><td>무료 (부교 &#x27;사랑다리&#x27; 편도 2,000원·종일 6,000원, 일부 체험 유료)</td></tr><tr><th>주차</th><td>12곳 (아래 목록)</td></tr><tr><th>셔틀</th><td>무료 7개 노선 + 유료 1개 · 10/3~5·9~11·16~18 16:00~23:00</td></tr><tr><th>대중교통</th><td>진주역(KTX) — 임시주차장 겸 셔틀 4노선 출발지</td></tr><tr><th>문의</th><td>055-761-9111</td></tr></table><p class="src">확인일 2026.10.15 · 출처 <a class="" href="https://yudeung.com/" target="_blank" rel="noopener">진주남강유등축제 공식 홈페이지 (교통안내·프로그램) <span aria-hidden="true">↗</span></a> · <a class="" href="https://yudeung.com/images/common/2026_leaflet.pdf" target="_blank" rel="noopener">2026 진주남강유등축제 공식 리플렛 <span aria-hidden="true">↗</span></a> · <a class="" href="https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?cmsCntntsId=506926&amp;Flag=Y" target="_blank" rel="noopener">대한민국 구석구석 (2026.10.01 수정) <span aria-hidden="true">↗</span></a></p></section>
