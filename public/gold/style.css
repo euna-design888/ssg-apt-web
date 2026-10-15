@@ -26,9 +26,7 @@ b{font-weight:800}
 .btn:active{transform:translateY(1px)}
 .btn.main{background:var(--b1);color:var(--b1fg);border-color:var(--b1)}
 .btn.main:hover{background:oklch(84% .1 82)}
-.btn.gold::before,.btn.silver::before{content:"";width:10px;height:10px;border-radius:50%;flex:none}
-.btn.gold::before{background:var(--gold)}
-.btn.silver::before{background:var(--silver)}
+.btn.gold{background:var(--b1);color:var(--b1fg);border-color:var(--b1)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .hint{font-size:16px;color:var(--sub);margin:10px 0 0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
