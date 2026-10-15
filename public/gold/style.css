@@ -102,4 +102,19 @@ a{color:inherit;text-decoration-color:var(--gold);text-underline-offset:3px}
 .item{border:1px solid var(--line);border-radius:12px;padding:4px 14px 14px;margin-bottom:10px}
 .item .x{display:block;margin:0 -6px -10px auto;min-height:44px;padding:0 6px;background:none;border:0;color:var(--sub);font-size:16px;cursor:pointer;font-family:inherit}
 .btn.add{border-style:dashed}
+/* 10/15 메인: 색 있는 버튼·질문형 링크·고민 상자 */
+.btn.alt{background:oklch(88% .012 250);color:oklch(20% .02 258);border-color:oklch(88% .012 250)}
+.btn.alt:hover{background:oklch(93% .012 250)}
+.btn.chk{background:var(--warn);color:oklch(18% .03 28);border-color:var(--warn)}
+.btn.chk:hover{background:oklch(73% .15 28)}
+.pts{padding-left:0;list-style:none;display:grid;gap:10px;margin:14px 0}
+.pts li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:18px;line-height:1.6}
+.pts b{display:block;color:var(--gold);font-size:17px}
+.links.q a{background:var(--tint);border-color:oklch(45% .06 82);font-weight:700}
+.links.q a::before{content:"Q";flex:none;width:28px;height:28px;margin-right:10px;border-radius:50%;background:var(--gold);color:var(--goldfg);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.links.shop a{border-color:oklch(55% .12 28)}
+.warnbox{margin-top:44px;padding:4px 16px 18px;border:2px solid var(--warn);border-radius:16px;background:var(--tint)}
+.warnbox h2{margin-top:18px}
+.tlinks{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:40px;font-size:16px}
+.tlinks a{color:var(--sub);min-height:40px;display:inline-flex;align-items:center}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:active{transform:none}}
