@@ -297,6 +297,8 @@ h1,h2,h3,.ab h1,.cb h3,.sec,.banner h2,.gh h2,.ah b,.alt h4{font-weight:900;colo
 .find{background:var(--card);border-radius:20px;padding:18px 16px;margin:4px 0 18px;box-shadow:0 1px 6px rgba(27,54,93,.08)}
 .find h2{font-family:var(--serif);font-size:22px;margin:0 0 2px}.fq{font-size:15px;font-weight:800;color:var(--ink2);margin:16px 0 8px}
 .fchips{display:flex;flex-wrap:wrap;gap:8px}.fchips .chip{min-height:52px;padding:0 16px}
+.find .chip{border:1.5px solid #B9B2A4;box-shadow:none;background:#fff}.find .chip[aria-pressed=true]{border-color:var(--navy);background:var(--navy);color:#fff}
+#h1{cursor:pointer}
 .fchips.rg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.fchips.rg .chip{padding:0;min-height:52px;font-size:15px}
 .fgo{width:100%;margin-top:18px;background:var(--navy);color:#fff;border:0;border-radius:14px;min-height:58px;font-size:18px;font-weight:800}
 .ferr{color:#B42318;font-weight:700;margin:10px 0 0;font-size:15px}
@@ -365,26 +367,29 @@ function gcard(g){
 }
 /* ── 갈 곳 찾기: 어디서 · 뭐 하고 · 누구랑 → 결과 (데이터는 빌드 때 받아 둔 것, 조회 때 API 호출 없음) ── */
 var S=D.spot||[],RG=['서울','경기','인천','강원','충북','충남','대전','세종','전북','전남','광주','경북','경남','대구','울산','부산','제주'];
-var fd={r:'',k:{f:1,s:1,c:0,g:0},w:''};
-try{var sv=JSON.parse(localStorage.getItem('nm_find')||'null');if(sv&&sv.k)fd=sv}catch(_){}
+var fd={rs:[],k:{f:1,s:1,c:0,g:0},w:''};
+try{var sv=JSON.parse(localStorage.getItem('nm_find')||'null');if(sv&&sv.k){fd=sv;if(!fd.rs)fd.rs=fd.r?[fd.r]:[]}}catch(_){}
+function inR(x){return fd.rs.indexOf(x)>=0}
+function stR(x){x=x||'';return fd.rs.some(function(r){return x.indexOf(r)===0})}
+function rsTxt(){return esc(fd.rs.join('·'))}
 fd.w='';  /* ponytail: 동행(유모차·반려견) 질문은 TourAPI 값이 거의 비어 뺐음(10/15, 193곳 중 '가능' 0) → 반려동물 동반여행 API를 받으면 다시 */
 function cut(x,n){x=String(x||'').split('※')[0].replace(/\s+/g,' ').trim();return x.length>n?x.slice(0,n)+'…':x}
 function rowsFor(){
-  var r=fd.r,out=[],lim=addD(T,21);
-  if(fd.k.f)F.forEach(function(f){if(f.r===r&&f.S<=lim)out.push({o:f.S<=T?0:1,h:fhref(f),k:'축제',t:f.t,tg:['<span>'+(f.S<=T?'진행 중 ~'+md(f.E):span(f.S,f.E))+'</span>']})});
-  if(fd.k.s)S.forEach(function(s){if(s.r!==r||(fd.w==='baby'&&!s.baby)||(fd.w==='pet'&&!s.pet))return;
+  var out=[],lim=addD(T,21);
+  if(fd.k.f)F.forEach(function(f){if(inR(f.r)&&f.S<=lim)out.push({o:f.S<=T?0:1,h:fhref(f),k:'축제',t:f.t,tg:['<span>'+(f.S<=T?'진행 중 ~'+md(f.E):span(f.S,f.E))+'</span>']})});
+  if(fd.k.s)S.forEach(function(s){if(!inR(s.r)||(fd.w==='baby'&&!s.baby)||(fd.w==='pet'&&!s.pet))return;
     var tg=[];if(s.time)tg.push('<span>'+esc(cut(s.time,16))+'</span>');if(s.rest)tg.push('<span>쉬는 날 '+esc(cut(s.rest,10))+'</span>');
     if(s.park)tg.push(/불가|없음/.test(s.park)?'<span class="no">주차 어려움</span>':'<span>주차 가능</span>');
     if(s.baby)tg.push('<span>유모차 가능</span>');if(s.pet)tg.push('<span>반려동물 가능</span>');
     out.push({o:2+(s.park&&s.time?0:1),h:'/trip/spot/'+s.i+'.html',k:'관광지',t:s.t,tg:tg})});
-  if(fd.k.c)C.forEach(function(c){if((c.region||'').indexOf(r)===0)out.push({o:3,h:'/camping/'+c.slug+'.html?utm_source=trip',k:'캠핑',t:c.name,tg:['<span>'+esc(c.method)+'</span>']})});
-  if(fd.k.g)G.forEach(function(g){if((g.region||'').indexOf(r)===0)out.push({o:3,h:'/trip/foliage/'+g.slug+'.html?utm_source=trip',k:'단풍',t:g.name,tg:[g.peak_2026?'<span>절정 '+md(P(g.peak_2026))+'</span>':'']})});
+  if(fd.k.c)C.forEach(function(c){if(stR(c.region))out.push({o:3,h:'/camping/'+c.slug+'.html?utm_source=trip',k:'캠핑',t:c.name,tg:['<span>'+esc(c.method)+'</span>']})});
+  if(fd.k.g)G.forEach(function(g){if(stR(g.region))out.push({o:3,h:'/trip/foliage/'+g.slug+'.html?utm_source=trip',k:'단풍',t:g.name,tg:[g.peak_2026?'<span>절정 '+md(P(g.peak_2026))+'</span>':'']})});
   return out.sort(function(a,b){return a.o-b.o});
 }
 function fres(n){
   var L=rowsFor(),w=fd.w&&(fd.k.f||fd.k.c||fd.k.g)?'<p class="rnote">축제·캠핑·단풍은 동행 정보가 없어 모두 보여요.</p>':'';
-  if(!L.length)return '<p class="empty">'+esc(fd.r)+'에 조건 맞는 곳이 아직 없어요. 종류를 더 골라 보세요.</p>';
-  return '<p class="rnote"><b>'+esc(fd.r)+'</b> 갈 곳 '+L.length+'곳</p>'+w+L.slice(0,n).map(function(x){
+  if(!L.length)return '<p class="empty">'+rsTxt()+'에 조건 맞는 곳이 아직 없어요. 종류를 더 골라 보세요.</p>';
+  return '<p class="rnote"><b>'+rsTxt()+'</b> 갈 곳 '+L.length+'곳</p>'+w+L.slice(0,n).map(function(x){
     return '<a class="ri" href="'+esc(x.h)+'" onclick="ev(\'find_pick\',{k:\''+x.k+'\'})"><span class="rk">'+x.k+'</span><b>'+esc(x.t)+'</b><span class="tg">'+x.tg.join('')+'</span></a>'}).join('')+
     (L.length>n?'<div class="acts"><button class="btn o" data-fmore="'+(n+20)+'">더 보기 ('+(L.length-n)+'곳 남음)</button></div>':'')+
     '<p class="rnote">한국관광공사 TourAPI 기준 · 갱신 '+esc(D.built)+' · 가기 전 공식 안내를 확인하세요.</p>';
@@ -392,9 +397,10 @@ function fres(n){
 function vFind(){
   var ch=function(a,v,l,on){return '<button class="chip" data-'+a+'="'+v+'" aria-pressed="'+(on?'true':'false')+'">'+l+'</button>'};
   return '<section class="find"><h2>이번 주말, 어디 갈까요?</h2>'+
-    '<p class="fq">1. 어디로 가요?</p><div class="fchips rg">'+RG.map(function(r){return ch('fr',r,r,fd.r===r)}).join('')+'</div>'+
+    '<p class="fq">1. 어디로 가요? (여러 개)</p><div class="fchips rg">'+RG.map(function(r){return ch('fr',r,r,inR(r))}).join('')+'</div>'+
     '<p class="fq">2. 뭐 하고 싶어요? (여러 개)</p><div class="fchips">'+ch('fk','f','축제',fd.k.f)+ch('fk','s','관광지',fd.k.s)+ch('fk','c','캠핑',fd.k.c)+ch('fk','g','단풍',fd.k.g)+'</div>'+
-    '<button class="fgo" id="fgo">갈 곳 보기</button><div id="fres">'+(fd.r?fres(20):'')+'</div></section>';
+    '<button class="fgo" id="fgo">갈 곳 보기</button><div id="fres">'+(fd.rs.length?fres(20):'')+'</div></section>'+
+    '<aside class="adbox fad"><span class="adtag">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></aside>';
 }
 /* ── 홈: 지도 + 입구 타일 4개 + 곧 다가오는 곳 3줄 (Stitch Silver Compass 시안, 10/7) ── */
 function vWeek(){
@@ -560,22 +566,23 @@ function show(t,focus){
   /* 클릭률 분모: 제휴 구역이 화면에 실제로 보인 횟수 */
   if(window.IntersectionObserver){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);ev('aff_view',{t:cur})}})},{threshold:.5});document.querySelectorAll('.aff,.gear,.alt').forEach(function(el){io.observe(el)})}
 }
+$('#h1').addEventListener('click',function(){show('week')});
 $('#tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.t)});
 app.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
   if(b.dataset.fr!==undefined||b.dataset.fk!==undefined||b.dataset.fw!==undefined||b.id==='fgo'||b.dataset.fmore){
-    if(b.dataset.fr!==undefined)fd.r=b.dataset.fr;
+    if(b.dataset.fr!==undefined){var ri=fd.rs.indexOf(b.dataset.fr);ri>=0?fd.rs.splice(ri,1):fd.rs.push(b.dataset.fr)}
     if(b.dataset.fk!==undefined)fd.k[b.dataset.fk]=fd.k[b.dataset.fk]?0:1;
     if(b.dataset.fw!==undefined)fd.w=b.dataset.fw;
-    document.querySelectorAll('[data-fr]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.fr===fd.r)});
+    document.querySelectorAll('[data-fr]').forEach(function(x){x.setAttribute('aria-pressed',inR(x.dataset.fr))});
     document.querySelectorAll('[data-fk]').forEach(function(x){x.setAttribute('aria-pressed',!!fd.k[x.dataset.fk])});
     document.querySelectorAll('[data-fw]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.fw===fd.w)});
     try{localStorage.setItem('nm_find',JSON.stringify(fd))}catch(_){}
     var R=$('#fres');
     if(b.id==='fgo'||b.dataset.fmore){
-      if(!fd.r){R.innerHTML='<p class="ferr">어디로 갈지 1번에서 골라 주세요.</p>';return}
+      if(!fd.rs.length){R.innerHTML='<p class="ferr">어디로 갈지 1번에서 골라 주세요.</p>';return}
       if(!(fd.k.f||fd.k.s||fd.k.c||fd.k.g)){R.innerHTML='<p class="ferr">2번에서 하고 싶은 것을 하나 이상 골라 주세요.</p>';return}
-      R.innerHTML=fres(+b.dataset.fmore||20);ev('find_go',{r:fd.r,w:fd.w||'any'});if(b.id==='fgo')R.scrollIntoView({behavior:'smooth',block:'start'})
+      R.innerHTML=fres(+b.dataset.fmore||20);ev('find_go',{r:fd.rs.join(','),w:fd.w||'any'});if(b.id==='fgo')R.scrollIntoView({behavior:'smooth',block:'start'})
     }else if(R.firstChild&&!R.querySelector('.ferr'))R.innerHTML=fres(20);
     return}
   if(b.dataset.t){show(b.dataset.t);return}
