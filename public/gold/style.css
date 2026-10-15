@@ -116,3 +116,8 @@ a{color:inherit;text-decoration-color:var(--gold);text-underline-offset:3px}
 .tlinks{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:40px;font-size:16px}
 .tlinks a{color:var(--sub);min-height:40px;display:inline-flex;align-items:center}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:active{transform:none}}
+/* 10/15 하단 메뉴: 눈에 띄게 */
+.nav::before{content:"다른 정보도 확인하세요";grid-column:1/-1;font-size:20px;font-weight:800;margin-bottom:4px}
+.nav a{background:var(--tint);border-color:oklch(55% .09 82);color:var(--gold)}
+.nav a:nth-child(1){background:var(--gold);color:var(--goldfg);border-color:var(--gold)}
+.nav a:nth-child(2){background:oklch(88% .012 250);color:oklch(20% .02 258);border-color:oklch(88% .012 250)}
