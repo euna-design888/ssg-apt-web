@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold\\.(fundmoney8|bluepalpal)\\.com" }], destination: "/gold/:path" },
         // family.fundmoney8.com 전용: public/family/ (가족사주)
         { source: "/", has: [{ type: "host" as const, value: "family.fundmoney8.com" }], destination: "/family/index.html" },
+        { source: "/:path((?!_next|family|f\\d*$|fb$|fc$|fk$|privacy).*)", has: [{ type: "host" as const, value: "family.fundmoney8.com" }], destination: "/family/:path" },
         // trip.fundmoney8.com 전용: public/trip/ 정적 사이트(여행 모아보기)를 이 주소의 루트로 (gold와 같은 방식)
         { source: "/", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/index.html" },
         { source: "/:path((?!_next|trip|festival|camping|privacy).*)", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/:path" },
