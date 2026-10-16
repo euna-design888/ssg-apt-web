@@ -18,8 +18,8 @@ function events(c: Cheongyak) {
   return rows.map(([label, b, e]) => [
     "BEGIN:VEVENT", `UID:${c.id}-${d8(b)}-${label.length}@fundmoney8.com`, `DTSTAMP:${d8(b)}T000000Z`,
     `DTSTART;VALUE=DATE:${d8(b)}`, `DTEND;VALUE=DATE:${next(e)}`,
-    `SUMMARY:${esc(`[청약] ${c.name} ${label}`)}`, `DESCRIPTION:${esc(`${c.name} (${c.sido}) ${label}\n청약홈: ${c.pblancUrl}\n단지 정보: https://www.fundmoney8.com/cheongyak/${c.id}`)}`,
-    `URL:https://www.fundmoney8.com/cheongyak/${c.id}`, "END:VEVENT",
+    `SUMMARY:${esc(`[청약] ${c.name} ${label}`)}`, `DESCRIPTION:${esc(`${c.name} (${c.sido}) ${label}\n청약홈: ${c.pblancUrl}\n단지 정보: https://apt.bluepalpal.com/cheongyak/${c.id}`)}`,
+    `URL:https://apt.bluepalpal.com/cheongyak/${c.id}`, "END:VEVENT",
   ].join("\r\n"));
 }
 

@@ -13,8 +13,8 @@ const legacy = rawApartments as Apartment[]; // 가점 계산기가 아직 옛 8
 export const metadata = {
   title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기',
   description: '이번 주 청약 접수 단지와 일정·분양가·특별공급 세대를 청약홈 공공데이터로 매일 갱신합니다. 84점 만점 청약 가점 계산기 무료.',
-  alternates: { canonical: 'https://www.fundmoney8.com/' },
-  openGraph: { title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기', description: '청약홈 공공데이터로 매일 갱신하는 청약 일정·분양가·특별공급 세대. 가점 계산기 무료.', url: 'https://www.fundmoney8.com/' },
+  alternates: { canonical: 'https://apt.bluepalpal.com/' },
+  openGraph: { title: '쓱보는 청약 — 이번 주 청약 접수 단지·분양가·가점 계산기', description: '청약홈 공공데이터로 매일 갱신하는 청약 일정·분양가·특별공급 세대. 가점 계산기 무료.', url: 'https://apt.bluepalpal.com/' },
 };
 
 export default function HomePage() {

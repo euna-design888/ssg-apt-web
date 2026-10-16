@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   if (!c) return { title: "단지를 찾을 수 없습니다" };
   const title = `${c.name} 청약 일정·분양가·특별공급 (${ymd(BASIS)} 기준)`;
   const description = `${c.name}(${c.sido}, 총 ${c.supply.toLocaleString()}세대) 청약 접수 ${rangeText(c.schedule.receipt)}, 당첨자 발표 ${ymd(c.schedule.announce)}, 분양가 ${money(c.priceMin)}${c.priceMax > c.priceMin ? `~${money(c.priceMax)}` : ""}. 청약홈 공공데이터.`;
-  return { title, description, alternates: { canonical: `https://www.fundmoney8.com/cheongyak/${c.id}` }, openGraph: { title, description, url: `https://www.fundmoney8.com/cheongyak/${c.id}` } };
+  return { title, description, alternates: { canonical: `https://apt.bluepalpal.com/cheongyak/${c.id}` }, openGraph: { title, description, url: `https://apt.bluepalpal.com/cheongyak/${c.id}` } };
 }
 
 const th: React.CSSProperties = { textAlign: "left", padding: "10px 8px", background: "var(--color-paper-2)", fontSize: 16, whiteSpace: "nowrap" };
@@ -38,11 +38,11 @@ export default async function CheongyakPage({ params }: { params: Promise<{ id: 
   const ld = [
     { "@context": "https://schema.org", "@type": "Event", name: `${c.name} 청약 접수`, startDate: c.schedule.receipt?.[0], endDate: c.schedule.receipt?.[1], eventStatus: st === "closed" ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode", location: { "@type": "VirtualLocation", url: "https://www.applyhome.co.kr" }, organizer: { "@type": "Organization", name: c.developer || c.builder },
-      description: `${c.name} (${c.address}) 청약 접수. 총 ${c.supply}세대.`, url: `https://www.fundmoney8.com/cheongyak/${c.id}` },
+      description: `${c.name} (${c.address}) 청약 접수. 총 ${c.supply}세대.`, url: `https://apt.bluepalpal.com/cheongyak/${c.id}` },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
-      { "@type": "ListItem", position: 1, name: "청약 허브", item: "https://www.fundmoney8.com/" },
-      { "@type": "ListItem", position: 2, name: c.sido, item: `https://www.fundmoney8.com/cheongyak/region/${SIDO_SLUG[c.sido] || "etc"}` },
+      { "@type": "ListItem", position: 1, name: "청약 허브", item: "https://apt.bluepalpal.com/" },
+      { "@type": "ListItem", position: 2, name: c.sido, item: `https://apt.bluepalpal.com/cheongyak/region/${SIDO_SLUG[c.sido] || "etc"}` },
       { "@type": "ListItem", position: 3, name: c.name } ] },
   ];
   return (

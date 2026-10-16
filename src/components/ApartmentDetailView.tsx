@@ -69,10 +69,10 @@ export default function ApartmentDetailView({ apt }: Props) {
     '@graph': [
       {
         '@type': 'RealEstateListing',
-        '@id': `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}#listing`,
+        '@id': `https://apt.bluepalpal.com/apt/${encodeURIComponent(apt.id)}#listing`,
         name: `${apt.name} 분양가 & 안전마진 팩트체크`,
         description: `${apt.name} 분양가 ${formatMoney(apt.priceMin)}부터, 안전마진 약 ${formatMoney(apt.safetyMargin)}, 실거주의무 및 DSR 2단계 분석`,
-        url: `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}`,
+        url: `https://apt.bluepalpal.com/apt/${encodeURIComponent(apt.id)}`,
         price: apt.priceMin * 10000,
         priceCurrency: 'KRW',
         address: {
@@ -89,13 +89,13 @@ export default function ApartmentDetailView({ apt }: Props) {
             '@type': 'ListItem',
             position: 1,
             name: '쓱보는 청약 홈',
-            item: 'https://fundmoney8.com'
+            item: 'https://apt.bluepalpal.com'
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: apt.name,
-            item: `https://fundmoney8.com/apt/${encodeURIComponent(apt.id)}`
+            item: `https://apt.bluepalpal.com/apt/${encodeURIComponent(apt.id)}`
           }
         ]
       },

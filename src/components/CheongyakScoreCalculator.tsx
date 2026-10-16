@@ -78,7 +78,7 @@ export default function CheongyakScoreCalculator({ apartments }: CheongyakScoreC
   };
 
   const handleShareScore = () => {
-    const text = `[쓱보는 청약] 내 청약 가점: ${totalScore}점 / 84점 (${verdict.badge})\n쓱보는 청약 가점 계산기에서 확인하기 👉 https://www.fundmoney8.com/#calculator`;
+    const text = `[쓱보는 청약] 내 청약 가점: ${totalScore}점 / 84점 (${verdict.badge})\n쓱보는 청약 가점 계산기에서 확인하기 👉 https://apt.bluepalpal.com/#calculator`;
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);

@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         // 2026-10-16 도메인 개편: gold는 gold.bluepalpal.com으로 이전 중(2주간 옛 주소 병행). host 값은 정규식
         { source: "/", has: [{ type: "host" as const, value: "gold\\.(fundmoney8|bluepalpal)\\.com" }], destination: "/gold/index.html" },
         { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold\\.(fundmoney8|bluepalpal)\\.com" }], destination: "/gold/:path" },
+        // apt.bluepalpal.com 전용(청약 허브): 이 호스트만 자기 robots·사이트맵을 쓴다
+        { source: "/robots.txt", has: [{ type: "host" as const, value: "apt.bluepalpal.com" }], destination: "/robots-apt.txt" },
+        { source: "/sitemap.xml", has: [{ type: "host" as const, value: "apt.bluepalpal.com" }], destination: "/apt-sitemap.xml" },
         // family.fundmoney8.com 전용: public/family/ (가족사주)
         { source: "/", has: [{ type: "host" as const, value: "family.fundmoney8.com" }], destination: "/family/index.html" },
         { source: "/:path((?!_next|family|f\\d*$|fb$|fc$|fk$|privacy).*)", has: [{ type: "host" as const, value: "family.fundmoney8.com" }], destination: "/family/:path" },

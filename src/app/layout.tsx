@@ -54,23 +54,23 @@ export default function RootLayout({
               '@graph': [
                 {
                   '@type': 'WebSite',
-                  '@id': 'https://fundmoney8.com/#website',
-                  url: 'https://fundmoney8.com',
+                  '@id': 'https://apt.bluepalpal.com/#website',
+                  url: 'https://apt.bluepalpal.com',
                   name: '쓱보는 청약 (AptFact)',
                   description: '2026 수도권 아파트 분양가 안전마진 및 청약 가점 계산기 포털',
                   publisher: {
                     '@type': 'Organization',
                     name: 'Wolcheon Corp',
-                    url: 'https://fundmoney8.com'
+                    url: 'https://apt.bluepalpal.com'
                   },
                   inLanguage: 'ko-KR'
                 },
                 {
                   '@type': 'Organization',
-                  '@id': 'https://fundmoney8.com/#organization',
+                  '@id': 'https://apt.bluepalpal.com/#organization',
                   name: '쓱보는 청약 (AptFact)',
-                  url: 'https://fundmoney8.com',
-                  logo: 'https://fundmoney8.com/favicon.ico'
+                  url: 'https://apt.bluepalpal.com',
+                  logo: 'https://apt.bluepalpal.com/favicon.ico'
                 }
               ]
             })

@@ -31,7 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ITEMS.map((c) => ({ url: `${baseUrl}/cheongyak/${c.id}`, lastModified: new Date(BASIS), changeFrequency: "daily" as const, priority: 0.8 })),
   ];
 
-  return [
+  // 2026-10-16 도메인 개편: 청약 허브(/, /cheongyak, /apt, /onnuri)는 apt.bluepalpal.com 사이트맵(/apt-sitemap.xml)으로, 가족사주는 family.fundmoney8.com으로 이전 → 여기서 제외
+  const all = [
     {
       url: baseUrl,
       lastModified: now,
@@ -86,4 +87,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
+  return all.filter((e) => e.url !== baseUrl && !/\/(cheongyak|apt|onnuri|family)(\/|$)/.test(e.url));
 }

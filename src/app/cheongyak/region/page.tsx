@@ -6,7 +6,7 @@ import { ITEMS, BASIS, SOURCE, SIDO_SLUG, status, upcoming, rangeText, money, ym
 // 전국 한눈에 (2026-10-12) — 시도별로 묶어 한 페이지에. 데이터는 매일 갱신되는 cheongyak.json
 const title = "전국 청약 일정 한눈에 — 시도별 접수 예정·진행 단지";
 const description = "전국 17개 시도의 아파트 청약 접수 예정·진행 단지를 지역별로 묶어 한 페이지에 정리했습니다. 세대 수·접수일·분양가·발표일, 청약홈 공공데이터로 매일 갱신.";
-export const metadata = { title, description, alternates: { canonical: "https://www.fundmoney8.com/cheongyak/region" }, openGraph: { title, description, url: "https://www.fundmoney8.com/cheongyak/region" } };
+export const metadata = { title, description, alternates: { canonical: "https://apt.bluepalpal.com/cheongyak/region" }, openGraph: { title, description, url: "https://apt.bluepalpal.com/cheongyak/region" } };
 
 export default function NationwidePage() {
   const live = upcoming();
@@ -18,8 +18,8 @@ export default function NationwidePage() {
   const total = live.reduce((s, c) => s + c.supply, 0), applying = live.filter((c) => status(c) === "applying").length;
   const active = groups.filter((g) => g.list.length);
   const ld = [
-    { "@context": "https://schema.org", "@type": "ItemList", name: "전국 청약 접수 예정·진행 단지", itemListElement: live.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: `${c.name} (${c.sido})`, url: `https://www.fundmoney8.com/cheongyak/${c.id}` })) },
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "청약 허브", item: "https://www.fundmoney8.com/" }, { "@type": "ListItem", position: 2, name: "전국 청약 일정" }] },
+    { "@context": "https://schema.org", "@type": "ItemList", name: "전국 청약 접수 예정·진행 단지", itemListElement: live.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: `${c.name} (${c.sido})`, url: `https://apt.bluepalpal.com/cheongyak/${c.id}` })) },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "청약 허브", item: "https://apt.bluepalpal.com/" }, { "@type": "ListItem", position: 2, name: "전국 청약 일정" }] },
   ];
   return (
     <div className="sb-page">
