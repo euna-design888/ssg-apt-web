@@ -1,520 +1,7 @@
 {
- "basis": "2026-10-12",
+ "basis": "2026-10-16",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
-  {
-   "id": "2026000404",
-   "pblancNo": "2026000404",
-   "name": "검암역 푸르지오 프라베뉴 (B-1BL) 공공분양주택",
-   "sido": "인천",
-   "address": "인천광역시 서해구 인천검암역세권 공공주택지구 내 B-1BL",
-   "saleType": "국민",
-   "supply": 441,
-   "developer": "인천도시공사,(주)대우건설,동부건설(주),(주)비에스한양,경화건설(주),브니엘네이처(주)",
-   "builder": "㈜대우건설, 동부건설㈜, ㈜비에스한양, 경화건설㈜, 브니엘네이처㈜",
-   "homepage": "https://www.prugio.com/hb/2026/pravenue",
-   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000404&pblancNo=2026000404",
-   "tel": "18000441",
-   "noticeDate": "2026-08-21",
-   "moveIn": "2029-07",
-   "flags": {
-    "speculation": false,
-    "adjust": false,
-    "priceCap": true,
-    "publicHousing": true,
-    "largeSite": true,
-    "redevelopment": false,
-    "publicSpecial": true
-   },
-   "schedule": {
-    "special": [
-     "2026-08-31",
-     "2026-08-31"
-    ],
-    "rank1": [
-     "2026-09-01",
-     "2026-09-01"
-    ],
-    "rank2": [
-     "2026-09-02",
-     "2026-09-02"
-    ],
-    "receipt": [
-     "2026-08-31",
-     "2026-09-02"
-    ],
-    "announce": "2026-09-08",
-    "contract": [
-     "2026-11-02",
-     "2026-11-04"
-    ]
-   },
-   "types": [
-    {
-     "no": "01",
-     "type": "060.9495A",
-     "supplyArea": 81.2964,
-     "households": 2,
-     "special": 23,
-     "price": 48630,
-     "specialBreakdown": {
-      "multiChild": 3,
-      "newlywed": 3,
-      "firstLife": 4,
-      "elderly": 2,
-      "institution": 3,
-      "newborn": 5,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "02",
-     "type": "060.6527B",
-     "supplyArea": 81.6293,
-     "households": 11,
-     "special": 39,
-     "price": 47930,
-     "specialBreakdown": {
-      "multiChild": 5,
-      "newlywed": 5,
-      "firstLife": 8,
-      "elderly": 3,
-      "institution": 8,
-      "newborn": 10,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "03",
-     "type": "060.9646C",
-     "supplyArea": 81.858,
-     "households": 16,
-     "special": 59,
-     "price": 46250,
-     "specialBreakdown": {
-      "multiChild": 8,
-      "newlywed": 8,
-      "firstLife": 11,
-      "elderly": 4,
-      "institution": 13,
-      "newborn": 15,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "04",
-     "type": "084.9079A",
-     "supplyArea": 112.0261,
-     "households": 63,
-     "special": 153,
-     "price": 63910,
-     "specialBreakdown": {
-      "multiChild": 20,
-      "newlywed": 20,
-      "firstLife": 31,
-      "elderly": 8,
-      "institution": 28,
-      "newborn": 43,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "05",
-     "type": "084.4783B",
-     "supplyArea": 111.9587,
-     "households": 10,
-     "special": 40,
-     "price": 62940,
-     "specialBreakdown": {
-      "multiChild": 5,
-      "newlywed": 5,
-      "firstLife": 8,
-      "elderly": 3,
-      "institution": 8,
-      "newborn": 10,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "06",
-     "type": "084.9219C",
-     "supplyArea": 112.5411,
-     "households": 3,
-     "special": 22,
-     "price": 62340,
-     "specialBreakdown": {
-      "multiChild": 3,
-      "newlywed": 3,
-      "firstLife": 4,
-      "elderly": 2,
-      "institution": 5,
-      "newborn": 5,
-      "youth": 0,
-      "relocation": 0
-     }
-    }
-   ],
-   "priceMin": 46250,
-   "priceMax": 63910
-  },
-  {
-   "id": "2026000388",
-   "pblancNo": "2026000388",
-   "name": "시티오씨엘 9단지 오션파크뷰",
-   "sido": "인천",
-   "address": "인천광역시 미추홀구 학익동 인천 용현·학익 1블록 도시개발구역 공동3BL",
-   "saleType": "민영",
-   "supply": 1949,
-   "developer": "코리아신탁(주)",
-   "builder": "아이파크현대산업개발(주),현대건설(주),(주)포스코이앤씨",
-   "homepage": "https://cityociel9.com/",
-   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000388&pblancNo=2026000388",
-   "tel": "0328311141",
-   "noticeDate": "2026-08-21",
-   "moveIn": "2030-04",
-   "flags": {
-    "speculation": false,
-    "adjust": false,
-    "priceCap": false,
-    "publicHousing": false,
-    "largeSite": false,
-    "redevelopment": false,
-    "publicSpecial": false
-   },
-   "schedule": {
-    "special": [
-     "2026-08-31",
-     "2026-08-31"
-    ],
-    "rank1": [
-     "2026-09-01",
-     "2026-09-01"
-    ],
-    "rank2": [
-     "2026-09-02",
-     "2026-09-02"
-    ],
-    "receipt": [
-     "2026-08-31",
-     "2026-09-02"
-    ],
-    "announce": "2026-09-08",
-    "contract": [
-     "2026-09-20",
-     "2026-09-22"
-    ]
-   },
-   "types": [
-    {
-     "no": "01",
-     "type": "059.9801 ",
-     "supplyArea": 84.5775,
-     "households": 88,
-     "special": 101,
-     "price": 48560,
-     "specialBreakdown": {
-      "multiChild": 18,
-      "newlywed": 28,
-      "firstLife": 13,
-      "elderly": 6,
-      "institution": 18,
-      "newborn": 18,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "02",
-     "type": "075.9096 ",
-     "supplyArea": 104.7029,
-     "households": 64,
-     "special": 73,
-     "price": 60090,
-     "specialBreakdown": {
-      "multiChild": 13,
-      "newlywed": 20,
-      "firstLife": 9,
-      "elderly": 5,
-      "institution": 13,
-      "newborn": 13,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "03",
-     "type": "084.9771A",
-     "supplyArea": 116.6384,
-     "households": 444,
-     "special": 540,
-     "price": 71290,
-     "specialBreakdown": {
-      "multiChild": 98,
-      "newlywed": 147,
-      "firstLife": 68,
-      "elderly": 31,
-      "institution": 98,
-      "newborn": 98,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "04",
-     "type": "084.8878B",
-     "supplyArea": 116.9403,
-     "households": 168,
-     "special": 198,
-     "price": 67590,
-     "specialBreakdown": {
-      "multiChild": 36,
-      "newlywed": 54,
-      "firstLife": 25,
-      "elderly": 11,
-      "institution": 36,
-      "newborn": 36,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "05",
-     "type": "095.3740 ",
-     "supplyArea": 130.2224,
-     "households": 70,
-     "special": 10,
-     "price": 77340,
-     "specialBreakdown": {
-      "multiChild": 8,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 2,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "06",
-     "type": "101.9303A",
-     "supplyArea": 138.5599,
-     "households": 40,
-     "special": 5,
-     "price": 81790,
-     "specialBreakdown": {
-      "multiChild": 4,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 1,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "07",
-     "type": "101.9535B",
-     "supplyArea": 138.6657,
-     "households": 86,
-     "special": 11,
-     "price": 81850,
-     "specialBreakdown": {
-      "multiChild": 9,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 2,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "08",
-     "type": "110.0371 ",
-     "supplyArea": 150.9379,
-     "households": 44,
-     "special": 5,
-     "price": 88980,
-     "specialBreakdown": {
-      "multiChild": 4,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 1,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "09",
-     "type": "133.7832P",
-     "supplyArea": 187.1128,
-     "households": 1,
-     "special": 0,
-     "price": 166900,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "10",
-     "type": "136.2904P",
-     "supplyArea": 190.6487,
-     "households": 1,
-     "special": 0,
-     "price": 170000,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    }
-   ],
-   "priceMin": 48560,
-   "priceMax": 170000
-  },
-  {
-   "id": "2026820008",
-   "pblancNo": "2026820008",
-   "name": "성남복정2 A1블록 신혼희망타운(공공분양)(본청약)",
-   "sido": "경기",
-   "address": "경기도 성남시 수정구 신흥동 81-8",
-   "saleType": "국민",
-   "supply": 594,
-   "developer": "한국토지주택공사 서울지역본부",
-   "builder": "(주)케이알산업, 동성건설(주)",
-   "homepage": "https://apply.lh.or.kr/",
-   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820008&pblancNo=2026820008",
-   "tel": "0316992006",
-   "noticeDate": "2026-08-10",
-   "moveIn": "2030-05",
-   "flags": {
-    "speculation": true,
-    "adjust": true,
-    "priceCap": true,
-    "publicHousing": true,
-    "largeSite": false,
-    "redevelopment": false,
-    "publicSpecial": true
-   },
-   "schedule": {
-    "special": null,
-    "rank1": [
-     "2026-08-31",
-     "2026-09-04"
-    ],
-    "rank2": [
-     "2026-09-07",
-     "2026-09-08"
-    ],
-    "receipt": [
-     "2026-08-31",
-     "2026-09-08"
-    ],
-    "announce": "2026-09-17",
-    "contract": [
-     "2026-12-07",
-     "2026-12-10"
-    ]
-   },
-   "types": [
-    {
-     "no": "01",
-     "type": "055.9700A",
-     "supplyArea": 83.6488,
-     "households": 0,
-     "special": 145,
-     "price": 79831,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "02",
-     "type": "055.9700B",
-     "supplyArea": 83.6488,
-     "households": 0,
-     "special": 12,
-     "price": 79831,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "03",
-     "type": "055.9800C",
-     "supplyArea": 83.6638,
-     "households": 0,
-     "special": 6,
-     "price": 79845,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    },
-    {
-     "no": "04",
-     "type": "056.9400T",
-     "supplyArea": 85.0985,
-     "households": 0,
-     "special": 3,
-     "price": 81214,
-     "specialBreakdown": {
-      "multiChild": 0,
-      "newlywed": 0,
-      "firstLife": 0,
-      "elderly": 0,
-      "institution": 0,
-      "newborn": 0,
-      "youth": 0,
-      "relocation": 0
-     }
-    }
-   ],
-   "priceMin": 79831,
-   "priceMax": 81214
-  },
   {
    "id": "2026000401",
    "pblancNo": "2026000401",
@@ -7124,6 +6611,184 @@
    ],
    "priceMin": 50717,
    "priceMax": 50844
+  },
+  {
+   "id": "2026000455",
+   "pblancNo": "2026000455",
+   "name": "신분평 에피트 더웨이시티",
+   "sido": "충북",
+   "address": "충청북도 청주시 서원구 장성동 135번지 일원(장성지구 A2블럭)",
+   "saleType": "민영",
+   "supply": 992,
+   "developer": "유한회사 에이치엠서빈",
+   "builder": "에이치엘디앤아이한라 주식회사, 에이치엘에코텍 주식회사",
+   "homepage": "https://brand.hldni.com/thewaycity/",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000455&pblancNo=2026000455",
+   "tel": "15336700",
+   "noticeDate": "2026-10-15",
+   "moveIn": "2029-09",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-10-27",
+     "2026-10-27"
+    ],
+    "rank1": [
+     "2026-10-28",
+     "2026-10-28"
+    ],
+    "rank2": [
+     "2026-10-29",
+     "2026-10-29"
+    ],
+    "receipt": [
+     "2026-10-27",
+     "2026-10-29"
+    ],
+    "announce": "2026-11-04",
+    "contract": [
+     "2026-11-16",
+     "2026-11-18"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "059.9536A",
+     "supplyArea": 86.1272,
+     "households": 114,
+     "special": 142,
+     "price": 39590,
+     "specialBreakdown": {
+      "multiChild": 26,
+      "newlywed": 38,
+      "firstLife": 18,
+      "elderly": 8,
+      "institution": 26,
+      "newborn": 26,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "059.9960B",
+     "supplyArea": 85.3075,
+     "households": 12,
+     "special": 17,
+     "price": 39290,
+     "specialBreakdown": {
+      "multiChild": 3,
+      "newlywed": 4,
+      "firstLife": 2,
+      "elderly": 2,
+      "institution": 3,
+      "newborn": 3,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "075.7230A",
+     "supplyArea": 102.4451,
+     "households": 19,
+     "special": 30,
+     "price": 46090,
+     "specialBreakdown": {
+      "multiChild": 5,
+      "newlywed": 7,
+      "firstLife": 3,
+      "elderly": 5,
+      "institution": 5,
+      "newborn": 5,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "075.8917B",
+     "supplyArea": 102.2496,
+     "households": 24,
+     "special": 27,
+     "price": 45790,
+     "specialBreakdown": {
+      "multiChild": 5,
+      "newlywed": 8,
+      "firstLife": 4,
+      "elderly": 0,
+      "institution": 5,
+      "newborn": 5,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "05",
+     "type": "084.9568A",
+     "supplyArea": 112.1578,
+     "households": 165,
+     "special": 180,
+     "price": 50090,
+     "specialBreakdown": {
+      "multiChild": 35,
+      "newlywed": 52,
+      "firstLife": 24,
+      "elderly": 0,
+      "institution": 34,
+      "newborn": 35,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "06",
+     "type": "084.9882B",
+     "supplyArea": 111.6549,
+     "households": 87,
+     "special": 87,
+     "price": 49890,
+     "specialBreakdown": {
+      "multiChild": 16,
+      "newlywed": 26,
+      "firstLife": 12,
+      "elderly": 0,
+      "institution": 17,
+      "newborn": 16,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "07",
+     "type": "112.8127 ",
+     "supplyArea": 140.1584,
+     "households": 80,
+     "special": 8,
+     "price": 65890,
+     "specialBreakdown": {
+      "multiChild": 8,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 39290,
+   "priceMax": 65890
   }
  ]
 }
