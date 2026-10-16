@@ -7,8 +7,11 @@ const nextConfig: NextConfig = {
       // gold.fundmoney8.com 전용: 같은 프로젝트의 public/gold/ 정적 사이트(금은 거래 가이드)를 이 주소의 루트로 보여준다.
       // beforeFiles여야 루트("/")가 앱 홈보다 먼저 이 규칙에 걸린다. 다른 주소(www 등)에는 영향 없음.
       beforeFiles: [
-        { source: "/", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/index.html" },
-        { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold.fundmoney8.com" }], destination: "/gold/:path" },
+        // 2026-10-16 도메인 개편: gold는 gold.bluepalpal.com으로 이전 중(2주간 옛 주소 병행). host 값은 정규식
+        { source: "/", has: [{ type: "host" as const, value: "gold\\.(fundmoney8|bluepalpal)\\.com" }], destination: "/gold/index.html" },
+        { source: "/:path((?!_next|gold/).*)", has: [{ type: "host" as const, value: "gold\\.(fundmoney8|bluepalpal)\\.com" }], destination: "/gold/:path" },
+        // family.fundmoney8.com 전용: public/family/ (가족사주)
+        { source: "/", has: [{ type: "host" as const, value: "family.fundmoney8.com" }], destination: "/family/index.html" },
         // trip.fundmoney8.com 전용: public/trip/ 정적 사이트(여행 모아보기)를 이 주소의 루트로 (gold와 같은 방식)
         { source: "/", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/index.html" },
         { source: "/:path((?!_next|trip|festival|camping|privacy).*)", has: [{ type: "host" as const, value: "trip.fundmoney8.com" }], destination: "/trip/:path" },
