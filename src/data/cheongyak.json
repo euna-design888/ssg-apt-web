@@ -1,5 +1,5 @@
 {
- "basis": "2026-10-17",
+ "basis": "2026-10-20",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -7764,6 +7764,415 @@
    ],
    "priceMin": 39290,
    "priceMax": 65890
+  },
+  {
+   "id": "2026000373",
+   "pblancNo": "2026000373",
+   "name": "고덕강일지구 3단지 토지임대부(본청약)",
+   "sido": "서울",
+   "address": "서울특별시 강동구 강일동 174 일원(고덕강일공공주택지구 3단지)",
+   "saleType": "국민",
+   "supply": 1305,
+   "developer": "서울주택도시개발공사",
+   "builder": "에이치에스화성(주), (주)서해종합건설, 홍문종합건설(주)",
+   "homepage": "https://www.i-sh.co.kr/main/index.do",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000373&pblancNo=2026000373",
+   "tel": "16003456",
+   "noticeDate": "2026-10-16",
+   "moveIn": "2027-05",
+   "flags": {
+    "speculation": true,
+    "adjust": true,
+    "priceCap": true,
+    "publicHousing": true,
+    "largeSite": true,
+    "redevelopment": false,
+    "publicSpecial": true
+   },
+   "schedule": {
+    "special": null,
+    "rank1": [
+     "2026-11-02",
+     "2026-11-05"
+    ],
+    "rank2": [
+     "2026-11-06",
+     "2026-11-06"
+    ],
+    "receipt": [
+     "2026-11-02",
+     "2026-11-06"
+    ],
+    "announce": "2026-11-26",
+    "contract": [
+     "2027-03-22",
+     "2027-04-02"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "049.0000A",
+     "supplyArea": 72.54,
+     "households": 5,
+     "special": 18,
+     "price": 30800,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 3,
+      "firstLife": 3,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 9,
+      "youth": 3,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "049.0000B",
+     "supplyArea": 72.56,
+     "households": 2,
+     "special": 6,
+     "price": 30800,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 3,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "049.0000C",
+     "supplyArea": 72.19,
+     "households": 19,
+     "special": 74,
+     "price": 31416,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 14,
+      "firstLife": 14,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 32,
+      "youth": 14,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "049.0000D",
+     "supplyArea": 72.21,
+     "households": 3,
+     "special": 10,
+     "price": 30800,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 2,
+      "firstLife": 2,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 4,
+      "youth": 2,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "05",
+     "type": "049.0000E",
+     "supplyArea": 72.32,
+     "households": 4,
+     "special": 20,
+     "price": 30800,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 4,
+      "firstLife": 4,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 8,
+      "youth": 4,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "06",
+     "type": "049.0000F",
+     "supplyArea": 72.64,
+     "households": 14,
+     "special": 58,
+     "price": 31724,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 11,
+      "firstLife": 11,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 25,
+      "youth": 11,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "07",
+     "type": "049.0000G",
+     "supplyArea": 72.05,
+     "households": 2,
+     "special": 5,
+     "price": 31724,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 2,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "08",
+     "type": "049.0000H",
+     "supplyArea": 73.5,
+     "households": 8,
+     "special": 31,
+     "price": 29567,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 6,
+      "firstLife": 6,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 13,
+      "youth": 6,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "09",
+     "type": "049.0000I",
+     "supplyArea": 73.26,
+     "households": 2,
+     "special": 7,
+     "price": 31416,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 4,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "10",
+     "type": "049.0000J",
+     "supplyArea": 72.38,
+     "households": 2,
+     "special": 5,
+     "price": 31416,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 2,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "11",
+     "type": "049.0000K",
+     "supplyArea": 72.24,
+     "households": 3,
+     "special": 11,
+     "price": 30184,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 2,
+      "firstLife": 2,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 5,
+      "youth": 2,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "12",
+     "type": "059.0000A",
+     "supplyArea": 86.54,
+     "households": 6,
+     "special": 18,
+     "price": 38670,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 3,
+      "firstLife": 3,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 9,
+      "youth": 3,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "13",
+     "type": "059.0000B",
+     "supplyArea": 86.76,
+     "households": 12,
+     "special": 48,
+     "price": 39050,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 9,
+      "firstLife": 9,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 21,
+      "youth": 9,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "14",
+     "type": "059.0000C",
+     "supplyArea": 87.19,
+     "households": 1,
+     "special": 2,
+     "price": 38670,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 2,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "15",
+     "type": "059.0000D",
+     "supplyArea": 87.19,
+     "households": 16,
+     "special": 60,
+     "price": 39050,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 11,
+      "firstLife": 11,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 27,
+      "youth": 11,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "16",
+     "type": "059.0000E",
+     "supplyArea": 87.15,
+     "households": 9,
+     "special": 35,
+     "price": 38670,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 7,
+      "firstLife": 7,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 14,
+      "youth": 7,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "17",
+     "type": "059.0000F",
+     "supplyArea": 86.66,
+     "households": 9,
+     "special": 37,
+     "price": 37154,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 7,
+      "firstLife": 7,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 16,
+      "youth": 7,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "18",
+     "type": "059.0000G",
+     "supplyArea": 86.94,
+     "households": 25,
+     "special": 95,
+     "price": 37912,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 18,
+      "firstLife": 18,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 41,
+      "youth": 18,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "19",
+     "type": "059.0000H",
+     "supplyArea": 86.56,
+     "households": 4,
+     "special": 20,
+     "price": 37154,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 4,
+      "firstLife": 4,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 8,
+      "youth": 4,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "20",
+     "type": "059.0000I",
+     "supplyArea": 88.61,
+     "households": 1,
+     "special": 6,
+     "price": 39050,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 3,
+      "youth": 1,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 29567,
+   "priceMax": 39050
   }
  ]
 }
