@@ -45,6 +45,9 @@ const nextConfig: NextConfig = {
       { source: "/fc", destination: "/family?m=c&utm_source=threads&utm_campaign=couple", permanent: false },
       // 우리 아이 기질 & 부모 궁합 모드
       { source: "/fk", destination: "/family?m=k&utm_source=threads&utm_campaign=kid", permanent: false },
+      // 오늘의 운수(storyprom_gold) 전용 — 이 계정 유입만 따로 세기 위한 주소 (10/20). g = gold, gc = gold 커플 모드
+      { source: "/fg", destination: "/family?utm_source=threads&utm_campaign=gold1", permanent: false },
+      { source: "/fgc", destination: "/family?m=c&utm_source=threads&utm_campaign=gold1&utm_content=couple", permanent: false },
       // 네이버 블로그 글 전용
       { source: "/fb", destination: "/family?utm_source=naver_blog&utm_campaign=chuseok", permanent: false },
       // 축제 가는 법 스레드 고정댓글 (e = event): 진주남강유등축제 / 횡성한우축제
