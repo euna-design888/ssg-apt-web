@@ -1,5 +1,5 @@
 {
- "basis": "2026-10-20",
+ "basis": "2026-10-22",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -7764,6 +7764,238 @@
    ],
    "priceMin": 39290,
    "priceMax": 65890
+  },
+  {
+   "id": "2026000502",
+   "pblancNo": "2026000502",
+   "name": "화성 향남 롯데캐슬 시그니처",
+   "sido": "경기",
+   "address": "경기도 화성시 만세구 향남읍 상신리 산 13-13 일원",
+   "saleType": "민영",
+   "supply": 1542,
+   "developer": "신영부동산신탁 주식회사",
+   "builder": "롯데건설(주)",
+   "homepage": "https://www.hwaseong-lottecastlesignature.com",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000502&pblancNo=2026000502",
+   "tel": "15511542",
+   "noticeDate": "2026-10-21",
+   "moveIn": "2029-12",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-02",
+     "2026-11-02"
+    ],
+    "rank1": [
+     "2026-11-03",
+     "2026-11-03"
+    ],
+    "rank2": [
+     "2026-11-04",
+     "2026-11-04"
+    ],
+    "receipt": [
+     "2026-11-02",
+     "2026-11-04"
+    ],
+    "announce": "2026-11-10",
+    "contract": [
+     "2026-11-23",
+     "2026-11-25"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "084.3522A",
+     "supplyArea": 109.7246,
+     "households": 132,
+     "special": 159,
+     "price": 53600,
+     "specialBreakdown": {
+      "multiChild": 29,
+      "newlywed": 43,
+      "firstLife": 20,
+      "elderly": 9,
+      "institution": 29,
+      "newborn": 29,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "084.4355B",
+     "supplyArea": 110.1662,
+     "households": 64,
+     "special": 72,
+     "price": 54300,
+     "specialBreakdown": {
+      "multiChild": 13,
+      "newlywed": 20,
+      "firstLife": 9,
+      "elderly": 4,
+      "institution": 13,
+      "newborn": 13,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "084.1443C",
+     "supplyArea": 109.6685,
+     "households": 187,
+     "special": 225,
+     "price": 53500,
+     "specialBreakdown": {
+      "multiChild": 41,
+      "newlywed": 62,
+      "firstLife": 28,
+      "elderly": 12,
+      "institution": 41,
+      "newborn": 41,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "084.4447D",
+     "supplyArea": 110.41,
+     "households": 40,
+     "special": 49,
+     "price": 53900,
+     "specialBreakdown": {
+      "multiChild": 9,
+      "newlywed": 13,
+      "firstLife": 6,
+      "elderly": 3,
+      "institution": 9,
+      "newborn": 9,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "05",
+     "type": "084.5473E",
+     "supplyArea": 111.0317,
+     "households": 136,
+     "special": 165,
+     "price": 54200,
+     "specialBreakdown": {
+      "multiChild": 30,
+      "newlywed": 45,
+      "firstLife": 21,
+      "elderly": 9,
+      "institution": 30,
+      "newborn": 30,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "06",
+     "type": "084.8194F",
+     "supplyArea": 111.7563,
+     "households": 38,
+     "special": 45,
+     "price": 54600,
+     "specialBreakdown": {
+      "multiChild": 8,
+      "newlywed": 13,
+      "firstLife": 6,
+      "elderly": 2,
+      "institution": 8,
+      "newborn": 8,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "07",
+     "type": "084.3216G",
+     "supplyArea": 111.2509,
+     "households": 8,
+     "special": 11,
+     "price": 53200,
+     "specialBreakdown": {
+      "multiChild": 2,
+      "newlywed": 3,
+      "firstLife": 1,
+      "elderly": 1,
+      "institution": 2,
+      "newborn": 2,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "08",
+     "type": "102.6403 ",
+     "supplyArea": 134.7897,
+     "households": 49,
+     "special": 7,
+     "price": 64000,
+     "specialBreakdown": {
+      "multiChild": 5,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 2,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "09",
+     "type": "112.1044 ",
+     "supplyArea": 144.8816,
+     "households": 69,
+     "special": 9,
+     "price": 67800,
+     "specialBreakdown": {
+      "multiChild": 7,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 2,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "10",
+     "type": "120.3418 ",
+     "supplyArea": 156.6758,
+     "households": 68,
+     "special": 9,
+     "price": 72700,
+     "specialBreakdown": {
+      "multiChild": 7,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 2,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 53200,
+   "priceMax": 72700
   },
   {
    "id": "2026000373",
