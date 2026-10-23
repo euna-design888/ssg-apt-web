@@ -409,8 +409,7 @@ function vFind(){
   return '<section class="find"><h2>이번 주말, 어디 갈까요?</h2>'+
     '<p class="fq">1. 어디로 가요? (여러 개)</p><div class="fchips rg">'+RG.map(function(r){return ch('fr',r,r,inR(r))}).join('')+'</div>'+
     '<p class="fq">2. 뭐 하고 싶어요? (여러 개)</p><div class="fchips">'+ch('fk','f','축제',fd.k.f)+ch('fk','s','관광지',fd.k.s)+ch('fk','c','캠핑',fd.k.c)+ch('fk','g','단풍',fd.k.g)+'</div>'+
-    '<button class="fgo" id="fgo">갈 곳 보기</button><div id="fres">'+(fd.rs.length?fres(20):'')+'</div></section>'+
-    '<aside class="adbox fad"><span class="adtag">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></aside>';
+    '<button class="fgo" id="fgo">갈 곳 보기</button><div id="fres">'+(fd.rs.length?fres(20):'')+'</div></section>';  /* 홈 애드센스는 '곧 다가오는 곳' 아래 1칸만 (10/13 대표님). 찾기 아래 칸은 10/23 뺌 */
 }
 /* ── 오늘 갈 곳: 시도 → 끌리는 것 → 카드 1장. 규칙표 점수라 같은 입력=같은 결과 (기획_오늘갈곳.md)
    ponytail: 동행(아이·반려견) 질문은 spots의 baby·pet이 335곳 중 0이라 뺌 → 데이터가 생기면 다시 ── */
@@ -424,7 +423,7 @@ function pickList(){
   var okD=function(r,d){return r===pk.r||(d!==null&&d<=60)};
   var live=F.filter(function(f){return f.y&&f.S<=wk});
   if(K==='fest'||K==='any')live.forEach(function(f){var d=dist(f.y,f.x);if(!okD(f.r,d))return;
-    out.push({sc:3+(f.S<=T?1:0)+(f.d?1:0)-d/25,t:f.t,img:f.img,why:'축제 · '+(f.S<=T?'진행 중 ~'+md(f.E):span(f.S,f.E)),sub:f.a,d:d,h:fhref(f),q:f.t})});
+    out.push({sc:3+(f.S<=T?1:0)+(f.d?1:0)-d/25,t:f.t,img:f.img,why:'축제 · '+(f.S<=T?'진행 중 ~'+md(f.E):span(f.S,f.E)),sub:f.a,d:d,h:fhref(f),q:f.t,st:f.d?'/festival/'+f.d+'.html?utm_source=trip#stay':''})});
   var rest=wd(T)+'요일';
   if(K==='walk'||K==='any')S.forEach(function(s){var d=dist(s.y,s.x);if(!okD(s.r,d)||(s.rest&&s.rest.indexOf(rest)>=0))return;
     var nf=live.filter(function(f){return f.S<=T&&km(s.y,s.x,f.y,f.x)<=10})[0],pkn=s.park&&!/불가|없음/.test(s.park);
@@ -448,6 +447,7 @@ function vPick(){
     (x.d!==null?'<p class="sub">'+esc(pk.r)+' 중심에서 약 '+Math.round(x.d)+'km</p>':'')+
     '<div class="pa"><a class="btn go" target="_blank" rel="noopener" href="'+nav(x.q)+'" onclick="ev(\'pick_go\',{k:\''+pk.k+'\'})">길찾기</a>'+
     '<a class="btn dt" href="'+esc(x.h)+'" onclick="ev(\'pick_detail\',{k:\''+pk.k+'\'})">자세히 보기</a>'+
+    (x.st?'<a class="btn rr" href="'+esc(x.st)+'" onclick="ev(\'trip_stay\',{from:\'pick\'})">근처 숙소 가격 보기</a>':'')+
     (pk.n<2&&L.length>pk.n+1?'<button class="rr" data-preroll="1">다른 곳 볼래요</button>':'')+'<button class="rr" data-pback="1">처음부터</button></div>'+
     (x.img?'<p class="credit">사진 한국관광공사 · 공공누리 제3유형(출처표시·변경금지)</p>':'')+'<p class="rnote">갱신 '+esc(D.built)+' · 가기 전 공식 안내를 확인하세요.</p></div></article>'+
     affFest()+'<aside class="adbox"><span class="adtag">광고</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6925161017862158" data-ad-slot="6718642894" data-ad-format="auto" data-full-width-responsive="true"></ins></aside></section>';
