@@ -1,5 +1,5 @@
 {
- "basis": "2026-10-24",
+ "basis": "2026-10-28",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -8890,6 +8890,182 @@
    ],
    "priceMin": 29567,
    "priceMax": 39050
+  },
+  {
+   "id": "2026000435",
+   "pblancNo": "2026000435",
+   "name": "삼도이동 2지구 토지임대부 공공분양주택",
+   "sido": "제주",
+   "address": "제주특별자치도 제주시 삼도이동 1246-1 외 4필지",
+   "saleType": "국민",
+   "supply": 40,
+   "developer": "제주특별자치도개발공사",
+   "builder": "국토건설(주)",
+   "homepage": "https://samdo.jpdc.co.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000435&pblancNo=2026000435",
+   "tel": "15443310",
+   "noticeDate": "2026-10-27",
+   "moveIn": "2027-11",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": true,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": true
+   },
+   "schedule": {
+    "special": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank1": [
+     "2026-11-17",
+     "2026-11-17"
+    ],
+    "rank2": [
+     "2026-11-18",
+     "2026-11-18"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-18"
+    ],
+    "announce": "2026-11-25",
+    "contract": [
+     "2027-01-25",
+     "2027-01-29"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "049.5837A",
+     "supplyArea": 73.3065,
+     "households": 2,
+     "special": 6,
+     "price": 25200,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 3,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "059.9783A",
+     "supplyArea": 87.8422,
+     "households": 6,
+     "special": 26,
+     "price": 30197,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 5,
+      "firstLife": 5,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 11,
+      "youth": 5,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 25200,
+   "priceMax": 30197
+  },
+  {
+   "id": "2026000434",
+   "pblancNo": "2026000434",
+   "name": "삼도이동 1지구 토지임대부 공공분양주택",
+   "sido": "제주",
+   "address": "제주특별자치도 제주시 삼도이동 1244-1 ",
+   "saleType": "국민",
+   "supply": 32,
+   "developer": "제주특별자치도개발공사",
+   "builder": "국토건설(주)",
+   "homepage": "https://samdo.jpdc.co.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000434&pblancNo=2026000434",
+   "tel": "15443310",
+   "noticeDate": "2026-10-27",
+   "moveIn": "2027-11",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": true,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": true
+   },
+   "schedule": {
+    "special": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank1": [
+     "2026-11-17",
+     "2026-11-17"
+    ],
+    "rank2": [
+     "2026-11-18",
+     "2026-11-18"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-18"
+    ],
+    "announce": "2026-11-24",
+    "contract": [
+     "2027-01-25",
+     "2027-01-29"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "049.5837A",
+     "supplyArea": 71.9511,
+     "households": 2,
+     "special": 6,
+     "price": 25235,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 1,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 3,
+      "youth": 1,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "059.9783A",
+     "supplyArea": 86.2027,
+     "households": 4,
+     "special": 20,
+     "price": 30233,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 4,
+      "firstLife": 4,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 8,
+      "youth": 4,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 25235,
+   "priceMax": 30233
   }
  ]
 }
