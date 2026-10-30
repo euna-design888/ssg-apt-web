@@ -33,23 +33,35 @@ const nextConfig: NextConfig = {
   },
   // 스레드 홍보용 짧은 링크: /f1~/f80 → 글 버전별 추적 꼬리표가 붙은 /family (임시 이동이라 GA에 UTM이 남음)
   async redirects() {
+    // 2026-10-30 옛 주소 301: 청약·온누리 → apt.bluepalpal.com, 가족사주 → family.fundmoney8.com, gold 전체 → gold.bluepalpal.com
+    const www = [{ type: "host" as const, value: "www\\.fundmoney8\\.com" }];
+    const FAM = "https://family.fundmoney8.com/";
+    const APT = "https://apt.bluepalpal.com";
     return [
+      { source: "/:path*", has: [{ type: "host" as const, value: "gold\\.fundmoney8\\.com" }], destination: "https://gold.bluepalpal.com/:path*", permanent: true },
+      { source: "/", has: www, destination: `${APT}/`, permanent: true },
+      { source: "/cheongyak/:path*", has: www, destination: `${APT}/cheongyak/:path*`, permanent: true },
+      { source: "/apt/:path*", has: www, destination: `${APT}/apt/:path*`, permanent: true },
+      { source: "/onnuri", has: www, destination: `${APT}/onnuri`, permanent: true },
+      { source: "/family", has: www, destination: FAM, permanent: true },
+      { source: "/family/:path*", has: www, destination: `${FAM}:path*`, permanent: true },
+      // 짧은 링크는 새 주소로 바로 보낸다(2단 이동·UTM 유실 방지)
       ...Array.from({ length: 80 }, (_, i) => ({
         source: `/f${i + 1}`,
-        destination: `/family?utm_source=threads&utm_campaign=chuseok&utm_content=v${i + 1}`,
+        destination: `${FAM}?utm_source=threads&utm_campaign=chuseok&utm_content=v${i + 1}`,
         permanent: false,
       })),
       // 스레드 공통 링크(모든 계정 고정댓글에 같은 링크, 계정별 성과는 스레드 조회수로 봄)
-      { source: "/f", destination: "/family?utm_source=threads&utm_campaign=chuseok2", permanent: false },
+      { source: "/f", destination: `${FAM}?utm_source=threads&utm_campaign=chuseok2`, permanent: false },
       // 커플·부부 궁합 모드 (명절 밖 상시 홍보용)
-      { source: "/fc", destination: "/family?m=c&utm_source=threads&utm_campaign=couple", permanent: false },
+      { source: "/fc", destination: `${FAM}?m=c&utm_source=threads&utm_campaign=couple`, permanent: false },
       // 우리 아이 기질 & 부모 궁합 모드
-      { source: "/fk", destination: "/family?m=k&utm_source=threads&utm_campaign=kid", permanent: false },
+      { source: "/fk", destination: `${FAM}?m=k&utm_source=threads&utm_campaign=kid`, permanent: false },
       // 오늘의 운수(storyprom_gold) 전용 — 이 계정 유입만 따로 세기 위한 주소 (10/20). g = gold, gc = gold 커플 모드
-      { source: "/fg", destination: "/family?utm_source=threads&utm_campaign=gold1", permanent: false },
-      { source: "/fgc", destination: "/family?m=c&utm_source=threads&utm_campaign=gold1&utm_content=couple", permanent: false },
+      { source: "/fg", destination: `${FAM}?utm_source=threads&utm_campaign=gold1`, permanent: false },
+      { source: "/fgc", destination: `${FAM}?m=c&utm_source=threads&utm_campaign=gold1&utm_content=couple`, permanent: false },
       // 네이버 블로그 글 전용
-      { source: "/fb", destination: "/family?utm_source=naver_blog&utm_campaign=chuseok", permanent: false },
+      { source: "/fb", destination: `${FAM}?utm_source=naver_blog&utm_campaign=chuseok`, permanent: false },
       // 축제 가는 법 스레드 고정댓글 (e = event): 진주남강유등축제 / 횡성한우축제
       { source: "/ej", destination: "/festival/jinju-lantern.html?utm_source=threads&utm_campaign=festival_jinju", permanent: false },
       { source: "/eh", destination: "/festival/hoengseong-hanwoo.html?utm_source=threads&utm_campaign=festival_hoengseong", permanent: false },
