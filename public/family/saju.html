@@ -49,6 +49,12 @@ h2{font-size:20px;line-height:1.35}
 .foot{font-size:13px;color:var(--sub);text-align:center;line-height:1.7;padding-top:6px}
 .foot a{color:var(--mute)}
 .msg{font-size:17px;color:var(--mute);margin:0}
+.summary{background:var(--card-2);border-radius:14px;padding:16px}
+.tag{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--surface);color:var(--gold);width:fit-content}
+.metaphor{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.4;margin:10px 0 0;color:var(--primary);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips span{font-size:14px;padding:6px 12px;border-radius:999px;background:var(--surface);color:var(--mute);border:1px solid var(--line)}
+.chips span.good{color:var(--gold);border-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -83,6 +89,19 @@ h2{font-size:20px;line-height:1.35}
       <div class="kv"><small>일간</small><b id="dayMaster"></b></div>
     </div>
 
+    <div class="summary" style="margin-top:20px">
+      <span class="tag">나를 한 줄로</span>
+      <p class="metaphor" id="metaphor"></p>
+      <p class="lead" id="metaphorDesc" style="margin-top:8px"></p>
+    </div>
+
+    <h3 style="font-size:18px;margin-top:20px">격국 · 용신</h3>
+    <p class="persona" id="gyeok"></p>
+    <p class="lead" id="yongsin" style="margin-top:6px"></p>
+
+    <h3 style="font-size:18px;margin-top:20px">신살 · 길신</h3>
+    <div class="chips" id="sals"></div>
+
     <a class="btn ghost" href="index.html" style="margin-top:18px">다른 생년월일 보기</a>
   </section>
 
@@ -107,6 +126,8 @@ const ELN=['나무','불','흙','쇠','물'], ELC=['#2FB67C','#EF5B5B','#E0A526'
 const BREL=[4,2,0,0,2,1,1,2,3,3,2,4];
 const ANIMAL=['쥐','소','호랑이','토끼','용','뱀','말','양','원숭이','닭','개','돼지'];
 const PERSONA=['큰 나무 (갑목): 곧게 자라는 리더형이에요. 주관이 뚜렷하지만 고집이 세면 혼자 남을 수 있어요.','덩굴꽃 (을목): 유연하고 적응력이 좋아요. 부드럽지만 원하는 건 결국 얻어내요.','태양 (병화): 분위기를 밝히는 타고난 인싸예요. 열정이 크고 솔직해요.','촛불 (정화): 조용히 주변을 따뜻하게 비춰요. 세심하고 감성이 풍부해요.','큰 산 (무토): 말수는 적어도 묵직한 버팀목이에요. 듣는 힘이 좋아요.','논밭 (기토): 품어주는 살림꾼이에요. 실속 있고 속은 꼼꼼해요.','바위 (경금): 의리 있고 결단력이 강해요. 할 말은 직접 하는 편이에요.','보석 (신금): 섬세하고 완벽을 추구해요. 자존심이 강하고 분석력이 좋아요.','바다 (임수): 스케일이 크고 자유로운 영혼이에요. 속을 잘 드러내지 않아요.','빗물 (계수): 눈치 빠르고 직감이 좋은 전략가예요. 부드러운 말솜씨가 강점이에요.'];
+// 일간 10개를 자연물로 비유 (순서: 갑을병정무기경신임계)
+const ME=[['큰 나무','곧게 자라는 큰 나무처럼 주관이 뚜렷하고 리더십이 있어요. 한번 정하면 꿋꿋이 밀고 나가지만, 고집이 세면 혼자 남을 수 있어요.'],['덩굴꽃','어떤 환경에서도 자리를 잡는 덩굴처럼 유연하고 생활력이 강해요. 부드러워 보여도 원하는 건 결국 얻어내요.'],['태양','등장만 해도 분위기가 밝아지는 사람이에요. 열정이 크고 솔직해서, 가끔은 과하게 달아오를 수 있어요.'],['촛불','조용하지만 주변을 따뜻하게 비추는 촛불 같아요. 세심하고 감성이 풍부하지만 감정 기복이 있을 수 있어요.'],['큰 산','묵직한 산처럼 말수는 적어도 한번 한 약속은 지켜요. 다른 사람의 이야기를 잘 들어주는 편이에요.'],['논밭','무엇이든 품어 키워내는 비옥한 땅 같아요. 실속 있고 살림을 잘하며, 겉은 느긋해도 속은 꼼꼼해요.'],['바위','단단하고 의리 있는 바위처럼 할 말은 직설적으로 해요. 결단력이 있고 한번 시작하면 끝을 봐요.'],['보석','섬세하고 깔끔한 보석처럼 완벽을 추구해요. 자존심이 강하고 분석력과 정교함이 뛰어나요.'],['바다','끝이 안 보이는 바다처럼 스케일이 크고 자유로워요. 속을 잘 드러내지 않지만 포용력이 넓어요.'],['빗물','세상을 적셔 생명을 키우는 빗물처럼 눈치 빠르고 직감이 좋아요. 부드러운 말솜씨로 사람의 마음을 얻어요.']];
 const HM=h=>h===12?[23,45]:h===0?[0,45]:[h*2,30];
 const $=id=>document.getElementById(id);
 
@@ -134,6 +155,22 @@ function render(v,r){
   $('dayMaster').textContent=`${STK[ds]} (${ELN[ds>>1]})`;
   $('zodiac').textContent=`${ANIMAL[pd.year.branchIdx]}띠`;
   $('resTitle').textContent=v.name?`${v.name}님의 사주 명식`:'사주 명식';
+  const adv=r.advanced||{};
+  // 나를 비유하는 한 줄: 일간 오행을 자연물에 빗대고, 강약은 라이브러리 판정을 그대로 씀
+  const [mName,mDesc]=ME[ds];
+  const sTxt=/strong|very/.test(adv.dayStrength?.strength||'')?'기운이 강하고 추진력이 센':/weak/.test(adv.dayStrength?.strength||'')?'기운이 여리고 섬세한':'기운이 균형 잡힌';
+  $('metaphor').textContent=`${mName}처럼 ${sTxt} 사람`;
+  $('metaphorDesc').textContent=mDesc;
+  // 격국 · 용신 (라이브러리 해석 첫 문장 + 도움이 되는 오행)
+  const gk=adv.geukguk||'-';
+  const interp=(adv.interpretation||'').split('\n').filter(Boolean)[0]||'';
+  $('gyeok').textContent=`${gk}${interp?' · '+interp:''}`;
+  const ysEl=[...new Set((adv.yongsin||[]).map(c=>ST.indexOf(c)>>1).filter(e=>e>=0))].map(e=>ELN[e]);
+  $('yongsin').textContent=ysEl.length?`도움이 되는 기운: ${ysEl.join(' · ')}`:'';
+  // 신살·길신 칩 (지지별 12신살 + 특수 신살)
+  const salSet=new Set();
+  Object.values(r.sals||{}).forEach(p=>{if(p.twelveSal)salSet.add(p.twelveSal);(p.specialSals||[]).forEach(s=>salSet.add(s))});
+  $('sals').innerHTML=[...salSet].map(s=>`<span class="${/귀인|덕|길/.test(s)?'good':''}">${s}</span>`).join('')||'<span>뚜렷한 신살 없음</span>';
   // 음력 입력이면 라이브러리가 계산한 양력 날짜를 같이 보여줌 (학술 기준 확인용)
   const solar=v.cal==='lunar'&&r.solar?` → 양력 ${r.solar.year}.${String(r.solar.month).padStart(2,'0')}.${String(r.solar.day).padStart(2,'0')}`:'';
   $('resSub').textContent=`${v.date.replace(/-/g,'.')} ${v.cal==='lunar'?'(음력'+(v.leap?' 윤달':'')+')'+solar:'(양력)'} · ${v.hour>=0?'시간 입력함':'시간 모름'}`;
