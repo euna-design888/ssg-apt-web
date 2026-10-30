@@ -33,18 +33,32 @@ h1{font-size:28px;line-height:1.3;text-wrap:balance}
 .tab.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .tag{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--card-2);color:var(--gold);width:fit-content}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
-label.f{display:block;font-size:15px;font-weight:700;color:var(--mute);margin-bottom:6px}
-input[type=text],input[type=date],select{width:100%;min-height:52px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:17px}
+label.f,.f{display:block;font-size:15px;font-weight:700;color:var(--mute);margin-bottom:6px}
+input[type=text],input[type=number],input[inputmode=numeric],select{width:100%;min-height:52px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:17px}
 input:focus,select:focus,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .seg label{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--mute);font-weight:700;cursor:pointer}
 .seg input{position:absolute;opacity:0;pointer-events:none}
 .seg label:has(input:checked){background:var(--card-2);color:var(--primary);border-color:var(--accent)}
 .row{display:flex;flex-direction:column;gap:14px}
+.ymd{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px}
+.ymd select,.ymd input{min-width:0}
 .check{display:flex;align-items:center;gap:8px;font-size:16px;color:var(--mute);min-height:44px}
 .check input{width:20px;height:20px;accent-color:var(--accent)}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);font:inherit;font-size:18px;font-weight:800;cursor:pointer;text-decoration:none;text-align:center}
+.btn.ghost{background:var(--card-2);color:var(--primary);min-height:48px;font-size:16px}
 .err{color:var(--primary);font-weight:700;min-height:22px;margin:0}
+.cal{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.cal-head b{font-size:17px}
+.cal-head button{min-width:44px;min-height:44px;border:0;border-radius:10px;background:var(--card-2);color:var(--text);font:inherit;font-size:18px;cursor:pointer}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.grid7 span{font-size:13px;color:var(--sub);padding:4px 0}
+.grid7 button{min-height:44px;border:0;border-radius:10px;background:transparent;color:var(--text);font:inherit;font-size:16px;cursor:pointer}
+.grid7 button:hover{background:var(--card-2)}
+.grid7 button.sel{background:var(--accent);color:var(--on-accent);font-weight:800}
+.grid7 button.out{color:var(--sub);opacity:.5}
+.hint{font-size:14px;color:var(--sub);margin:0}
 .foot{font-size:13px;color:var(--sub);text-align:center;line-height:1.7;padding-top:6px}
 .foot a{color:var(--mute)}
 </style>
@@ -79,8 +93,31 @@ input:focus,select:focus,button:focus-visible{outline:3px solid var(--gold);outl
         <label class="check"><input type="checkbox" id="leap"> 음력 윤달이에요</label>
       </div>
       <div>
-        <label class="f" for="birth">생년월일</label>
-        <input type="date" id="birth" required>
+        <span class="f" id="ymdLabel">생년월일</span>
+        <div class="ymd" role="group" aria-labelledby="ymdLabel">
+          <div>
+            <label class="f" for="yy" style="font-weight:600;font-size:13px">년 (4자리)</label>
+            <input type="text" id="yy" inputmode="numeric" maxlength="4" placeholder="1996" autocomplete="off">
+          </div>
+          <div>
+            <label class="f" for="mm" style="font-weight:600;font-size:13px">월</label>
+            <select id="mm"></select>
+          </div>
+          <div>
+            <label class="f" for="dd" style="font-weight:600;font-size:13px">일</label>
+            <select id="dd"></select>
+          </div>
+        </div>
+        <button class="btn ghost" type="button" id="calBtn" aria-expanded="false" aria-controls="cal" style="margin-top:10px">📅 달력에서 고르기</button>
+        <div class="cal" id="cal" hidden style="margin-top:10px">
+          <div class="cal-head">
+            <button type="button" id="calPrev" aria-label="이전 달">‹</button>
+            <b id="calTitle"></b>
+            <button type="button" id="calNext" aria-label="다음 달">›</button>
+          </div>
+          <div class="grid7" id="calGrid"></div>
+          <p class="hint" style="margin-top:8px">달력은 양력 기준이에요. 음력이면 위 칸에 음력 날짜를 직접 넣어 주세요.</p>
+        </div>
       </div>
       <div>
         <label class="f" for="hour">태어난 시간</label>
@@ -106,18 +143,57 @@ input:focus,select:focus,button:focus-visible{outline:3px solid var(--gold);outl
     </form>
   </section>
 
-  <p class="foot">재미로 보는 콘텐츠예요. 사주 계산은 한국천문연구원 음력·절기 자료를 기준으로 하는 만세력(ssaju)으로 해요.<br>입력한 생일은 서버로 보내지 않고 이 기기 브라우저에서만 쓰여요. · <a href="/privacy">개인정보처리방침</a></p>
+  <p class="foot">재미로 보는 콘텐츠예요. 사주 계산은 만세력 라이브러리 ssaju로 해요. 이 라이브러리는 한국천문연구원 음력 데이터와 절입 시각 기준으로 계산한다고 밝히고 있어요.<br>입력한 생일은 서버로 보내지 않고 이 기기 브라우저에서만 쓰여요. · <a href="/privacy">개인정보처리방침</a></p>
 </div>
 
 <script>
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+
+// 월·일 선택지 채우기
+$('mm').innerHTML='<option value="">월</option>'+Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}월</option>`).join('');
+$('dd').innerHTML='<option value="">일</option>'+Array.from({length:31},(_,i)=>`<option value="${i+1}">${i+1}일</option>`).join('');
+
+// 달력: 년·월 칸이 채워져 있으면 그 달, 아니면 오늘 달부터
+let calY,calM;
+function openCal(){
+  const y=Number($('yy').value), m=Number($('mm').value);
+  const now=new Date();
+  calY=/^\d{4}$/.test($('yy').value)?y:now.getFullYear();
+  calM=m?m:now.getMonth()+1;
+  $('cal').hidden=false;
+  $('calBtn').setAttribute('aria-expanded','true');
+  drawCal();
+}
+function drawCal(){
+  const first=new Date(calY,calM-1,1), days=new Date(calY,calM,0).getDate();
+  $('calTitle').textContent=`${calY}년 ${calM}월`;
+  const sel=$('yy').value===String(calY)&&Number($('mm').value)===calM?Number($('dd').value):0;
+  let html=['일','월','화','수','목','금','토'].map(w=>`<span>${w}</span>`).join('');
+  for(let i=0;i<first.getDay();i++) html+='<span></span>';
+  for(let d=1;d<=days;d++) html+=`<button type="button" data-d="${d}" class="${d===sel?'sel':''}">${d}</button>`;
+  $('calGrid').innerHTML=html;
+}
+$('calBtn').addEventListener('click',()=>{$('cal').hidden?openCal():(($('cal').hidden=true),$('calBtn').setAttribute('aria-expanded','false'))});
+$('calPrev').addEventListener('click',()=>{calM--;if(calM<1){calM=12;calY--}drawCal()});
+$('calNext').addEventListener('click',()=>{calM++;if(calM>12){calM=1;calY++}drawCal()});
+$('calGrid').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-d]'); if(!b) return;
+  $('yy').value=String(calY); $('mm').value=String(calM); $('dd').value=b.dataset.d;
+  $('cal').hidden=true; $('calBtn').setAttribute('aria-expanded','false');
+});
+
 // 입력값은 이 탭의 sessionStorage에만 두고 결과 페이지(saju.html)로 넘김. 주소창에는 넣지 않음
-document.getElementById('form').addEventListener('submit',e=>{
+$('form').addEventListener('submit',e=>{
   e.preventDefault();
-  const err=document.getElementById('err');
-  err.textContent='';
-  const date=document.getElementById('birth').value;
-  if(!date){err.textContent='생년월일을 넣어 주세요';return}
-  const v={name:document.getElementById('name').value.trim().slice(0,8),cal:document.querySelector('input[name=cal]:checked').value,leap:document.getElementById('leap').checked,date,hour:Number(document.getElementById('hour').value)};
+  const err=$('err'); err.textContent='';
+  const yy=$('yy').value.trim(), mm=Number($('mm').value), dd=Number($('dd').value);
+  if(!/^\d{4}$/.test(yy)){err.textContent='년도는 4자리로 넣어 주세요 (예: 1996)';return}
+  const y=Number(yy);
+  if(y<1900||y>2100){err.textContent='1900년~2100년 사이로 넣어 주세요';return}
+  if(!mm||!dd){err.textContent='월과 일을 골라 주세요';return}
+  if(new Date(y,mm-1,dd).getDate()!==dd){err.textContent='없는 날짜예요. 월·일을 확인해 주세요';return}
+  const v={name:$('name').value.trim().slice(0,8),cal:document.querySelector('input[name=cal]:checked').value,leap:$('leap').checked,date:`${y}-${pad(mm)}-${pad(dd)}`,hour:Number($('hour').value)};
   try{sessionStorage.setItem('saju_input',JSON.stringify(v))}catch(_){}
   location.href='saju.html';
 });

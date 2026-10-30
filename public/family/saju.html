@@ -134,7 +134,9 @@ function render(v,r){
   $('dayMaster').textContent=`${STK[ds]} (${ELN[ds>>1]})`;
   $('zodiac').textContent=`${ANIMAL[pd.year.branchIdx]}띠`;
   $('resTitle').textContent=v.name?`${v.name}님의 사주 명식`:'사주 명식';
-  $('resSub').textContent=`${v.date.replace(/-/g,'.')} ${v.cal==='lunar'?'(음력'+(v.leap?' 윤달':'')+')':'(양력)'} · ${v.hour>=0?'시간 입력함':'시간 모름'}`;
+  // 음력 입력이면 라이브러리가 계산한 양력 날짜를 같이 보여줌 (학술 기준 확인용)
+  const solar=v.cal==='lunar'&&r.solar?` → 양력 ${r.solar.year}.${String(r.solar.month).padStart(2,'0')}.${String(r.solar.day).padStart(2,'0')}`:'';
+  $('resSub').textContent=`${v.date.replace(/-/g,'.')} ${v.cal==='lunar'?'(음력'+(v.leap?' 윤달':'')+')'+solar:'(양력)'} · ${v.hour>=0?'시간 입력함':'시간 모름'}`;
 }
 
 function showError(msg){
