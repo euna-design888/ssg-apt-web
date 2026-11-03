@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}
 def card(it):
     img = f'<img src="{e(it["image"])}" alt="{e(it["name"])}" loading="lazy">' if it.get("image") else '<span class="nophoto">사진 준비 중</span>'
     rk = '<span class="rk">로켓배송</span>' if it.get("rocket") else ""
-    note = f'<p class="note">{e(it["note"])}</p>' if it.get("note") else ""
+    note = f'<p class="note">{e(it["desc"])}</p>' if it.get("desc") else ""  # 큐 note 는 내부 메모 → 공개는 desc 만
     return f'''<article class="card" id="n{it["no"]}">
 <a class="ph" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'image'}})"><span class="no">{it["no"]}<small>편</small></span>{rk}{img}</a>
 <div class="bd">{f'<p class="hook">{e(it["hook"])}</p>' if it.get("hook") else ""}<h2 class="nm">{e(it["name"])}</h2>
