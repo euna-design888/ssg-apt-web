@@ -84,6 +84,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     // 여행 모아보기 (축제·캠핑·단풍 허브, 원본 trip-guide 레포)
     { url: "https://www.fundmoney8.com/trip", lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
+    // 냅다 담기 쇼핑쇼츠 상품 허브 (원본 naepda-damgi-shop 레포, WEB_냅다담기)
+    { url: "https://www.fundmoney8.com/naepda", lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
