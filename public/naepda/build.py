@@ -10,8 +10,8 @@ Q = json.loads((HERE.parents[1] / "AFF_제휴총괄" / "data" / "shorts_queue.js
 BASE = "https://www.fundmoney8.com/naepda"
 CH = {"name": "냅다 담기", "url": "https://www.youtube.com/@naepda_damgi", "handle": "@naepda_damgi"}
 items = sorted((i for i in Q["items"] if i.get("link")), key=lambda x: x["no"])  # 링크 있는 것만, 1번부터
-UPDATED = max(i["price_date"] for i in items)
 e = html.escape
+PARTNER = {"coupang": "쿠팡에서 구매하러 가기", "ali": "알리에서 구매하러 가기"}  # 큐 partner 필드(없으면 coupang)
 
 CSS = """
 *{box-sizing:border-box;min-width:0}
@@ -19,10 +19,9 @@ body{margin:0;background:#f6f7f9;color:#111;font:17px/1.5 "Pretendard Variable",
 a{color:inherit;text-decoration:none}
 .wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
 .top{padding:26px 0 14px;display:flex;align-items:center;gap:12px}
-.top .yt{width:48px;height:48px;border-radius:14px;background:#ff0000;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.top .yt i{display:block;width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
-.top h1{font-size:24px;margin:0;line-height:1.2;font-weight:800}
-.top p{margin:2px 0 0;font-size:14px;color:#4b5563}
+.top .ic{width:48px;height:48px;border-radius:14px;background:#111;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.top .ic svg{width:28px;height:28px}
+.top h1{font-size:26px;margin:0;line-height:1.2;font-weight:800}
 .disc{font-size:14px;color:#4b5563;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;margin:0 0 14px}
 .card{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:0 1px 0 rgba(17,24,39,.04)}
 .ph{position:relative;background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f1f3}
@@ -52,12 +51,12 @@ def card(it):
 <a class="ph" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'image'}})"><span class="no">{it["no"]}<small>편</small></span>{rk}{img}</a>
 <div class="bd">{f'<p class="hook">{e(it["hook"])}</p>' if it.get("hook") else ""}<h2 class="nm">{e(it["name"])}</h2>
 <p class="pr"><b>{e(it["price"])}</b><small>{e(it["price_date"])} 기준 · 바뀔 수 있음</small></p>{note}
-<a class="btn" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'button'}})">쿠팡에서 구매하러 가기</a></div>
+<a class="btn" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'button'}})">{PARTNER.get(it.get("partner", "coupang"), "구매하러 가기")}</a></div>
 </article>'''
 
 cards = "\n".join(card(i) for i in items)
-title = f"{CH['name']} 영상 속 제품 — 번호 그대로"
-desc = f"유튜브 {CH['name']} 쇼핑쇼츠에 나온 제품을 영상 번호 그대로 모았습니다. 가격은 확인일 기준, 쿠팡 파트너스 링크."
+title = f"{CH['name']} — 영상 속 제품 번호 그대로"
+desc = f"유튜브 {CH['name']} 쇼핑쇼츠에 나온 제품을 영상 번호 그대로 모았습니다. 가격은 확인일 기준, 제휴 링크."
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
@@ -71,8 +70,8 @@ page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-78JGV6PB8S');function ev(n,p){{try{{gtag('event',n,p||{{}})}}catch(_){{}}}}</script>
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"ItemList","name":title,"url":BASE,"itemListElement":[{"@type":"ListItem","position":i+1,"name":it["name"],"url":f"{BASE}#n{it['no']}"} for i,it in enumerate(items)]},ensure_ascii=False)}</script>
 </head><body><main class="wrap">
-<header class="top"><a class="yt" href="{e(CH['url'])}" target="_blank" rel="noopener" aria-label="유튜브 채널"><i></i></a><div><h1>{e(CH['name'])} 영상 속 제품</h1><p>영상 번호 = 제품 번호 · {e(UPDATED)} 확인</p></div></header>
-<p class="disc">이 페이지의 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정액의 수수료를 받습니다. 가격은 각 제품의 확인일 기준이며 바뀔 수 있습니다.</p>
+<header class="top"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L21 8H6.2"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg></span><h1>{e(CH['name'])}</h1></header>
+<p class="disc">이 페이지의 링크는 쿠팡 파트너스 등 제휴 마케팅 링크로, 구매 시 일정액의 수수료를 받습니다. 가격은 각 제품의 확인일 기준이며 바뀔 수 있습니다.</p>
 {cards}
 <footer class="foot">영상에서 번호를 보고 같은 번호를 누르면 됩니다.<br><a href="{e(CH['url'])}" target="_blank" rel="noopener">유튜브 {e(CH['handle'])}</a> · <a href="https://bluepalpal.com/about/">운영자</a> · <a href="https://bluepalpal.com/privacy/">개인정보처리방침</a></footer>
 </main></body></html>'''
