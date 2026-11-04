@@ -1,5 +1,5 @@
 {
- "basis": "2026-11-02",
+ "basis": "2026-11-04",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -8425,6 +8425,215 @@
    ],
    "priceMin": 70095,
    "priceMax": 96845
+  },
+  {
+   "id": "2026820014",
+   "pblancNo": "2026820014",
+   "name": "남양주왕숙 A-2블록 신혼희망타운(공공분양) 잔여세대 추가입주자모집공고",
+   "sido": "경기",
+   "address": "경기도 남양주시 진접읍, 진건읍, 퇴계원읍 일원, 남양주왕숙 공공주택지구 내 A-2블록",
+   "saleType": "국민",
+   "supply": 32,
+   "developer": "한국토지주택공사 경기북부지역본부",
+   "builder": "계룡건설산업(주), 미래이앤시(주), (주)오스코",
+   "homepage": "https://apply.lh.or.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820014&pblancNo=2026820014",
+   "tel": "16001004",
+   "noticeDate": "2026-11-03",
+   "moveIn": "2028-08",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": true,
+    "publicHousing": true,
+    "largeSite": true,
+    "redevelopment": false,
+    "publicSpecial": true
+   },
+   "schedule": {
+    "special": null,
+    "rank1": [
+     "2026-11-11",
+     "2026-11-11"
+    ],
+    "rank2": [
+     "2026-11-12",
+     "2026-11-12"
+    ],
+    "receipt": [
+     "2026-11-11",
+     "2026-11-12"
+    ],
+    "announce": "2026-11-19",
+    "contract": [
+     "2027-02-01",
+     "2027-02-02"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "046.0000O",
+     "supplyArea": 67.1669,
+     "households": 0,
+     "special": 18,
+     "price": 35276,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "055.0000O",
+     "supplyArea": 79.7936,
+     "households": 0,
+     "special": 14,
+     "price": 41908,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 35276,
+   "priceMax": 41908
+  },
+  {
+   "id": "2026000554",
+   "pblancNo": "2026000554",
+   "name": "리첼 에듀포레 경산역",
+   "sido": "경북",
+   "address": "경상북도 경산시 사정동 301-22번지 일원",
+   "saleType": "민영",
+   "supply": 201,
+   "developer": "강변사정동지역주택조합",
+   "builder": "에쓰와이이앤씨",
+   "homepage": "https://richelledufore.co.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000554&pblancNo=2026000554",
+   "tel": "0538132010",
+   "noticeDate": "2026-11-03",
+   "moveIn": "2029-09",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-13",
+     "2026-11-13"
+    ],
+    "rank1": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank2": [
+     "2026-11-17",
+     "2026-11-17"
+    ],
+    "receipt": [
+     "2026-11-13",
+     "2026-11-17"
+    ],
+    "announce": "2026-11-23",
+    "contract": [
+     "2026-12-04",
+     "2026-12-06"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "062.2537 ",
+     "supplyArea": 83.1444,
+     "households": 16,
+     "special": 26,
+     "price": 48070,
+     "specialBreakdown": {
+      "multiChild": 4,
+      "newlywed": 6,
+      "firstLife": 3,
+      "elderly": 1,
+      "institution": 8,
+      "newborn": 4,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "084.9417A",
+     "supplyArea": 111.545,
+     "households": 36,
+     "special": 41,
+     "price": 63363,
+     "specialBreakdown": {
+      "multiChild": 8,
+      "newlywed": 12,
+      "firstLife": 6,
+      "elderly": 2,
+      "institution": 5,
+      "newborn": 8,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "084.8838B",
+     "supplyArea": 112.2603,
+     "households": 20,
+     "special": 27,
+     "price": 63811,
+     "specialBreakdown": {
+      "multiChild": 5,
+      "newlywed": 7,
+      "firstLife": 3,
+      "elderly": 2,
+      "institution": 5,
+      "newborn": 5,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "084.9417C",
+     "supplyArea": 111.4114,
+     "households": 19,
+     "special": 16,
+     "price": 61063,
+     "specialBreakdown": {
+      "multiChild": 3,
+      "newlywed": 5,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 2,
+      "newborn": 3,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 48070,
+   "priceMax": 63811
   },
   {
    "id": "2026820013",
