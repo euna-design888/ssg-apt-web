@@ -101,6 +101,7 @@ details{{background:var(--card);border:1px solid var(--line);border-radius:12px;
 summary{{padding:14px 16px;font-weight:700;cursor:pointer;min-height:52px}}
 details p{{margin:0;padding:0 16px 14px;color:var(--sub)}}
 .tip{{font-size:16px;color:var(--sub)}}
+.cta{{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:14px;background:#e8380d;color:#fff;font-size:19px;font-weight:800;text-decoration:none;margin:0 0 8px}}
 footer{{font-size:14px;color:var(--sub);margin-top:32px;border-top:1px solid var(--line);padding-top:14px}}
 @media(max-width:380px){{.dates li{{flex-direction:column;gap:2px}}.dates b{{flex:none}}h1{{font-size:24px}}}}
 </style></head><body>
@@ -109,6 +110,7 @@ footer{{font-size:14px;color:var(--sub);margin-top:32px;border-top:1px solid var
 <p>수능 수험표로 받는 혜택 · 출처 있는 것만 · {md(d["updated"])} 확인</p></div></header>
 <main class="wrap">
 <section class="lead"><p>{lead}</p></section>
+<a class="cta" href="https://money001.monetalkk.com/" onclick="ev('portal_click',{{where:'top'}})">할인 포털 열기 →</a>
 <h2>수능 일정</h2>
 <ul class="dates">{dates}</ul>
 <h2>수능 수험표로 할인받는 곳은? (확정 {len(deals)}곳)</h2>
