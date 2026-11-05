@@ -33,9 +33,11 @@ a{color:inherit;text-decoration:none}
 .bd{padding:14px 16px 16px}
 .hook{font-size:14px;color:#2457f5;font-weight:800;margin:0 0 4px}
 .nm{font-size:18px;font-weight:800;line-height:1.3;margin:0 0 8px}
-.pr{display:flex;align-items:baseline;gap:8px;margin:0 0 6px}
-.pr b{font-size:26px;letter-spacing:-.5px}
-.pr small{font-size:13px;color:#6b7280}
+.find{position:sticky;top:0;z-index:5;background:#f6f7f9;padding:8px 0 12px;display:flex;gap:8px}
+.find input,.find select{height:52px;border:1px solid #d1d5db;border-radius:14px;background:#fff;font:inherit;font-size:17px;padding:0 14px;color:#111}
+.find input{flex:1}
+.find select{flex:0 0 112px;font-weight:700}
+.empty{display:none;text-align:center;color:#6b7280;padding:28px 0}
 .note{font-size:14px;color:#4b5563;margin:0 0 12px;line-height:1.45}
 .btn{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:14px;background:#111;color:#fff;font-size:17px;font-weight:800}
 .btn:active{transform:translateY(1px)}
@@ -47,16 +49,16 @@ def card(it):
     img = f'<img src="{e(it["image"])}" alt="{e(it["name"])}" loading="lazy">' if it.get("image") else '<span class="nophoto">사진 준비 중</span>'
     rk = '<span class="rk">로켓배송</span>' if it.get("rocket") else ""
     note = f'<p class="note">{e(it["desc"])}</p>' if it.get("desc") else ""  # 큐 note 는 내부 메모 → 공개는 desc 만
-    return f'''<article class="card" id="n{it["no"]}">
+    return f'''<article class="card" id="n{it["no"]}" data-q="{e((it["name"] + " " + it.get("hook", "")).lower())}">
 <a class="ph" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'image'}})"><span class="no">{it["no"]}<small>편</small></span>{rk}{img}</a>
 <div class="bd">{f'<p class="hook">{e(it["hook"])}</p>' if it.get("hook") else ""}<h2 class="nm">{e(it["name"])}</h2>
-<p class="pr"><b>{e(it["price"])}</b><small>{e(it["price_date"])} 기준 · 바뀔 수 있음</small></p>{note}
+{note}
 <a class="btn" href="{e(it["link"])}" rel="nofollow sponsored noopener" target="_blank" onclick="ev('buy_click',{{no:{it["no"]},where:'button'}})">{PARTNER.get(it.get("partner", "coupang"), "구매하러 가기")}</a></div>
 </article>'''
 
 cards = "\n".join(card(i) for i in items)
 title = f"{CH['name']} — 영상 속 제품 번호 그대로"
-desc = f"유튜브 {CH['name']} 쇼핑쇼츠에 나온 제품을 영상 번호 그대로 모았습니다. 가격은 확인일 기준, 제휴 링크."
+desc = f"유튜브 {CH['name']} 쇼핑쇼츠에 나온 제품을 영상 번호 그대로 모았습니다. 이름 검색·번호 선택, 제휴 링크."
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
@@ -71,8 +73,16 @@ page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"ItemList","name":title,"url":BASE,"itemListElement":[{"@type":"ListItem","position":i+1,"name":it["name"],"url":f"{BASE}#n{it['no']}"} for i,it in enumerate(items)]},ensure_ascii=False)}</script>
 </head><body><main class="wrap">
 <header class="top"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L21 8H6.2"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg></span><h1>{e(CH['name'])}</h1></header>
-<p class="disc">이 페이지의 링크는 쿠팡 파트너스 등 제휴 마케팅 링크로, 구매 시 일정액의 수수료를 받습니다. 가격은 각 제품의 확인일 기준이며 바뀔 수 있습니다.</p>
+<div class="find"><input id="q" type="search" placeholder="제품 이름 검색" aria-label="제품 이름 검색"><select id="pick" aria-label="영상 번호 선택"><option value="">번호</option>{"".join(f'<option value="{i["no"]}">{i["no"]}편</option>' for i in items)}</select></div>
+<p class="disc">이 페이지의 링크는 쿠팡 파트너스 등 제휴 마케팅 링크로, 구매 시 일정액의 수수료를 받습니다. 가격은 쿠팡에서 확인해 주세요.</p>
 {cards}
+<p class="empty" id="empty">찾는 제품이 없어요. 번호로 골라 보세요.</p>
+<script>
+(function(){{var q=document.getElementById('q'),pk=document.getElementById('pick'),cs=[].slice.call(document.querySelectorAll('.card')),em=document.getElementById('empty');
+q.addEventListener('input',function(){{var v=q.value.trim().toLowerCase(),n=0;cs.forEach(function(c){{var ok=!v||c.dataset.q.indexOf(v)>-1;c.style.display=ok?'':'none';if(ok)n++}});em.style.display=n?'none':'block'}});
+pk.addEventListener('change',function(){{if(!pk.value)return;q.value='';cs.forEach(function(c){{c.style.display=''}});em.style.display='none';var t=document.getElementById('n'+pk.value);if(t)t.scrollIntoView({{behavior:'smooth',block:'start'}});ev('pick_no',{{no:+pk.value}})}});
+if(/^#n\\d+$/.test(location.hash))pk.value=location.hash.slice(2);}})();
+</script>
 <footer class="foot">영상에서 번호를 보고 같은 번호를 누르면 됩니다.<br><a href="{e(CH['url'])}" target="_blank" rel="noopener">유튜브 {e(CH['handle'])}</a> · <a href="https://bluepalpal.com/about/">운영자</a> · <a href="https://bluepalpal.com/privacy/">개인정보처리방침</a></footer>
 </main></body></html>'''
 (HERE / "index.html").write_text(page, "utf-8")
