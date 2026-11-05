@@ -1,0 +1,135 @@
+"""수험생 할인 모아보기: data.json -> index.html (python build.py, 배포는 bash ../deploy.sh WEB_수험생할인 suneung "msg")"""
+import json, html, datetime, pathlib
+
+HERE = pathlib.Path(__file__).parent
+URL = "https://www.fundmoney8.com/suneung"
+DAYS = "월화수목금토일"
+e = html.escape
+
+
+def md(s):  # "2026-11-20" -> "11/20(금)"
+    d = datetime.date.fromisoformat(s)
+    return f"{d.month}/{d.day}({DAYS[d.weekday()]})"
+
+
+def live(deals, today):  # 끝난 행사는 빌드에서 뺀다
+    return sorted((x for x in deals if datetime.date.fromisoformat(x["end"]) >= today), key=lambda x: x.get("start", ""))
+
+
+def faq_items(deals):
+    base = "대부분 2027학년도 수능 당일(2026년 11월 19일) 또는 다음 날부터 시작합니다."
+    now = " 지금 확정된 곳: " + ", ".join(f'{x["name"]} {md(x["start"])}~{md(x["end"])}' for x in deals) + "." if deals else ""
+    return [
+        ("수험표 할인은 언제부터 받을 수 있나요?", base + now),
+        ("수험표 사진이나 캡처로도 되나요?",
+         "업체마다 다릅니다. 원본만 받는 곳이 많아서 수험표 원본과 신분증을 같이 챙기는 것이 안전합니다."),
+        ("가족이나 친구도 할인받을 수 있나요?",
+         "동반 할인은 업체마다 다릅니다. 각 카드의 혜택 줄을 확인하세요."),
+        ("아직 안 올라온 브랜드는요?",
+         "작년에 하던 곳도 올해 발표 전이면 '발표 기다리는 곳'에만 둡니다. 공식 공지나 기사로 확인되면 위 목록으로 옮깁니다."),
+    ]
+
+
+def card(x):
+    return f'''<article class="deal" data-start="{x["start"]}" data-end="{x["end"]}">
+<p class="cat">{e(x["cat"])}<span class="st"></span></p>
+<h3>{e(x["name"])}</h3>
+<p class="what">{e(x["what"])}</p>
+<dl><dt>기간</dt><dd>{md(x["start"])} ~ {md(x["end"])}</dd><dt>방법</dt><dd>{e(x["how"])}</dd></dl>
+<a class="src" href="{e(x["url"])}" target="_blank" rel="noopener nofollow" onclick="ev('src_click',{{name:'{e(x["name"])}'}})">출처: {e(x["src"])} ↗</a>
+</article>'''
+
+
+def build(today=None):
+    today = today or datetime.date.today()
+    d = json.loads((HERE / "data.json").read_text(encoding="utf-8"))
+    deals = live(d["deals"], today)
+    faqs = faq_items(deals)
+    title = "2026 수험생 할인 모아보기 — 수능 수험표로 받는 혜택"
+    desc = f"2027학년도 수능(11/19) 수험표로 받는 할인을 공식 발표·기사 출처와 기간까지 모았습니다. 확정 {len(deals)}곳, 끝난 행사는 자동으로 뺍니다."
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebPage", "name": title, "url": URL, "description": desc, "dateModified": d["updated"], "inLanguage": "ko"},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]},
+    ]}
+    dates = "".join(f'<li><b>{md(s)}</b>{e(n)}</li>' for n, s, _ in d["dates"])
+    waiting = "".join(f'<li><p class="cat">{e(w["cat"])}</p><b>{e(w["names"])}</b><small>{e(w["last"])}</small></li>' for w in d["waiting"])
+    faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faqs)
+    first = deals[0] if deals else None
+    lead = (f"지금 확정된 수험생 할인은 <b>{len(deals)}곳</b>입니다. 가장 먼저 시작하는 곳은 {e(first['name'])} — {e(first['what'].split(' · ')[0])}. "
+            "모두 2027학년도 수능 수험표를 보여주면 됩니다.") if first else "아직 확정 발표된 할인이 없습니다. 발표되는 대로 올립니다."
+    page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{e(title)}</title>
+<meta name="description" content="{e(desc)}">
+<link rel="canonical" href="{URL}">
+<meta property="og:type" content="website"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="{URL}/og.png"><meta property="og:site_name" content="fundmoney8"><meta property="og:locale" content="ko_KR"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23143d2b'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23ffd84d' font-weight='800'>수</text></svg>">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-78JGV6PB8S');function ev(n,p){{try{{gtag('event',n,p||{{}})}}catch(_){{}}}}</script>
+<style>
+*{{box-sizing:border-box;min-width:0}}
+:root{{--ink:#14211a;--sub:#4b5563;--line:#e3e7e4;--bg:#f5f4ee;--card:#fff;--brand:#143d2b;--hi:#ffd84d}}
+body{{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased}}
+a{{color:inherit}}
+.wrap{{max-width:600px;margin:0 auto;padding:0 16px 56px}}
+header{{background:var(--brand);color:#fff;padding:28px 0 22px}}
+header .wrap{{padding-bottom:0}}
+.kick{{display:inline-block;background:var(--hi);color:var(--brand);font-weight:800;font-size:15px;padding:4px 10px;border-radius:8px;margin:0 0 10px}}
+h1{{font-size:28px;line-height:1.25;margin:0 0 8px;font-weight:800}}
+header p{{margin:0;font-size:16px;opacity:.85}}
+.lead{{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--hi);border-radius:14px;padding:16px 18px;margin:18px 0}}
+.lead p{{margin:0}}
+h2{{font-size:21px;margin:30px 0 12px}}
+.dates{{list-style:none;padding:0;margin:0;display:grid;gap:8px}}
+.dates li{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:flex;gap:14px;align-items:baseline}}
+.dates b{{flex:0 0 108px;color:var(--brand);font-size:18px}}
+.deal{{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}}
+.cat{{font-size:14px;color:var(--sub);font-weight:700;margin:0 0 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}}
+.st{{background:var(--brand);color:#fff;border-radius:999px;padding:2px 10px;font-size:14px}}
+.st:empty{{display:none}}
+.deal h3{{font-size:21px;margin:0 0 6px;line-height:1.3}}
+.what{{margin:0 0 10px;font-weight:600}}
+dl{{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 12px;font-size:16px}}
+dt{{color:var(--sub);font-weight:700}}dd{{margin:0}}
+.src{{display:inline-flex;align-items:center;min-height:44px;font-size:15px;color:var(--sub)}}
+.wait{{list-style:none;padding:0;margin:0;display:grid;gap:8px}}
+.wait li{{background:transparent;border:1px dashed #b9c2bc;border-radius:12px;padding:12px 16px}}
+.wait b{{display:block}}.wait small{{display:block;color:var(--sub);font-size:15px}}
+details{{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px}}
+summary{{padding:14px 16px;font-weight:700;cursor:pointer;min-height:52px}}
+details p{{margin:0;padding:0 16px 14px;color:var(--sub)}}
+.tip{{font-size:16px;color:var(--sub)}}
+footer{{font-size:14px;color:var(--sub);margin-top:32px;border-top:1px solid var(--line);padding-top:14px}}
+@media(max-width:380px){{.dates li{{flex-direction:column;gap:2px}}.dates b{{flex:none}}h1{{font-size:24px}}}}
+</style></head><body>
+<header><div class="wrap"><span class="kick">수능 D-day 11/19</span>
+<h1>2026 수험생 할인 모아보기</h1>
+<p>수능 수험표로 받는 혜택 · 출처 있는 것만 · {md(d["updated"])} 확인</p></div></header>
+<main class="wrap">
+<section class="lead"><p>{lead}</p></section>
+<h2>수능 일정</h2>
+<ul class="dates">{dates}</ul>
+<h2>수능 수험표로 할인받는 곳은? (확정 {len(deals)}곳)</h2>
+{"".join(card(x) for x in deals) or '<p class="tip">아직 확정된 곳이 없습니다.</p>'}
+<p class="tip">끝난 행사는 목록에서 뺍니다. 가기 전에 업체 공지를 한 번 더 보세요.</p>
+<h2>발표 기다리는 곳</h2>
+<p class="tip">작년엔 했지만 올해(2027학년도)는 {md(d["updated"])} 기준 발표 전입니다. 확인되면 위로 옮깁니다.</p>
+<ul class="wait">{waiting}</ul>
+<h2>자주 묻는 질문</h2>
+{faq}
+<footer>수능 일정 출처: 한국교육과정평가원 2027학년도 시행기본계획(3/31) · 시·도교육청 예비소집 안내. 이 페이지는 업체와 제휴·광고 관계가 없습니다. 상표는 각 업체의 것입니다.<br><a href="https://www.fundmoney8.com/privacy">개인정보처리방침</a></footer>
+</main>
+<script>(function(){{var t=new Date();t.setHours(0,0,0,0);document.querySelectorAll('.deal').forEach(function(c){{var s=new Date(c.dataset.start+'T00:00:00'),n=new Date(c.dataset.end+'T00:00:00'),l=c.querySelector('.st');if(n<t){{c.remove();return}}if(s>t){{l.textContent=Math.round((s-t)/864e5)+'일 뒤 시작'}}else{{var r=Math.round((n-t)/864e5);l.textContent=r?'진행 중 · '+r+'일 남음':'오늘 마감'}}}})}})()</script>
+</body></html>'''
+    (HERE / "index.html").write_text(page, encoding="utf-8")
+    return deals
+
+
+if __name__ == "__main__":
+    # self-check: 끝난 행사는 빠진다
+    sample = [{"end": "2026-11-01"}, {"end": "2026-12-18"}]
+    assert live(sample, datetime.date(2026, 11, 5)) == [sample[1]]
+    assert md("2026-11-19") == "11/19(목)"
+    print(f"index.html 생성: 확정 {len(build())}곳")
