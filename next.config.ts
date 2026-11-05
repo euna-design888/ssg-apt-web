@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
         { source: "/festival", destination: "/festival/index.html" },
         { source: "/camping", destination: "/camping/index.html" },
         { source: "/naepda", destination: "/naepda/index.html" },
+        { source: "/suneung", destination: "/suneung/index.html" },
         { source: "/trip", destination: "/trip/index.html" },
         { source: "/privacy", destination: "/privacy/index.html" },
       ],

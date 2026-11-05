@@ -86,6 +86,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://www.fundmoney8.com/trip", lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
     // 냅다 담기 쇼핑쇼츠 상품 허브 (원본 naepda-damgi-shop 레포, WEB_냅다담기)
     { url: "https://www.fundmoney8.com/naepda", lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
+    // 수험생 할인 모아보기 (원본 suneung-discount 레포, WEB_수험생할인)
+    { url: "https://www.fundmoney8.com/suneung", lastModified: now, changeFrequency: "daily" as const, priority: 0.8 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 },
     ...complexUrls,
   ];
