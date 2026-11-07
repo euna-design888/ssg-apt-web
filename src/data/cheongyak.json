@@ -1,5 +1,5 @@
 {
- "basis": "2026-11-06",
+ "basis": "2026-11-07",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -7550,6 +7550,571 @@
    ],
    "priceMin": 48070,
    "priceMax": 63811
+  },
+  {
+   "id": "2026820015",
+   "pblancNo": "2026820015",
+   "name": "시흥 거모 아테라(시흥거모 A-6BL) 신혼희망타운(공공분양)(본청약)",
+   "sido": "경기",
+   "address": "경기도 시흥시 거모지구 내 A-6블록",
+   "saleType": "국민",
+   "supply": 480,
+   "developer": "한국토지주택공사경기남부지역본부",
+   "builder": "금호건설 주식회사",
+   "homepage": "https://apply.lh.or.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820015&pblancNo=2026820015",
+   "tel": "16615596",
+   "noticeDate": "2026-11-06",
+   "moveIn": "2029-09",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": true,
+    "publicHousing": true,
+    "largeSite": true,
+    "redevelopment": false,
+    "publicSpecial": true
+   },
+   "schedule": {
+    "special": null,
+    "rank1": [
+     "2026-11-16",
+     "2026-11-26"
+    ],
+    "rank2": [
+     "2026-11-27",
+     "2026-11-27"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-27"
+    ],
+    "announce": "2026-12-08",
+    "contract": [
+     "2027-03-11",
+     "2027-03-14"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "055.0000A",
+     "supplyArea": 79.047,
+     "households": 0,
+     "special": 277,
+     "price": 43390,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "059.0000A",
+     "supplyArea": 84.6567,
+     "households": 0,
+     "special": 26,
+     "price": 46436,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "059.0000B",
+     "supplyArea": 84.6141,
+     "households": 0,
+     "special": 24,
+     "price": 46359,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "059.0000C",
+     "supplyArea": 84.5005,
+     "households": 0,
+     "special": 29,
+     "price": 46328,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 43390,
+   "priceMax": 46436
+  },
+  {
+   "id": "2026000557",
+   "pblancNo": "2026000557",
+   "name": "제일풍경채 광주 포에듀",
+   "sido": "경기",
+   "address": "경기도 광주시 탄벌동 203-4번지 일원 (탄벌A지구 A5블럭)",
+   "saleType": "민영",
+   "supply": 572,
+   "developer": "주식회사 브랜드뉴탄벌",
+   "builder": "제일건설 주식회사",
+   "homepage": "http://jeil-foredu.co.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000557&pblancNo=2026000557",
+   "tel": "15337767",
+   "noticeDate": "2026-11-06",
+   "moveIn": "2029-11",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank1": [
+     "2026-11-17",
+     "2026-11-17"
+    ],
+    "rank2": [
+     "2026-11-18",
+     "2026-11-18"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-18"
+    ],
+    "announce": "2026-11-24",
+    "contract": [
+     "2026-12-07",
+     "2026-12-09"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "084.9904A",
+     "supplyArea": 111.9429,
+     "households": 193,
+     "special": 226,
+     "price": 69100,
+     "specialBreakdown": {
+      "multiChild": 41,
+      "newlywed": 62,
+      "firstLife": 29,
+      "elderly": 12,
+      "institution": 41,
+      "newborn": 41,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "084.9732B",
+     "supplyArea": 113.054,
+     "households": 72,
+     "special": 81,
+     "price": 69100,
+     "specialBreakdown": {
+      "multiChild": 15,
+      "newlywed": 22,
+      "firstLife": 10,
+      "elderly": 4,
+      "institution": 15,
+      "newborn": 15,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 69100,
+   "priceMax": 69100
+  },
+  {
+   "id": "2026000553",
+   "pblancNo": "2026000553",
+   "name": "의정부역 펠리스타워 양우내안애",
+   "sido": "경기",
+   "address": "경기도 의정부시 의정부동 424번지 일원 ",
+   "saleType": "민영",
+   "supply": 414,
+   "developer": "의정부동지역주택조합,양우건설(주)",
+   "builder": "양우건설(주)",
+   "homepage": "https://feliztower-yangwoo.co.kr",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000553&pblancNo=2026000553",
+   "tel": "15773197",
+   "noticeDate": "2026-11-06",
+   "moveIn": "2031-01",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank1": [
+     "2026-11-17",
+     "2026-11-17"
+    ],
+    "rank2": [
+     "2026-11-18",
+     "2026-11-18"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-18"
+    ],
+    "announce": "2026-11-24",
+    "contract": [
+     "2026-12-07",
+     "2026-12-09"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "059.9777 ",
+     "supplyArea": 86.9194,
+     "households": 6,
+     "special": 20,
+     "price": 63720,
+     "specialBreakdown": {
+      "multiChild": 2,
+      "newlywed": 4,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 8,
+      "newborn": 3,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "084.7415A",
+     "supplyArea": 119.5155,
+     "households": 85,
+     "special": 92,
+     "price": 85692,
+     "specialBreakdown": {
+      "multiChild": 17,
+      "newlywed": 26,
+      "firstLife": 12,
+      "elderly": 5,
+      "institution": 15,
+      "newborn": 17,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "084.8836B",
+     "supplyArea": 117.8963,
+     "households": 58,
+     "special": 65,
+     "price": 83678,
+     "specialBreakdown": {
+      "multiChild": 12,
+      "newlywed": 19,
+      "firstLife": 8,
+      "elderly": 5,
+      "institution": 9,
+      "newborn": 12,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "084.9911C",
+     "supplyArea": 118.8064,
+     "households": 39,
+     "special": 49,
+     "price": 86314,
+     "specialBreakdown": {
+      "multiChild": 10,
+      "newlywed": 13,
+      "firstLife": 6,
+      "elderly": 2,
+      "institution": 9,
+      "newborn": 9,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 63720,
+   "priceMax": 86314
+  },
+  {
+   "id": "2026000497",
+   "pblancNo": "2026000497",
+   "name": "중화역 라온프라이빗 센트로",
+   "sido": "서울",
+   "address": "서울특별시 중랑구 중화동 303-9번지 일원",
+   "saleType": "민영",
+   "supply": 113,
+   "developer": "중화3재정비촉진구역 도시환경정비사업 토지등소유자",
+   "builder": "라온건설(주)",
+   "homepage": "https://www.jh-raon.com",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000497&pblancNo=2026000497",
+   "tel": "15556223",
+   "noticeDate": "2026-11-06",
+   "moveIn": "2029-02",
+   "flags": {
+    "speculation": true,
+    "adjust": true,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": true,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-16",
+     "2026-11-16"
+    ],
+    "rank1": [
+     "2026-11-17",
+     "2026-11-18"
+    ],
+    "rank2": [
+     "2026-11-19",
+     "2026-11-19"
+    ],
+    "receipt": [
+     "2026-11-16",
+     "2026-11-19"
+    ],
+    "announce": "2026-11-25",
+    "contract": [
+     "2026-12-07",
+     "2026-12-09"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "045.0210 ",
+     "supplyArea": 60.801,
+     "households": 4,
+     "special": 3,
+     "price": 65800,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 2,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "058.3650 ",
+     "supplyArea": 78.046,
+     "households": 7,
+     "special": 10,
+     "price": 86200,
+     "specialBreakdown": {
+      "multiChild": 2,
+      "newlywed": 3,
+      "firstLife": 1,
+      "elderly": 0,
+      "institution": 2,
+      "newborn": 2,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "059.9740 ",
+     "supplyArea": 79.871,
+     "households": 9,
+     "special": 11,
+     "price": 95600,
+     "specialBreakdown": {
+      "multiChild": 2,
+      "newlywed": 3,
+      "firstLife": 1,
+      "elderly": 1,
+      "institution": 2,
+      "newborn": 2,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "070.9640 ",
+     "supplyArea": 93.78,
+     "households": 10,
+     "special": 16,
+     "price": 110100,
+     "specialBreakdown": {
+      "multiChild": 3,
+      "newlywed": 4,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 3,
+      "newborn": 3,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "05",
+     "type": "073.4730T",
+     "supplyArea": 99.704,
+     "households": 1,
+     "special": 0,
+     "price": 119200,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "06",
+     "type": "084.9940 ",
+     "supplyArea": 112.141,
+     "households": 15,
+     "special": 20,
+     "price": 127700,
+     "specialBreakdown": {
+      "multiChild": 4,
+      "newlywed": 5,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 4,
+      "newborn": 4,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "07",
+     "type": "084.9400T",
+     "supplyArea": 114.018,
+     "households": 2,
+     "special": 0,
+     "price": 139100,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "08",
+     "type": "093.5970T",
+     "supplyArea": 125.936,
+     "households": 1,
+     "special": 0,
+     "price": 150600,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "09",
+     "type": "098.9000T",
+     "supplyArea": 131.873,
+     "households": 2,
+     "special": 0,
+     "price": 160900,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "10",
+     "type": "126.8090T",
+     "supplyArea": 168.957,
+     "households": 2,
+     "special": 0,
+     "price": 202100,
+     "specialBreakdown": {
+      "multiChild": 0,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 0,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 65800,
+   "priceMax": 202100
   },
   {
    "id": "2026820013",
