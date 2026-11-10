@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-10",
   "deals": [
     {
       "cat": "놀이·체험",
@@ -42,6 +42,34 @@
       "card": "숲체원·산림치유원",
       "badge": "숙박 주중 30%",
       "detail": "https://womo.bluepalpal.com/2026/11/2026-30-10-1120228.html"
+    },
+    {
+      "cat": "외식·카페",
+      "name": "상무초밥 (전국 매장)",
+      "what": "수험생 본인 초밥 1세트 50% (사시미·사이드·주류 제외)",
+      "how": "오후 5시 이후 매장 식사 때 계산하면서 수능 수험표 실물 제시 · 기간 중 1회 · 포장·배달 제외",
+      "start": "2026-11-19",
+      "end": "2026-11-30",
+      "src": "상무초밥 공식 이벤트 공지 · 서울경제TV 11/9",
+      "url": "https://sangmusushi.kr/board/index.php?board=event_01&type=view&select=&search=&idx=49",
+      "icon": "🍣",
+      "card": "상무초밥",
+      "badge": "초밥 1세트 50%",
+      "detail": "https://womo.bluepalpal.com/2026/11/2026-1-50-11191130-5.html"
+    },
+    {
+      "cat": "여행·숙박",
+      "name": "하이서울유스호스텔 (서울 영등포)",
+      "what": "객실요금 50% (캡슐룸·1~3인실), 만 24세 이하 수험생",
+      "how": "보호자가 전화(02-2677-1779)로 예약 → 입실 때 2027학년도 수능 수험표 + 부모 동의서",
+      "start": "2026-10-19",
+      "end": "2026-11-30",
+      "src": "시선뉴스 10/23",
+      "url": "https://www.sisunnews.co.kr/news/articleView.html?idxno=248385",
+      "icon": "🛏️",
+      "card": "하이서울유스호스텔",
+      "badge": "객실 50%",
+      "detail": "https://womo.bluepalpal.com/2026/11/2026-50-1130-24.html"
     }
   ],
   "waiting": [
