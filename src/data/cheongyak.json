@@ -1,5 +1,5 @@
 {
- "basis": "2026-11-07",
+ "basis": "2026-11-12",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -7220,7 +7220,7 @@
     "adjust": false,
     "priceCap": false,
     "publicHousing": false,
-    "largeSite": true,
+    "largeSite": false,
     "redevelopment": false,
     "publicSpecial": false
    },
