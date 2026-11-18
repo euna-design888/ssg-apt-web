@@ -11,7 +11,8 @@ BASE = "https://www.fundmoney8.com/naepda"
 CH = {"name": "냅다 담기", "url": "https://www.youtube.com/@naepda_damgi", "handle": "@naepda_damgi"}
 items = sorted((i for i in Q["items"] if i.get("link")), key=lambda x: x["no"])  # 링크 있는 것만, 1번부터
 e = html.escape
-PARTNER = {"coupang": "쿠팡에서 구매하러 가기", "ali": "알리에서 구매하러 가기"}  # 큐 partner 필드(없으면 coupang)
+# 11/18 대표님: 버튼에 쇼핑몰 상호를 빼고 "가격 보러 가기"(쿠팡 상호 오인 경고 사례, 하입덕 쿠팡 책). 고지문의 "쿠팡 파트너스"는 의무라 유지
+PARTNER = {"coupang": "가격 보러 가기", "ali": "가격 보러 가기"}  # 큐 partner 필드(없으면 coupang)
 
 CSS = """
 *{box-sizing:border-box;min-width:0}
