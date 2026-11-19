@@ -58,14 +58,14 @@ def card(it):
 </article>'''
 
 cards = "\n".join(card(i) for i in items)
-title = f"{CH['name']} — 영상 속 제품 번호 그대로"
+title = f"{CH['name']} 상점 🧺 영상 속 그 제품, 번호로 찾기"
 desc = f"유튜브 {CH['name']} 쇼핑쇼츠에 나온 제품을 영상 번호 그대로 모았습니다. 이름 검색·번호 선택, 제휴 링크."
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{BASE}">
-<meta property="og:type" content="website"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{BASE}"><meta property="og:image" content="{BASE}/og.png?v=1119"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23111'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23fff' font-weight='800'>담</text></svg>">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>{CSS}</style>
