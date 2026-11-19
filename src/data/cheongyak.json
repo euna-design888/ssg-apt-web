@@ -1,5 +1,5 @@
 {
- "basis": "2026-11-14",
+ "basis": "2026-11-19",
  "source": "한국부동산원 청약홈 (공공데이터포털)",
  "items": [
   {
@@ -7320,6 +7320,254 @@
    ],
    "priceMin": 25235,
    "priceMax": 30233
+  },
+  {
+   "id": "2026000559",
+   "pblancNo": "2026000559",
+   "name": "두산위브 트레지움 익산",
+   "sido": "전북",
+   "address": "전북특별자치도 익산시 동산동 1057번지 일원",
+   "saleType": "민영",
+   "supply": 251,
+   "developer": "세경1차아파트 재건축정비사업조합",
+   "builder": "두산건설 주식회사",
+   "homepage": "https://www.두산위브트레지움익산.com",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000559&pblancNo=2026000559",
+   "tel": "0638581118",
+   "noticeDate": "2026-11-18",
+   "moveIn": "2030-02",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": true,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-23",
+     "2026-11-23"
+    ],
+    "rank1": [
+     "2026-11-24",
+     "2026-11-24"
+    ],
+    "rank2": [
+     "2026-11-25",
+     "2026-11-25"
+    ],
+    "receipt": [
+     "2026-11-23",
+     "2026-11-25"
+    ],
+    "announce": "2026-12-01",
+    "contract": [
+     "2026-12-14",
+     "2026-12-16"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "059.8500A",
+     "supplyArea": 81.52,
+     "households": 11,
+     "special": 12,
+     "price": 37807,
+     "specialBreakdown": {
+      "multiChild": 2,
+      "newlywed": 3,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 2,
+      "newborn": 2,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "059.8500B",
+     "supplyArea": 81.16,
+     "households": 31,
+     "special": 37,
+     "price": 35289,
+     "specialBreakdown": {
+      "multiChild": 7,
+      "newlywed": 10,
+      "firstLife": 4,
+      "elderly": 2,
+      "institution": 7,
+      "newborn": 7,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "084.8800 ",
+     "supplyArea": 111.23,
+     "households": 73,
+     "special": 87,
+     "price": 48422,
+     "specialBreakdown": {
+      "multiChild": 16,
+      "newlywed": 24,
+      "firstLife": 11,
+      "elderly": 4,
+      "institution": 16,
+      "newborn": 16,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 35289,
+   "priceMax": 48422
+  },
+  {
+   "id": "2026000536",
+   "pblancNo": "2026000536",
+   "name": "구미 파크원 데시앙",
+   "sido": "경북",
+   "address": "경상북도 구미시 도량동 산40-4번지 일원",
+   "saleType": "민영",
+   "supply": 1355,
+   "developer": "지엠파크 주식회사",
+   "builder": "주식회사 태영건설",
+   "homepage": "https://구미파크원데시앙.com",
+   "pblancUrl": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000536&pblancNo=2026000536",
+   "tel": "0544431355",
+   "noticeDate": "2026-11-18",
+   "moveIn": "2030-02",
+   "flags": {
+    "speculation": false,
+    "adjust": false,
+    "priceCap": false,
+    "publicHousing": false,
+    "largeSite": false,
+    "redevelopment": false,
+    "publicSpecial": false
+   },
+   "schedule": {
+    "special": [
+     "2026-11-23",
+     "2026-11-23"
+    ],
+    "rank1": [
+     "2026-11-24",
+     "2026-11-24"
+    ],
+    "rank2": [
+     "2026-11-25",
+     "2026-11-25"
+    ],
+    "receipt": [
+     "2026-11-23",
+     "2026-11-25"
+    ],
+    "announce": "2026-12-02",
+    "contract": [
+     "2026-12-14",
+     "2026-12-16"
+    ]
+   },
+   "types": [
+    {
+     "no": "01",
+     "type": "084.7279A",
+     "supplyArea": 114.9023,
+     "households": 279,
+     "special": 335,
+     "price": 52600,
+     "specialBreakdown": {
+      "multiChild": 61,
+      "newlywed": 92,
+      "firstLife": 42,
+      "elderly": 18,
+      "institution": 61,
+      "newborn": 61,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "02",
+     "type": "084.9950B",
+     "supplyArea": 115.6361,
+     "households": 19,
+     "special": 21,
+     "price": 52100,
+     "specialBreakdown": {
+      "multiChild": 4,
+      "newlywed": 6,
+      "firstLife": 2,
+      "elderly": 1,
+      "institution": 4,
+      "newborn": 4,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "03",
+     "type": "098.9841A",
+     "supplyArea": 133.296,
+     "households": 231,
+     "special": 33,
+     "price": 59800,
+     "specialBreakdown": {
+      "multiChild": 26,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 7,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "04",
+     "type": "098.8582B",
+     "supplyArea": 134.9121,
+     "households": 174,
+     "special": 26,
+     "price": 59400,
+     "specialBreakdown": {
+      "multiChild": 20,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 6,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    },
+    {
+     "no": "05",
+     "type": "110.7800 ",
+     "supplyArea": 148.8352,
+     "households": 207,
+     "special": 30,
+     "price": 70800,
+     "specialBreakdown": {
+      "multiChild": 23,
+      "newlywed": 0,
+      "firstLife": 0,
+      "elderly": 7,
+      "institution": 0,
+      "newborn": 0,
+      "youth": 0,
+      "relocation": 0
+     }
+    }
+   ],
+   "priceMin": 52100,
+   "priceMax": 70800
   },
   {
    "id": "2026000566",
