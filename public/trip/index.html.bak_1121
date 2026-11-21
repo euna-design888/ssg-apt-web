@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>놀멍지도 숙소 카탈로그 — 영상 속 숙소, 번호로 찾고 가격 비교</title>
+<meta name="description" content="놀멍지도 릴스·스레드·틱톡에 나온 국내 숙소를 번호 순서로 모았어요. 숙소마다 아고다·마이리얼트립·쿠팡 트래블 가격을 한 번에 비교해 보세요.">
+<link rel="canonical" href="https://trip.fundmoney8.com/">
+<meta property="og:title" content="놀멍지도 🧳 영상 속 그 숙소 모음">
+<meta property="og:description" content="영상 속 숙소, 번호로 찾고 가격 비교">
+<meta property="og:image" content="https://trip.fundmoney8.com/og_stay.png?v=1119">
+<meta property="og:url" content="https://trip.fundmoney8.com/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" sizes="32x32" href="/trip/favicon-32.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78JGV6PB8S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-78JGV6PB8S');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"놀멍지도 숙소 모음","itemListElement":[{"@type":"ListItem","position":1,"name":"겨울 야외 온천풀 · 파라다이스 호텔 부산","url":"https://trip.fundmoney8.com/#s1"},{"@type":"ListItem","position":2,"name":"겨울 루프탑 온수 인피니티풀 · 스카이베이 호텔 경포","url":"https://trip.fundmoney8.com/#s2"},{"@type":"ListItem","position":3,"name":"울산바위 보이는 온천수 루프탑 풀 · 소노펠리체 델피노","url":"https://trip.fundmoney8.com/#s3"},{"@type":"ListItem","position":4,"name":"겨울 바다 보며 30도 넘는 온수풀 · 그랜드 조선 힐 스위트","url":"https://trip.fundmoney8.com/#s4"},{"@type":"ListItem","position":5,"name":"겨울밤에도 따뜻한 물에서 수영 · 제주신라호텔","url":"https://trip.fundmoney8.com/#s5"},{"@type":"ListItem","position":6,"name":"한겨울에도 바다 끝까지 따뜻한 물 · 시그니엘 부산","url":"https://trip.fundmoney8.com/#s6"},{"@type":"ListItem","position":7,"name":"바다로 쏟아질 것 같은 겨울 노천탕 · 스기노이 호텔","url":"https://trip.fundmoney8.com/#s7"},{"@type":"ListItem","position":9,"name":"겨울 야외 온수풀 · 파라다이스시티 씨메르","url":"https://trip.fundmoney8.com/#s9"}]}</script>
+<style>
+:root{--ink:#141414;--mute:#6b6b6b;--line:#e8e4dc;--paper:#f7f4ee;--card:#fff;--accent:#e9a23b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.6 "Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;padding:0 16px env(safe-area-inset-bottom)}
+.wrap{max-width:560px;margin:0 auto;padding:14px 0 48px}
+.disc{font-size:15px;color:var(--mute);margin:0 0 4px;line-height:1.5;padding:10px 0 0;border-top:1px solid var(--line)}
+.hero{margin:10px 0 16px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 14px;font-size:15px;font-weight:800;letter-spacing:.02em}
+.brand b{display:flex;align-items:center;gap:8px}
+.brand b i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+.brand span{font-weight:700;color:var(--mute)}
+h1{font-size:30px;line-height:1.25;margin:0 0 10px;font-weight:900;letter-spacing:-.02em}
+.lead{color:var(--mute);margin:0;font-size:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);margin:16px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.steps li{font-size:15px;font-weight:700;text-align:center;padding:10px 4px;white-space:nowrap}
+.steps li+li{border-left:1px solid var(--line)}
+.steps li b{color:var(--accent);margin-right:4px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);padding:10px 0 10px;z-index:5;margin-bottom:16px}
+.search{display:flex;align-items:center;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:0 14px;height:54px}
+.search:focus-within{border-color:var(--ink)}
+.search svg{flex:none;color:var(--mute)}
+.search input{border:0;outline:0;font:inherit;font-size:17px;width:100%;background:transparent;color:var(--ink)}
+.nums{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.nums::-webkit-scrollbar{display:none}
+.nums a{flex:none;display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15px;min-height:44px;white-space:nowrap}
+.nums a b{font-weight:900}
+.card{background:var(--card);border-radius:20px;overflow:hidden;margin-bottom:22px;scroll-margin-top:140px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06)}
+.head{display:flex;align-items:baseline;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+.no{font-size:15px;font-weight:800;letter-spacing:.08em;color:var(--mute)}
+.no b{font-size:26px;color:var(--ink);letter-spacing:0;margin-left:4px}
+.loc{font-size:15px;font-weight:700;color:var(--mute)}
+.ph{position:relative;aspect-ratio:4/5;background:var(--paper)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ai{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:15px;padding:3px 10px;border-radius:999px}
+.body{padding:18px 18px 20px}
+.kwd{display:inline-block;font-size:15px;font-weight:800;color:#8a5a12;background:#fbefdc;border-radius:6px;padding:2px 8px;margin:0 0 8px}
+h2{font-size:24px;line-height:1.3;margin:0 0 2px;font-weight:900;letter-spacing:-.01em}
+.name{font-size:15px;color:var(--mute);margin:0 0 14px}
+.spec{display:grid;grid-template-columns:auto 1fr;margin:0 0 18px;border-top:1px solid var(--line)}
+.spec dt,.spec dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.spec dt{font-weight:800;padding-right:16px;white-space:nowrap}
+.spec dd{color:#333}
+.btns{display:grid;gap:8px}
+.btns a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;background:#111;color:#fff;border-radius:999px;padding:0 18px 0 20px;min-height:54px;font-weight:800;font-size:18px;white-space:nowrap;gap:8px}
+.btns a::after{content:"→";font-size:20px}
+.btns a:active{background:#333}
+.note{font-size:15px;color:var(--mute);margin:12px 0 0;line-height:1.55}
+.empty{display:none;text-align:center;color:var(--mute);padding:30px 0}
+.more{text-align:center;color:var(--mute);font-size:16px;border:1.5px dashed var(--line);border-radius:20px;padding:20px}
+footer{margin-top:30px;font-size:15px;color:var(--mute);line-height:1.7}
+footer a{color:var(--mute)}
+
+/* 11/19 대표님: 인포크링크 스타일 — 프로필 + 숙소 줄 목록 → 누르면 예약처 고르기 창. 카드(article) 마크업은 그대로(스킬이 카드 추가) */
+.disc{position:sticky;top:0;z-index:6;margin:0 -16px;padding:8px 16px;border:0;background:#fbefdc;color:#7a5418;font-size:14px;text-align:center}
+.prof{text-align:center;margin:22px 0 18px}
+.prof img{width:96px;height:96px;border-radius:28px;display:block;margin:0 auto 12px;box-shadow:0 6px 18px rgba(241,90,0,.18)}
+.prof h1{font-size:28px;margin:0;color:#F15A00}.prof .hd{font-size:17px;font-weight:800;margin:2px 0 6px}.prof .lead{font-size:16px}
+.hero,.nums,.more{display:none!important}
+.top{margin-bottom:14px}
+#list{display:grid;gap:12px}
+.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:0;border-radius:18px;padding:10px 16px 10px 10px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.06);font:inherit;color:var(--ink);cursor:pointer;min-height:96px}
+.row img{width:76px;height:76px;border-radius:12px;object-fit:cover;flex:none;background:var(--paper)}
+.row span{display:block;font-size:18px;font-weight:800;line-height:1.35}.row small{display:block;font-size:15px;color:var(--mute);margin-top:2px}
+.row:active{transform:scale(.99)}
+#stash{display:none}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.ov[hidden]{display:none}
+.sheet{background:var(--paper);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-radius:22px 22px 0 0;padding:12px 12px calc(16px + env(safe-area-inset-bottom))}
+.sheet .x{display:block;margin:0 0 10px auto;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:#fff;font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+.sheet .card{margin:0}.sheet .ph{aspect-ratio:4/3}
+.pick{font-size:19px;font-weight:900;margin:4px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+ <p class="brand"><b><i></i>놀멍지도 숙소 카탈로그</b><span id="cnt">1곳</span></p>
+ <h1>영상 속 그 숙소,<br>번호로 바로 찾기</h1>
+ <p class="lead">릴스·스레드·틱톡 속 숙소만 모았어요.</p>
+ <ol class="steps"><li><b>1</b>번호 확인</li><li><b>2</b>찾기</li><li><b>3</b>가격 비교</li></ol>
+</header>
+<p class="disc">이 페이지는 제휴마케팅이 포함된 광고로 커미션을 지급 받습니다. 이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+<div class="prof"><img src="/trip/profile.png" alt="놀멍지도 로고" width="96" height="96"><h1>놀멍지도</h1><p class="hd">@nolmeong.map</p><p class="lead">영상 속 그 숙소 🧳 눌러서 예약처를 골라요</p></div>
+
+
+<div class="top">
+ <label class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  <input id="q" type="search" inputmode="search" placeholder="번호·지역·키워드 (예: 1, 부산, 온천)" aria-label="숙소 검색"></label>
+ <nav class="nums" aria-label="숙소 번호 목록">
+  <a href="#s1" data-n="1"><b>1</b> 겨울 야외 온천풀</a>
+  <a href="#s2" data-n="2"><b>2</b> 겨울 루프탑 인피니티풀</a>
+  <a href="#s3" data-n="3"><b>3</b> 울산바위 온천수 풀</a>
+  <a href="#s4" data-n="4"><b>4</b> 제주 30도 바다 풀</a>
+  <a href="#s5" data-n="5"><b>5</b> 제주 밤수영 온수풀</a>
+  <a href="#s6" data-n="6"><b>6</b> 해운대 사계절 인피니티풀</a>
+  <a href="#s7" data-n="7"><b>7</b> 벳푸 계단식 노천탕</a>
+  <a href="#s9" data-n="9"><b>9</b> 영종도 겨울 인피니티풀</a>
+ </nav>
+</div>
+
+<article class="card" id="s1" data-s="1 부산 해운대 파라다이스 호텔 겨울 야외 온천 온천풀 온수풀 따뜻한 오션뷰 바다 호캉스">
+ <div class="head"><span class="no">NO.<b>01</b></span><span class="loc">부산 · 해운대</span></div>
+ <div class="ph"><img src="/trip/stay/1.jpg" alt="파라다이스 호텔 부산 야외 온천풀 밤 풍경(AI 연출)" width="720" height="1280" loading="eager"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">겨울 야외 온천풀</span>
+  <h2>파라다이스 호텔 부산</h2>
+  <p class="name">Paradise Hotel Busan</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>해운대 온천수 야외 풀, 겨울에도 따뜻</dd>
+   <dt>위치</dt><dd>풀 바로 앞이 해운대 바다</dd>
+   <dt>객실</dt><dd>오션뷰 객실은 창밖도 바다</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/ixwC2bd7ue" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=stayparadisebusan&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fparadise-hotel-busan%2Fhotel%2Fbusan-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/10Pf937" rel="sponsored nofollow noopener" target="_blank" data-p="myrealtrip">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">가격·풀 이용 시간·투숙객 조건은 날짜와 사이트마다 달라요. 예약 전에 꼭 확인하세요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s2" data-s="2 강릉 경포 스카이베이 호텔 겨울 루프탑 인피니티풀 온수풀 따뜻한 오션뷰 바다 경포호 호캉스">
+ <div class="head"><span class="no">NO.<b>02</b></span><span class="loc">강릉 · 경포</span></div>
+ <div class="ph"><img src="/trip/stay/2.jpg" alt="스카이베이 호텔 경포 루프탑 인피니티풀 밤 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">겨울 루프탑 온수 인피니티풀</span>
+  <h2>스카이베이 호텔 경포</h2>
+  <p class="name">Skybay Hotel Gyeongpo</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>20층 루프탑 인피니티풀, 겨울엔 물 온도 35도 넘게 (유료)</dd>
+   <dt>위치</dt><dd>한쪽은 경포 바다, 한쪽은 경포호</dd>
+   <dt>객실</dt><dd>오션뷰 객실은 발코니 밖이 바로 바다</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/izehE3n1vo" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=stayskybaygyeongpo&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fskybay-gyeongpo-hotel%2Fhotel%2Fgangneung-si-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+  </div>
+  <p class="note">가격·풀 이용 시간·요금은 날짜와 사이트마다 달라요. 예약 전에 꼭 확인하세요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s3" data-s="3 강원 고성 설악 속초 소노펠리체 델피노 소노 온천수 루프탑 인피니티풀 울산바위 산 뷰 겨울 호캉스">
+ <div class="head"><span class="no">NO.<b>03</b></span><span class="loc">강원 고성 · 설악</span></div>
+ <div class="ph"><img src="/trip/stay/3.jpg" alt="소노펠리체 델피노 루프탑 인피니티풀 겨울 저녁 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">울산바위 보이는 온천수 루프탑 풀</span>
+  <h2>소노펠리체 델피노</h2>
+  <p class="name">Sono Felice Delpino</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>East Tower 11층(꼭대기) 인피니티풀, 온천수 (20세 이상·유료)</dd>
+   <dt>뷰</dt><dd>풀에서 울산바위를 마주 봄</dd>
+   <dt>객실</dt><dd>욕조 있는 객실은 창밖으로 울산바위</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iBKZSqLgCi" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=staysonofelicedelpino&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fsono-felice-delpino%2Fhotel%2Fsokcho-si-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/10hdu36" rel="sponsored nofollow noopener" target="_blank" data-p="mrt">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">가격·풀 이용 시간·요금은 날짜와 사이트마다 달라요. 강풍·낙뢰 때는 풀 운영이 바뀔 수 있어요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s4" data-s="4 제주 중문 서귀포 그랜드 조선 제주 힐 스위트 헤븐리 풀 온수풀 30도 겨울 바다 인피니티풀 호캉스">
+ <div class="head"><span class="no">NO.<b>04</b></span><span class="loc">제주 · 중문</span></div>
+ <div class="ph"><img src="/trip/stay/4.jpg" alt="그랜드 조선 힐 스위트 헤븐리 풀 겨울 노을 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">겨울 바다 보며 30도 넘는 온수풀</span>
+  <h2>그랜드 조선 힐 스위트</h2>
+  <p class="name">Grand Josun Hill Suite (Jeju)</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>힐 스위트 6층 헤븐리 풀(실내·야외), 투숙객 전용</dd>
+   <dt>수온</dt><dd>10~4월 30~33℃, 상시 운영 (호텔 공식 안내)</dd>
+   <dt>뷰</dt><dd>중문 바다 수평선이 보여요</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iCzYpjyEFw" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=staygrandjosunhill&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fh47555949%2Fhotel%2Fjeju-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/10kzi86" rel="sponsored nofollow noopener" target="_blank" data-p="mrt">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">헤븐리 풀은 힐 스위트 투숙객만 쓸 수 있어요(09:00~21:00). 그랜드 조선 제주 본관과 예약이 따로라 힐 스위트로 예약하세요. 가격은 날짜와 사이트마다 달라요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s5" data-s="5 제주 중문 서귀포 제주신라호텔 신라 패밀리 풀 온수풀 실내외 연결 문라이트 스위밍 어덜트 풀 겨울 바다 호캉스">
+ <div class="head"><span class="no">NO.<b>05</b></span><span class="loc">제주 · 중문</span></div>
+ <div class="ph"><img src="/trip/stay/5.jpg" alt="제주신라호텔 수영장 겨울 아침 수증기 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">겨울밤에도 따뜻한 물에서 수영</span>
+  <h2>제주신라호텔</h2>
+  <p class="name">The Shilla Jeju</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>패밀리 풀 = 실내·야외 연결 온수풀, 투숙객 전용</dd>
+   <dt>밤수영</dt><dd>09:00~23:00 문라이트 스위밍 (호텔 공식 안내)</dd>
+   <dt>어덜트</dt><dd>만 19세 이상 투숙객 전용 야외 어덜트 풀</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iFhzLhKPqm" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=stayshillajeju&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fthe-shilla-jeju%2Fhotel%2Fjeju-island-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+  </div>
+  <p class="note">수영장마다 휴식·청소 시간이 있고, 날씨가 나쁘면 이용이 제한될 수 있어요. 가격은 날짜와 사이트마다 달라요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s6" data-s="6 부산 해운대 시그니엘 부산 시그니엘 엘시티 LCT 인피니티풀 인피니티 풀 온수풀 사계절 광안대교 야경 겨울 바다 호캉스">
+ <div class="head"><span class="no">NO.<b>06</b></span><span class="loc">부산 · 해운대</span></div>
+ <div class="ph"><img src="/trip/stay/6.jpg" alt="시그니엘 부산 인피니티 풀 겨울 블루아워 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">한겨울에도 바다 끝까지 따뜻한 물</span>
+  <h2>시그니엘 부산</h2>
+  <p class="name">Signiel Busan</p>
+  <dl class="spec">
+   <dt>풀</dt><dd>사계절 이용하는 해운대 인피니티 풀, 온수풀 (호텔 공식 안내)</dd>
+   <dt>위치</dt><dd>해운대 랜드마크 엘시티(LCT) 타워 안</dd>
+   <dt>객실</dt><dd>발코니에서 해운대와 광안대교 야경</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iKJB0Jwrkq" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=staysignielbusan&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fsigniel-busan%2Fhotel%2Fbusan-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/121LP50" rel="sponsored nofollow noopener" target="_blank" data-p="mrt">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">야외 수영장은 회원·투숙객 전용이고 매월 마지막 주 수요일은 쉬어요. 수모(캡 모자)가 꼭 있어야 해요. 객실 전망은 객실 타입마다 다르고, 가격은 날짜와 사이트마다 달라요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+<article class="card" id="s7" data-s="7 일본 벳푸 오이타 규슈 스기노이 호텔 스기노이호텔 오릭스 타나유 노천탕 계단식 온천 아쿠아가든 분수쇼 야경 겨울 해외 온천 호캉스">
+ <div class="head"><span class="no">NO.<b>07</b></span><span class="loc">일본 · 벳푸</span></div>
+ <div class="ph"><img src="/trip/stay/7.jpg" alt="스기노이 호텔 계단식 노천탕 타나유 겨울 블루아워 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">바다로 쏟아질 것 같은 겨울 노천탕</span>
+  <h2>스기노이 호텔</h2>
+  <p class="name">Beppu SUGINOI HOTEL (ORIX HOTELS &amp; RESORTS)</p>
+  <dl class="spec">
+   <dt>노천탕</dt><dd>다섯 단 계단식 대전망 노천탕 타나유 (호텔 공식 안내)</dd>
+   <dt>전망</dt><dd>벳푸만과 도시 야경이 한눈에</dd>
+   <dt>밤</dt><dd>수영복 온천 풀 아쿠아가든 분수 쇼, 투숙객 추가 요금 없음</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iNnvm5xCE0" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=staysuginoi&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fsuginoi-hotel%2Fhotel%2Fbeppu-jp.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/12pYBee" rel="sponsored nofollow noopener" target="_blank" data-p="mrt">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">타나유·아쿠아가든은 투숙객이면 추가 요금 없이 쓸 수 있고 렌탈 용품은 따로예요. 타나유 투숙객 이용 시간은 10월~3월 하순 6:00~24:00, 아쿠아가든 분수 쇼는 19:30·20:00·20:45·21:30 (호텔 공식 안내 기준, 바뀔 수 있어요). 가격은 날짜와 사이트마다 달라요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<article class="card" id="s9" data-s="9 인천 영종도 영종 파라다이스시티 파라다이스 시티 씨메르 아쿠아스파 인피니티풀 야외 온수풀 실내 풀 LED 미디어아트 공항 겨울 호캉스">
+ <div class="head"><span class="no">NO.<b>09</b></span><span class="loc">인천 · 영종도</span></div>
+ <div class="ph"><img src="/trip/stay/9.jpg" alt="파라다이스시티 씨메르 야외 풀 블루아워 풍경(AI 연출)" width="720" height="1280" loading="lazy"><span class="ai">AI 연출 장면</span></div>
+ <div class="body">
+  <span class="kwd">겨울 야외 온수풀</span>
+  <h2>파라다이스시티 (씨메르)</h2>
+  <p class="name">PARADISE CITY · CIMER</p>
+  <dl class="spec">
+   <dt>3층 풀</dt><dd>야외 인피니티풀 겨울 체험 (파라다이스 공식 블로그 소개)</dd>
+   <dt>풀</dt><dd>실내 인피니티풀·야외 풀 (호텔 공식 안내)</dd>
+   <dt>LED</dt><dd>세 벽면 LED 미디어 공간 (호텔 공식 안내)</dd>
+  </dl>
+  <div class="btns">
+   <a href="https://link.coupang.com/a/iPSeo2ic0a" rel="sponsored nofollow noopener" target="_blank" data-p="coupang">쿠팡 가격 보기</a>
+   <a href="https://click.linkprice.com/click.php?m=agoda&amp;a=A100709774&amp;l=9999&amp;l_cd1=3&amp;l_cd2=0&amp;u_id=staypcity&amp;tu=https%3A%2F%2Fwww.agoda.com%2Fko-kr%2Fparadise-hotel-resort-paradise-city%2Fhotel%2Fincheon-kr.html%3Fcid%3D1729890" rel="sponsored nofollow noopener" target="_blank" data-p="agoda">아고다 가격 보기</a>
+   <a href="https://myrealt.rip/13v167b" rel="sponsored nofollow noopener" target="_blank" data-p="mrt">마이리얼트립 가격 보기</a>
+  </div>
+  <p class="note">씨메르는 객실과 별도 요금이에요(씨메르 포함 패키지는 예약 사이트에서 확인). 운영 주중 10:00~19:00 · 주말·공휴일 10:00~21:00, 야외 시설 11시 개장, 3층 인피니티풀 WEST는 현재 미운영 (호텔 공식 안내 기준, 바뀔 수 있어요). 가격은 날짜와 사이트마다 달라요. 사진은 호텔 공식 사진을 바탕으로 AI로 연출한 장면이에요.</p>
+ </div>
+</article>
+
+<div id="list" aria-label="숙소 목록"></div>
+<div id="stash"></div>
+<div class="ov" id="ov" hidden><div class="sheet" role="dialog" aria-modal="true" aria-label="숙소 예약처 고르기"><button class="x" id="x">닫기 ✕</button><div id="slot"></div></div></div>
+<p class="empty" id="empty">찾는 숙소가 없어요. 번호나 지역으로 다시 찾아보세요.</p>
+<div class="more">다음 숙소는 영상과 함께 이어서 올라와요</div>
+
+<footer>
+놀멍지도 · @nolmeong.map<br>
+예약·결제·취소는 각 예약 사이트에서 진행되며, 이 페이지는 예약 링크만 안내해요.<br>
+사진·저작권·제휴 문의: polymoon654@gmail.com (요청 주시면 24시간 안에 수정·삭제해요)<br>
+<a href="/trip/map.html">옛 놀멍지도(주말 갈 곳 지도)</a> · <a href="/privacy">개인정보처리방침</a>
+</footer>
+</div>
+<script>
+var q=document.getElementById('q'),arts=[].slice.call(document.querySelectorAll('article.card')),list=document.getElementById('list'),stash=document.getElementById('stash'),ov=document.getElementById('ov'),slot=document.getElementById('slot'),rows=[];
+document.getElementById("cnt").textContent=arts.length+"곳";
+arts.forEach(function(a){stash.appendChild(a);var b=a.querySelector('.btns');if(b&&!a.querySelector('.pick')){var h=document.createElement('p');h.className='pick';h.textContent='어디서 예약할까요? 👇';b.parentNode.insertBefore(h,b)}});
+arts.slice().reverse().forEach(function(a){var n=a.id.slice(1),im=a.querySelector('.ph img'),r=document.createElement('button');r.className='row';r.type='button';r.dataset.id=a.id;
+ r.innerHTML='<img alt="" loading="lazy"><div><span></span><small></small></div>';r.querySelector('img').src=im?im.getAttribute('src'):'';
+ r.querySelector('span').textContent='['+n+'] '+(a.querySelector('.kwd')||{}).textContent;r.querySelector('small').textContent=(a.querySelector('h2')||{}).textContent+' · '+(a.querySelector('.loc')||{}).textContent;
+ r.onclick=function(){open(a,true)};list.appendChild(r);rows.push([r,a])});
+function open(a,push){slot.replaceChildren(a);ov.hidden=false;document.body.style.overflow='hidden';if(push)history.pushState(null,'','#'+a.id);gtag('event','stay_open',{stay:a.id})}
+function shut(){if(ov.hidden)return;ov.hidden=true;stash.appendChild(slot.firstChild);document.body.style.overflow=''}
+document.getElementById('x').onclick=function(){history.back()};ov.addEventListener('click',function(e){if(e.target===ov)history.back()});
+window.addEventListener('popstate',function(){var a=document.getElementById(location.hash.slice(1));a&&a.matches('article.card')?open(a,false):shut()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden)history.back()});
+var h=location.hash.replace(/^#s?/,'');if(/^\d+$/.test(h)){var a0=document.getElementById('s'+h);if(a0){history.replaceState(null,'','#');history.pushState(null,'','#s'+h);open(a0,false)}}
+q.addEventListener('input',function(){
+ var t=q.value.trim().toLowerCase().replace(/^#|번$/g,''),n=0;
+ rows.forEach(function(x){var c=x[1],hit=!t||(/^\d+$/.test(t)?c.id==='s'+t:c.dataset.s.toLowerCase().indexOf(t)>-1);x[0].hidden=!hit;if(hit)n++});
+ document.getElementById('empty').style.display=n?'none':'block';
+});
+document.addEventListener('click',function(e){var a=e.target.closest('.btns a');if(a)gtag('event','stay_click',{stay:a.closest('.card').id,platform:a.dataset.p})});
+</script>
+</body>
+</html>
