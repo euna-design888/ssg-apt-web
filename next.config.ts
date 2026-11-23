@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
       afterFiles: [
         { source: "/family", destination: "/family/index.html" },
         { source: "/airport", destination: "/airport/index.html" },
-        { source: "/festival", destination: "/festival/index.html" },
         { source: "/camping", destination: "/camping/index.html" },
         { source: "/naepda", destination: "/naepda/index.html" },
         { source: "/suneung", destination: "/suneung/index.html" },
@@ -65,8 +64,11 @@ const nextConfig: NextConfig = {
       // 네이버 블로그 글 전용
       { source: "/fb", destination: `${FAM}?utm_source=naver_blog&utm_campaign=chuseok`, permanent: false },
       // 축제 가는 법 스레드 고정댓글 (e = event): 진주남강유등축제 / 횡성한우축제
-      { source: "/ej", destination: "/festival/jinju-lantern.html?utm_source=threads&utm_campaign=festival_jinju", permanent: false },
-      { source: "/eh", destination: "/festival/hoengseong-hanwoo.html?utm_source=threads&utm_campaign=festival_hoengseong", permanent: false },
+      // 2026-11-23 축제 길잡이 접음: 옛 축제 주소·짧은 링크는 놀멍지도 숙소 허브로 (307, 되돌리기 쉬움)
+      { source: "/festival", destination: "https://trip.fundmoney8.com/", permanent: false },
+      { source: "/festival/:path*", destination: "https://trip.fundmoney8.com/", permanent: false },
+      { source: "/ej", destination: "https://trip.fundmoney8.com/?utm_source=threads&utm_campaign=festival_jinju", permanent: false },
+      { source: "/eh", destination: "https://trip.fundmoney8.com/?utm_source=threads&utm_campaign=festival_hoengseong", permanent: false },
     ];
   },
 };
